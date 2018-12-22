@@ -1,0 +1,1220 @@
+﻿##########################
+#                        #
+#  Tryhard-Logic.filter  #
+#                        #
+##########################
+
+# TODO Temple Items mit Special Mods
+
+# TODO minimap (MinimapIcon) (-Maps -Currency -Error)
+# TODO beams (PlayEffect) (-Maps -Currency -Error)
+# TODO drop sounds (DisableDropSound, CustomAlertSound)
+
+# TODO uniques
+# TODO corrupted background
+
+# TODO rework "hide" to show identified items
+#   OR make identified sections with mods
+
+# Whish: Sounds for Shaper / Elder Things
+
+# List of used Color and Size Values
+	# Text Colors
+		# 175 096 037 - Unique Items
+		# 255 255 119 - Rare Items
+		# 136 136 255 - Magic Items
+		# 200 200 200 - Normal Items / Items without Rarity
+		# 255 000 000 - ERROR
+	# Background Colors
+		# 127 000 127 - OMG-Drops
+		# 000 000 126 - League-specific Items
+		# 000 000 063 - Old League-specific Items / Somehow Special Item
+		# 170 158 130 - High Currency
+		# 063 000 000 - Craft Bases / Red Maps
+		# 000 063 000 - Items for Vendor-recipes
+		# 063 063 000 - Yellow Tier Maps
+		# 000 000 000 - Other Items / Nothing Special
+		# 255 255 255 - ERROR
+	# Border Colors
+		# 074 230 058 - Quest Items / Hideout Doodads / Microtransactions
+		# 170 158 130 - Currency
+		# 170 230 230 - Divination Cards
+		# 124 081 050 - Maps
+		# 027 162 155 - Gems
+		# 000 189 147 - Jewels
+		# 127 000 256 - Flasks
+		# 255 000 000 - ERROR
+		# [Rarity] for Best Base Types
+		# [BackgroundColor] if none of the above match
+	# Font Sizes
+		# 18 - Hide
+		# 27 ˥
+		# 30  〉- Scale for Drops to pick up
+		# 33 |
+		# 36 ˩
+		# 44 - ERROR
+		# 45 - OMG
+
+# TODO not sure what this is
+	Show # Relics
+		Class "Relic"
+		SetTextColor       255 000 000
+		SetBackgroundColor 255 255 255
+		SetBorderColor     255 000 000
+		SetFontSize        44
+		MinimapIcon        0 Red Triangle
+		PlayEffect         Red
+
+# Actual Filter
+	# Quest Items
+		Show # Atlas related Items
+			BaseType "Divine Vessel" "Unshaping Orb" "Memory Fragment" "Shaper's Orb" "The Shaper's Key"
+			SetTextColor       175 096 037
+			SetBackgroundColor 000 000 000
+			SetBorderColor     074 230 058
+			SetFontSize        36
+		Show # Skill Tree related
+			BaseType "Book of Skill" "Book of Reform"
+			SetTextColor       175 096 037
+			SetBackgroundColor 000 000 000
+			SetBorderColor     074 230 058
+			SetFontSize        36
+		Show # Prophecies
+			Class "Currency"
+			BaseType "Prophecy"
+			SetTextColor       175 096 037
+			SetBackgroundColor 000 000 000
+			SetBorderColor     074 230 058
+			SetFontSize        36
+		Show # Incursion Item
+			Class "Incursion Item"
+			SetTextColor       200 200 200
+			SetBackgroundColor 000 000 063
+			SetBorderColor     074 230 058
+			SetFontSize        36
+		Show # Other Quest Items
+			Class "Quest Items" "Hideout Doodads" "Microtransactions"
+			SetTextColor       200 200 200
+			SetBackgroundColor 000 000 000
+			SetBorderColor     074 230 058
+			SetFontSize        33
+	# Current League (Betrayal)
+		Show # Scarabs
+			Class "Map"
+			BaseType "Scarab"
+			SetTextColor       175 096 037
+			SetBackgroundColor 000 000 126
+			SetBorderColor     124 081 050
+			SetFontSize        36
+		Show # Veiled items
+			HasExplicitMod "Veil"
+			# SetTextColor     [Rarity]
+			SetBackgroundColor 000 000 126
+			# SetBorderColor   [TODO]
+			SetFontSize        36
+	# Maps
+		Show # Corupted Bases Uncorrupted
+			Class "Map"
+			BaseType "Harbinger Map" "Vaal Temple Map"
+			Corrupted False
+			# SetTextColor [Rarity]
+			SetBackgroundColor 127 000 127
+			SetBorderColor     124 081 050
+			SetFontSize        45
+			MinimapIcon        0 Red Square
+			PlayEffect         Red
+		# Unique Maps
+			# Not Droping (Anymore)
+				Show # Ancient Reliquary Key
+					Class "Map"
+					BaseType "Ancient Reliquary Key"
+					SetTextColor       200 200 200
+					SetBackgroundColor 127 000 127
+					SetBorderColor     124 081 050
+					SetFontSize        45
+					MinimapIcon        0 Red Square
+					PlayEffect         Red
+				Show # Untainted Paradise
+					Class "Map"
+					BaseType "Tropical Island Map"
+					Rarity "Unique"
+					SetTextColor       200 200 200
+					SetBackgroundColor 127 000 127
+					SetBorderColor     124 081 050
+					SetFontSize        45
+					MinimapIcon        0 Red Square
+					PlayEffect         Red
+			# League Specific
+				Show # Splinters
+					Class "Currency"
+					BaseType "Splinter of Xoph" "Splinter of Tul" "Splinter of Esh" "Splinter of Uul-Netol" "Splinter of Chayula"
+					SetTextColor       175 096 037
+					SetBackgroundColor 000 000 063
+					SetBorderColor     124 081 050
+					SetFontSize        36
+					MinimapIcon        1 Blue Square
+					PlayEffect         Blue
+				Show # Brachstones
+						Class "Map"
+						BaseType "Xoph's Breachstone" "Tul's Breachstone" "Esh's Breachstone" "Uul-Netol's Breachstone" "Chayula's Breachstone"
+						SetTextColor       175 096 037
+						SetBackgroundColor 000 000 063
+						SetBorderColor     124 081 050
+						SetFontSize        36
+						MinimapIcon        1 Blue Square
+						PlayEffect         Blue
+				Show # Remaining
+						Class "Map"
+						BaseType "Harbinger Map" "Chateau Map"
+						Rarity "Unique"
+						SetTextColor       175 096 037
+						SetBackgroundColor 000 000 063
+						SetBorderColor     124 081 050
+						SetFontSize        36
+						MinimapIcon        1 Blue Square
+						PlayEffect         Blue
+			# Actual Unique Maps
+				Show # Red Tier
+					Class "Map"
+					Rarity Unique
+					MapTier >= 11
+					# SetTextColor     [Unique]
+					SetBackgroundColor 063 000 000
+					SetBorderColor     124 081 050
+					SetFontSize        36
+					MinimapIcon        1 Brown Square
+					PlayEffect         Brown
+				Show # Yellow Tier
+					Class "Map"
+					Rarity Unique
+					MapTier >= 6
+					# SetTextColor     [Unique]
+					SetBackgroundColor 063 063 000
+					SetBorderColor     124 081 050
+					SetFontSize        36
+					MinimapIcon        1 Yellow Square
+					PlayEffect         Yellow
+				Show # White Tier
+					Class "Map"
+					Rarity Unique
+					# SetTextColor     [Unique]
+					SetBackgroundColor 000 000 000
+					SetBorderColor     124 081 050
+					SetFontSize        36
+					MinimapIcon        1 White Square
+					PlayEffect         White
+			# Map Fragments
+				Show # The Shaper's Realm (Fragments)
+					Class "Map Fragment"
+					BaseType "Fragment of the Hydra" "Fragment of the Phoenix" "Fragment of the Minotaur" "Fragment of the Chimera"
+					SetTextColor       175 096 037
+					SetBackgroundColor 127 000 127
+					SetBorderColor     124 081 050
+					SetFontSize        45
+					MinimapIcon        0 Red Square
+					PlayEffect         Red
+				# Atziri
+					Show # Sacrifice at Midnight
+						Class "Map Fragment"
+						BaseType "Sacrifice at Midnight"
+						SetTextColor       175 096 037
+						SetBackgroundColor 000 000 063
+						SetBorderColor     124 081 050
+						SetFontSize        36
+						MinimapIcon        1 Blue Square
+						PlayEffect         Blue
+					Show # Others
+						Class "Map Fragment"
+						BaseType "Sacrifice at Dawn" "Sacrifice at Dusk" "Sacrifice at Noon"
+						SetTextColor       175 096 037
+						SetBackgroundColor 000 000 063
+						SetBorderColor     124 081 050
+						SetFontSize        33
+						MinimapIcon        2 Blue Square
+						PlayEffect         Blue
+				# Uber Atziri
+					Show # Mortal Hope
+						Class "Map Fragment"
+						BaseType "Mortal Hope"
+						SetTextColor       175 096 037
+						SetBackgroundColor 127 000 127
+						SetBorderColor     124 081 050
+						SetFontSize        45
+						MinimapIcon        0 Red Square
+						PlayEffect         Red
+					Show # Others
+						Class "Map Fragment"
+						BaseType "Mortal"
+						SetTextColor       175 096 037
+						SetBackgroundColor 000 000 063
+						SetBorderColor     124 081 050
+						SetFontSize        36
+						MinimapIcon        1 Blue Square
+						PlayEffect         Blue
+				Show # Keys
+					Class "Map Fragments"
+					BaseType "Key"
+					SetTextColor       175 096 037
+					SetBackgroundColor 000 000 063
+					SetBorderColor     124 081 050
+					SetFontSize        33
+					MinimapIcon        2 Blue Square
+					PlayEffect         Blue
+			# Others
+				Show # Timeworn Reliquary Key
+					Class "Map"
+					BaseType "Timeworn Reliquary Key"
+					SetTextColor       175 096 037
+					SetBackgroundColor 127 000 127
+					SetBorderColor     124 081 050
+					SetFontSize        45
+					MinimapIcon        0 Red Square
+					PlayEffect         Red
+				Show # Endgame Labyrinth
+					#Class "Map"
+					BaseType "Offering to the Goddess"
+					SetTextColor       175 096 037
+					SetBackgroundColor 000 000 063
+					SetBorderColor     124 081 050
+					SetFontSize        36
+					MinimapIcon        1 Blue Square
+					PlayEffect         Blue
+		Show # Tier 16
+			Class "Map"
+			MapTier 16
+			# SetTextColor     [Rarity]
+			SetBackgroundColor 127 000 127
+			SetBorderColor     124 081 050
+			SetFontSize        45
+			MinimapIcon        0 Red Square
+			PlayEffect         Red
+		Show # Red Tier
+			Class "Map"
+			MapTier >= 11
+			# SetTextColor     [Rarity]
+			SetBackgroundColor 063 000 000
+			SetBorderColor     124 081 050
+			SetFontSize        36
+			MinimapIcon        1 Brown Square
+			PlayEffect         Brown
+		# Yellow Tier
+			# +0 to +2 Maps
+				Show # Tier 6
+					Class "Map"
+					MapTier >= 6
+					ItemLevel <= 73
+					# SetTextColor     [Rarity]
+					SetBackgroundColor 063 063 000
+					SetBorderColor     124 081 050
+					SetFontSize        36
+					MinimapIcon        1 Yellow Square
+					PlayEffect         Yellow
+				Show # Tier 7
+					Class "Map"
+					MapTier >= 7
+					ItemLevel <= 74
+					# SetTextColor     [Rarity]
+					SetBackgroundColor 063 063 000
+					SetBorderColor     124 081 050
+					SetFontSize        36
+					MinimapIcon        1 Yellow Square
+					PlayEffect         Yellow
+				Show # Tier 8
+					Class "Map"
+					MapTier >= 8
+					ItemLevel <= 75
+					# SetTextColor     [Rarity]
+					SetBackgroundColor 063 063 000
+					SetBorderColor     124 081 050
+					SetFontSize        36
+					MinimapIcon        1 Yellow Square
+					PlayEffect         Yellow
+				Show # Tier 9
+					Class "Map"
+					MapTier >= 9
+					ItemLevel <= 76
+					# SetTextColor     [Rarity]
+					SetBackgroundColor 063 063 000
+					SetBorderColor     124 081 050
+					SetFontSize        36
+					MinimapIcon        1 Yellow Square
+					PlayEffect         Yellow
+				Show # Tier 10
+					Class "Map"
+					MapTier >= 10
+					ItemLevel <= 77
+					# SetTextColor     [Rarity]
+					SetBackgroundColor 063 063 000
+					SetBorderColor     124 081 050
+					SetFontSize        36
+					MinimapIcon        1 Yellow Square
+					PlayEffect         Yellow
+			Show # Down from Red
+				Class "Map"
+				MapTier >= 10
+				ItemLevel >= 80
+				# SetTextColor     [Rarity]
+				SetBackgroundColor 063 063 000
+				SetBorderColor     124 081 050
+				SetFontSize        27
+				MinimapIcon        2 Yellow Square
+				PlayEffect         Yellow
+			Show # Remaining
+				Class "Map"
+				MapTier >= 6
+				# SetTextColor     [Rarity]
+				SetBackgroundColor 063 063 000
+				SetBorderColor     124 081 050
+				SetFontSize        30
+				MinimapIcon        2 Yellow Square
+				PlayEffect         Yellow
+		# White Tier
+			# +0 to +2 Maps
+				Show # Tier 1
+					Class "Map"
+					ItemLevel <= 68
+					# SetTextColor     [Rarity]
+					SetBackgroundColor 000 000 000
+					SetBorderColor     124 081 050
+					SetFontSize        36
+					MinimapIcon        1 White Square
+					PlayEffect         White
+				Show # Tier 2
+					Class "Map"
+					MapTier >= 2
+					ItemLevel <= 69
+					# SetTextColor     [Rarity]
+					SetBackgroundColor 000 000 000
+					SetBorderColor     124 081 050
+					SetFontSize        36
+					MinimapIcon        1 White Square
+					PlayEffect         White
+				Show # Tier 3
+					Class "Map"
+					MapTier >= 3
+					ItemLevel <= 70
+					# SetTextColor     [Rarity]
+					SetBackgroundColor 000 000 000
+					SetBorderColor     124 081 050
+					SetFontSize        36
+					MinimapIcon        1 White Square
+					PlayEffect         White
+				Show # Tier 4
+					Class "Map"
+					MapTier >= 4
+					ItemLevel <= 71
+					# SetTextColor     [Rarity]
+					SetBackgroundColor 000 000 000
+					SetBorderColor     124 081 050
+					SetFontSize        36
+					MinimapIcon        1 White Square
+					PlayEffect         White
+				Show # Tier 5
+					Class "Map"
+					MapTier >= 5
+					ItemLevel <= 72
+					# SetTextColor     [Rarity]
+					SetBackgroundColor 000 000 000
+					SetBorderColor     124 081 050
+					SetFontSize        36
+					MinimapIcon        1 White Square
+					PlayEffect         White
+			Show # Down from Yellow and Red
+				Class "Map"
+				ItemLevel >= 75
+				# SetTextColor     [Rarity]
+				SetBackgroundColor 000 000 000
+				SetBorderColor     124 081 050
+				SetFontSize        27
+				MinimapIcon        2 White Square
+				PlayEffect         White
+			Show # Remaining
+				Class "Map"
+				# SetTextColor     [Rarity]
+				SetBackgroundColor 000 000 000
+				SetBorderColor     124 081 050
+				SetFontSize        30
+				MinimapIcon        2 White Square
+				PlayEffect         White
+	# Currency
+		Show # Not Dropping
+			Class "Currency"
+			BaseType "Eternal Orb" "Net"
+			SetTextColor       200 200 200
+			SetBackgroundColor 127 000 127
+			SetBorderColor     170 158 130
+			SetFontSize        45
+			MinimapIcon        0 Red Diamond
+			PlayEffect         Red
+		# Special Currency
+			Show # Albino Rhoa Feather
+				Class "Currency"
+				BaseType "Albino Rhoa Feather"
+				SetTextColor       175 096 037
+				SetBackgroundColor 127 000 127
+				SetBorderColor     170 158 130
+				SetFontSize        45
+				MinimapIcon        0 Red Diamond
+				PlayEffect         Red
+			Show # League Specific
+				Class "Currency"
+				BaseType "Perandus Coin" "Essence" "Remnant of Corruption" "Silver Coin" "Blessing of Xoph" "Blessing of Tul" "Blessing of Esh" "Blessing of Uul-Netol" "Blessing of Chayula" "Vial"
+				SetTextColor       175 096 037
+				SetBackgroundColor 170 158 130
+				SetBorderColor     170 158 130
+				SetFontSize 36
+				MinimapIcon        1 Blue Diamond
+				PlayEffect         Blue
+		# League Specific
+			Show # Orbs
+				Class "Currency"
+				BaseType "Ancient Orb" "Engineer's Orb" "Harbinger's Orb" "Orb of Binding" "Orb of Horizons" "Bestiary Orb" "Fossil" "Resonator"
+				SetTextColor       200 200 200
+				SetBackgroundColor 000 000 063
+				SetBorderColor     170 158 130
+				SetFontSize        36
+				MinimapIcon        1 Blue Diamond
+				PlayEffect         Blue
+			Show # Shards
+				Class "Currency"
+				BaseType "Ancient Shard" "Annulment Shard" "Binding Shard" "Chaos Shard" "Engineer's Shard" "Exalted Shard" "Harbinger's Shard" "Horizon Shard" "Mirror Shard" "Regal Shard"
+				SetTextColor       200 200 200
+				SetBackgroundColor 000 000 063
+				SetBorderColor     170 158 130
+				SetFontSize        33
+				# MinimapIcon      [None]
+				PlayEffect         Blue Temp
+		# Mapping
+			Show # Red Tier
+				Class "Currency"
+				BaseType "Master Cartographer's Sextant" "Master Cartographer's Seal"
+				SetTextColor       200 200 200
+				SetBackgroundColor 063 000 000
+				SetBorderColor     170 158 130
+				SetFontSize        36
+				MinimapIcon        1 Brown Diamond
+				PlayEffect         Brown
+			Show # Yellow Tier
+				Class "Currency"
+				BaseType "Journeyman Cartographer's Sextant" "Journeyman Cartographer's Seal"
+				SetTextColor       200 200 200
+				SetBackgroundColor 063 063 000
+				SetBorderColor     170 158 130
+				SetFontSize        36
+				MinimapIcon        1 Yellow Diamond
+				PlayEffect         Yellow
+			Show # White Tier
+				Class "Currency"
+				BaseType "Apprentice Cartographer's Sextant" "Apprentice Cartographer's Seal"
+				SetTextColor       200 200 200
+				SetBackgroundColor 000 000 000
+				SetBorderColor     170 158 130
+				SetFontSize        36
+				MinimapIcon        1 White Diamond
+				PlayEffect         White
+		# Normal Currency
+			Show # >= Exalted
+				Class "Currency"
+				BaseType "Mirror of Kalandra" "Exalted Orb" "Orb of Annulment"
+				SetTextColor       200 200 200
+				SetBackgroundColor 127 000 127
+				SetBorderColor     170 158 130
+				SetFontSize        45
+				MinimapIcon        0 Red Diamond
+				PlayEffect         Red
+			Show # >= Chaos
+				Class "Currency"
+				BaseType "Divine Orb" "Orb of Regret" "Blessed Orb" "Chaos Orb" "Gemcutter's Prism" "Regal Orb"
+				SetTextColor       200 200 200
+				SetBackgroundColor 170 158 130
+				SetBorderColor     170 158 130
+				SetFontSize        36
+				MinimapIcon        1 Green Diamond
+				PlayEffect         Green
+			# Not Your Typical Currency
+				Show # Orbs
+					Class "Currency"
+					BaseType "Orb of Chance" "Jeweller's Orb" "Orb of Fusing" "Orb of Alchemy" "Orb of Scouring" "Vaal Orb" "Cartographer's Chisel"
+					SetTextColor       200 200 200
+					SetBackgroundColor 170 158 130
+					SetBorderColor     170 158 130
+					SetFontSize        30
+					MinimapIcon        2 Green Diamond
+					PlayEffect         Green
+				Show # Shards
+					Class "Currency"
+					BaseType "Alchemy Shard"
+					SetTextColor       200 200 200
+					SetBackgroundColor 170 158 130
+					SetBorderColor     170 158 130
+					SetFontSize        27
+					# MinimapIcon      [None]
+					PlayEffect         Green Temp
+			# Common
+				Show # Orbs
+					Class "Currency"
+					BaseType "Armourer's Scrap" "Blacksmith's Whetstone" "Chromatic Orb" "Glassblower's Bauble" "Orb of Transmutation" "Orb of Augmentation" "Orb of Alteration"
+					SetTextColor       200 200 200
+					SetBackgroundColor 000 000 000
+					SetBorderColor     170 158 130
+					SetFontSize        30
+					# MinimapIcon      [None]
+					PlayEffect         Green Temp
+				Show # Shards
+					Class "Currency"
+					BaseType "Transmutation Shard" "Alteration Shard"
+					SetTextColor       200 200 200
+					SetBackgroundColor 000 000 000
+					SetBorderColor     170 158 130
+					SetFontSize        27
+					# MinimapIcon      [None]
+					# PlayEffect       [None]
+			# Don't Bother
+				Show # Orbs
+					Class "Currency"
+					BaseType "Scroll of Wisdom" "Portal Scroll"
+					SetTextColor       200 200 200
+					SetBackgroundColor 000 000 000
+					SetBorderColor     170 158 130
+					SetFontSize        27
+					# MinimapIcon      [None]
+					# PlayEffect       [None]
+				Hide # Shards
+					Class "Currency"
+					BaseType "Scroll Fragment"
+					SetTextColor       200 200 200
+					SetBackgroundColor 000 000 000
+					SetBorderColor     170 158 130
+					SetFontSize        18
+					# MinimapIcon      [None]
+					# PlayEffect       [None]
+		Show # Currency ERROR
+			Class "Currency"
+			SetTextColor       255 000 000
+			SetBackgroundColor 255 255 255
+			SetBorderColor     255 000 000
+			SetFontSize        44
+			MinimapIcon        0 Red Triangle
+			PlayEffect         Red
+	# Divination Cards
+		Show # Stacked Deck
+			BaseType "Stacked Deck"
+			SetTextColor       175 096 037
+			SetBackgroundColor 000 000 000
+			SetBorderColor     170 230 230
+			SetFontSize        36
+		Show # Cards
+			# TODO
+			Class "Divination Card"
+			SetTextColor       200 200 200
+			SetBackgroundColor 000 000 000
+			SetBorderColor     170 230 230
+			SetFontSize        36
+	# Gems
+		Show # Not droping anymore
+			BaseType "Item Quantity"
+			SetTextColor       200 200 200
+			SetBackgroundColor 127 000 127
+			SetBorderColor     027 162 155
+			SetFontSize        45
+		# League Specific
+			Show # Breach
+				Class "Skill Gem"
+				BaseType "Vaal Breach"
+				SetTextColor       200 200 200
+				SetBackgroundColor 000 000 063
+				SetBorderColor     027 162 155
+				SetFontSize        36
+		# Vaal Gems
+			Show # With Quality
+				Class "Skill Gems"
+				BaseType "Vaal"
+				Quality > 0
+				SetTextColor       175 096 037
+				SetBackgroundColor 000 000 000
+				SetBorderColor     027 162 155
+				SetFontSize        36
+			Show # Remaining
+				Class "Skill Gems"
+				BaseType "Vaal"
+				SetTextColor       175 096 037
+				SetBackgroundColor 000 000 000
+				SetBorderColor     027 162 155
+				SetFontSize        30
+		Show # Quality
+			Class "Gem"
+			Quality > 0
+			SetTextColor       200 200 200
+			SetBackgroundColor 000 063 000
+			SetBorderColor     027 162 155
+			SetFontSize        33
+		Show # Drop Only & Vendor Recipe Only
+			Class "Skill Gems"
+			BaseType "Added Chaos Damage Support" "Empower Support" "Enhance Support" "Enlighten Support" "Block Chance Reduction Support" "Detonate Mines" "Portal" "Mirror Arrow"
+			SetTextColor       200 200 200
+			SetBackgroundColor 000 000 000
+			SetBorderColor     027 162 155
+			SetFontSize        30
+		Show # Remaining
+			Class "Skill Gems"
+			SetTextColor       200 200 200
+			SetBackgroundColor 000 000 000
+			SetBorderColor     027 162 155
+			SetFontSize        27
+	# Jewels
+		Show # Abyss Jewels
+			Class "Abyss Jewel"
+			# SetTextColor     [Rarity]
+			SetBackgroundColor 000 000 063
+			SetBorderColor     000 189 147
+			SetFontSize        36
+		Show # Rest
+			Class "Jewel"
+			# SetTextColor     [Rarity]
+			SetBackgroundColor 000 000 000
+			SetBorderColor     000 189 147
+			SetFontSize        33
+	# Flasks
+		# TODO leveling
+		# Unique
+			Show # Quality
+				Class "Flask"
+				Rarity "Unique"
+				Quality > 0
+				# SetTextColor     [Unique]
+				SetBackgroundColor 000 063 000
+				SetBorderColor     127 000 255
+				SetFontSize        36
+			Show # Remaining
+				Class "Flask"
+				Rarity "Unique"
+				# SetTextColor     [Unique]
+				SetBackgroundColor 000 000 000
+				SetBorderColor     127 000 255
+				SetFontSize        36
+		Show # Quality
+			Class "Flask"
+			Quality > 0
+			# SetTextColor     [Rarity]
+			SetBackgroundColor 000 063 000
+			SetBorderColor     127 000 255
+			SetFontSize        27
+		Show # Remaining
+			Class "Flask"
+			# SetTextColor     [Rarity]
+			SetBackgroundColor 000 000 000
+			SetBorderColor     127 000 255
+			SetFontSize        18
+	# Armour
+		# TODO only Armours
+		# TODO Recheck #1-3 for Border Colors
+		# Weird Stuff
+			Show # Not Dropping (Anymore) Bases
+				BaseType "Ruby Amulet" "Golden Caligae" "Golden Flame" "Golden Obi" "Golden Mantle" "Golden Hoop" "Golden Caligae" "Golden Bracers" "Golden Wreath" "Jet Amulet" "Conductive Quiver" "Cured Quiver" "Heavy Quiver" "Light Quiver" "Rugged Quiver"
+				# SetTextColor     [Rarity]
+				SetBackgroundColor 127 000 127
+				SetBorderColor     127 000 127
+				SetFontSize        45
+			Show # Corupted Bases Uncorrupted
+				BaseType "Talisman" "Breach Ring"
+				Corrupted False
+				# SetTextColor     [Rarity]
+				SetBackgroundColor 127 000 127
+				SetBorderColor     127 000 127
+				SetFontSize        45
+		Show # Fishing Rods
+			Class "Fishing Rod"
+			BaseType "Fishing Rod"
+			# SetTextColor     [Rarity]
+			SetBackgroundColor 127 000 127
+			SetBorderColor     127 000 127
+			SetFontSize        45
+		Show # 6-linked Items
+			LinkedSockets 6
+			# SetTextColor     [Rarity]
+			SetBackgroundColor 127 000 127
+			SetBorderColor     127 000 127
+			SetFontSize        45
+		# Elder Items
+			# League Specific
+				Show # Breach Ring
+					Class "Ring"
+					BaseType "Breach Ring"
+					ElderItem True
+					# SetTextColor     [Rarity]
+					SetBackgroundColor 127 000 127
+					SetBorderColor     127 000 127
+					SetFontSize        45
+				Show # Talismans
+					Class "Amulet"
+					BaseType "Talisman"
+					ElderItem True
+					# SetTextColor     [Rarity]
+					SetBackgroundColor 127 000 127
+					SetBorderColor     127 000 127
+					SetFontSize        45
+				Show # Stygian Vise Belt
+					Class "Belt"
+					BaseType "Stygian Vise"
+					ElderItem True
+					# SetTextColor     [Rarity]
+					SetBackgroundColor 127 000 127
+					SetBorderColor     127 000 127
+					SetFontSize        45
+			# Good Base Types
+				# Highest Level
+					Show # Rares
+						BaseType "Royal Axe" "Runic Hatchet" "Vaal Axe" "Fleshripper" "Citadel Bow" "Imperial Bow" "Harbinger Bow" "Maraketh Bow" "Imperial Claw" "Gemini Claw" "Eye Gouger" "Vaal Claw" "Sai" "Platinum Kris" "Gavel" "Behemoth Mace" "Carnal Sceptre" "Sambar Sceptre" "Void Sceptre" "Coronal Maul" "Piledriver" "Imperial Staff" "Eclipse Staff" "Maelström Staff" "Legion Sword" "Tiger Hook" "Eternal Sword" "Jewelled Foil" "Dragoon Sword" "Harpy Rapier" "Vaal Greatsword" "Exquisite Blade" "Lion Sword" "Demon's Horn" "Profane Wand" "Opal Wand" "Glorious Plate" "Astral Plate" "Zodiac Leather" "Assassin's Garb" "Vaal Regalia" "Occultist's Vestment" "Carnal Armour" "Titan Greaves" "Slink Boots" "Sorcerer Boots" "Two-Toned Boots" "Titan Gauntlets" "Spiked Gloves" "Slink Gloves" "Gripped Gloves" "Sorcerer Gloves" "Fingerless Silk Gloves" "Royal Burgonet" "Lion Pelt" "Hubris Circlet" "Bone Helmet" "Colossal Tower Shield" "Shagreen Tower Shield" "Ezomyte Tower Shield" "Lacquered Buckler" "Vaal Buckler" "Crusader Buckler" "Titanium Spirit Shield" "Fossilised Spirit Shield" "Teak Round Shield" "Archon Kite Shield" "Supreme Spiked Shield" "Mirrored Spiked Shield" "Coral Amulet" "Paua Amulet" "Amber Amulet" "Jade Amulet" "Lapis Amulet" "Gold Amulet" "Agate Amulet" "Citrine Amulet" "Turquoise Amulet" "Onyx Amulet" "Marble Amulet" "Blue Pearl Amulet" "Chain Belt" "Rustic Sash" "Heavy Belt" "Leather Belt" "Cloth Belt" "Studded Belt" "Vanguard Belt" "Crystal Belt" "Two-Point Arrow Quiver" "Sharktooth Arrow Quiver" "Blunt Arrow Quiver" "Fire Arrow Quiver" "Broadhead Arrow Quiver" "Penetrating Arrow Quiver" "Spike-Point Arrow Quiver" "Coral Ring" "Paua Ring" "Unset Ring" "Sapphire Ring" "Topaz Ring" "Ruby Ring" "Diamond Ring" "Gold Ring" "Moonstone Ring" "Two-Stone Ring" "Two-Stone Ring" "Two-Stone Ring" "Amethyst Ring" "Prismatic Ring" "Opal Ring" "Steel Ring"
+						ItemLevel >= 84
+						ElderItem True
+						Rarity "Rare"
+						# SetTextColor     [Rare]
+						SetBackgroundColor 127 000 127
+						SetBorderColor     255 255 119
+						SetFontSize        45
+					Show # Magic
+						BaseType "Royal Axe" "Runic Hatchet" "Vaal Axe" "Fleshripper" "Citadel Bow" "Imperial Bow" "Harbinger Bow" "Maraketh Bow" "Imperial Claw" "Gemini Claw" "Eye Gouger" "Vaal Claw" "Sai" "Platinum Kris" "Gavel" "Behemoth Mace" "Carnal Sceptre" "Sambar Sceptre" "Void Sceptre" "Coronal Maul" "Piledriver" "Imperial Staff" "Eclipse Staff" "Maelström Staff" "Legion Sword" "Tiger Hook" "Eternal Sword" "Jewelled Foil" "Dragoon Sword" "Harpy Rapier" "Vaal Greatsword" "Exquisite Blade" "Lion Sword" "Demon's Horn" "Profane Wand" "Opal Wand" "Glorious Plate" "Astral Plate" "Zodiac Leather" "Assassin's Garb" "Vaal Regalia" "Occultist's Vestment" "Carnal Armour" "Titan Greaves" "Slink Boots" "Sorcerer Boots" "Two-Toned Boots" "Titan Gauntlets" "Spiked Gloves" "Slink Gloves" "Gripped Gloves" "Sorcerer Gloves" "Fingerless Silk Gloves" "Royal Burgonet" "Lion Pelt" "Hubris Circlet" "Bone Helmet" "Colossal Tower Shield" "Shagreen Tower Shield" "Ezomyte Tower Shield" "Lacquered Buckler" "Vaal Buckler" "Crusader Buckler" "Titanium Spirit Shield" "Fossilised Spirit Shield" "Teak Round Shield" "Archon Kite Shield" "Supreme Spiked Shield" "Mirrored Spiked Shield" "Coral Amulet" "Paua Amulet" "Amber Amulet" "Jade Amulet" "Lapis Amulet" "Gold Amulet" "Agate Amulet" "Citrine Amulet" "Turquoise Amulet" "Onyx Amulet" "Marble Amulet" "Blue Pearl Amulet" "Chain Belt" "Rustic Sash" "Heavy Belt" "Leather Belt" "Cloth Belt" "Studded Belt" "Vanguard Belt" "Crystal Belt" "Two-Point Arrow Quiver" "Sharktooth Arrow Quiver" "Blunt Arrow Quiver" "Fire Arrow Quiver" "Broadhead Arrow Quiver" "Penetrating Arrow Quiver" "Spike-Point Arrow Quiver" "Coral Ring" "Paua Ring" "Unset Ring" "Sapphire Ring" "Topaz Ring" "Ruby Ring" "Diamond Ring" "Gold Ring" "Moonstone Ring" "Two-Stone Ring" "Two-Stone Ring" "Two-Stone Ring" "Amethyst Ring" "Prismatic Ring" "Opal Ring" "Steel Ring"
+						ItemLevel >= 84
+						ElderItem True
+						Rarity "Magic"
+						# SetTextColor     [Magic]
+						SetBackgroundColor 127 000 127
+						SetBorderColor     136 136 255
+						SetFontSize        45
+					Show # Normal
+						BaseType "Royal Axe" "Runic Hatchet" "Vaal Axe" "Fleshripper" "Citadel Bow" "Imperial Bow" "Harbinger Bow" "Maraketh Bow" "Imperial Claw" "Gemini Claw" "Eye Gouger" "Vaal Claw" "Sai" "Platinum Kris" "Gavel" "Behemoth Mace" "Carnal Sceptre" "Sambar Sceptre" "Void Sceptre" "Coronal Maul" "Piledriver" "Imperial Staff" "Eclipse Staff" "Maelström Staff" "Legion Sword" "Tiger Hook" "Eternal Sword" "Jewelled Foil" "Dragoon Sword" "Harpy Rapier" "Vaal Greatsword" "Exquisite Blade" "Lion Sword" "Demon's Horn" "Profane Wand" "Opal Wand" "Glorious Plate" "Astral Plate" "Zodiac Leather" "Assassin's Garb" "Vaal Regalia" "Occultist's Vestment" "Carnal Armour" "Titan Greaves" "Slink Boots" "Sorcerer Boots" "Two-Toned Boots" "Titan Gauntlets" "Spiked Gloves" "Slink Gloves" "Gripped Gloves" "Sorcerer Gloves" "Fingerless Silk Gloves" "Royal Burgonet" "Lion Pelt" "Hubris Circlet" "Bone Helmet" "Colossal Tower Shield" "Shagreen Tower Shield" "Ezomyte Tower Shield" "Lacquered Buckler" "Vaal Buckler" "Crusader Buckler" "Titanium Spirit Shield" "Fossilised Spirit Shield" "Teak Round Shield" "Archon Kite Shield" "Supreme Spiked Shield" "Mirrored Spiked Shield" "Coral Amulet" "Paua Amulet" "Amber Amulet" "Jade Amulet" "Lapis Amulet" "Gold Amulet" "Agate Amulet" "Citrine Amulet" "Turquoise Amulet" "Onyx Amulet" "Marble Amulet" "Blue Pearl Amulet" "Chain Belt" "Rustic Sash" "Heavy Belt" "Leather Belt" "Cloth Belt" "Studded Belt" "Vanguard Belt" "Crystal Belt" "Two-Point Arrow Quiver" "Sharktooth Arrow Quiver" "Blunt Arrow Quiver" "Fire Arrow Quiver" "Broadhead Arrow Quiver" "Penetrating Arrow Quiver" "Spike-Point Arrow Quiver" "Coral Ring" "Paua Ring" "Unset Ring" "Sapphire Ring" "Topaz Ring" "Ruby Ring" "Diamond Ring" "Gold Ring" "Moonstone Ring" "Two-Stone Ring" "Two-Stone Ring" "Two-Stone Ring" "Amethyst Ring" "Prismatic Ring" "Opal Ring" "Steel Ring"
+						ItemLevel >= 84
+						ElderItem True
+						Rarity "Normal"
+						# SetTextColor     [Normal]
+						SetBackgroundColor 127 000 127
+						SetBorderColor     200 200 200
+						SetFontSize        45
+				# Remaining
+					Show # Rares
+						BaseType "Royal Axe" "Runic Hatchet" "Vaal Axe" "Fleshripper" "Citadel Bow" "Imperial Bow" "Harbinger Bow" "Maraketh Bow" "Imperial Claw" "Gemini Claw" "Eye Gouger" "Vaal Claw" "Sai" "Platinum Kris" "Gavel" "Behemoth Mace" "Carnal Sceptre" "Sambar Sceptre" "Void Sceptre" "Coronal Maul" "Piledriver" "Imperial Staff" "Eclipse Staff" "Maelström Staff" "Legion Sword" "Tiger Hook" "Eternal Sword" "Jewelled Foil" "Dragoon Sword" "Harpy Rapier" "Vaal Greatsword" "Exquisite Blade" "Lion Sword" "Demon's Horn" "Profane Wand" "Opal Wand" "Glorious Plate" "Astral Plate" "Zodiac Leather" "Assassin's Garb" "Vaal Regalia" "Occultist's Vestment" "Carnal Armour" "Titan Greaves" "Slink Boots" "Sorcerer Boots" "Two-Toned Boots" "Titan Gauntlets" "Spiked Gloves" "Slink Gloves" "Gripped Gloves" "Sorcerer Gloves" "Fingerless Silk Gloves" "Royal Burgonet" "Lion Pelt" "Hubris Circlet" "Bone Helmet" "Colossal Tower Shield" "Shagreen Tower Shield" "Ezomyte Tower Shield" "Lacquered Buckler" "Vaal Buckler" "Crusader Buckler" "Titanium Spirit Shield" "Fossilised Spirit Shield" "Teak Round Shield" "Archon Kite Shield" "Supreme Spiked Shield" "Mirrored Spiked Shield" "Coral Amulet" "Paua Amulet" "Amber Amulet" "Jade Amulet" "Lapis Amulet" "Gold Amulet" "Agate Amulet" "Citrine Amulet" "Turquoise Amulet" "Onyx Amulet" "Marble Amulet" "Blue Pearl Amulet" "Chain Belt" "Rustic Sash" "Heavy Belt" "Leather Belt" "Cloth Belt" "Studded Belt" "Vanguard Belt" "Crystal Belt" "Two-Point Arrow Quiver" "Sharktooth Arrow Quiver" "Blunt Arrow Quiver" "Fire Arrow Quiver" "Broadhead Arrow Quiver" "Penetrating Arrow Quiver" "Spike-Point Arrow Quiver" "Coral Ring" "Paua Ring" "Unset Ring" "Sapphire Ring" "Topaz Ring" "Ruby Ring" "Diamond Ring" "Gold Ring" "Moonstone Ring" "Two-Stone Ring" "Two-Stone Ring" "Two-Stone Ring" "Amethyst Ring" "Prismatic Ring" "Opal Ring" "Steel Ring"
+						ElderItem True
+						Rarity "Rare"
+						# SetTextColor     [Rare]
+						SetBackgroundColor 063 000 000
+						SetBorderColor     255 255 119
+						SetFontSize        36
+					Show # Magic
+						BaseType "Royal Axe" "Runic Hatchet" "Vaal Axe" "Fleshripper" "Citadel Bow" "Imperial Bow" "Harbinger Bow" "Maraketh Bow" "Imperial Claw" "Gemini Claw" "Eye Gouger" "Vaal Claw" "Sai" "Platinum Kris" "Gavel" "Behemoth Mace" "Carnal Sceptre" "Sambar Sceptre" "Void Sceptre" "Coronal Maul" "Piledriver" "Imperial Staff" "Eclipse Staff" "Maelström Staff" "Legion Sword" "Tiger Hook" "Eternal Sword" "Jewelled Foil" "Dragoon Sword" "Harpy Rapier" "Vaal Greatsword" "Exquisite Blade" "Lion Sword" "Demon's Horn" "Profane Wand" "Opal Wand" "Glorious Plate" "Astral Plate" "Zodiac Leather" "Assassin's Garb" "Vaal Regalia" "Occultist's Vestment" "Carnal Armour" "Titan Greaves" "Slink Boots" "Sorcerer Boots" "Two-Toned Boots" "Titan Gauntlets" "Spiked Gloves" "Slink Gloves" "Gripped Gloves" "Sorcerer Gloves" "Fingerless Silk Gloves" "Royal Burgonet" "Lion Pelt" "Hubris Circlet" "Bone Helmet" "Colossal Tower Shield" "Shagreen Tower Shield" "Ezomyte Tower Shield" "Lacquered Buckler" "Vaal Buckler" "Crusader Buckler" "Titanium Spirit Shield" "Fossilised Spirit Shield" "Teak Round Shield" "Archon Kite Shield" "Supreme Spiked Shield" "Mirrored Spiked Shield" "Coral Amulet" "Paua Amulet" "Amber Amulet" "Jade Amulet" "Lapis Amulet" "Gold Amulet" "Agate Amulet" "Citrine Amulet" "Turquoise Amulet" "Onyx Amulet" "Marble Amulet" "Blue Pearl Amulet" "Chain Belt" "Rustic Sash" "Heavy Belt" "Leather Belt" "Cloth Belt" "Studded Belt" "Vanguard Belt" "Crystal Belt" "Two-Point Arrow Quiver" "Sharktooth Arrow Quiver" "Blunt Arrow Quiver" "Fire Arrow Quiver" "Broadhead Arrow Quiver" "Penetrating Arrow Quiver" "Spike-Point Arrow Quiver" "Coral Ring" "Paua Ring" "Unset Ring" "Sapphire Ring" "Topaz Ring" "Ruby Ring" "Diamond Ring" "Gold Ring" "Moonstone Ring" "Two-Stone Ring" "Two-Stone Ring" "Two-Stone Ring" "Amethyst Ring" "Prismatic Ring" "Opal Ring" "Steel Ring"
+						ElderItem True
+						Rarity "Magic"
+						# SetTextColor     [Magic]
+						SetBackgroundColor 063 000 000
+						SetBorderColor     136 136 255
+						SetFontSize        36
+					Show # Normal
+						BaseType "Royal Axe" "Runic Hatchet" "Vaal Axe" "Fleshripper" "Citadel Bow" "Imperial Bow" "Harbinger Bow" "Maraketh Bow" "Imperial Claw" "Gemini Claw" "Eye Gouger" "Vaal Claw" "Sai" "Platinum Kris" "Gavel" "Behemoth Mace" "Carnal Sceptre" "Sambar Sceptre" "Void Sceptre" "Coronal Maul" "Piledriver" "Imperial Staff" "Eclipse Staff" "Maelström Staff" "Legion Sword" "Tiger Hook" "Eternal Sword" "Jewelled Foil" "Dragoon Sword" "Harpy Rapier" "Vaal Greatsword" "Exquisite Blade" "Lion Sword" "Demon's Horn" "Profane Wand" "Opal Wand" "Glorious Plate" "Astral Plate" "Zodiac Leather" "Assassin's Garb" "Vaal Regalia" "Occultist's Vestment" "Carnal Armour" "Titan Greaves" "Slink Boots" "Sorcerer Boots" "Two-Toned Boots" "Titan Gauntlets" "Spiked Gloves" "Slink Gloves" "Gripped Gloves" "Sorcerer Gloves" "Fingerless Silk Gloves" "Royal Burgonet" "Lion Pelt" "Hubris Circlet" "Bone Helmet" "Colossal Tower Shield" "Shagreen Tower Shield" "Ezomyte Tower Shield" "Lacquered Buckler" "Vaal Buckler" "Crusader Buckler" "Titanium Spirit Shield" "Fossilised Spirit Shield" "Teak Round Shield" "Archon Kite Shield" "Supreme Spiked Shield" "Mirrored Spiked Shield" "Coral Amulet" "Paua Amulet" "Amber Amulet" "Jade Amulet" "Lapis Amulet" "Gold Amulet" "Agate Amulet" "Citrine Amulet" "Turquoise Amulet" "Onyx Amulet" "Marble Amulet" "Blue Pearl Amulet" "Chain Belt" "Rustic Sash" "Heavy Belt" "Leather Belt" "Cloth Belt" "Studded Belt" "Vanguard Belt" "Crystal Belt" "Two-Point Arrow Quiver" "Sharktooth Arrow Quiver" "Blunt Arrow Quiver" "Fire Arrow Quiver" "Broadhead Arrow Quiver" "Penetrating Arrow Quiver" "Spike-Point Arrow Quiver" "Coral Ring" "Paua Ring" "Unset Ring" "Sapphire Ring" "Topaz Ring" "Ruby Ring" "Diamond Ring" "Gold Ring" "Moonstone Ring" "Two-Stone Ring" "Two-Stone Ring" "Two-Stone Ring" "Amethyst Ring" "Prismatic Ring" "Opal Ring" "Steel Ring"
+						ElderItem True
+						Rarity "Normal"
+						# SetTextColor     [Normal]
+						SetBackgroundColor 063 000 000
+						SetBorderColor     200 200 200
+						SetFontSize        36
+			Show # 6 Sockets
+				Sockets 6
+				ElderItem True
+				# SetTextColor     [Rarity]
+				SetBackgroundColor 063 000 000
+				SetBorderColor     063 000 000
+				SetFontSize        36
+			Show # 5 Links
+				LinkedSockets 5
+				ElderItem True
+				# SetTextColor     [Rarity]
+				SetBackgroundColor 063 000 000
+				SetBorderColor     063 000 000
+				SetFontSize        36
+			Show # Remaining
+				ElderItem True
+				# SetTextColor     [Rarity]
+				SetBackgroundColor 063 000 000
+				SetBorderColor     063 000 000
+				SetFontSize        33
+		# Shaper Items
+			# League Specific
+				Show # Breach Ring
+					Class "Ring"
+					BaseType "Breach Ring"
+					ShaperItem True
+					# SetTextColor     [Rarity]
+					SetBackgroundColor 127 000 127
+					SetBorderColor     127 000 127
+					SetFontSize        45
+				Show # Talismans
+					Class "Amulet"
+					BaseType "Talisman"
+					ShaperItem True
+					# SetTextColor     [Rarity]
+					SetBackgroundColor 127 000 127
+					SetBorderColor     127 000 127
+					SetFontSize        45
+				Show # Stygian Vise Belt
+					Class "Belt"
+					BaseType "Stygian Vise"
+					ShaperItem True
+					# SetTextColor     [Rarity]
+					SetBackgroundColor 127 000 127
+					SetBorderColor     127 000 127
+					SetFontSize        45
+			# Good Base Types
+				# Highest Level
+					Show # Rares
+						BaseType "Royal Axe" "Runic Hatchet" "Vaal Axe" "Fleshripper" "Citadel Bow" "Imperial Bow" "Harbinger Bow" "Maraketh Bow" "Imperial Claw" "Gemini Claw" "Eye Gouger" "Vaal Claw" "Sai" "Platinum Kris" "Gavel" "Behemoth Mace" "Carnal Sceptre" "Sambar Sceptre" "Void Sceptre" "Coronal Maul" "Piledriver" "Imperial Staff" "Eclipse Staff" "Maelström Staff" "Legion Sword" "Tiger Hook" "Eternal Sword" "Jewelled Foil" "Dragoon Sword" "Harpy Rapier" "Vaal Greatsword" "Exquisite Blade" "Lion Sword" "Demon's Horn" "Profane Wand" "Opal Wand" "Glorious Plate" "Astral Plate" "Zodiac Leather" "Assassin's Garb" "Vaal Regalia" "Occultist's Vestment" "Carnal Armour" "Titan Greaves" "Slink Boots" "Sorcerer Boots" "Two-Toned Boots" "Titan Gauntlets" "Spiked Gloves" "Slink Gloves" "Gripped Gloves" "Sorcerer Gloves" "Fingerless Silk Gloves" "Royal Burgonet" "Lion Pelt" "Hubris Circlet" "Bone Helmet" "Colossal Tower Shield" "Shagreen Tower Shield" "Ezomyte Tower Shield" "Lacquered Buckler" "Vaal Buckler" "Crusader Buckler" "Titanium Spirit Shield" "Fossilised Spirit Shield" "Teak Round Shield" "Archon Kite Shield" "Supreme Spiked Shield" "Mirrored Spiked Shield" "Coral Amulet" "Paua Amulet" "Amber Amulet" "Jade Amulet" "Lapis Amulet" "Gold Amulet" "Agate Amulet" "Citrine Amulet" "Turquoise Amulet" "Onyx Amulet" "Marble Amulet" "Blue Pearl Amulet" "Chain Belt" "Rustic Sash" "Heavy Belt" "Leather Belt" "Cloth Belt" "Studded Belt" "Vanguard Belt" "Crystal Belt" "Two-Point Arrow Quiver" "Sharktooth Arrow Quiver" "Blunt Arrow Quiver" "Fire Arrow Quiver" "Broadhead Arrow Quiver" "Penetrating Arrow Quiver" "Spike-Point Arrow Quiver" "Coral Ring" "Paua Ring" "Unset Ring" "Sapphire Ring" "Topaz Ring" "Ruby Ring" "Diamond Ring" "Gold Ring" "Moonstone Ring" "Two-Stone Ring" "Two-Stone Ring" "Two-Stone Ring" "Amethyst Ring" "Prismatic Ring" "Opal Ring" "Steel Ring"
+						ItemLevel >= 84
+						ShaperItem True
+						Rarity "Rare"
+						# SetTextColor     [Rare]
+						SetBackgroundColor 127 000 127
+						SetBorderColor     255 255 119
+						SetFontSize        45
+					Show # Magic
+						BaseType "Royal Axe" "Runic Hatchet" "Vaal Axe" "Fleshripper" "Citadel Bow" "Imperial Bow" "Harbinger Bow" "Maraketh Bow" "Imperial Claw" "Gemini Claw" "Eye Gouger" "Vaal Claw" "Sai" "Platinum Kris" "Gavel" "Behemoth Mace" "Carnal Sceptre" "Sambar Sceptre" "Void Sceptre" "Coronal Maul" "Piledriver" "Imperial Staff" "Eclipse Staff" "Maelström Staff" "Legion Sword" "Tiger Hook" "Eternal Sword" "Jewelled Foil" "Dragoon Sword" "Harpy Rapier" "Vaal Greatsword" "Exquisite Blade" "Lion Sword" "Demon's Horn" "Profane Wand" "Opal Wand" "Glorious Plate" "Astral Plate" "Zodiac Leather" "Assassin's Garb" "Vaal Regalia" "Occultist's Vestment" "Carnal Armour" "Titan Greaves" "Slink Boots" "Sorcerer Boots" "Two-Toned Boots" "Titan Gauntlets" "Spiked Gloves" "Slink Gloves" "Gripped Gloves" "Sorcerer Gloves" "Fingerless Silk Gloves" "Royal Burgonet" "Lion Pelt" "Hubris Circlet" "Bone Helmet" "Colossal Tower Shield" "Shagreen Tower Shield" "Ezomyte Tower Shield" "Lacquered Buckler" "Vaal Buckler" "Crusader Buckler" "Titanium Spirit Shield" "Fossilised Spirit Shield" "Teak Round Shield" "Archon Kite Shield" "Supreme Spiked Shield" "Mirrored Spiked Shield" "Coral Amulet" "Paua Amulet" "Amber Amulet" "Jade Amulet" "Lapis Amulet" "Gold Amulet" "Agate Amulet" "Citrine Amulet" "Turquoise Amulet" "Onyx Amulet" "Marble Amulet" "Blue Pearl Amulet" "Chain Belt" "Rustic Sash" "Heavy Belt" "Leather Belt" "Cloth Belt" "Studded Belt" "Vanguard Belt" "Crystal Belt" "Two-Point Arrow Quiver" "Sharktooth Arrow Quiver" "Blunt Arrow Quiver" "Fire Arrow Quiver" "Broadhead Arrow Quiver" "Penetrating Arrow Quiver" "Spike-Point Arrow Quiver" "Coral Ring" "Paua Ring" "Unset Ring" "Sapphire Ring" "Topaz Ring" "Ruby Ring" "Diamond Ring" "Gold Ring" "Moonstone Ring" "Two-Stone Ring" "Two-Stone Ring" "Two-Stone Ring" "Amethyst Ring" "Prismatic Ring" "Opal Ring" "Steel Ring"
+						ItemLevel >= 84
+						ShaperItem True
+						Rarity "Magic"
+						# SetTextColor     [Magic]
+						SetBackgroundColor 127 000 127
+						SetBorderColor     136 136 255
+						SetFontSize        45
+					Show # Normal
+						BaseType "Royal Axe" "Runic Hatchet" "Vaal Axe" "Fleshripper" "Citadel Bow" "Imperial Bow" "Harbinger Bow" "Maraketh Bow" "Imperial Claw" "Gemini Claw" "Eye Gouger" "Vaal Claw" "Sai" "Platinum Kris" "Gavel" "Behemoth Mace" "Carnal Sceptre" "Sambar Sceptre" "Void Sceptre" "Coronal Maul" "Piledriver" "Imperial Staff" "Eclipse Staff" "Maelström Staff" "Legion Sword" "Tiger Hook" "Eternal Sword" "Jewelled Foil" "Dragoon Sword" "Harpy Rapier" "Vaal Greatsword" "Exquisite Blade" "Lion Sword" "Demon's Horn" "Profane Wand" "Opal Wand" "Glorious Plate" "Astral Plate" "Zodiac Leather" "Assassin's Garb" "Vaal Regalia" "Occultist's Vestment" "Carnal Armour" "Titan Greaves" "Slink Boots" "Sorcerer Boots" "Two-Toned Boots" "Titan Gauntlets" "Spiked Gloves" "Slink Gloves" "Gripped Gloves" "Sorcerer Gloves" "Fingerless Silk Gloves" "Royal Burgonet" "Lion Pelt" "Hubris Circlet" "Bone Helmet" "Colossal Tower Shield" "Shagreen Tower Shield" "Ezomyte Tower Shield" "Lacquered Buckler" "Vaal Buckler" "Crusader Buckler" "Titanium Spirit Shield" "Fossilised Spirit Shield" "Teak Round Shield" "Archon Kite Shield" "Supreme Spiked Shield" "Mirrored Spiked Shield" "Coral Amulet" "Paua Amulet" "Amber Amulet" "Jade Amulet" "Lapis Amulet" "Gold Amulet" "Agate Amulet" "Citrine Amulet" "Turquoise Amulet" "Onyx Amulet" "Marble Amulet" "Blue Pearl Amulet" "Chain Belt" "Rustic Sash" "Heavy Belt" "Leather Belt" "Cloth Belt" "Studded Belt" "Vanguard Belt" "Crystal Belt" "Two-Point Arrow Quiver" "Sharktooth Arrow Quiver" "Blunt Arrow Quiver" "Fire Arrow Quiver" "Broadhead Arrow Quiver" "Penetrating Arrow Quiver" "Spike-Point Arrow Quiver" "Coral Ring" "Paua Ring" "Unset Ring" "Sapphire Ring" "Topaz Ring" "Ruby Ring" "Diamond Ring" "Gold Ring" "Moonstone Ring" "Two-Stone Ring" "Two-Stone Ring" "Two-Stone Ring" "Amethyst Ring" "Prismatic Ring" "Opal Ring" "Steel Ring"
+						ItemLevel >= 84
+						ShaperItem True
+						Rarity "Normal"
+						# SetTextColor     [Normal]
+						SetBackgroundColor 127 000 127
+						SetBorderColor     200 200 200
+						SetFontSize        45
+				# Remaining
+					Show # Rares
+						BaseType "Royal Axe" "Runic Hatchet" "Vaal Axe" "Fleshripper" "Citadel Bow" "Imperial Bow" "Harbinger Bow" "Maraketh Bow" "Imperial Claw" "Gemini Claw" "Eye Gouger" "Vaal Claw" "Sai" "Platinum Kris" "Gavel" "Behemoth Mace" "Carnal Sceptre" "Sambar Sceptre" "Void Sceptre" "Coronal Maul" "Piledriver" "Imperial Staff" "Eclipse Staff" "Maelström Staff" "Legion Sword" "Tiger Hook" "Eternal Sword" "Jewelled Foil" "Dragoon Sword" "Harpy Rapier" "Vaal Greatsword" "Exquisite Blade" "Lion Sword" "Demon's Horn" "Profane Wand" "Opal Wand" "Glorious Plate" "Astral Plate" "Zodiac Leather" "Assassin's Garb" "Vaal Regalia" "Occultist's Vestment" "Carnal Armour" "Titan Greaves" "Slink Boots" "Sorcerer Boots" "Two-Toned Boots" "Titan Gauntlets" "Spiked Gloves" "Slink Gloves" "Gripped Gloves" "Sorcerer Gloves" "Fingerless Silk Gloves" "Royal Burgonet" "Lion Pelt" "Hubris Circlet" "Bone Helmet" "Colossal Tower Shield" "Shagreen Tower Shield" "Ezomyte Tower Shield" "Lacquered Buckler" "Vaal Buckler" "Crusader Buckler" "Titanium Spirit Shield" "Fossilised Spirit Shield" "Teak Round Shield" "Archon Kite Shield" "Supreme Spiked Shield" "Mirrored Spiked Shield" "Coral Amulet" "Paua Amulet" "Amber Amulet" "Jade Amulet" "Lapis Amulet" "Gold Amulet" "Agate Amulet" "Citrine Amulet" "Turquoise Amulet" "Onyx Amulet" "Marble Amulet" "Blue Pearl Amulet" "Chain Belt" "Rustic Sash" "Heavy Belt" "Leather Belt" "Cloth Belt" "Studded Belt" "Vanguard Belt" "Crystal Belt" "Two-Point Arrow Quiver" "Sharktooth Arrow Quiver" "Blunt Arrow Quiver" "Fire Arrow Quiver" "Broadhead Arrow Quiver" "Penetrating Arrow Quiver" "Spike-Point Arrow Quiver" "Coral Ring" "Paua Ring" "Unset Ring" "Sapphire Ring" "Topaz Ring" "Ruby Ring" "Diamond Ring" "Gold Ring" "Moonstone Ring" "Two-Stone Ring" "Two-Stone Ring" "Two-Stone Ring" "Amethyst Ring" "Prismatic Ring" "Opal Ring" "Steel Ring"
+						ShaperItem True
+						Rarity "Rare"
+						# SetTextColor     [Rare]
+						SetBackgroundColor 063 000 000
+						SetBorderColor     255 255 119
+						SetFontSize        36
+					Show # Magic
+						BaseType "Royal Axe" "Runic Hatchet" "Vaal Axe" "Fleshripper" "Citadel Bow" "Imperial Bow" "Harbinger Bow" "Maraketh Bow" "Imperial Claw" "Gemini Claw" "Eye Gouger" "Vaal Claw" "Sai" "Platinum Kris" "Gavel" "Behemoth Mace" "Carnal Sceptre" "Sambar Sceptre" "Void Sceptre" "Coronal Maul" "Piledriver" "Imperial Staff" "Eclipse Staff" "Maelström Staff" "Legion Sword" "Tiger Hook" "Eternal Sword" "Jewelled Foil" "Dragoon Sword" "Harpy Rapier" "Vaal Greatsword" "Exquisite Blade" "Lion Sword" "Demon's Horn" "Profane Wand" "Opal Wand" "Glorious Plate" "Astral Plate" "Zodiac Leather" "Assassin's Garb" "Vaal Regalia" "Occultist's Vestment" "Carnal Armour" "Titan Greaves" "Slink Boots" "Sorcerer Boots" "Two-Toned Boots" "Titan Gauntlets" "Spiked Gloves" "Slink Gloves" "Gripped Gloves" "Sorcerer Gloves" "Fingerless Silk Gloves" "Royal Burgonet" "Lion Pelt" "Hubris Circlet" "Bone Helmet" "Colossal Tower Shield" "Shagreen Tower Shield" "Ezomyte Tower Shield" "Lacquered Buckler" "Vaal Buckler" "Crusader Buckler" "Titanium Spirit Shield" "Fossilised Spirit Shield" "Teak Round Shield" "Archon Kite Shield" "Supreme Spiked Shield" "Mirrored Spiked Shield" "Coral Amulet" "Paua Amulet" "Amber Amulet" "Jade Amulet" "Lapis Amulet" "Gold Amulet" "Agate Amulet" "Citrine Amulet" "Turquoise Amulet" "Onyx Amulet" "Marble Amulet" "Blue Pearl Amulet" "Chain Belt" "Rustic Sash" "Heavy Belt" "Leather Belt" "Cloth Belt" "Studded Belt" "Vanguard Belt" "Crystal Belt" "Two-Point Arrow Quiver" "Sharktooth Arrow Quiver" "Blunt Arrow Quiver" "Fire Arrow Quiver" "Broadhead Arrow Quiver" "Penetrating Arrow Quiver" "Spike-Point Arrow Quiver" "Coral Ring" "Paua Ring" "Unset Ring" "Sapphire Ring" "Topaz Ring" "Ruby Ring" "Diamond Ring" "Gold Ring" "Moonstone Ring" "Two-Stone Ring" "Two-Stone Ring" "Two-Stone Ring" "Amethyst Ring" "Prismatic Ring" "Opal Ring" "Steel Ring"
+						ShaperItem True
+						Rarity "Magic"
+						# SetTextColor     [Magic]
+						SetBackgroundColor 063 000 000
+						SetBorderColor     136 136 255
+						SetFontSize        36
+					Show # Normal
+						BaseType "Royal Axe" "Runic Hatchet" "Vaal Axe" "Fleshripper" "Citadel Bow" "Imperial Bow" "Harbinger Bow" "Maraketh Bow" "Imperial Claw" "Gemini Claw" "Eye Gouger" "Vaal Claw" "Sai" "Platinum Kris" "Gavel" "Behemoth Mace" "Carnal Sceptre" "Sambar Sceptre" "Void Sceptre" "Coronal Maul" "Piledriver" "Imperial Staff" "Eclipse Staff" "Maelström Staff" "Legion Sword" "Tiger Hook" "Eternal Sword" "Jewelled Foil" "Dragoon Sword" "Harpy Rapier" "Vaal Greatsword" "Exquisite Blade" "Lion Sword" "Demon's Horn" "Profane Wand" "Opal Wand" "Glorious Plate" "Astral Plate" "Zodiac Leather" "Assassin's Garb" "Vaal Regalia" "Occultist's Vestment" "Carnal Armour" "Titan Greaves" "Slink Boots" "Sorcerer Boots" "Two-Toned Boots" "Titan Gauntlets" "Spiked Gloves" "Slink Gloves" "Gripped Gloves" "Sorcerer Gloves" "Fingerless Silk Gloves" "Royal Burgonet" "Lion Pelt" "Hubris Circlet" "Bone Helmet" "Colossal Tower Shield" "Shagreen Tower Shield" "Ezomyte Tower Shield" "Lacquered Buckler" "Vaal Buckler" "Crusader Buckler" "Titanium Spirit Shield" "Fossilised Spirit Shield" "Teak Round Shield" "Archon Kite Shield" "Supreme Spiked Shield" "Mirrored Spiked Shield" "Coral Amulet" "Paua Amulet" "Amber Amulet" "Jade Amulet" "Lapis Amulet" "Gold Amulet" "Agate Amulet" "Citrine Amulet" "Turquoise Amulet" "Onyx Amulet" "Marble Amulet" "Blue Pearl Amulet" "Chain Belt" "Rustic Sash" "Heavy Belt" "Leather Belt" "Cloth Belt" "Studded Belt" "Vanguard Belt" "Crystal Belt" "Two-Point Arrow Quiver" "Sharktooth Arrow Quiver" "Blunt Arrow Quiver" "Fire Arrow Quiver" "Broadhead Arrow Quiver" "Penetrating Arrow Quiver" "Spike-Point Arrow Quiver" "Coral Ring" "Paua Ring" "Unset Ring" "Sapphire Ring" "Topaz Ring" "Ruby Ring" "Diamond Ring" "Gold Ring" "Moonstone Ring" "Two-Stone Ring" "Two-Stone Ring" "Two-Stone Ring" "Amethyst Ring" "Prismatic Ring" "Opal Ring" "Steel Ring"
+						ShaperItem True
+						Rarity "Normal"
+						# SetTextColor     [Normal]
+						SetBackgroundColor 063 000 000
+						SetBorderColor     200 200 200
+						SetFontSize        36
+			Show # 6 Sockets
+				Sockets 6
+				ShaperItem True
+				# SetTextColor     [Rarity]
+				SetBackgroundColor 063 000 000
+				SetBorderColor     063 000 000
+				SetFontSize        36
+			Show # 5 Links
+				LinkedSockets 5
+				ShaperItem True
+				# SetTextColor     [Rarity]
+				SetBackgroundColor 063 000 000
+				SetBorderColor     063 000 000
+				SetFontSize        36
+			Show # Remaining
+				ShaperItem True
+				# SetTextColor     [Rarity]
+				SetBackgroundColor 063 000 000
+				SetBorderColor     063 000 000
+				SetFontSize        33
+		# Old League Specific Items
+			Show # Breach Ring
+				Class "Ring"
+				BaseType "Breach Ring"
+				# SetTextColor     [Rarity]
+				SetBackgroundColor 000 000 063
+				SetBorderColor     000 000 063
+				SetFontSize        36
+			Show # Talismans
+				Class "Amulet"
+				BaseType "Talisman"
+				# SetTextColor     [Rarity]
+				SetBackgroundColor 000 000 063
+				SetBorderColor     000 000 063
+				SetFontSize        36
+			Show # Stygian Vise Belt (Abyss)
+				Class "Belt"
+				BaseType "Stygian Vise"
+				# SetTextColor     [Rarity]
+				SetBackgroundColor 000 000 063
+				SetBorderColor     000 000 063
+				SetFontSize        36
+		# Good Base Types
+			# Highest Level
+				Show # Rares
+					BaseType "Royal Axe" "Runic Hatchet" "Vaal Axe" "Fleshripper" "Citadel Bow" "Imperial Bow" "Harbinger Bow" "Maraketh Bow" "Imperial Claw" "Gemini Claw" "Eye Gouger" "Vaal Claw" "Sai" "Platinum Kris" "Gavel" "Behemoth Mace" "Carnal Sceptre" "Sambar Sceptre" "Void Sceptre" "Coronal Maul" "Piledriver" "Imperial Staff" "Eclipse Staff" "Maelström Staff" "Legion Sword" "Tiger Hook" "Eternal Sword" "Jewelled Foil" "Dragoon Sword" "Harpy Rapier" "Vaal Greatsword" "Exquisite Blade" "Lion Sword" "Demon's Horn" "Profane Wand" "Opal Wand" "Glorious Plate" "Astral Plate" "Zodiac Leather" "Assassin's Garb" "Vaal Regalia" "Occultist's Vestment" "Carnal Armour" "Titan Greaves" "Slink Boots" "Sorcerer Boots" "Two-Toned Boots" "Titan Gauntlets" "Spiked Gloves" "Slink Gloves" "Gripped Gloves" "Sorcerer Gloves" "Fingerless Silk Gloves" "Royal Burgonet" "Lion Pelt" "Hubris Circlet" "Bone Helmet" "Colossal Tower Shield" "Shagreen Tower Shield" "Ezomyte Tower Shield" "Lacquered Buckler" "Vaal Buckler" "Crusader Buckler" "Titanium Spirit Shield" "Fossilised Spirit Shield" "Teak Round Shield" "Archon Kite Shield" "Supreme Spiked Shield" "Mirrored Spiked Shield" "Coral Amulet" "Paua Amulet" "Amber Amulet" "Jade Amulet" "Lapis Amulet" "Gold Amulet" "Agate Amulet" "Citrine Amulet" "Turquoise Amulet" "Onyx Amulet" "Marble Amulet" "Blue Pearl Amulet" "Chain Belt" "Rustic Sash" "Heavy Belt" "Leather Belt" "Cloth Belt" "Studded Belt" "Vanguard Belt" "Crystal Belt" "Two-Point Arrow Quiver" "Sharktooth Arrow Quiver" "Blunt Arrow Quiver" "Fire Arrow Quiver" "Broadhead Arrow Quiver" "Penetrating Arrow Quiver" "Spike-Point Arrow Quiver" "Coral Ring" "Paua Ring" "Unset Ring" "Sapphire Ring" "Topaz Ring" "Ruby Ring" "Diamond Ring" "Gold Ring" "Moonstone Ring" "Two-Stone Ring" "Two-Stone Ring" "Two-Stone Ring" "Amethyst Ring" "Prismatic Ring" "Opal Ring" "Steel Ring"
+					ItemLevel >= 84
+					Rarity "Rare"
+					# SetTextColor     [Rare]
+					SetBackgroundColor 063 000 000
+					SetBorderColor     255 255 119
+					SetFontSize        36
+				Show # Magic
+					BaseType "Royal Axe" "Runic Hatchet" "Vaal Axe" "Fleshripper" "Citadel Bow" "Imperial Bow" "Harbinger Bow" "Maraketh Bow" "Imperial Claw" "Gemini Claw" "Eye Gouger" "Vaal Claw" "Sai" "Platinum Kris" "Gavel" "Behemoth Mace" "Carnal Sceptre" "Sambar Sceptre" "Void Sceptre" "Coronal Maul" "Piledriver" "Imperial Staff" "Eclipse Staff" "Maelström Staff" "Legion Sword" "Tiger Hook" "Eternal Sword" "Jewelled Foil" "Dragoon Sword" "Harpy Rapier" "Vaal Greatsword" "Exquisite Blade" "Lion Sword" "Demon's Horn" "Profane Wand" "Opal Wand" "Glorious Plate" "Astral Plate" "Zodiac Leather" "Assassin's Garb" "Vaal Regalia" "Occultist's Vestment" "Carnal Armour" "Titan Greaves" "Slink Boots" "Sorcerer Boots" "Two-Toned Boots" "Titan Gauntlets" "Spiked Gloves" "Slink Gloves" "Gripped Gloves" "Sorcerer Gloves" "Fingerless Silk Gloves" "Royal Burgonet" "Lion Pelt" "Hubris Circlet" "Bone Helmet" "Colossal Tower Shield" "Shagreen Tower Shield" "Ezomyte Tower Shield" "Lacquered Buckler" "Vaal Buckler" "Crusader Buckler" "Titanium Spirit Shield" "Fossilised Spirit Shield" "Teak Round Shield" "Archon Kite Shield" "Supreme Spiked Shield" "Mirrored Spiked Shield" "Coral Amulet" "Paua Amulet" "Amber Amulet" "Jade Amulet" "Lapis Amulet" "Gold Amulet" "Agate Amulet" "Citrine Amulet" "Turquoise Amulet" "Onyx Amulet" "Marble Amulet" "Blue Pearl Amulet" "Chain Belt" "Rustic Sash" "Heavy Belt" "Leather Belt" "Cloth Belt" "Studded Belt" "Vanguard Belt" "Crystal Belt" "Two-Point Arrow Quiver" "Sharktooth Arrow Quiver" "Blunt Arrow Quiver" "Fire Arrow Quiver" "Broadhead Arrow Quiver" "Penetrating Arrow Quiver" "Spike-Point Arrow Quiver" "Coral Ring" "Paua Ring" "Unset Ring" "Sapphire Ring" "Topaz Ring" "Ruby Ring" "Diamond Ring" "Gold Ring" "Moonstone Ring" "Two-Stone Ring" "Two-Stone Ring" "Two-Stone Ring" "Amethyst Ring" "Prismatic Ring" "Opal Ring" "Steel Ring"
+					ItemLevel >= 84
+					Rarity "Magic"
+					# SetTextColor     [Magic]
+					SetBackgroundColor 063 000 000
+					SetBorderColor     136 136 255
+					SetFontSize        27
+				Show # Normal
+					BaseType "Royal Axe" "Runic Hatchet" "Vaal Axe" "Fleshripper" "Citadel Bow" "Imperial Bow" "Harbinger Bow" "Maraketh Bow" "Imperial Claw" "Gemini Claw" "Eye Gouger" "Vaal Claw" "Sai" "Platinum Kris" "Gavel" "Behemoth Mace" "Carnal Sceptre" "Sambar Sceptre" "Void Sceptre" "Coronal Maul" "Piledriver" "Imperial Staff" "Eclipse Staff" "Maelström Staff" "Legion Sword" "Tiger Hook" "Eternal Sword" "Jewelled Foil" "Dragoon Sword" "Harpy Rapier" "Vaal Greatsword" "Exquisite Blade" "Lion Sword" "Demon's Horn" "Profane Wand" "Opal Wand" "Glorious Plate" "Astral Plate" "Zodiac Leather" "Assassin's Garb" "Vaal Regalia" "Occultist's Vestment" "Carnal Armour" "Titan Greaves" "Slink Boots" "Sorcerer Boots" "Two-Toned Boots" "Titan Gauntlets" "Spiked Gloves" "Slink Gloves" "Gripped Gloves" "Sorcerer Gloves" "Fingerless Silk Gloves" "Royal Burgonet" "Lion Pelt" "Hubris Circlet" "Bone Helmet" "Colossal Tower Shield" "Shagreen Tower Shield" "Ezomyte Tower Shield" "Lacquered Buckler" "Vaal Buckler" "Crusader Buckler" "Titanium Spirit Shield" "Fossilised Spirit Shield" "Teak Round Shield" "Archon Kite Shield" "Supreme Spiked Shield" "Mirrored Spiked Shield" "Coral Amulet" "Paua Amulet" "Amber Amulet" "Jade Amulet" "Lapis Amulet" "Gold Amulet" "Agate Amulet" "Citrine Amulet" "Turquoise Amulet" "Onyx Amulet" "Marble Amulet" "Blue Pearl Amulet" "Chain Belt" "Rustic Sash" "Heavy Belt" "Leather Belt" "Cloth Belt" "Studded Belt" "Vanguard Belt" "Crystal Belt" "Two-Point Arrow Quiver" "Sharktooth Arrow Quiver" "Blunt Arrow Quiver" "Fire Arrow Quiver" "Broadhead Arrow Quiver" "Penetrating Arrow Quiver" "Spike-Point Arrow Quiver" "Coral Ring" "Paua Ring" "Unset Ring" "Sapphire Ring" "Topaz Ring" "Ruby Ring" "Diamond Ring" "Gold Ring" "Moonstone Ring" "Two-Stone Ring" "Two-Stone Ring" "Two-Stone Ring" "Amethyst Ring" "Prismatic Ring" "Opal Ring" "Steel Ring"
+					ItemLevel >= 84
+					Rarity "Normal"
+					# SetTextColor     [Normal]
+					SetBackgroundColor 063 000 000
+					SetBorderColor     200 200 200
+					SetFontSize        30
+			# 6 Sockets
+				Show # Rares
+					BaseType "Royal Axe" "Runic Hatchet" "Vaal Axe" "Fleshripper" "Citadel Bow" "Imperial Bow" "Harbinger Bow" "Maraketh Bow" "Imperial Claw" "Gemini Claw" "Eye Gouger" "Vaal Claw" "Sai" "Platinum Kris" "Gavel" "Behemoth Mace" "Carnal Sceptre" "Sambar Sceptre" "Void Sceptre" "Coronal Maul" "Piledriver" "Imperial Staff" "Eclipse Staff" "Maelström Staff" "Legion Sword" "Tiger Hook" "Eternal Sword" "Jewelled Foil" "Dragoon Sword" "Harpy Rapier" "Vaal Greatsword" "Exquisite Blade" "Lion Sword" "Demon's Horn" "Profane Wand" "Opal Wand" "Glorious Plate" "Astral Plate" "Zodiac Leather" "Assassin's Garb" "Vaal Regalia" "Occultist's Vestment" "Carnal Armour" "Titan Greaves" "Slink Boots" "Sorcerer Boots" "Two-Toned Boots" "Titan Gauntlets" "Spiked Gloves" "Slink Gloves" "Gripped Gloves" "Sorcerer Gloves" "Fingerless Silk Gloves" "Royal Burgonet" "Lion Pelt" "Hubris Circlet" "Bone Helmet" "Colossal Tower Shield" "Shagreen Tower Shield" "Ezomyte Tower Shield" "Lacquered Buckler" "Vaal Buckler" "Crusader Buckler" "Titanium Spirit Shield" "Fossilised Spirit Shield" "Teak Round Shield" "Archon Kite Shield" "Supreme Spiked Shield" "Mirrored Spiked Shield" "Coral Amulet" "Paua Amulet" "Amber Amulet" "Jade Amulet" "Lapis Amulet" "Gold Amulet" "Agate Amulet" "Citrine Amulet" "Turquoise Amulet" "Onyx Amulet" "Marble Amulet" "Blue Pearl Amulet" "Chain Belt" "Rustic Sash" "Heavy Belt" "Leather Belt" "Cloth Belt" "Studded Belt" "Vanguard Belt" "Crystal Belt" "Two-Point Arrow Quiver" "Sharktooth Arrow Quiver" "Blunt Arrow Quiver" "Fire Arrow Quiver" "Broadhead Arrow Quiver" "Penetrating Arrow Quiver" "Spike-Point Arrow Quiver" "Coral Ring" "Paua Ring" "Unset Ring" "Sapphire Ring" "Topaz Ring" "Ruby Ring" "Diamond Ring" "Gold Ring" "Moonstone Ring" "Two-Stone Ring" "Two-Stone Ring" "Two-Stone Ring" "Amethyst Ring" "Prismatic Ring" "Opal Ring" "Steel Ring"
+					Sockets 6
+					Rarity "Rare"
+					# SetTextColor     [Rare]
+					SetBackgroundColor 063 000 000
+					SetBorderColor     255 255 119
+					SetFontSize        33
+				Show # Magic
+					BaseType "Royal Axe" "Runic Hatchet" "Vaal Axe" "Fleshripper" "Citadel Bow" "Imperial Bow" "Harbinger Bow" "Maraketh Bow" "Imperial Claw" "Gemini Claw" "Eye Gouger" "Vaal Claw" "Sai" "Platinum Kris" "Gavel" "Behemoth Mace" "Carnal Sceptre" "Sambar Sceptre" "Void Sceptre" "Coronal Maul" "Piledriver" "Imperial Staff" "Eclipse Staff" "Maelström Staff" "Legion Sword" "Tiger Hook" "Eternal Sword" "Jewelled Foil" "Dragoon Sword" "Harpy Rapier" "Vaal Greatsword" "Exquisite Blade" "Lion Sword" "Demon's Horn" "Profane Wand" "Opal Wand" "Glorious Plate" "Astral Plate" "Zodiac Leather" "Assassin's Garb" "Vaal Regalia" "Occultist's Vestment" "Carnal Armour" "Titan Greaves" "Slink Boots" "Sorcerer Boots" "Two-Toned Boots" "Titan Gauntlets" "Spiked Gloves" "Slink Gloves" "Gripped Gloves" "Sorcerer Gloves" "Fingerless Silk Gloves" "Royal Burgonet" "Lion Pelt" "Hubris Circlet" "Bone Helmet" "Colossal Tower Shield" "Shagreen Tower Shield" "Ezomyte Tower Shield" "Lacquered Buckler" "Vaal Buckler" "Crusader Buckler" "Titanium Spirit Shield" "Fossilised Spirit Shield" "Teak Round Shield" "Archon Kite Shield" "Supreme Spiked Shield" "Mirrored Spiked Shield" "Coral Amulet" "Paua Amulet" "Amber Amulet" "Jade Amulet" "Lapis Amulet" "Gold Amulet" "Agate Amulet" "Citrine Amulet" "Turquoise Amulet" "Onyx Amulet" "Marble Amulet" "Blue Pearl Amulet" "Chain Belt" "Rustic Sash" "Heavy Belt" "Leather Belt" "Cloth Belt" "Studded Belt" "Vanguard Belt" "Crystal Belt" "Two-Point Arrow Quiver" "Sharktooth Arrow Quiver" "Blunt Arrow Quiver" "Fire Arrow Quiver" "Broadhead Arrow Quiver" "Penetrating Arrow Quiver" "Spike-Point Arrow Quiver" "Coral Ring" "Paua Ring" "Unset Ring" "Sapphire Ring" "Topaz Ring" "Ruby Ring" "Diamond Ring" "Gold Ring" "Moonstone Ring" "Two-Stone Ring" "Two-Stone Ring" "Two-Stone Ring" "Amethyst Ring" "Prismatic Ring" "Opal Ring" "Steel Ring"
+					Sockets 6
+					Rarity "Magic"
+					# SetTextColor     [Magic]
+					SetBackgroundColor 063 000 000
+					SetBorderColor     136 136 255
+					SetFontSize        33
+				Show # Normal
+					BaseType "Royal Axe" "Runic Hatchet" "Vaal Axe" "Fleshripper" "Citadel Bow" "Imperial Bow" "Harbinger Bow" "Maraketh Bow" "Imperial Claw" "Gemini Claw" "Eye Gouger" "Vaal Claw" "Sai" "Platinum Kris" "Gavel" "Behemoth Mace" "Carnal Sceptre" "Sambar Sceptre" "Void Sceptre" "Coronal Maul" "Piledriver" "Imperial Staff" "Eclipse Staff" "Maelström Staff" "Legion Sword" "Tiger Hook" "Eternal Sword" "Jewelled Foil" "Dragoon Sword" "Harpy Rapier" "Vaal Greatsword" "Exquisite Blade" "Lion Sword" "Demon's Horn" "Profane Wand" "Opal Wand" "Glorious Plate" "Astral Plate" "Zodiac Leather" "Assassin's Garb" "Vaal Regalia" "Occultist's Vestment" "Carnal Armour" "Titan Greaves" "Slink Boots" "Sorcerer Boots" "Two-Toned Boots" "Titan Gauntlets" "Spiked Gloves" "Slink Gloves" "Gripped Gloves" "Sorcerer Gloves" "Fingerless Silk Gloves" "Royal Burgonet" "Lion Pelt" "Hubris Circlet" "Bone Helmet" "Colossal Tower Shield" "Shagreen Tower Shield" "Ezomyte Tower Shield" "Lacquered Buckler" "Vaal Buckler" "Crusader Buckler" "Titanium Spirit Shield" "Fossilised Spirit Shield" "Teak Round Shield" "Archon Kite Shield" "Supreme Spiked Shield" "Mirrored Spiked Shield" "Coral Amulet" "Paua Amulet" "Amber Amulet" "Jade Amulet" "Lapis Amulet" "Gold Amulet" "Agate Amulet" "Citrine Amulet" "Turquoise Amulet" "Onyx Amulet" "Marble Amulet" "Blue Pearl Amulet" "Chain Belt" "Rustic Sash" "Heavy Belt" "Leather Belt" "Cloth Belt" "Studded Belt" "Vanguard Belt" "Crystal Belt" "Two-Point Arrow Quiver" "Sharktooth Arrow Quiver" "Blunt Arrow Quiver" "Fire Arrow Quiver" "Broadhead Arrow Quiver" "Penetrating Arrow Quiver" "Spike-Point Arrow Quiver" "Coral Ring" "Paua Ring" "Unset Ring" "Sapphire Ring" "Topaz Ring" "Ruby Ring" "Diamond Ring" "Gold Ring" "Moonstone Ring" "Two-Stone Ring" "Two-Stone Ring" "Two-Stone Ring" "Amethyst Ring" "Prismatic Ring" "Opal Ring" "Steel Ring"
+					Sockets 6
+					Rarity "Normal"
+					# SetTextColor     [Normal]
+					SetBackgroundColor 063 000 000
+					SetBorderColor     200 200 200
+					SetFontSize        33
+			# 5 Links
+				Show # Rares
+					BaseType "Royal Axe" "Runic Hatchet" "Vaal Axe" "Fleshripper" "Citadel Bow" "Imperial Bow" "Harbinger Bow" "Maraketh Bow" "Imperial Claw" "Gemini Claw" "Eye Gouger" "Vaal Claw" "Sai" "Platinum Kris" "Gavel" "Behemoth Mace" "Carnal Sceptre" "Sambar Sceptre" "Void Sceptre" "Coronal Maul" "Piledriver" "Imperial Staff" "Eclipse Staff" "Maelström Staff" "Legion Sword" "Tiger Hook" "Eternal Sword" "Jewelled Foil" "Dragoon Sword" "Harpy Rapier" "Vaal Greatsword" "Exquisite Blade" "Lion Sword" "Demon's Horn" "Profane Wand" "Opal Wand" "Glorious Plate" "Astral Plate" "Zodiac Leather" "Assassin's Garb" "Vaal Regalia" "Occultist's Vestment" "Carnal Armour" "Titan Greaves" "Slink Boots" "Sorcerer Boots" "Two-Toned Boots" "Titan Gauntlets" "Spiked Gloves" "Slink Gloves" "Gripped Gloves" "Sorcerer Gloves" "Fingerless Silk Gloves" "Royal Burgonet" "Lion Pelt" "Hubris Circlet" "Bone Helmet" "Colossal Tower Shield" "Shagreen Tower Shield" "Ezomyte Tower Shield" "Lacquered Buckler" "Vaal Buckler" "Crusader Buckler" "Titanium Spirit Shield" "Fossilised Spirit Shield" "Teak Round Shield" "Archon Kite Shield" "Supreme Spiked Shield" "Mirrored Spiked Shield" "Coral Amulet" "Paua Amulet" "Amber Amulet" "Jade Amulet" "Lapis Amulet" "Gold Amulet" "Agate Amulet" "Citrine Amulet" "Turquoise Amulet" "Onyx Amulet" "Marble Amulet" "Blue Pearl Amulet" "Chain Belt" "Rustic Sash" "Heavy Belt" "Leather Belt" "Cloth Belt" "Studded Belt" "Vanguard Belt" "Crystal Belt" "Two-Point Arrow Quiver" "Sharktooth Arrow Quiver" "Blunt Arrow Quiver" "Fire Arrow Quiver" "Broadhead Arrow Quiver" "Penetrating Arrow Quiver" "Spike-Point Arrow Quiver" "Coral Ring" "Paua Ring" "Unset Ring" "Sapphire Ring" "Topaz Ring" "Ruby Ring" "Diamond Ring" "Gold Ring" "Moonstone Ring" "Two-Stone Ring" "Two-Stone Ring" "Two-Stone Ring" "Amethyst Ring" "Prismatic Ring" "Opal Ring" "Steel Ring"
+					LinkedSockets 5
+					Rarity "Rare"
+					# SetTextColor     [Rare]
+					SetBackgroundColor 063 000 000
+					SetBorderColor     255 255 119
+					SetFontSize        33
+				Show # Magic
+					BaseType "Royal Axe" "Runic Hatchet" "Vaal Axe" "Fleshripper" "Citadel Bow" "Imperial Bow" "Harbinger Bow" "Maraketh Bow" "Imperial Claw" "Gemini Claw" "Eye Gouger" "Vaal Claw" "Sai" "Platinum Kris" "Gavel" "Behemoth Mace" "Carnal Sceptre" "Sambar Sceptre" "Void Sceptre" "Coronal Maul" "Piledriver" "Imperial Staff" "Eclipse Staff" "Maelström Staff" "Legion Sword" "Tiger Hook" "Eternal Sword" "Jewelled Foil" "Dragoon Sword" "Harpy Rapier" "Vaal Greatsword" "Exquisite Blade" "Lion Sword" "Demon's Horn" "Profane Wand" "Opal Wand" "Glorious Plate" "Astral Plate" "Zodiac Leather" "Assassin's Garb" "Vaal Regalia" "Occultist's Vestment" "Carnal Armour" "Titan Greaves" "Slink Boots" "Sorcerer Boots" "Two-Toned Boots" "Titan Gauntlets" "Spiked Gloves" "Slink Gloves" "Gripped Gloves" "Sorcerer Gloves" "Fingerless Silk Gloves" "Royal Burgonet" "Lion Pelt" "Hubris Circlet" "Bone Helmet" "Colossal Tower Shield" "Shagreen Tower Shield" "Ezomyte Tower Shield" "Lacquered Buckler" "Vaal Buckler" "Crusader Buckler" "Titanium Spirit Shield" "Fossilised Spirit Shield" "Teak Round Shield" "Archon Kite Shield" "Supreme Spiked Shield" "Mirrored Spiked Shield" "Coral Amulet" "Paua Amulet" "Amber Amulet" "Jade Amulet" "Lapis Amulet" "Gold Amulet" "Agate Amulet" "Citrine Amulet" "Turquoise Amulet" "Onyx Amulet" "Marble Amulet" "Blue Pearl Amulet" "Chain Belt" "Rustic Sash" "Heavy Belt" "Leather Belt" "Cloth Belt" "Studded Belt" "Vanguard Belt" "Crystal Belt" "Two-Point Arrow Quiver" "Sharktooth Arrow Quiver" "Blunt Arrow Quiver" "Fire Arrow Quiver" "Broadhead Arrow Quiver" "Penetrating Arrow Quiver" "Spike-Point Arrow Quiver" "Coral Ring" "Paua Ring" "Unset Ring" "Sapphire Ring" "Topaz Ring" "Ruby Ring" "Diamond Ring" "Gold Ring" "Moonstone Ring" "Two-Stone Ring" "Two-Stone Ring" "Two-Stone Ring" "Amethyst Ring" "Prismatic Ring" "Opal Ring" "Steel Ring"
+					LinkedSockets 5
+					Rarity "Magic"
+					# SetTextColor     [Magic]
+					SetBackgroundColor 063 000 000
+					SetBorderColor     136 136 255
+					SetFontSize        30
+				Show # Normal
+					BaseType "Royal Axe" "Runic Hatchet" "Vaal Axe" "Fleshripper" "Citadel Bow" "Imperial Bow" "Harbinger Bow" "Maraketh Bow" "Imperial Claw" "Gemini Claw" "Eye Gouger" "Vaal Claw" "Sai" "Platinum Kris" "Gavel" "Behemoth Mace" "Carnal Sceptre" "Sambar Sceptre" "Void Sceptre" "Coronal Maul" "Piledriver" "Imperial Staff" "Eclipse Staff" "Maelström Staff" "Legion Sword" "Tiger Hook" "Eternal Sword" "Jewelled Foil" "Dragoon Sword" "Harpy Rapier" "Vaal Greatsword" "Exquisite Blade" "Lion Sword" "Demon's Horn" "Profane Wand" "Opal Wand" "Glorious Plate" "Astral Plate" "Zodiac Leather" "Assassin's Garb" "Vaal Regalia" "Occultist's Vestment" "Carnal Armour" "Titan Greaves" "Slink Boots" "Sorcerer Boots" "Two-Toned Boots" "Titan Gauntlets" "Spiked Gloves" "Slink Gloves" "Gripped Gloves" "Sorcerer Gloves" "Fingerless Silk Gloves" "Royal Burgonet" "Lion Pelt" "Hubris Circlet" "Bone Helmet" "Colossal Tower Shield" "Shagreen Tower Shield" "Ezomyte Tower Shield" "Lacquered Buckler" "Vaal Buckler" "Crusader Buckler" "Titanium Spirit Shield" "Fossilised Spirit Shield" "Teak Round Shield" "Archon Kite Shield" "Supreme Spiked Shield" "Mirrored Spiked Shield" "Coral Amulet" "Paua Amulet" "Amber Amulet" "Jade Amulet" "Lapis Amulet" "Gold Amulet" "Agate Amulet" "Citrine Amulet" "Turquoise Amulet" "Onyx Amulet" "Marble Amulet" "Blue Pearl Amulet" "Chain Belt" "Rustic Sash" "Heavy Belt" "Leather Belt" "Cloth Belt" "Studded Belt" "Vanguard Belt" "Crystal Belt" "Two-Point Arrow Quiver" "Sharktooth Arrow Quiver" "Blunt Arrow Quiver" "Fire Arrow Quiver" "Broadhead Arrow Quiver" "Penetrating Arrow Quiver" "Spike-Point Arrow Quiver" "Coral Ring" "Paua Ring" "Unset Ring" "Sapphire Ring" "Topaz Ring" "Ruby Ring" "Diamond Ring" "Gold Ring" "Moonstone Ring" "Two-Stone Ring" "Two-Stone Ring" "Two-Stone Ring" "Amethyst Ring" "Prismatic Ring" "Opal Ring" "Steel Ring"
+					LinkedSockets 5
+					Rarity "Normal"
+					# SetTextColor     [Normal]
+					SetBackgroundColor 063 000 000
+					SetBorderColor     200 200 200
+					SetFontSize        30
+			Show # Lvl 60 Rares (Reminder) TODO not same set?!
+				BaseType "Royal Axe" "Runic Hatchet" "Vaal Axe" "Fleshripper" "Citadel Bow" "Imperial Bow" "Harbinger Bow" "Maraketh Bow" "Imperial Claw" "Gemini Claw" "Eye Gouger" "Vaal Claw" "Sai" "Platinum Kris" "Gavel" "Behemoth Mace" "Carnal Sceptre" "Sambar Sceptre" "Void Sceptre" "Coronal Maul" "Piledriver" "Imperial Staff" "Eclipse Staff" "Maelström Staff" "Legion Sword" "Tiger Hook" "Eternal Sword" "Jewelled Foil" "Dragoon Sword" "Harpy Rapier" "Vaal Greatsword" "Exquisite Blade" "Lion Sword" "Demon's Horn" "Profane Wand" "Opal Wand" "Glorious Plate" "Astral Plate" "Zodiac Leather" "Assassin's Garb" "Vaal Regalia" "Occultist's Vestment" "Carnal Armour" "Titan Greaves" "Slink Boots" "Sorcerer Boots" "Two-Toned Boots" "Titan Gauntlets" "Spiked Gloves" "Slink Gloves" "Gripped Gloves" "Sorcerer Gloves" "Fingerless Silk Gloves" "Royal Burgonet" "Lion Pelt" "Hubris Circlet" "Bone Helmet" "Colossal Tower Shield" "Shagreen Tower Shield" "Ezomyte Tower Shield" "Lacquered Buckler" "Vaal Buckler" "Crusader Buckler" "Titanium Spirit Shield" "Fossilised Spirit Shield" "Teak Round Shield" "Archon Kite Shield" "Supreme Spiked Shield" "Mirrored Spiked Shield" "Coral Amulet" "Paua Amulet" "Amber Amulet" "Jade Amulet" "Lapis Amulet" "Gold Amulet" "Agate Amulet" "Citrine Amulet" "Turquoise Amulet" "Onyx Amulet" "Marble Amulet" "Blue Pearl Amulet" "Chain Belt" "Rustic Sash" "Heavy Belt" "Leather Belt" "Cloth Belt" "Studded Belt" "Vanguard Belt" "Crystal Belt" "Two-Point Arrow Quiver" "Sharktooth Arrow Quiver" "Blunt Arrow Quiver" "Fire Arrow Quiver" "Broadhead Arrow Quiver" "Penetrating Arrow Quiver" "Spike-Point Arrow Quiver" "Coral Ring" "Paua Ring" "Unset Ring" "Sapphire Ring" "Topaz Ring" "Ruby Ring" "Diamond Ring" "Gold Ring" "Moonstone Ring" "Two-Stone Ring" "Two-Stone Ring" "Two-Stone Ring" "Amethyst Ring" "Prismatic Ring" "Opal Ring" "Steel Ring"
+				Rarity "Rare"
+				ItemLevel = 60
+				# SetTextColor     [Rare]
+				SetBackgroundColor 000 063 000
+				SetBorderColor     255 255 119
+				SetFontSize        33
+			# Chromatic
+				Show # Rares
+					BaseType "Royal Axe" "Runic Hatchet" "Vaal Axe" "Fleshripper" "Citadel Bow" "Imperial Bow" "Harbinger Bow" "Maraketh Bow" "Imperial Claw" "Gemini Claw" "Eye Gouger" "Vaal Claw" "Sai" "Platinum Kris" "Gavel" "Behemoth Mace" "Carnal Sceptre" "Sambar Sceptre" "Void Sceptre" "Coronal Maul" "Piledriver" "Imperial Staff" "Eclipse Staff" "Maelström Staff" "Legion Sword" "Tiger Hook" "Eternal Sword" "Jewelled Foil" "Dragoon Sword" "Harpy Rapier" "Vaal Greatsword" "Exquisite Blade" "Lion Sword" "Demon's Horn" "Profane Wand" "Opal Wand" "Glorious Plate" "Astral Plate" "Zodiac Leather" "Assassin's Garb" "Vaal Regalia" "Occultist's Vestment" "Carnal Armour" "Titan Greaves" "Slink Boots" "Sorcerer Boots" "Two-Toned Boots" "Titan Gauntlets" "Spiked Gloves" "Slink Gloves" "Gripped Gloves" "Sorcerer Gloves" "Fingerless Silk Gloves" "Royal Burgonet" "Lion Pelt" "Hubris Circlet" "Bone Helmet" "Colossal Tower Shield" "Shagreen Tower Shield" "Ezomyte Tower Shield" "Lacquered Buckler" "Vaal Buckler" "Crusader Buckler" "Titanium Spirit Shield" "Fossilised Spirit Shield" "Teak Round Shield" "Archon Kite Shield" "Supreme Spiked Shield" "Mirrored Spiked Shield" "Coral Amulet" "Paua Amulet" "Amber Amulet" "Jade Amulet" "Lapis Amulet" "Gold Amulet" "Agate Amulet" "Citrine Amulet" "Turquoise Amulet" "Onyx Amulet" "Marble Amulet" "Blue Pearl Amulet" "Chain Belt" "Rustic Sash" "Heavy Belt" "Leather Belt" "Cloth Belt" "Studded Belt" "Vanguard Belt" "Crystal Belt" "Two-Point Arrow Quiver" "Sharktooth Arrow Quiver" "Blunt Arrow Quiver" "Fire Arrow Quiver" "Broadhead Arrow Quiver" "Penetrating Arrow Quiver" "Spike-Point Arrow Quiver" "Coral Ring" "Paua Ring" "Unset Ring" "Sapphire Ring" "Topaz Ring" "Ruby Ring" "Diamond Ring" "Gold Ring" "Moonstone Ring" "Two-Stone Ring" "Two-Stone Ring" "Two-Stone Ring" "Amethyst Ring" "Prismatic Ring" "Opal Ring" "Steel Ring"
+					SocketGroup RGB
+					Rarity "Rare"
+					# SetTextColor     [Rare]
+					SetBackgroundColor 000 063 000
+					SetBorderColor     255 255 119
+					SetFontSize        33
+				Show # Magic
+					BaseType "Royal Axe" "Runic Hatchet" "Vaal Axe" "Fleshripper" "Citadel Bow" "Imperial Bow" "Harbinger Bow" "Maraketh Bow" "Imperial Claw" "Gemini Claw" "Eye Gouger" "Vaal Claw" "Sai" "Platinum Kris" "Gavel" "Behemoth Mace" "Carnal Sceptre" "Sambar Sceptre" "Void Sceptre" "Coronal Maul" "Piledriver" "Imperial Staff" "Eclipse Staff" "Maelström Staff" "Legion Sword" "Tiger Hook" "Eternal Sword" "Jewelled Foil" "Dragoon Sword" "Harpy Rapier" "Vaal Greatsword" "Exquisite Blade" "Lion Sword" "Demon's Horn" "Profane Wand" "Opal Wand" "Glorious Plate" "Astral Plate" "Zodiac Leather" "Assassin's Garb" "Vaal Regalia" "Occultist's Vestment" "Carnal Armour" "Titan Greaves" "Slink Boots" "Sorcerer Boots" "Two-Toned Boots" "Titan Gauntlets" "Spiked Gloves" "Slink Gloves" "Gripped Gloves" "Sorcerer Gloves" "Fingerless Silk Gloves" "Royal Burgonet" "Lion Pelt" "Hubris Circlet" "Bone Helmet" "Colossal Tower Shield" "Shagreen Tower Shield" "Ezomyte Tower Shield" "Lacquered Buckler" "Vaal Buckler" "Crusader Buckler" "Titanium Spirit Shield" "Fossilised Spirit Shield" "Teak Round Shield" "Archon Kite Shield" "Supreme Spiked Shield" "Mirrored Spiked Shield" "Coral Amulet" "Paua Amulet" "Amber Amulet" "Jade Amulet" "Lapis Amulet" "Gold Amulet" "Agate Amulet" "Citrine Amulet" "Turquoise Amulet" "Onyx Amulet" "Marble Amulet" "Blue Pearl Amulet" "Chain Belt" "Rustic Sash" "Heavy Belt" "Leather Belt" "Cloth Belt" "Studded Belt" "Vanguard Belt" "Crystal Belt" "Two-Point Arrow Quiver" "Sharktooth Arrow Quiver" "Blunt Arrow Quiver" "Fire Arrow Quiver" "Broadhead Arrow Quiver" "Penetrating Arrow Quiver" "Spike-Point Arrow Quiver" "Coral Ring" "Paua Ring" "Unset Ring" "Sapphire Ring" "Topaz Ring" "Ruby Ring" "Diamond Ring" "Gold Ring" "Moonstone Ring" "Two-Stone Ring" "Two-Stone Ring" "Two-Stone Ring" "Amethyst Ring" "Prismatic Ring" "Opal Ring" "Steel Ring"
+					SocketGroup RGB
+					Rarity "Magic"
+					# SetTextColor     [Magic]
+					SetBackgroundColor 000 063 000
+					SetBorderColor     136 136 255
+					SetFontSize        27
+				Show # Normal
+					BaseType "Royal Axe" "Runic Hatchet" "Vaal Axe" "Fleshripper" "Citadel Bow" "Imperial Bow" "Harbinger Bow" "Maraketh Bow" "Imperial Claw" "Gemini Claw" "Eye Gouger" "Vaal Claw" "Sai" "Platinum Kris" "Gavel" "Behemoth Mace" "Carnal Sceptre" "Sambar Sceptre" "Void Sceptre" "Coronal Maul" "Piledriver" "Imperial Staff" "Eclipse Staff" "Maelström Staff" "Legion Sword" "Tiger Hook" "Eternal Sword" "Jewelled Foil" "Dragoon Sword" "Harpy Rapier" "Vaal Greatsword" "Exquisite Blade" "Lion Sword" "Demon's Horn" "Profane Wand" "Opal Wand" "Glorious Plate" "Astral Plate" "Zodiac Leather" "Assassin's Garb" "Vaal Regalia" "Occultist's Vestment" "Carnal Armour" "Titan Greaves" "Slink Boots" "Sorcerer Boots" "Two-Toned Boots" "Titan Gauntlets" "Spiked Gloves" "Slink Gloves" "Gripped Gloves" "Sorcerer Gloves" "Fingerless Silk Gloves" "Royal Burgonet" "Lion Pelt" "Hubris Circlet" "Bone Helmet" "Colossal Tower Shield" "Shagreen Tower Shield" "Ezomyte Tower Shield" "Lacquered Buckler" "Vaal Buckler" "Crusader Buckler" "Titanium Spirit Shield" "Fossilised Spirit Shield" "Teak Round Shield" "Archon Kite Shield" "Supreme Spiked Shield" "Mirrored Spiked Shield" "Coral Amulet" "Paua Amulet" "Amber Amulet" "Jade Amulet" "Lapis Amulet" "Gold Amulet" "Agate Amulet" "Citrine Amulet" "Turquoise Amulet" "Onyx Amulet" "Marble Amulet" "Blue Pearl Amulet" "Chain Belt" "Rustic Sash" "Heavy Belt" "Leather Belt" "Cloth Belt" "Studded Belt" "Vanguard Belt" "Crystal Belt" "Two-Point Arrow Quiver" "Sharktooth Arrow Quiver" "Blunt Arrow Quiver" "Fire Arrow Quiver" "Broadhead Arrow Quiver" "Penetrating Arrow Quiver" "Spike-Point Arrow Quiver" "Coral Ring" "Paua Ring" "Unset Ring" "Sapphire Ring" "Topaz Ring" "Ruby Ring" "Diamond Ring" "Gold Ring" "Moonstone Ring" "Two-Stone Ring" "Two-Stone Ring" "Two-Stone Ring" "Amethyst Ring" "Prismatic Ring" "Opal Ring" "Steel Ring"
+					SocketGroup RGB
+					Rarity "Normal"
+					# SetTextColor     [Normal]
+					SetBackgroundColor 000 063 000
+					SetBorderColor     200 200 200
+					SetFontSize        27
+			# Remaining
+				Show # Rares
+					BaseType "Royal Axe" "Runic Hatchet" "Vaal Axe" "Fleshripper" "Citadel Bow" "Imperial Bow" "Harbinger Bow" "Maraketh Bow" "Imperial Claw" "Gemini Claw" "Eye Gouger" "Vaal Claw" "Sai" "Platinum Kris" "Gavel" "Behemoth Mace" "Carnal Sceptre" "Sambar Sceptre" "Void Sceptre" "Coronal Maul" "Piledriver" "Imperial Staff" "Eclipse Staff" "Maelström Staff" "Legion Sword" "Tiger Hook" "Eternal Sword" "Jewelled Foil" "Dragoon Sword" "Harpy Rapier" "Vaal Greatsword" "Exquisite Blade" "Lion Sword" "Demon's Horn" "Profane Wand" "Opal Wand" "Glorious Plate" "Astral Plate" "Zodiac Leather" "Assassin's Garb" "Vaal Regalia" "Occultist's Vestment" "Carnal Armour" "Titan Greaves" "Slink Boots" "Sorcerer Boots" "Two-Toned Boots" "Titan Gauntlets" "Spiked Gloves" "Slink Gloves" "Gripped Gloves" "Sorcerer Gloves" "Fingerless Silk Gloves" "Royal Burgonet" "Lion Pelt" "Hubris Circlet" "Bone Helmet" "Colossal Tower Shield" "Shagreen Tower Shield" "Ezomyte Tower Shield" "Lacquered Buckler" "Vaal Buckler" "Crusader Buckler" "Titanium Spirit Shield" "Fossilised Spirit Shield" "Teak Round Shield" "Archon Kite Shield" "Supreme Spiked Shield" "Mirrored Spiked Shield" "Coral Amulet" "Paua Amulet" "Amber Amulet" "Jade Amulet" "Lapis Amulet" "Gold Amulet" "Agate Amulet" "Citrine Amulet" "Turquoise Amulet" "Onyx Amulet" "Marble Amulet" "Blue Pearl Amulet" "Chain Belt" "Rustic Sash" "Heavy Belt" "Leather Belt" "Cloth Belt" "Studded Belt" "Vanguard Belt" "Crystal Belt" "Two-Point Arrow Quiver" "Sharktooth Arrow Quiver" "Blunt Arrow Quiver" "Fire Arrow Quiver" "Broadhead Arrow Quiver" "Penetrating Arrow Quiver" "Spike-Point Arrow Quiver" "Coral Ring" "Paua Ring" "Unset Ring" "Sapphire Ring" "Topaz Ring" "Ruby Ring" "Diamond Ring" "Gold Ring" "Moonstone Ring" "Two-Stone Ring" "Two-Stone Ring" "Two-Stone Ring" "Amethyst Ring" "Prismatic Ring" "Opal Ring" "Steel Ring"
+					Rarity "Rare"
+					# SetTextColor     [Rare]
+					SetBackgroundColor 000 000 000
+					SetBorderColor     255 255 119
+					SetFontSize        33
+				Hide # Magic
+					BaseType "Royal Axe" "Runic Hatchet" "Vaal Axe" "Fleshripper" "Citadel Bow" "Imperial Bow" "Harbinger Bow" "Maraketh Bow" "Imperial Claw" "Gemini Claw" "Eye Gouger" "Vaal Claw" "Sai" "Platinum Kris" "Gavel" "Behemoth Mace" "Carnal Sceptre" "Sambar Sceptre" "Void Sceptre" "Coronal Maul" "Piledriver" "Imperial Staff" "Eclipse Staff" "Maelström Staff" "Legion Sword" "Tiger Hook" "Eternal Sword" "Jewelled Foil" "Dragoon Sword" "Harpy Rapier" "Vaal Greatsword" "Exquisite Blade" "Lion Sword" "Demon's Horn" "Profane Wand" "Opal Wand" "Glorious Plate" "Astral Plate" "Zodiac Leather" "Assassin's Garb" "Vaal Regalia" "Occultist's Vestment" "Carnal Armour" "Titan Greaves" "Slink Boots" "Sorcerer Boots" "Two-Toned Boots" "Titan Gauntlets" "Spiked Gloves" "Slink Gloves" "Gripped Gloves" "Sorcerer Gloves" "Fingerless Silk Gloves" "Royal Burgonet" "Lion Pelt" "Hubris Circlet" "Bone Helmet" "Colossal Tower Shield" "Shagreen Tower Shield" "Ezomyte Tower Shield" "Lacquered Buckler" "Vaal Buckler" "Crusader Buckler" "Titanium Spirit Shield" "Fossilised Spirit Shield" "Teak Round Shield" "Archon Kite Shield" "Supreme Spiked Shield" "Mirrored Spiked Shield" "Coral Amulet" "Paua Amulet" "Amber Amulet" "Jade Amulet" "Lapis Amulet" "Gold Amulet" "Agate Amulet" "Citrine Amulet" "Turquoise Amulet" "Onyx Amulet" "Marble Amulet" "Blue Pearl Amulet" "Chain Belt" "Rustic Sash" "Heavy Belt" "Leather Belt" "Cloth Belt" "Studded Belt" "Vanguard Belt" "Crystal Belt" "Two-Point Arrow Quiver" "Sharktooth Arrow Quiver" "Blunt Arrow Quiver" "Fire Arrow Quiver" "Broadhead Arrow Quiver" "Penetrating Arrow Quiver" "Spike-Point Arrow Quiver" "Coral Ring" "Paua Ring" "Unset Ring" "Sapphire Ring" "Topaz Ring" "Ruby Ring" "Diamond Ring" "Gold Ring" "Moonstone Ring" "Two-Stone Ring" "Two-Stone Ring" "Two-Stone Ring" "Amethyst Ring" "Prismatic Ring" "Opal Ring" "Steel Ring"
+					Rarity "Magic"
+					# SetTextColor     [Magic]
+					SetBackgroundColor 000 000 000
+					SetBorderColor     136 136 255
+					SetFontSize        18
+				Hide # Normal
+					BaseType "Royal Axe" "Runic Hatchet" "Vaal Axe" "Fleshripper" "Citadel Bow" "Imperial Bow" "Harbinger Bow" "Maraketh Bow" "Imperial Claw" "Gemini Claw" "Eye Gouger" "Vaal Claw" "Sai" "Platinum Kris" "Gavel" "Behemoth Mace" "Carnal Sceptre" "Sambar Sceptre" "Void Sceptre" "Coronal Maul" "Piledriver" "Imperial Staff" "Eclipse Staff" "Maelström Staff" "Legion Sword" "Tiger Hook" "Eternal Sword" "Jewelled Foil" "Dragoon Sword" "Harpy Rapier" "Vaal Greatsword" "Exquisite Blade" "Lion Sword" "Demon's Horn" "Profane Wand" "Opal Wand" "Glorious Plate" "Astral Plate" "Zodiac Leather" "Assassin's Garb" "Vaal Regalia" "Occultist's Vestment" "Carnal Armour" "Titan Greaves" "Slink Boots" "Sorcerer Boots" "Two-Toned Boots" "Titan Gauntlets" "Spiked Gloves" "Slink Gloves" "Gripped Gloves" "Sorcerer Gloves" "Fingerless Silk Gloves" "Royal Burgonet" "Lion Pelt" "Hubris Circlet" "Bone Helmet" "Colossal Tower Shield" "Shagreen Tower Shield" "Ezomyte Tower Shield" "Lacquered Buckler" "Vaal Buckler" "Crusader Buckler" "Titanium Spirit Shield" "Fossilised Spirit Shield" "Teak Round Shield" "Archon Kite Shield" "Supreme Spiked Shield" "Mirrored Spiked Shield" "Coral Amulet" "Paua Amulet" "Amber Amulet" "Jade Amulet" "Lapis Amulet" "Gold Amulet" "Agate Amulet" "Citrine Amulet" "Turquoise Amulet" "Onyx Amulet" "Marble Amulet" "Blue Pearl Amulet" "Chain Belt" "Rustic Sash" "Heavy Belt" "Leather Belt" "Cloth Belt" "Studded Belt" "Vanguard Belt" "Crystal Belt" "Two-Point Arrow Quiver" "Sharktooth Arrow Quiver" "Blunt Arrow Quiver" "Fire Arrow Quiver" "Broadhead Arrow Quiver" "Penetrating Arrow Quiver" "Spike-Point Arrow Quiver" "Coral Ring" "Paua Ring" "Unset Ring" "Sapphire Ring" "Topaz Ring" "Ruby Ring" "Diamond Ring" "Gold Ring" "Moonstone Ring" "Two-Stone Ring" "Two-Stone Ring" "Two-Stone Ring" "Amethyst Ring" "Prismatic Ring" "Opal Ring" "Steel Ring"
+					Rarity "Normal"
+					# SetTextColor     [Normal]
+					SetBackgroundColor 000 000 000
+					SetBorderColor     200 200 200
+					SetFontSize        18
+		# 6 Sockets
+			Show # 5 Links
+				Sockets 6
+				LinkedSockets 5
+				# SetTextColor     [Rarity]
+				SetBackgroundColor 000 063 000
+				SetBorderColor     000 063 000
+				SetFontSize        36
+			Show # Remaining
+				Sockets 6
+				# SetTextColor     [Rarity]
+				SetBackgroundColor 000 063 000
+				SetBorderColor     000 063 000
+				SetFontSize        33
+		Show # 5 Links
+			LinkedSockets 5
+			# SetTextColor     [Rarity]
+			SetBackgroundColor 063 000 000
+			SetBorderColor     063 000 000
+			SetFontSize        30
+		# Uniques
+			Show # Pieces
+				Class "Piece"
+				SetTextColor       175 096 037
+				SetBackgroundColor 000 000 000
+				SetBorderColor     000 000 000
+				SetFontSize        36
+			Show # Chromatic Items
+				Rarity "Unique"
+				SocketGroup RGB
+				# SetTextColor     [Unique]
+				SetBackgroundColor 000 063 000
+				SetBorderColor     000 063 000
+				SetFontSize        36
+			Show # Remaining
+				Rarity "Unique"
+				# SetTextColor     [Unique]
+				SetBackgroundColor 000 000 000
+				SetBorderColor     000 000 000
+				SetFontSize        36
+		# Rares
+			# TODO Leveling
+			Show # Chromatic Items
+				Rarity "Rare"
+				SocketGroup RGB
+				# SetTextColor     [Rare]
+				SetBackgroundColor 000 063 000
+				SetBorderColor     000 063 000
+				SetFontSize        30
+			Show # Lvl 60 Rares (Reminder)
+				Rarity "Rare"
+				ItemLevel = 60
+				# SetTextColor     [Rare]
+				SetBackgroundColor 000 063 000
+				SetBorderColor     000 063 000
+				SetFontSize        30
+			Show # Remaining
+				Rarity "Rare"
+				# SetTextColor     [Rare]
+				SetBackgroundColor 000 000 000
+				SetBorderColor     000 000 000
+				SetFontSize        30
+		Show # Chromatic Items
+			SocketGroup RGB
+			# SetTextColor     [Rarity]
+			SetBackgroundColor 000 063 000
+			SetBorderColor     000 063 000
+			SetFontSize        27
+		# TODO Leveling
+	# Corrupted Stuff
+		# TODO border colors
+		Show # Remaining
+			Corrupted "True"
+			# SetTextColor     [Rarity]
+			SetBackgroundColor 000 000 000
+			SetBorderColor     000 000 000
+			SetFontSize        27
+	# Identified Stuff
+		# TODO border colors
+		Show # Remaining
+			Identified True
+			# SetTextColor     [Rarity]
+			SetBackgroundColor 000 000 000
+			SetBorderColor     000 000 000
+			SetFontSize        27
+	# ERRORS
+		Show # Maps
+			Class "Map"
+			SetTextColor       255 000 000
+			SetBackgroundColor 255 255 255
+			SetBorderColor     255 000 000
+			SetFontSize        44
+			MinimapIcon        0 Red Triangle
+			PlayEffect         Red
+		Show # Gems
+			Class "Gem"
+			SetTextColor       255 000 000
+			SetBackgroundColor 255 255 255
+			SetBorderColor     255 000 000
+			SetFontSize        44
+			MinimapIcon        0 Red Triangle
+			PlayEffect         Red
+
+# Leftovers
+	Show # Leaguestones
+		# TODO
+		Class "Leaguestone"
+		# SetTextColor     [Rarity]
+		SetBackgroundColor 127 000 127
+		# SetBorderColor     TODO find Leaguestone color
+		SetFontSize        45
+	Show # Labyrinth Items
+		# TODO
+		# TODO wrong border color
+		Class "Labyrinth"
+		SetTextColor       200 200 200
+		SetBackgroundColor 000 000 063
+		SetBorderColor     074 230 058
+		SetFontSize        36
+	Show # Rares & Uniques
+		# TODO
+		# TODO correct border color?
+		Rarity "Rare" "Unique"
+		# SetTextColor     [Rarity]
+		SetBackgroundColor 000 000 000
+		SetBorderColor     000 000 000
+		SetFontSize        36
+	Hide # Leveling
+		# TODO
+		# TODO border colors
