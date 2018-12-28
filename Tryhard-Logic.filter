@@ -182,8 +182,8 @@
 					SetBackgroundColor 063 000 000
 					SetBorderColor     124 081 050
 					SetFontSize        36
-					MinimapIcon        1 Brown Square
-					PlayEffect         Brown
+					MinimapIcon        1 Red Square
+					PlayEffect         Red
 				Show # Yellow Tier
 					Class "Map"
 					Rarity Unique
@@ -192,8 +192,8 @@
 					SetBackgroundColor 063 063 000
 					SetBorderColor     124 081 050
 					SetFontSize        36
-					MinimapIcon        1 Yellow Square
-					PlayEffect         Yellow
+					MinimapIcon        1 Red Square
+					PlayEffect         Red
 				Show # White Tier
 					Class "Map"
 					Rarity Unique
@@ -201,8 +201,8 @@
 					SetBackgroundColor 000 000 000
 					SetBorderColor     124 081 050
 					SetFontSize        36
-					MinimapIcon        1 White Square
-					PlayEffect         White
+					MinimapIcon        1 Red Square
+					PlayEffect         Red
 			# Map Fragments
 				Show # The Shaper's Realm (Fragments)
 					Class "Map Fragment"
