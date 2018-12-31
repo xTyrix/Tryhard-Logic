@@ -419,7 +419,7 @@
 					SetFontSize        36
 					MinimapIcon        1 White Square
 					PlayEffect         White
-			Show # Down from Yellow and Red
+			Show # Down from Yellow
 				Class "Map"
 				ItemLevel >= 75
 				# SetTextColor     [Rarity]
@@ -428,6 +428,15 @@
 				SetFontSize        27
 				MinimapIcon        2 White Square
 				PlayEffect         White
+			Show # Down from Red
+				Class "Map"
+				ItemLevel >= 75
+				# SetTextColor     [Rarity]
+				SetBackgroundColor 000 000 000
+				SetBorderColor     124 081 050
+				SetFontSize        27
+				# MinimapIcon      [None]
+				# PlayEffect       [None]
 			Show # Remaining
 				Class "Map"
 				# SetTextColor     [Rarity]
