@@ -55,26 +55,27 @@
 		# 44 - ERROR
 		# 45 - OMG
 
-# TODO not sure what this is
-	Show # Relics
-		Class "Relic"
-		SetTextColor       255 000 000
-		SetBackgroundColor 255 255 255
-		SetBorderColor     255 000 000
-		SetFontSize        44
-		MinimapIcon        0 Red Triangle
-		PlayEffect         Red
-
 # Actual Filter
+	# Weird Stuff
+		Show # by Class
+			Class "Relic" "Hideout Doodads" "Microtransactions"
+			SetTextColor       255 000 000
+			SetBackgroundColor 255 255 255
+			SetBorderColor     255 000 000
+			SetFontSize        44
+			MinimapIcon        0 Red Triangle
+			PlayEffect         Red
+		Show # by Base Type
+			BaseType "Book of Skill" "Book of Reform"
+			SetTextColor       255 000 000
+			SetBackgroundColor 255 255 255
+			SetBorderColor     255 000 000
+			SetFontSize        44
+			MinimapIcon        0 Red Triangle
+			PlayEffect         Red
 	# Quest Items
 		Show # Atlas related Items
 			BaseType "Divine Vessel" "Unshaping Orb" "Memory Fragment" "Shaper's Orb" "The Shaper's Key"
-			SetTextColor       175 096 037
-			SetBackgroundColor 000 000 000
-			SetBorderColor     074 230 058
-			SetFontSize        36
-		Show # Skill Tree related
-			BaseType "Book of Skill" "Book of Reform"
 			SetTextColor       175 096 037
 			SetBackgroundColor 000 000 000
 			SetBorderColor     074 230 058
@@ -93,7 +94,7 @@
 			SetBorderColor     074 230 058
 			SetFontSize        36
 		Show # Other Quest Items
-			Class "Quest Items" "Hideout Doodads" "Microtransactions"
+			Class "Quest Items"
 			SetTextColor       200 200 200
 			SetBackgroundColor 000 000 000
 			SetBorderColor     074 230 058
