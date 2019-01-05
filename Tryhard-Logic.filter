@@ -437,7 +437,7 @@
 				SetBorderColor     124 081 050
 				SetFontSize        27
 				# MinimapIcon      [None]
-				# PlayEffect       [None]
+				PlayEffect         White Temp
 			Show # Remaining
 				Class "Map"
 				# SetTextColor     [Rarity]
@@ -446,6 +446,20 @@
 				SetFontSize        30
 				MinimapIcon        2 White Square
 				PlayEffect         White
+	# Divination Cards
+		Show # Stacked Deck
+			BaseType "Stacked Deck"
+			SetTextColor       175 096 037
+			SetBackgroundColor 000 000 000
+			SetBorderColor     170 230 230
+			SetFontSize        36
+		Show # Cards
+			# TODO
+			Class "Divination Card"
+			SetTextColor       200 200 200
+			SetBackgroundColor 000 000 000
+			SetBorderColor     170 230 230
+			SetFontSize        36
 	# Currency
 		Show # Not Dropping
 			Class "Currency"
@@ -606,20 +620,6 @@
 			SetFontSize        44
 			MinimapIcon        0 Red Triangle
 			PlayEffect         Red
-	# Divination Cards
-		Show # Stacked Deck
-			BaseType "Stacked Deck"
-			SetTextColor       175 096 037
-			SetBackgroundColor 000 000 000
-			SetBorderColor     170 230 230
-			SetFontSize        36
-		Show # Cards
-			# TODO
-			Class "Divination Card"
-			SetTextColor       200 200 200
-			SetBackgroundColor 000 000 000
-			SetBorderColor     170 230 230
-			SetFontSize        36
 	# Gems
 		Show # Not droping anymore
 			BaseType "Item Quantity"
