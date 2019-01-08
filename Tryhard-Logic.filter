@@ -11,42 +11,47 @@
 # TODO drop sounds (DisableDropSound, CustomAlertSound)
 
 # TODO uniques
-# TODO corrupted background
+# TODO corrupted + mirrored color
+# SetTextColor 0 -> SetTextColor [BackgroundColor]?
 
 # TODO rework "hide" to show identified items
 #   OR make identified sections with mods
 
 # Whish: Sounds for Shaper / Elder Things
 
-# List of used Color and Size Values
-	# Text Colors
-		# 175 096 037 - Unique Items
-		# 255 255 119 - Rare Items
-		# 136 136 255 - Magic Items
-		# 200 200 200 - Normal Items / Items without Rarity
-		# 255 000 000 - ERROR
-	# Background Colors
-		# 127 000 127 - OMG-Drops
-		# 000 000 126 - League-specific Items
-		# 000 000 063 - Old League-specific Items / Somehow Special Item
-		# 170 158 130 - High Currency
-		# 063 000 000 - Craft Bases / Red Maps
-		# 000 063 000 - Items for Vendor-recipes
-		# 063 063 000 - Yellow Tier Maps
-		# 000 000 000 - Other Items / Nothing Special
-		# 255 255 255 - ERROR
-	# Border Colors
-		# 074 230 058 - Quest Items / Hideout Doodads / Microtransactions
-		# 170 158 130 - Currency
-		# 170 230 230 - Divination Cards
-		# 124 081 050 - Maps
-		# 027 162 155 - Gems
-		# 000 189 147 - Jewels
-		# 127 000 256 - Flasks
-		# 255 000 000 - ERROR
-		# [Rarity] for Best Base Types
-		# [BackgroundColor] if none of the above match
-	# Font Sizes
+# TODO recheck
+# List of used Colors
+	# 175 096 037 - Unique Items
+	# 255 255 119 - Rare Items
+	# 136 136 255 - Magic Items
+	# 184 218 242 - Crafted Mod Color (Veiled Items)
+	# TODO 000 000 000?
+	# 200 200 200 - Normal Items / Items without Rarity
+	# 000 000 000 - Other Items / Nothing Special
+	# 255 000 000 - ERROR
+	# 255 255 255 - ERROR
+	# 127 000 127 - OMG-Drops
+	# TODO not used?
+	# 000 000 126 - League-specific Items
+	# TODO not used?
+	# 000 000 063 - Old League-specific Items / Somehow Special Item
+	# 170 158 130 - Currency
+	# TODO unused?
+	# 063 000 000 - Craft Bases / Red Maps
+	# TODO unused? other color?
+	# 000 063 000 - Items for Vendor-recipes
+	# TODO unused?
+	# 063 063 000 - Yellow Tier Maps
+	# 074 230 058 - Quest Items / Hideout Doodads / Microtransactions
+	# 170 230 230 - Divination Cards
+	# 124 081 050 - Maps
+	# 027 162 155 - Gems
+	# 000 189 147 - Jewels
+	# 127 000 256 - Flasks
+	# TODO change
+	# [Rarity] for Best Base Types
+
+# List of used Font Sizes
 		# 18 - Hide
 		# 27 ˥
 		# 30  〉- Scale for Drops to pick up
@@ -115,24 +120,28 @@
 			SetBackgroundColor 124 081 050
 			SetBorderColor     000 000 000
 			SetFontSize        36
-			MinimapIcon        1 Red Square
-			PlayEffect         Red
+			MinimapIcon        1 Brown Square
+			PlayEffect         Brown
 		# TODO high base types?
 		Show # Veiled items
 			HasExplicitMod "Veil"
-			SetTextColor       184 218 242 # TODO Crafted Mod Color
+			SetTextColor       184 218 242
 			SetBackgroundColor 000 000 000
-			SetBorderColor     184 218 242 # TODO Crafted Mod Color
+			SetBorderColor     184 218 242
 			SetFontSize        36
 			# TODO minimap + effect?
+	# TODO Rarity?
+	# TODO Colors for Tiers?
 	# Maps
+		# TODO Harbinger Unique?
+		# TODO check for tier?
 		Show # Corupted Bases Uncorrupted
 			Class "Map"
 			BaseType "Harbinger Map" "Vaal Temple Map"
 			Corrupted False
-			# SetTextColor [Rarity]
-			SetBackgroundColor 127 000 127
-			SetBorderColor     124 081 050
+			SetTextColor       000 000 000
+			SetBackgroundColor 124 081 050
+			SetBorderColor     127 000 127
 			SetFontSize        45
 			MinimapIcon        0 Red Square
 			PlayEffect         Red
@@ -141,183 +150,164 @@
 				Show # Ancient Reliquary Key
 					Class "Map"
 					BaseType "Ancient Reliquary Key"
-					SetTextColor       200 200 200
-					SetBackgroundColor 127 000 127
-					SetBorderColor     124 081 050
+					SetTextColor       175 096 037
+					SetBackgroundColor 124 081 050
+					SetBorderColor     127 000 127
 					SetFontSize        45
-					MinimapIcon        0 Red Square
-					PlayEffect         Red
+					MinimapIcon        0 Brown Square
+					PlayEffect         Brown
 				Show # Untainted Paradise
 					Class "Map"
 					BaseType "Tropical Island Map"
 					Rarity "Unique"
-					SetTextColor       200 200 200
-					SetBackgroundColor 127 000 127
-					SetBorderColor     124 081 050
+					SetTextColor       175 096 037
+					SetBackgroundColor 124 081 050
+					SetBorderColor     127 000 127
 					SetFontSize        45
-					MinimapIcon        0 Red Square
-					PlayEffect         Red
+					MinimapIcon        0 Brown Square
+					PlayEffect         Brown
+			# TODO minimap + effect color
 			# League Specific
 				Show # Splinters
 					Class "Currency"
 					BaseType "Splinter of Xoph" "Splinter of Tul" "Splinter of Esh" "Splinter of Uul-Netol" "Splinter of Chayula"
 					SetTextColor       175 096 037
-					SetBackgroundColor 000 000 063
+					SetBackgroundColor 000 000 000
 					SetBorderColor     124 081 050
 					SetFontSize        36
-					MinimapIcon        1 Blue Square
-					PlayEffect         Blue
+					MinimapIcon        1 Brown Square
+					PlayEffect         Brown
 				Show # Brachstones
 						Class "Map"
 						BaseType "Xoph's Breachstone" "Tul's Breachstone" "Esh's Breachstone" "Uul-Netol's Breachstone" "Chayula's Breachstone"
 						SetTextColor       175 096 037
-						SetBackgroundColor 000 000 063
-						SetBorderColor     124 081 050
+						SetBackgroundColor 124 081 050
+						SetBorderColor     175 096 037
 						SetFontSize        36
-						MinimapIcon        1 Blue Square
-						PlayEffect         Blue
+						MinimapIcon        1 Brown Square
+						PlayEffect         Brown
 				Show # Remaining
 						Class "Map"
 						BaseType "Harbinger Map" "Chateau Map"
 						Rarity "Unique"
 						SetTextColor       175 096 037
-						SetBackgroundColor 000 000 063
-						SetBorderColor     124 081 050
+						SetBackgroundColor 124 081 050
+						SetBorderColor     175 096 037
 						SetFontSize        36
-						MinimapIcon        1 Blue Square
-						PlayEffect         Blue
-			# Actual Unique Maps
-				Show # Red Tier
-					Class "Map"
-					Rarity Unique
-					MapTier >= 11
-					# SetTextColor     [Unique]
-					SetBackgroundColor 063 000 000
-					SetBorderColor     124 081 050
-					SetFontSize        36
-					MinimapIcon        1 Red Square
-					PlayEffect         Red
-				Show # Yellow Tier
-					Class "Map"
-					Rarity Unique
-					MapTier >= 6
-					# SetTextColor     [Unique]
-					SetBackgroundColor 063 063 000
-					SetBorderColor     124 081 050
-					SetFontSize        36
-					MinimapIcon        1 Red Square
-					PlayEffect         Red
-				Show # White Tier
-					Class "Map"
-					Rarity Unique
-					# SetTextColor     [Unique]
-					SetBackgroundColor 000 000 000
-					SetBorderColor     124 081 050
-					SetFontSize        36
-					MinimapIcon        1 Red Square
-					PlayEffect         Red
+						MinimapIcon        1 Brown Square
+						PlayEffect         Brown
+			# TODO extra segment for really good ones
+			Show # Actual Unique Maps
+				Class "Map"
+				Rarity Unique
+				SetTextColor       175 096 037
+				SetBackgroundColor 000 000 000
+				SetBorderColor     124 081 050
+				SetFontSize        36
+				MinimapIcon        1 Brown Square
+				PlayEffect         Brown
 			# Map Fragments
 				Show # The Shaper's Realm (Fragments)
 					Class "Map Fragment"
 					BaseType "Fragment of the Hydra" "Fragment of the Phoenix" "Fragment of the Minotaur" "Fragment of the Chimera"
 					SetTextColor       175 096 037
-					SetBackgroundColor 127 000 127
-					SetBorderColor     124 081 050
+					SetBackgroundColor 124 081 050
+					SetBorderColor     127 000 127
 					SetFontSize        45
-					MinimapIcon        0 Red Square
-					PlayEffect         Red
-				# Atziri
-					Show # Sacrifice at Midnight
-						Class "Map Fragment"
-						BaseType "Sacrifice at Midnight"
-						SetTextColor       175 096 037
-						SetBackgroundColor 000 000 063
-						SetBorderColor     124 081 050
-						SetFontSize        36
-						MinimapIcon        1 Blue Square
-						PlayEffect         Blue
-					Show # Others
-						Class "Map Fragment"
-						BaseType "Sacrifice at Dawn" "Sacrifice at Dusk" "Sacrifice at Noon"
-						SetTextColor       175 096 037
-						SetBackgroundColor 000 000 063
-						SetBorderColor     124 081 050
-						SetFontSize        33
-						MinimapIcon        2 Blue Square
-						PlayEffect         Blue
+					MinimapIcon        0 Brown Square
+					PlayEffect         Brown
 				# Uber Atziri
 					Show # Mortal Hope
 						Class "Map Fragment"
 						BaseType "Mortal Hope"
 						SetTextColor       175 096 037
-						SetBackgroundColor 127 000 127
-						SetBorderColor     124 081 050
+						SetBackgroundColor 124 081 050
+						SetBorderColor     127 000 127
 						SetFontSize        45
-						MinimapIcon        0 Red Square
-						PlayEffect         Red
+						MinimapIcon        0 Brown Square
+						PlayEffect         Brown
 					Show # Others
 						Class "Map Fragment"
 						BaseType "Mortal"
 						SetTextColor       175 096 037
-						SetBackgroundColor 000 000 063
-						SetBorderColor     124 081 050
+						SetBackgroundColor 124 081 050
+						SetBorderColor     175 096 037
 						SetFontSize        36
-						MinimapIcon        1 Blue Square
-						PlayEffect         Blue
+						MinimapIcon        1 Brown Square
+						PlayEffect         Brown
+				# Atziri
+					Show # Sacrifice at Midnight
+						Class "Map Fragment"
+						BaseType "Sacrifice at Midnight"
+						SetTextColor       175 096 037
+						SetBackgroundColor 124 081 050
+						SetBorderColor     175 096 037
+						SetFontSize        36
+						MinimapIcon        1 Brown Square
+						PlayEffect         Brown
+					Show # Others
+						Class "Map Fragment"
+						BaseType "Sacrifice at Dawn" "Sacrifice at Dusk" "Sacrifice at Noon"
+						SetTextColor       175 096 037
+						SetBackgroundColor 000 000 000
+						SetBorderColor     124 081 050
+						SetFontSize        33
+						MinimapIcon        2 Brown Square
+						PlayEffect         Brown
 				Show # Keys
 					Class "Map Fragments"
 					BaseType "Key"
 					SetTextColor       175 096 037
-					SetBackgroundColor 000 000 063
-					SetBorderColor     124 081 050
-					SetFontSize        33
-					MinimapIcon        2 Blue Square
-					PlayEffect         Blue
+					SetBackgroundColor 124 081 050
+					SetBorderColor     175 096 037
+					SetFontSize        36
+					MinimapIcon        1 Brown Square
+					PlayEffect         Brown
 			# Others
 				Show # Timeworn Reliquary Key
 					Class "Map"
 					BaseType "Timeworn Reliquary Key"
 					SetTextColor       175 096 037
-					SetBackgroundColor 127 000 127
-					SetBorderColor     124 081 050
+					SetBackgroundColor 124 081 050
+					SetBorderColor     127 000 127
 					SetFontSize        45
-					MinimapIcon        0 Red Square
-					PlayEffect         Red
+					MinimapIcon        0 Brown Square
+					PlayEffect         Brown
 				Show # Endgame Labyrinth
 					#Class "Map"
 					BaseType "Offering to the Goddess"
 					SetTextColor       175 096 037
-					SetBackgroundColor 000 000 063
-					SetBorderColor     124 081 050
+					SetBackgroundColor 124 081 050
+					SetBorderColor     175 096 037
 					SetFontSize        36
-					MinimapIcon        1 Blue Square
-					PlayEffect         Blue
+					MinimapIcon        1 Brown Square
+					PlayEffect         Brown
 		Show # Tier 16
 			Class "Map"
 			MapTier 16
-			# SetTextColor     [Rarity]
-			SetBackgroundColor 127 000 127
-			SetBorderColor     124 081 050
+			SetTextColor       000 000 000
+			SetBackgroundColor 124 081 050
+			SetBorderColor     127 000 127
 			SetFontSize        45
 			MinimapIcon        0 Red Square
 			PlayEffect         Red
 		Show # Red Tier
 			Class "Map"
 			MapTier >= 11
-			# SetTextColor     [Rarity]
-			SetBackgroundColor 063 000 000
-			SetBorderColor     124 081 050
+			SetTextColor       000 000 000
+			SetBackgroundColor 124 081 050
+			SetBorderColor     000 000 000
 			SetFontSize        36
-			MinimapIcon        1 Brown Square
-			PlayEffect         Brown
+			MinimapIcon        1 Red Square
+			PlayEffect         Red
 		# Yellow Tier
 			# +0 to +2 Maps
 				Show # Tier 6
 					Class "Map"
 					MapTier >= 6
 					ItemLevel <= 73
-					# SetTextColor     [Rarity]
-					SetBackgroundColor 063 063 000
+					SetTextColor       124 081 050
+					SetBackgroundColor 000 000 000
 					SetBorderColor     124 081 050
 					SetFontSize        36
 					MinimapIcon        1 Yellow Square
@@ -326,8 +316,8 @@
 					Class "Map"
 					MapTier >= 7
 					ItemLevel <= 74
-					# SetTextColor     [Rarity]
-					SetBackgroundColor 063 063 000
+					SetTextColor       124 081 050
+					SetBackgroundColor 000 000 000
 					SetBorderColor     124 081 050
 					SetFontSize        36
 					MinimapIcon        1 Yellow Square
@@ -336,8 +326,8 @@
 					Class "Map"
 					MapTier >= 8
 					ItemLevel <= 75
-					# SetTextColor     [Rarity]
-					SetBackgroundColor 063 063 000
+					SetTextColor       124 081 050
+					SetBackgroundColor 000 000 000
 					SetBorderColor     124 081 050
 					SetFontSize        36
 					MinimapIcon        1 Yellow Square
@@ -346,8 +336,8 @@
 					Class "Map"
 					MapTier >= 9
 					ItemLevel <= 76
-					# SetTextColor     [Rarity]
-					SetBackgroundColor 063 063 000
+					SetTextColor       124 081 050
+					SetBackgroundColor 000 000 000
 					SetBorderColor     124 081 050
 					SetFontSize        36
 					MinimapIcon        1 Yellow Square
@@ -356,8 +346,8 @@
 					Class "Map"
 					MapTier >= 10
 					ItemLevel <= 77
-					# SetTextColor     [Rarity]
-					SetBackgroundColor 063 063 000
+					SetTextColor       124 081 050
+					SetBackgroundColor 000 000 000
 					SetBorderColor     124 081 050
 					SetFontSize        36
 					MinimapIcon        1 Yellow Square
@@ -366,17 +356,17 @@
 				Class "Map"
 				MapTier >= 10
 				ItemLevel >= 80
-				# SetTextColor     [Rarity]
-				SetBackgroundColor 063 063 000
-				SetBorderColor     124 081 050
+				SetTextColor       124 081 050
+				SetBackgroundColor 000 000 000
+				SetBorderColor     000 000 000
 				SetFontSize        27
 				MinimapIcon        2 Yellow Square
 				PlayEffect         Yellow
 			Show # Remaining
 				Class "Map"
 				MapTier >= 6
-				# SetTextColor     [Rarity]
-				SetBackgroundColor 063 063 000
+				SetTextColor       124 081 050
+				SetBackgroundColor 000 000 000
 				SetBorderColor     124 081 050
 				SetFontSize        30
 				MinimapIcon        2 Yellow Square
@@ -386,7 +376,7 @@
 				Show # Tier 1
 					Class "Map"
 					ItemLevel <= 68
-					# SetTextColor     [Rarity]
+					SetTextColor       124 081 050
 					SetBackgroundColor 000 000 000
 					SetBorderColor     124 081 050
 					SetFontSize        36
@@ -396,7 +386,7 @@
 					Class "Map"
 					MapTier >= 2
 					ItemLevel <= 69
-					# SetTextColor     [Rarity]
+					SetTextColor       124 081 050
 					SetBackgroundColor 000 000 000
 					SetBorderColor     124 081 050
 					SetFontSize        36
@@ -406,7 +396,7 @@
 					Class "Map"
 					MapTier >= 3
 					ItemLevel <= 70
-					# SetTextColor     [Rarity]
+					SetTextColor       124 081 050
 					SetBackgroundColor 000 000 000
 					SetBorderColor     124 081 050
 					SetFontSize        36
@@ -416,7 +406,7 @@
 					Class "Map"
 					MapTier >= 4
 					ItemLevel <= 71
-					# SetTextColor     [Rarity]
+					SetTextColor       124 081 050
 					SetBackgroundColor 000 000 000
 					SetBorderColor     124 081 050
 					SetFontSize        36
@@ -426,33 +416,33 @@
 					Class "Map"
 					MapTier >= 5
 					ItemLevel <= 72
-					# SetTextColor     [Rarity]
+					SetTextColor       124 081 050
 					SetBackgroundColor 000 000 000
 					SetBorderColor     124 081 050
 					SetFontSize        36
 					MinimapIcon        1 White Square
 					PlayEffect         White
-			Show # Down from Yellow
-				Class "Map"
-				ItemLevel >= 75
-				# SetTextColor     [Rarity]
-				SetBackgroundColor 000 000 000
-				SetBorderColor     124 081 050
-				SetFontSize        27
-				MinimapIcon        2 White Square
-				PlayEffect         White
 			Show # Down from Red
 				Class "Map"
 				ItemLevel >= 75
-				# SetTextColor     [Rarity]
+				# SetTextColor     124 081 050
 				SetBackgroundColor 000 000 000
-				SetBorderColor     124 081 050
+				SetBorderColor     000 000 000
 				SetFontSize        27
 				# MinimapIcon      [None]
 				PlayEffect         White Temp
+			Show # Down from Yellow
+				Class "Map"
+				ItemLevel >= 75
+				# SetTextColor     124 081 050
+				SetBackgroundColor 000 000 000
+				SetBorderColor     000 000 000
+				SetFontSize        27
+				MinimapIcon        2 White Square
+				PlayEffect         White
 			Show # Remaining
 				Class "Map"
-				# SetTextColor     [Rarity]
+				SetTextColor       124 081 050
 				SetBackgroundColor 000 000 000
 				SetBorderColor     124 081 050
 				SetFontSize        30
