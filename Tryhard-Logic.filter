@@ -76,29 +76,37 @@
 	# Quest Items
 		Show # Atlas related Items
 			BaseType "Divine Vessel" "Unshaping Orb" "Memory Fragment" "Shaper's Orb" "The Shaper's Key"
-			SetTextColor       175 096 037
-			SetBackgroundColor 000 000 000
-			SetBorderColor     074 230 058
+			SetTextColor       000 000 000
+			SetBackgroundColor 074 230 058
+			SetBorderColor     000 000 000
 			SetFontSize        36
+			MinimapIcon        1 Green Triangle
+			PlayEffect         Green
 		Show # Prophecies
 			Class "Currency"
 			BaseType "Prophecy"
-			SetTextColor       175 096 037
-			SetBackgroundColor 000 000 000
-			SetBorderColor     074 230 058
+			SetTextColor       000 000 000
+			SetBackgroundColor 074 230 058
+			SetBorderColor     000 000 000
 			SetFontSize        36
+			MinimapIcon        1 Green Triangle
+			PlayEffect         Green
 		Show # Incursion Item
-			Class "Incursion Item"
-			SetTextColor       200 200 200
-			SetBackgroundColor 000 000 063
-			SetBorderColor     074 230 058
+			SetTextColor       000 000 000
+			SetBackgroundColor 074 230 058
+			SetBorderColor     000 000 000
 			SetFontSize        36
+			MinimapIcon        1 Green Triangle
+			PlayEffect         Green
+		# TODO Main / Side Quest
 		Show # Other Quest Items
 			Class "Quest Items"
-			SetTextColor       200 200 200
+			SetTextColor       074 230 058
 			SetBackgroundColor 000 000 000
 			SetBorderColor     074 230 058
 			SetFontSize        33
+			MinimapIcon        1 Green Triangle
+			PlayEffect         Green
 	# Current League (Betrayal)
 		Show # Scarabs
 			Class "Map"
