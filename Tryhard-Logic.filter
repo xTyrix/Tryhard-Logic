@@ -1,6 +1,6 @@
 ﻿##########################
 #                        #
-#  Tryhard-Logic.filter  #
+#  Tryhard-Logic.filter  #  Version: Betrayal - Color Rework (to Maps)
 #                        #
 ##########################
 
@@ -43,13 +43,13 @@
 	# TODO unused?
 	# 063 063 000 - Yellow Tier Maps
 	# 074 230 058 - Quest Items / Hideout Doodads / Microtransactions
-	# 170 230 230 - Divination Cards
+	# 014 186 255 - Divination Cards
 	# 124 081 050 - Maps
 	# 027 162 155 - Gems
-	# 000 189 147 - Jewels
-	# 127 000 256 - Flasks
+	# 000 189 147 - Jewels # TODO correct color?
+	# 127 000 256 - Flasks # TODO what color?
 	# TODO change
-	# [Rarity] for Best Base Types
+	# BorderColor [Rarity] for Best Base Types
 
 # List of used Font Sizes
 		# 18 - Hide
@@ -451,17 +451,21 @@
 	# Divination Cards
 		Show # Stacked Deck
 			BaseType "Stacked Deck"
-			SetTextColor       175 096 037
-			SetBackgroundColor 000 000 000
-			SetBorderColor     170 230 230
+			SetTextColor       000 000 000
+			SetBackgroundColor 014 186 255
+			SetBorderColor     000 000 000
 			SetFontSize        36
+			MinimapIcon        1 Blue Star
+			PlayEffect         Blue
+		# TODO sort by base
 		Show # Cards
-			# TODO
 			Class "Divination Card"
-			SetTextColor       200 200 200
+			SetTextColor       014 186 255
 			SetBackgroundColor 000 000 000
-			SetBorderColor     170 230 230
+			SetBorderColor     014 186 255
 			SetFontSize        36
+			MinimapIcon        1 Blue Star
+			PlayEffect         Blue
 	# Currency
 		Show # Not Dropping
 			Class "Currency"
