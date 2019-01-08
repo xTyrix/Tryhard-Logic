@@ -44,7 +44,7 @@
 	# 063 063 000 - Yellow Tier Maps
 	# 074 230 058 - Quest Items / Hideout Doodads / Microtransactions
 	# 014 186 255 - Divination Cards
-	# 124 081 050 - Maps
+	# 124 081 050 - Maps # TODO what color? (close to unique)
 	# 027 162 155 - Gems
 	# 000 189 147 - Jewels # TODO correct color?
 	# 127 000 256 - Flasks # TODO what color?
@@ -97,6 +97,7 @@
 			MinimapIcon        1 Green Triangle
 			PlayEffect         Green
 		Show # Incursion Item
+			Class "Incursion Item"
 			SetTextColor       000 000 000
 			SetBackgroundColor 074 230 058
 			SetBorderColor     000 000 000
