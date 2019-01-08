@@ -6,8 +6,8 @@
 
 # TODO Temple Items mit Special Mods
 
-# TODO minimap (MinimapIcon) (-Maps -Currency -Error)
-# TODO beams (PlayEffect) (-Maps -Currency -Error)
+# TODO minimap (MinimapIcon) (-Maps -Currency -Error -Quest)
+# TODO beams (PlayEffect) (-Maps -Currency -Error -Quest)
 # TODO drop sounds (DisableDropSound, CustomAlertSound)
 
 # TODO uniques
@@ -111,16 +111,20 @@
 		Show # Scarabs
 			Class "Map"
 			BaseType "Scarab"
-			SetTextColor       175 096 037
-			SetBackgroundColor 000 000 126
-			SetBorderColor     124 081 050
+			SetTextColor       000 000 000
+			SetBackgroundColor 124 081 050
+			SetBorderColor     000 000 000
 			SetFontSize        36
+			MinimapIcon        1 Red Square
+			PlayEffect         Red
+		# TODO high base types?
 		Show # Veiled items
 			HasExplicitMod "Veil"
-			# SetTextColor     [Rarity]
-			SetBackgroundColor 000 000 126
-			# SetBorderColor   [TODO]
+			SetTextColor       184 218 242 # TODO Crafted Mod Color
+			SetBackgroundColor 000 000 000
+			SetBorderColor     184 218 242 # TODO Crafted Mod Color
 			SetFontSize        36
+			# TODO minimap + effect?
 	# Maps
 		Show # Corupted Bases Uncorrupted
 			Class "Map"
