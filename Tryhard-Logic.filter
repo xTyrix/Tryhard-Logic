@@ -31,7 +31,7 @@
 	# 170 158 130 - Currency
 	# 074 230 058 - Quest Items
 	# 014 186 255 - Divination Cards
-	# 124 081 050 - Maps
+	# 124 081 050 - Maps # TODO what color? (close to unique)
 	# not used in current progress
 		# 255 255 119 - Rare Items
 		# 136 136 255 - Magic Items
@@ -99,6 +99,7 @@
 			MinimapIcon        1 Green Triangle
 			PlayEffect         Green
 		Show # Incursion Item
+			Class "Incursion Item"
 			SetTextColor       000 000 000
 			SetBackgroundColor 074 230 058
 			SetBorderColor     000 000 000
@@ -427,7 +428,7 @@
 			Show # Down from Red
 				Class "Map"
 				ItemLevel >= 75
-				# SetTextColor     124 081 050
+				SetTextColor       124 081 050
 				SetBackgroundColor 000 000 000
 				SetBorderColor     000 000 000
 				SetFontSize        27
@@ -436,7 +437,7 @@
 			Show # Down from Yellow
 				Class "Map"
 				ItemLevel >= 75
-				# SetTextColor     124 081 050
+				SetTextColor       124 081 050
 				SetBackgroundColor 000 000 000
 				SetBorderColor     000 000 000
 				SetFontSize        27
