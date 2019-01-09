@@ -426,7 +426,7 @@
 			Show # Down from Red
 				Class "Map"
 				ItemLevel >= 75
-				# SetTextColor     124 081 050
+				SetTextColor       124 081 050
 				SetBackgroundColor 000 000 000
 				SetBorderColor     000 000 000
 				SetFontSize        27
@@ -435,7 +435,7 @@
 			Show # Down from Yellow
 				Class "Map"
 				ItemLevel >= 75
-				# SetTextColor     124 081 050
+				SetTextColor       124 081 050
 				SetBackgroundColor 000 000 000
 				SetBorderColor     000 000 000
 				SetFontSize        27
