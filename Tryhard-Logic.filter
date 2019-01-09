@@ -1,6 +1,6 @@
 ﻿##########################
 #                        #
-#  Tryhard-Logic.filter  #  Version: Betrayal - Color Rework (to Maps)
+#  Tryhard-Logic.filter  #  Version: Betrayal - Color Rework (to Currency)
 #                        #
 ##########################
 
@@ -13,6 +13,7 @@
 # TODO uniques
 # TODO corrupted + mirrored color
 # SetTextColor 0 -> SetTextColor [BackgroundColor]?
+# stacks unterschiedlich darstellen? geht das überhaupt?
 
 # TODO rework "hide" to show identified items
 #   OR make identified sections with mods
@@ -22,34 +23,35 @@
 # TODO recheck
 # List of used Colors
 	# 175 096 037 - Unique Items
-	# 255 255 119 - Rare Items
-	# 136 136 255 - Magic Items
 	# 184 218 242 - Crafted Mod Color (Veiled Items)
-	# TODO 000 000 000?
-	# 200 200 200 - Normal Items / Items without Rarity
 	# 000 000 000 - Other Items / Nothing Special
 	# 255 000 000 - ERROR
 	# 255 255 255 - ERROR
 	# 127 000 127 - OMG-Drops
-	# TODO not used?
-	# 000 000 126 - League-specific Items
-	# TODO not used?
-	# 000 000 063 - Old League-specific Items / Somehow Special Item
 	# 170 158 130 - Currency
-	# TODO unused?
-	# 063 000 000 - Craft Bases / Red Maps
-	# TODO unused? other color?
-	# 000 063 000 - Items for Vendor-recipes
-	# TODO unused?
-	# 063 063 000 - Yellow Tier Maps
-	# 074 230 058 - Quest Items / Hideout Doodads / Microtransactions
+	# 074 230 058 - Quest Items
 	# 014 186 255 - Divination Cards
 	# 124 081 050 - Maps
-	# 027 162 155 - Gems
-	# 000 189 147 - Jewels # TODO correct color?
-	# 127 000 256 - Flasks # TODO what color?
-	# TODO change
-	# BorderColor [Rarity] for Best Base Types
+	# not used in current progress
+		# 255 255 119 - Rare Items
+		# 136 136 255 - Magic Items
+		# TODO 000 000 000?
+		# 200 200 200 - Normal Items / Items without Rarity
+		# TODO not used?
+		# 000 000 126 - League-specific Items
+		# TODO not used?
+		# 000 000 063 - Old League-specific Items / Somehow Special Item
+		# TODO unused?
+		# 063 000 000 - Craft Bases / Red Maps
+		# TODO unused? other color?
+		# 000 063 000 - Items for Vendor-recipes
+		# TODO unused?
+		# 063 063 000 - Yellow Tier Maps
+		# 027 162 155 - Gems
+		# 000 189 147 - Jewels # TODO correct color?
+		# 127 000 256 - Flasks # TODO what color?
+		# TODO change
+		# BorderColor [Rarity] for Best Base Types
 
 # List of used Font Sizes
 		# 18 - Hide
@@ -467,157 +469,113 @@
 			MinimapIcon        1 Blue Star
 			PlayEffect         Blue
 	# Currency
-		Show # Not Dropping
-			Class "Currency"
-			BaseType "Eternal Orb" "Net"
-			SetTextColor       200 200 200
-			SetBackgroundColor 127 000 127
-			SetBorderColor     170 158 130
-			SetFontSize        45
-			MinimapIcon        0 Red Diamond
-			PlayEffect         Red
-		# Special Currency
-			Show # Albino Rhoa Feather
+		# Targeted
+			Show # Not Dropping
 				Class "Currency"
-				BaseType "Albino Rhoa Feather"
+				BaseType "Bestiary Orb"
 				SetTextColor       175 096 037
-				SetBackgroundColor 127 000 127
-				SetBorderColor     170 158 130
+				SetBackgroundColor 170 158 130
+				SetBorderColor     127 000 127
 				SetFontSize        45
 				MinimapIcon        0 Red Diamond
 				PlayEffect         Red
-			Show # League Specific
+			# TODO blessings + vials aufteilen
+			Show # High
 				Class "Currency"
-				BaseType "Perandus Coin" "Essence" "Remnant of Corruption" "Silver Coin" "Blessing of Xoph" "Blessing of Tul" "Blessing of Esh" "Blessing of Uul-Netol" "Blessing of Chayula" "Vial"
+				BaseType "Blessing" "Vial"
 				SetTextColor       175 096 037
 				SetBackgroundColor 170 158 130
-				SetBorderColor     170 158 130
-				SetFontSize 36
-				MinimapIcon        1 Blue Diamond
-				PlayEffect         Blue
-		# League Specific
-			Show # Orbs
-				Class "Currency"
-				BaseType "Ancient Orb" "Engineer's Orb" "Harbinger's Orb" "Orb of Binding" "Orb of Horizons" "Bestiary Orb" "Fossil" "Resonator"
-				SetTextColor       200 200 200
-				SetBackgroundColor 000 000 063
-				SetBorderColor     170 158 130
+				SetBorderColor     175 096 037
 				SetFontSize        36
-				MinimapIcon        1 Blue Diamond
-				PlayEffect         Blue
-			Show # Shards
+				MinimapIcon        1 Brown Diamond
+				PlayEffect         Brown
+			# TODO essences + fossils aufteilen
+			Show # Normal
 				Class "Currency"
-				BaseType "Ancient Shard" "Annulment Shard" "Binding Shard" "Chaos Shard" "Engineer's Shard" "Exalted Shard" "Harbinger's Shard" "Horizon Shard" "Mirror Shard" "Regal Shard"
-				SetTextColor       200 200 200
-				SetBackgroundColor 000 000 063
-				SetBorderColor     170 158 130
-				SetFontSize        33
-				# MinimapIcon      [None]
-				PlayEffect         Blue Temp
-		# Mapping
-			Show # Red Tier
+				BaseType "Essence" "Fossil"
+				SetTextColor       175 096 037
+				SetBackgroundColor 170 158 130
+				SetBorderColor     175 096 037
+				SetFontSize        36
+				MinimapIcon        1 Brown Diamond
+				PlayEffect         Brown
+			# TODO perandus coin nach stack size aufsplitten?
+			Show # Low
 				Class "Currency"
-				BaseType "Master Cartographer's Sextant" "Master Cartographer's Seal"
-				SetTextColor       200 200 200
-				SetBackgroundColor 063 000 000
+				BaseType "Perandus Coin"
+				SetTextColor       175 096 037
+				SetBackgroundColor 000 000 000
 				SetBorderColor     170 158 130
 				SetFontSize        36
 				MinimapIcon        1 Brown Diamond
 				PlayEffect         Brown
-			Show # Yellow Tier
+		Show # OMG (>= 100C) / Not Dropping
+			Class "Currency"
+			BaseType  "Mirror of Kalandra" "Exalted Orb" "Eternal Orb" "Mirror Shard" "Net" "Albino Rhoa Feather"
+			SetTextColor       000 000 000
+			SetBackgroundColor 170 158 130
+			SetBorderColor     127 000 127
+			SetFontSize        45
+			MinimapIcon        0 Red Diamond
+			PlayEffect         Red
+		# High (>= 1C)
+			Show # >= 10C
 				Class "Currency"
-				BaseType "Journeyman Cartographer's Sextant" "Journeyman Cartographer's Seal"
-				SetTextColor       200 200 200
-				SetBackgroundColor 063 063 000
-				SetBorderColor     170 158 130
+				BaseTyp "Divine Orb" "Ancient Orb" "Harbinger's Orb" "Orb of Annulment" "Master Cartographer's Seal"
+				SetTextColor       000 000 000
+				SetBackgroundColor 170 158 130
+				SetBorderColor     000 000 000
 				SetFontSize        36
 				MinimapIcon        1 Yellow Diamond
 				PlayEffect         Yellow
-			Show # White Tier
+			Show # Remaining
 				Class "Currency"
-				BaseType "Apprentice Cartographer's Sextant" "Apprentice Cartographer's Seal"
-				SetTextColor       200 200 200
+				BaseTyp "Chaos Orb" "Vaal Orb" "Regal Orb" "Gemcutter's Prism" "Blessed Orb" "Orb of Regret" "Engineer's Orb" "Orb of Binding" "Orb of Horizons" "Apprentice Cartographer's Sextant" "Journeyman Cartographer's Sextant" "Master Cartographer's Sextant" "Remnant of Corruption" "Silver Coin" "Apprentice Cartographer's Seal" "Journeyman Cartographer's Seal" "Ancient Shard" "Annulment Shard" "Exalted Shard" "Harbinger's Shard"
+				SetTextColor       000 000 000
+				SetBackgroundColor 170 158 130
+				SetBorderColor     000 000 000
+				SetFontSize        30
+				MinimapIcon        2 Yellow Diamond
+				PlayEffect         Yellow
+		# Normal
+			Show # Shards
+				Class "Currency"
+				BaseType "Binding Shard" "Chaos Shard" "Engineer's Shard" "Horizon Shard" "Regal Shard" "Binding Shard" "Chaos Shard" "Engineer's Shard"
+				SetTextColor       170 158 130
 				SetBackgroundColor 000 000 000
 				SetBorderColor     170 158 130
-				SetFontSize        36
-				MinimapIcon        1 White Diamond
+				SetFontSize        27
+				MinimapIcon        2 White Diamond
 				PlayEffect         White
-		# Normal Currency
-			Show # >= Exalted
+			# TODO split resonators
+			Show # Remaining
 				Class "Currency"
-				BaseType "Mirror of Kalandra" "Exalted Orb" "Orb of Annulment"
-				SetTextColor       200 200 200
-				SetBackgroundColor 127 000 127
+				BaseType "Cartographer's Chisel" "Orb of Alchemy" "Orb of Fusing" "Orb of Scouring" "Jeweller's Orb" "Orb of Chance" "Resonator" "Chromatic Orb" "Glassblower's Bauble" "Orb of Alteration"
+				SetTextColor       170 158 130
+				SetBackgroundColor 000 000 000
 				SetBorderColor     170 158 130
-				SetFontSize        45
-				MinimapIcon        0 Red Diamond
-				PlayEffect         Red
-			Show # >= Chaos
-				Class "Currency"
-				BaseType "Divine Orb" "Orb of Regret" "Blessed Orb" "Chaos Orb" "Gemcutter's Prism" "Regal Orb"
-				SetTextColor       200 200 200
-				SetBackgroundColor 170 158 130
-				SetBorderColor     170 158 130
-				SetFontSize        36
-				MinimapIcon        1 Green Diamond
-				PlayEffect         Green
-			# Not Your Typical Currency
-				Show # Orbs
-					Class "Currency"
-					BaseType "Orb of Chance" "Jeweller's Orb" "Orb of Fusing" "Orb of Alchemy" "Orb of Scouring" "Vaal Orb" "Cartographer's Chisel"
-					SetTextColor       200 200 200
-					SetBackgroundColor 170 158 130
-					SetBorderColor     170 158 130
-					SetFontSize        30
-					MinimapIcon        2 Green Diamond
-					PlayEffect         Green
-				Show # Shards
-					Class "Currency"
-					BaseType "Alchemy Shard"
-					SetTextColor       200 200 200
-					SetBackgroundColor 170 158 130
-					SetBorderColor     170 158 130
-					SetFontSize        27
-					# MinimapIcon      [None]
-					PlayEffect         Green Temp
-			# Common
-				Show # Orbs
-					Class "Currency"
-					BaseType "Armourer's Scrap" "Blacksmith's Whetstone" "Chromatic Orb" "Glassblower's Bauble" "Orb of Transmutation" "Orb of Augmentation" "Orb of Alteration"
-					SetTextColor       200 200 200
-					SetBackgroundColor 000 000 000
-					SetBorderColor     170 158 130
-					SetFontSize        30
-					# MinimapIcon      [None]
-					PlayEffect         Green Temp
-				Show # Shards
-					Class "Currency"
-					BaseType "Transmutation Shard" "Alteration Shard"
-					SetTextColor       200 200 200
-					SetBackgroundColor 000 000 000
-					SetBorderColor     170 158 130
-					SetFontSize        27
-					# MinimapIcon      [None]
-					# PlayEffect       [None]
-			# Don't Bother
-				Show # Orbs
-					Class "Currency"
-					BaseType "Scroll of Wisdom" "Portal Scroll"
-					SetTextColor       200 200 200
-					SetBackgroundColor 000 000 000
-					SetBorderColor     170 158 130
-					SetFontSize        27
-					# MinimapIcon      [None]
-					# PlayEffect       [None]
-				Hide # Shards
-					Class "Currency"
-					BaseType "Scroll Fragment"
-					SetTextColor       200 200 200
-					SetBackgroundColor 000 000 000
-					SetBorderColor     170 158 130
-					SetFontSize        18
-					# MinimapIcon      [None]
-					# PlayEffect       [None]
+				SetFontSize        30
+				MinimapIcon        2 White Diamond
+				PlayEffect         White
+		# Low
+		Show
+			Class "Currency"
+			BaseType "Orb of Augmentation" "Armourer's Scrap" "Blacksmith's Whetstone" "Orb of Transmutation" "Alchemy Shard" "Scroll of Wisdom" "Portal Scroll"
+			SetTextColor       170 158 130
+			SetBackgroundColor 000 000 000
+			SetBorderColor     000 000 000
+			SetFontSize        27
+			# MinimapIcon      [None]
+			PlayEffect         White Temp
+		Hide
+			Class "Currency"
+			BaseType "Transmutation Shard" "Alteration Shard" "Scroll Fragment"
+			SetTextColor       170 158 130
+			SetBackgroundColor 000 000 000
+			SetBorderColor     000 000 000
+			SetFontSize        18
+			# MinimapIcon      [None]
+			# PlayEffect       [None]
 		Show # Currency ERROR
 			Class "Currency"
 			SetTextColor       255 000 000
