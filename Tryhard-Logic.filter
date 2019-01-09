@@ -522,7 +522,7 @@
 		# High (>= 1C)
 			Show # >= 10C
 				Class "Currency"
-				BaseTyp "Divine Orb" "Ancient Orb" "Harbinger's Orb" "Orb of Annulment" "Master Cartographer's Seal"
+				BaseType "Divine Orb" "Ancient Orb" "Harbinger's Orb" "Orb of Annulment" "Master Cartographer's Seal"
 				SetTextColor       000 000 000
 				SetBackgroundColor 170 158 130
 				SetBorderColor     000 000 000
@@ -531,7 +531,7 @@
 				PlayEffect         Yellow
 			Show # Remaining
 				Class "Currency"
-				BaseTyp "Chaos Orb" "Vaal Orb" "Regal Orb" "Gemcutter's Prism" "Blessed Orb" "Orb of Regret" "Engineer's Orb" "Orb of Binding" "Orb of Horizons" "Apprentice Cartographer's Sextant" "Journeyman Cartographer's Sextant" "Master Cartographer's Sextant" "Remnant of Corruption" "Silver Coin" "Apprentice Cartographer's Seal" "Journeyman Cartographer's Seal" "Ancient Shard" "Annulment Shard" "Exalted Shard" "Harbinger's Shard"
+				BaseType "Chaos Orb" "Vaal Orb" "Regal Orb" "Gemcutter's Prism" "Blessed Orb" "Orb of Regret" "Engineer's Orb" "Orb of Binding" "Orb of Horizons" "Apprentice Cartographer's Sextant" "Journeyman Cartographer's Sextant" "Master Cartographer's Sextant" "Remnant of Corruption" "Silver Coin" "Apprentice Cartographer's Seal" "Journeyman Cartographer's Seal" "Ancient Shard" "Annulment Shard" "Exalted Shard" "Harbinger's Shard"
 				SetTextColor       000 000 000
 				SetBackgroundColor 170 158 130
 				SetBorderColor     000 000 000
