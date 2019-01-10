@@ -556,8 +556,8 @@
 				SetBackgroundColor 000 000 000
 				SetBorderColor     170 158 130
 				SetFontSize        27
-				MinimapIcon        2 White Diamond
-				PlayEffect         White
+				# MinimapIcon      [None]
+				PlayEffect         White Temp
 			# TODO split resonators
 			Show # Remaining
 				Class "Currency"
@@ -569,24 +569,24 @@
 				MinimapIcon        2 White Diamond
 				PlayEffect         White
 		# Low
-		Show
-			Class "Currency"
-			BaseType "Orb of Augmentation" "Armourer's Scrap" "Blacksmith's Whetstone" "Orb of Transmutation" "Alchemy Shard" "Scroll of Wisdom" "Portal Scroll"
-			SetTextColor       170 158 130
-			SetBackgroundColor 000 000 000
-			SetBorderColor     000 000 000
-			SetFontSize        27
-			# MinimapIcon      [None]
-			PlayEffect         White Temp
-		Hide
-			Class "Currency"
-			BaseType "Transmutation Shard" "Alteration Shard" "Scroll Fragment"
-			SetTextColor       170 158 130
-			SetBackgroundColor 000 000 000
-			SetBorderColor     000 000 000
-			SetFontSize        18
-			# MinimapIcon      [None]
-			# PlayEffect       [None]
+			Show
+				Class "Currency"
+				BaseType "Orb of Augmentation" "Armourer's Scrap" "Blacksmith's Whetstone" "Orb of Transmutation" "Alchemy Shard" "Scroll of Wisdom" "Portal Scroll"
+				SetTextColor       170 158 130
+				SetBackgroundColor 000 000 000
+				SetBorderColor     000 000 000
+				SetFontSize        27
+				# MinimapIcon      [None]
+				# PlayEffect       [None]
+			Hide
+				Class "Currency"
+				BaseType "Transmutation Shard" "Alteration Shard" "Scroll Fragment"
+				SetTextColor       170 158 130
+				SetBackgroundColor 000 000 000
+				SetBorderColor     000 000 000
+				SetFontSize        18
+				# MinimapIcon      [None]
+				# PlayEffect       [None]
 		Show # Currency ERROR
 			Class "Currency"
 			SetTextColor       255 000 000
