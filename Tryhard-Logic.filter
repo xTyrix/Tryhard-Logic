@@ -142,7 +142,7 @@
 			Class "Map"
 			BaseType "Harbinger Map" "Vaal Temple Map"
 			Corrupted False
-			SetTextColor       000 000 000
+			SetTextColor       127 000 127
 			SetBackgroundColor 124 081 050
 			SetBorderColor     127 000 127
 			SetFontSize        45
@@ -153,9 +153,9 @@
 				Show # Ancient Reliquary Key
 					Class "Map"
 					BaseType "Ancient Reliquary Key"
-					SetTextColor       175 096 037
-					SetBackgroundColor 124 081 050
-					SetBorderColor     127 000 127
+					SetTextColor       124 081 050
+					SetBackgroundColor 127 000 127
+					SetBorderColor     124 081 050
 					SetFontSize        45
 					MinimapIcon        0 Brown Square
 					PlayEffect         Brown
@@ -163,7 +163,7 @@
 					Class "Map"
 					BaseType "Tropical Island Map"
 					Rarity "Unique"
-					SetTextColor       175 096 037
+					SetTextColor       127 000 127
 					SetBackgroundColor 124 081 050
 					SetBorderColor     127 000 127
 					SetFontSize        45
@@ -213,7 +213,7 @@
 				Show # The Shaper's Realm (Fragments)
 					Class "Map Fragment"
 					BaseType "Fragment of the Hydra" "Fragment of the Phoenix" "Fragment of the Minotaur" "Fragment of the Chimera"
-					SetTextColor       175 096 037
+					SetTextColor       127 000 127
 					SetBackgroundColor 124 081 050
 					SetBorderColor     127 000 127
 					SetFontSize        45
@@ -223,7 +223,7 @@
 					Show # Mortal Hope
 						Class "Map Fragment"
 						BaseType "Mortal Hope"
-						SetTextColor       175 096 037
+						SetTextColor       127 000 127
 						SetBackgroundColor 124 081 050
 						SetBorderColor     127 000 127
 						SetFontSize        45
@@ -270,7 +270,7 @@
 				Show # Timeworn Reliquary Key
 					Class "Map"
 					BaseType "Timeworn Reliquary Key"
-					SetTextColor       175 096 037
+					SetTextColor       127 000 127
 					SetBackgroundColor 124 081 050
 					SetBorderColor     127 000 127
 					SetFontSize        45
@@ -288,7 +288,7 @@
 		Show # Tier 16
 			Class "Map"
 			MapTier 16
-			SetTextColor       000 000 000
+			SetTextColor       127 000 127
 			SetBackgroundColor 124 081 050
 			SetBorderColor     127 000 127
 			SetFontSize        45
@@ -474,7 +474,7 @@
 			Show # Not Dropping
 				Class "Currency"
 				BaseType "Bestiary Orb"
-				SetTextColor       175 096 037
+				SetTextColor       127 000 127
 				SetBackgroundColor 170 158 130
 				SetBorderColor     127 000 127
 				SetFontSize        45
@@ -510,15 +510,25 @@
 				SetFontSize        36
 				MinimapIcon        1 Brown Diamond
 				PlayEffect         Brown
-		Show # OMG (>= 100C) / Not Dropping
-			Class "Currency"
-			BaseType  "Mirror of Kalandra" "Exalted Orb" "Eternal Orb" "Mirror Shard" "Net" "Albino Rhoa Feather"
-			SetTextColor       000 000 000
-			SetBackgroundColor 170 158 130
-			SetBorderColor     127 000 127
-			SetFontSize        45
-			MinimapIcon        0 Red Diamond
-			PlayEffect         Red
+		# OMG (>= 100C) / Not Dropping
+			Show # OMFG (>= 100Ex)
+				Class "Currency"
+				BaseType "Mirror of Kalandra" "Eternal Orb" "Albino Rhoa Feather"
+				SetTextColor       170 158 130
+				SetBackgroundColor 127 000 127
+				SetBorderColor     170 158 130
+				SetFontSize        45
+				MinimapIcon        0 Red Diamond
+				PlayEffect         Red
+			Show # OMFG (>= 100Ex)
+				Class "Currency"
+				BaseType "Exalted Orb" "Mirror Shard" "Net"
+				SetTextColor       127 000 127
+				SetBackgroundColor 170 158 130
+				SetBorderColor     127 000 127
+				SetFontSize        45
+				MinimapIcon        0 Red Diamond
+				PlayEffect         Red
 		# High (>= 1C)
 			Show # >= 10C
 				Class "Currency"
