@@ -1,6 +1,6 @@
 ﻿##########################
 #                        #
-#  Tryhard-Logic.filter  #  Version: Betrayal - Color Rework (to Gems)
+#  Tryhard-Logic.filter  #  Version: Betrayal - Color Rework (to Jewels)
 #                        #
 ##########################
 
@@ -23,6 +23,7 @@
 # TODO recheck
 # List of used Colors
 	# 175 096 037 - Unique Items
+	# 255 255 119 - Rare Items
 	# 184 218 242 - Crafted Mod Color (Veiled Items)
 	# 000 000 000 - Other Items / Nothing Special
 	# 255 000 000 - ERROR
@@ -32,8 +33,8 @@
 	# 074 230 058 - Quest Items
 	# 014 186 255 - Divination Cards
 	# 124 081 050 - Maps # TODO what color? (close to unique)
+	# 000 189 147 - Jewels # TODO correct color?
 	# not used in current progress
-		# 255 255 119 - Rare Items
 		# 136 136 255 - Magic Items
 		# TODO 000 000 000?
 		# 200 200 200 - Normal Items / Items without Rarity
@@ -48,7 +49,6 @@
 		# TODO unused?
 		# 063 063 000 - Yellow Tier Maps
 		# 027 162 155 - Gems
-		# 000 189 147 - Jewels # TODO correct color?
 		# 127 000 256 - Flasks # TODO what color?
 		# TODO change
 		# BorderColor [Rarity] for Best Base Types
@@ -675,19 +675,34 @@
 			SetBackgroundColor 000 000 000
 			SetBorderColor     000 000 000
 			SetFontSize        18
+	# TODO split Abyss by level
 	# Jewels
-		Show # Abyss Jewels
-			Class "Abyss Jewel"
-			# SetTextColor     [Rarity]
-			SetBackgroundColor 000 000 063
-			SetBorderColor     000 189 147
-			SetFontSize        36
-		Show # Rest
+		Show # Uniques
 			Class "Jewel"
-			# SetTextColor     [Rarity]
+			Rarity = "Unique"
+			SetTextColor       175 096 037
 			SetBackgroundColor 000 000 000
 			SetBorderColor     000 189 147
-			SetFontSize        33
+			SetFontSize        36
+			MinimapIcon        1 Brown Circle
+			PlayEffect         Brown
+		Show # Rares
+			Class "Jewel"
+			Rarity = "Rare"
+			SetTextColor       255 255 119
+			SetBackgroundColor 000 189 147
+			SetBorderColor     255 255 119
+			SetFontSize        36
+			MinimapIcon        1 Yellow Circle
+			PlayEffect         Yellow
+		Show # Rest
+			Class "Jewel"
+			SetTextColor       000 189 147
+			SetBackgroundColor 000 000 000
+			SetBorderColor     000 000 000
+			SetFontSize        30
+			MinimapIcon        1 White Circle
+			PlayEffect         White
 	# Flasks
 		# TODO leveling
 		# Unique
