@@ -681,8 +681,8 @@
 			Class "Jewel"
 			Rarity = "Unique"
 			SetTextColor       175 096 037
-			SetBackgroundColor 000 000 000
-			SetBorderColor     000 189 147
+			SetBackgroundColor 000 189 147
+			SetBorderColor     175 096 037
 			SetFontSize        36
 			MinimapIcon        1 Brown Circle
 			PlayEffect         Brown
