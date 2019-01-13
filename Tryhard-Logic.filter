@@ -606,57 +606,75 @@
 			SetFontSize        44
 			MinimapIcon        0 Red Triangle
 			PlayEffect         Red
+	# TODO level
 	# Gems
 		Show # Not droping anymore
 			BaseType "Item Quantity"
-			SetTextColor       200 200 200
-			SetBackgroundColor 127 000 127
-			SetBorderColor     027 162 155
+			SetTextColor       127 000 127
+			SetBackgroundColor 027 162 155
+			SetBorderColor     127 000 127
 			SetFontSize        45
-		# League Specific
-			Show # Breach
-				Class "Skill Gem"
-				BaseType "Vaal Breach"
-				SetTextColor       200 200 200
-				SetBackgroundColor 000 000 063
-				SetBorderColor     027 162 155
-				SetFontSize        36
+			MinimapIcon        0 Red Circle
+			PlayEffect         Red
+		# TODO corrupted
+		# TODO aufteilen?
 		# Vaal Gems
+			# TODO aufteilen?
 			Show # With Quality
 				Class "Skill Gems"
 				BaseType "Vaal"
 				Quality > 0
-				SetTextColor       175 096 037
-				SetBackgroundColor 000 000 000
-				SetBorderColor     027 162 155
+				SetTextColor       000 063 000
+				SetBackgroundColor 027 162 155
+				SetBorderColor     000 063 000
 				SetFontSize        36
+				MinimapIcon        1 Blue Circle
+				PlayEffect         Blue
+			Show # League Specific
+				Class "Skill Gem"
+				BaseType "Vaal Breach"
+				SetTextColor       000 000 000
+				SetBackgroundColor 027 162 155
+				SetBorderColor     000 000 000
+				SetFontSize        36
+				MinimapIcon        1 Blue Circle
+				PlayEffect         Blue
 			Show # Remaining
 				Class "Skill Gems"
 				BaseType "Vaal"
-				SetTextColor       175 096 037
+				SetTextColor       027 162 155
 				SetBackgroundColor 000 000 000
 				SetBorderColor     027 162 155
 				SetFontSize        30
+				MinimapIcon        2 Blue Circle
+				PlayEffect         Blue
+		# TODO quality?
+		Show # Drop Vendor Only
+			Class "Skill Gems"
+			BaseType "Added Chaos Damage Support" "Empower Support" "Enhance Support" "Enlighten Support" "Block Chance Reduction Support" "Detonate Mines" "Portal" "Mirror Arrow"
+			SetTextColor       027 162 155
+			SetBackgroundColor 000 000 000
+			SetBorderColor     027 162 155
+			SetFontSize        36
+			MinimapIcon        1 Blue Circle
+			PlayEffect         Blue
+		# TODO aufteilen?
 		Show # Quality
 			Class "Gem"
 			Quality > 0
-			SetTextColor       200 200 200
-			SetBackgroundColor 000 063 000
-			SetBorderColor     027 162 155
-			SetFontSize        33
-		Show # Drop Only & Vendor Recipe Only
-			Class "Skill Gems"
-			BaseType "Added Chaos Damage Support" "Empower Support" "Enhance Support" "Enlighten Support" "Block Chance Reduction Support" "Detonate Mines" "Portal" "Mirror Arrow"
-			SetTextColor       200 200 200
+			SetTextColor       027 162 155
 			SetBackgroundColor 000 000 000
-			SetBorderColor     027 162 155
+			SetBorderColor     000 063 000
 			SetFontSize        30
-		Show # Remaining
+			MinimapIcon        2 Blue Circle
+			PlayEffect         Blue
+		# TODO leveling?
+		Hide # Remaining
 			Class "Skill Gems"
-			SetTextColor       200 200 200
+			SetTextColor       027 162 155
 			SetBackgroundColor 000 000 000
-			SetBorderColor     027 162 155
-			SetFontSize        27
+			SetBorderColor     000 000 000
+			SetFontSize        18
 	# Jewels
 		Show # Abyss Jewels
 			Class "Abyss Jewel"
