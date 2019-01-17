@@ -1,10 +1,10 @@
 ﻿##########################
 #                        #
-#  Tryhard-Logic.filter  #  Version: Betrayal - Color Rework (to Jewels)
+#  Tryhard-Logic.filter  #  Version: Betrayal - Color Rework (to Flasks)
 #                        #
 ##########################
 
-# TODO Temple Items mit Special Mods
+# TODO Temple Items mit Special Mods (und andere?)
 
 # TODO minimap (MinimapIcon) (-Maps -Currency -Error -Quest)
 # TODO beams (PlayEffect) (-Maps -Currency -Error -Quest)
@@ -34,6 +34,7 @@
 	# 014 186 255 - Divination Cards
 	# 124 081 050 - Maps # TODO what color? (close to unique)
 	# 000 189 147 - Jewels # TODO correct color?
+	# 127 000 256 - Flasks # TODO what color?
 	# not used in current progress
 		# 136 136 255 - Magic Items
 		# TODO 000 000 000?
@@ -49,7 +50,6 @@
 		# TODO unused?
 		# 063 063 000 - Yellow Tier Maps
 		# 027 162 155 - Gems
-		# 127 000 256 - Flasks # TODO what color?
 		# TODO change
 		# BorderColor [Rarity] for Best Base Types
 
@@ -704,36 +704,43 @@
 			MinimapIcon        1 White Circle
 			PlayEffect         White
 	# Flasks
-		# TODO leveling
-		# Unique
-			Show # Quality
-				Class "Flask"
-				Rarity "Unique"
-				Quality > 0
-				# SetTextColor     [Unique]
-				SetBackgroundColor 000 063 000
-				SetBorderColor     127 000 255
-				SetFontSize        36
-			Show # Remaining
-				Class "Flask"
-				Rarity "Unique"
-				# SetTextColor     [Unique]
-				SetBackgroundColor 000 000 000
-				SetBorderColor     127 000 255
-				SetFontSize        36
+		Show # Rare
+			Class "Flask"
+			Rarity "Rare"
+			SetTextColor       127 000 127
+			SetBackgroundColor 000 000 000
+			SetBorderColor     127 000 255
+			SetFontSize        45
+			MinimapIcon        0 Red Triangle
+			PlayEffect         Red
+		Show # Unique
+			Class "Flask"
+			Rarity "Unique"
+			SetTextColor       127 000 255
+			SetBackgroundColor 000 000 000
+			SetBorderColor     175 096 037
+			SetFontSize        36
+			MinimapIcon        1 Brown Hexagon
+			PlayEffect         Brown
+		# TODO split by quality
 		Show # Quality
 			Class "Flask"
 			Quality > 0
-			# SetTextColor     [Rarity]
-			SetBackgroundColor 000 063 000
-			SetBorderColor     127 000 255
-			SetFontSize        27
-		Show # Remaining
-			Class "Flask"
-			# SetTextColor     [Rarity]
+			# SetTextColor     127 000 255
 			SetBackgroundColor 000 000 000
 			SetBorderColor     127 000 255
+			SetFontSize        27
+			# MinimapIcon      [None]
+			# PlayEffect       [None]
+		# TODO leveling
+		Hide # Remaining
+			Class "Flask"
+			# SetTextColor     127 000 255
+			SetBackgroundColor 000 000 000
+			SetBorderColor     000 000 000
 			SetFontSize        18
+			# MinimapIcon      [None]
+			# PlayEffect       [None]
 	# Armour
 		# TODO only Armours
 		# TODO Recheck #1-3 for Border Colors
