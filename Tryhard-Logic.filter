@@ -1092,7 +1092,7 @@
 			Show # Lvl 60+
 				Rarity "Rare"
 				ItemLevel >= 60
-				# SetTextColor     000 063 000
+				SetTextColor       000 063 000
 				SetBackgroundColor 000 000 000
 				SetBorderColor     000 063 000
 				SetFontSize        30
@@ -1100,7 +1100,7 @@
 				# PlayEffect       [None]
 			Show # Remaining
 				Rarity "Rare"
-				# SetTextColor     255 255 119
+				SetTextColor       255 255 119
 				SetBackgroundColor 000 000 000
 				SetBorderColor     000 000 000
 				SetFontSize        30
