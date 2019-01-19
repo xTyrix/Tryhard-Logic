@@ -41,7 +41,7 @@
 	# 000 189 147 - Jewels # TODO correct color? gem farbe
 	# 127 000 256 - Flasks # TODO what color? dunkler / unauffällig
 	# 123 123 123 - Elder & Shaper # TODO What Color? flask color
-	# 000 063 000 - Socket Related Properties
+	# 000 127 000 - Socket Related Properties
 
 # List of used Font Sizes
 		# 18 - Hide
@@ -614,9 +614,9 @@
 				Class "Skill Gems"
 				BaseType "Vaal"
 				Quality > 0
-				SetTextColor       000 063 000
+				SetTextColor       000 127 000
 				SetBackgroundColor 027 162 155
-				SetBorderColor     000 063 000
+				SetBorderColor     000 127 000
 				SetFontSize        36
 				MinimapIcon        1 Blue Circle
 				PlayEffect         Blue
@@ -654,7 +654,7 @@
 			Quality > 0
 			SetTextColor       027 162 155
 			SetBackgroundColor 000 000 000
-			SetBorderColor     000 063 000
+			SetBorderColor     000 127 000
 			SetFontSize        30
 			MinimapIcon        2 Blue Circle
 			PlayEffect         Blue
@@ -978,7 +978,7 @@
 				Rarity = "Unique"
 				LinkedSockets 6
 				SetTextColor       175 096 037
-				SetBackgroundColor 000 063 000
+				SetBackgroundColor 000 127 000
 				SetBorderColor     175 096 037
 				SetFontSize        36
 				MinimapIcon        1 Brown Hexagon
@@ -987,7 +987,7 @@
 				Rarity = "Rare"
 				LinkedSockets 6
 				SetTextColor       255 255 119
-				SetBackgroundColor 000 063 000
+				SetBackgroundColor 000 127 000
 				SetBorderColor     255 255 119
 				SetFontSize        36
 				MinimapIcon        1 Yellow Hexagon
@@ -996,7 +996,7 @@
 				Rarity = "Magic"
 				LinkedSockets 6
 				SetTextColor       136 136 255
-				SetBackgroundColor 000 063 000
+				SetBackgroundColor 000 127 000
 				SetBorderColor     136 136 255
 				SetFontSize        36
 				MinimapIcon        1 Yellow Hexagon
@@ -1005,7 +1005,7 @@
 				Rarity = "Normal"
 				LinkedSockets 6
 				SetTextColor       200 200 200
-				SetBackgroundColor 000 063 000
+				SetBackgroundColor 000 127 000
 				SetBorderColor     200 200 200
 				SetFontSize        36
 				MinimapIcon        1 Yellow Hexagon
@@ -1017,7 +1017,7 @@
 					Sockets 6
 					LinkedSockets 5
 					SetTextColor       175 096 037
-					SetBackgroundColor 000 063 000
+					SetBackgroundColor 000 127 000
 					SetBorderColor     175 096 037
 					SetFontSize        30
 					MinimapIcon        2 Brown Hexagon
@@ -1027,7 +1027,7 @@
 					Sockets 6
 					LinkedSockets 5
 					SetTextColor       255 255 119
-					SetBackgroundColor 000 063 000
+					SetBackgroundColor 000 127 000
 					SetBorderColor     255 255 119
 					SetFontSize        30
 					MinimapIcon        2 Yellow Hexagon
@@ -1037,7 +1037,7 @@
 					Sockets 6
 					LinkedSockets 5
 					SetTextColor       136 136 255
-					SetBackgroundColor 000 063 000
+					SetBackgroundColor 000 127 000
 					SetBorderColor     136 136 255
 					SetFontSize        30
 					MinimapIcon        2 Yellow Hexagon
@@ -1047,24 +1047,24 @@
 					Sockets 6
 					LinkedSockets 5
 					SetTextColor       200 200 200
-					SetBackgroundColor 000 063 000
+					SetBackgroundColor 000 127 000
 					SetBorderColor     200 200 200
 					SetFontSize        30
 					MinimapIcon        2 Yellow Hexagon
 					PlayEffect         Yellow
 			Show # Remaining
 				Sockets 6
-				SetTextColor       000 063 000
+				SetTextColor       000 127 000
 				SetBackgroundColor 000 000 000
-				SetBorderColor     000 063 000
+				SetBorderColor     000 127 000
 				SetFontSize        33
 				MinimapIcon        2 Yellow Hexagon
 				PlayEffect         Yellow
 		Show # 5 Links
 			LinkedSockets 5
-			SetTextColor       000 063 000
+			SetTextColor       000 127 000
 			SetBackgroundColor 000 000 000
-			SetBorderColor     000 063 000
+			SetBorderColor     000 127 000
 			SetFontSize        33
 			MinimapIcon        2 Yellow Hexagon
 			PlayEffect         Yellow
@@ -1092,9 +1092,9 @@
 			Show # Lvl 60+
 				Rarity "Rare"
 				ItemLevel >= 60
-				SetTextColor       000 063 000
+				SetTextColor       000 127 000
 				SetBackgroundColor 000 000 000
-				SetBorderColor     000 063 000
+				SetBorderColor     000 127 000
 				SetFontSize        30
 				# MinimapIcon      [None]
 				# PlayEffect       [None]
@@ -1109,7 +1109,7 @@
 		# TODO sort by demension
 		Show # Chromatic Items
 			SocketGroup RGB
-			# SetTextColor     000 063 000
+			SetTextColor       000 127 000
 			SetBackgroundColor 000 000 000
 			SetBorderColor     000 000 000
 			SetFontSize        27
