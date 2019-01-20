@@ -36,11 +36,9 @@
 	# 170 158 130 - Currency
 	# 074 230 058 - Quest Items
 	# 014 186 255 - Divination Cards
-	# 027 162 155 - Gems
-	# 124 081 050 - Maps # TODO what color? (close to unique) grau braun
-	# 000 189 147 - Jewels # TODO correct color? gem farbe
-	# 127 000 256 - Flasks # TODO what color? dunkler / unauffällig
-	# 123 123 123 - Elder & Shaper # TODO What Color? flask color
+	# 027 162 155 - Gems & Jewels
+	# 200 155 155 - Maps
+	# 127 000 255 - Elder & Shaper
 	# 000 127 000 - Socket Related Properties
 
 # List of used Font Sizes
@@ -117,7 +115,7 @@
 			BaseType           Scarab
 			#
 			SetTextColor       000 000 000
-			SetBackgroundColor 124 081 050
+			SetBackgroundColor 200 155 155
 			SetBorderColor     000 000 000
 			SetFontSize        36
 			MinimapIcon        1 Brown Square
@@ -144,7 +142,7 @@
 				Corrupted          False
 				#
 				SetTextColor       127 000 127
-				SetBackgroundColor 124 081 050
+				SetBackgroundColor 200 155 155
 				SetBorderColor     127 000 127
 				SetFontSize        45
 				MinimapIcon        0 Red Square
@@ -155,7 +153,7 @@
 				Corrupted          False
 				#
 				SetTextColor       127 000 127
-				SetBackgroundColor 124 081 050
+				SetBackgroundColor 200 155 155
 				SetBorderColor     127 000 127
 				SetFontSize        45
 				MinimapIcon        0 Red Square
@@ -166,9 +164,9 @@
 					Class              Map
 					BaseType           "Ancient Reliquary Key"
 					#
-					SetTextColor       124 081 050
+					SetTextColor       200 155 155
 					SetBackgroundColor 127 000 127
-					SetBorderColor     124 081 050
+					SetBorderColor     200 155 155
 					SetFontSize        45
 					MinimapIcon        0 Brown Square
 					PlayEffect         Brown
@@ -178,7 +176,7 @@
 					Rarity             Unique
 					#
 					SetTextColor       127 000 127
-					SetBackgroundColor 124 081 050
+					SetBackgroundColor 200 155 155
 					SetBorderColor     127 000 127
 					SetFontSize        45
 					MinimapIcon        0 Brown Square
@@ -191,7 +189,7 @@
 					#
 					SetTextColor       175 096 037
 					SetBackgroundColor 000 000 000
-					SetBorderColor     124 081 050
+					SetBorderColor     200 155 155
 					SetFontSize        36
 					MinimapIcon        1 Brown Square
 					PlayEffect         Brown
@@ -200,7 +198,7 @@
 						BaseType           Breachstone
 						#
 						SetTextColor       175 096 037
-						SetBackgroundColor 124 081 050
+						SetBackgroundColor 200 155 155
 						SetBorderColor     175 096 037
 						SetFontSize        36
 						MinimapIcon        1 Brown Square
@@ -211,7 +209,7 @@
 						Rarity             Unique
 						#
 						SetTextColor       175 096 037
-						SetBackgroundColor 124 081 050
+						SetBackgroundColor 200 155 155
 						SetBorderColor     175 096 037
 						SetFontSize        36
 						MinimapIcon        1 Brown Square
@@ -223,7 +221,7 @@
 				#
 				SetTextColor       175 096 037
 				SetBackgroundColor 000 000 000
-				SetBorderColor     124 081 050
+				SetBorderColor     200 155 155
 				SetFontSize        36
 				MinimapIcon        1 Brown Square
 				PlayEffect         Brown
@@ -233,7 +231,7 @@
 					BaseType           Fragment
 					#
 					SetTextColor       127 000 127
-					SetBackgroundColor 124 081 050
+					SetBackgroundColor 200 155 155
 					SetBorderColor     127 000 127
 					SetFontSize        45
 					MinimapIcon        0 Brown Square
@@ -244,7 +242,7 @@
 						BaseType           "Mortal Hope"
 						#
 						SetTextColor       127 000 127
-						SetBackgroundColor 124 081 050
+						SetBackgroundColor 200 155 155
 						SetBorderColor     127 000 127
 						SetFontSize        45
 						MinimapIcon        0 Brown Square
@@ -254,7 +252,7 @@
 						BaseType           Mortal
 						#
 						SetTextColor       175 096 037
-						SetBackgroundColor 124 081 050
+						SetBackgroundColor 200 155 155
 						SetBorderColor     175 096 037
 						SetFontSize        36
 						MinimapIcon        1 Brown Square
@@ -265,7 +263,7 @@
 						BaseType           "Sacrifice at Midnight"
 						#
 						SetTextColor       175 096 037
-						SetBackgroundColor 124 081 050
+						SetBackgroundColor 200 155 155
 						SetBorderColor     175 096 037
 						SetFontSize        36
 						MinimapIcon        1 Brown Square
@@ -276,7 +274,7 @@
 						#
 						SetTextColor       175 096 037
 						SetBackgroundColor 000 000 000
-						SetBorderColor     124 081 050
+						SetBorderColor     200 155 155
 						SetFontSize        33
 						MinimapIcon        2 Brown Square
 						PlayEffect         Brown
@@ -285,7 +283,7 @@
 					BaseType           Key
 					#
 					SetTextColor       175 096 037
-					SetBackgroundColor 124 081 050
+					SetBackgroundColor 200 155 155
 					SetBorderColor     175 096 037
 					SetFontSize        36
 					MinimapIcon        1 Brown Square
@@ -296,7 +294,7 @@
 					BaseType           "Timeworn Reliquary Key"
 					#
 					SetTextColor       127 000 127
-					SetBackgroundColor 124 081 050
+					SetBackgroundColor 200 155 155
 					SetBorderColor     127 000 127
 					SetFontSize        45
 					MinimapIcon        0 Brown Square
@@ -306,7 +304,7 @@
 					BaseType           "Offering to the Goddess"
 					#
 					SetTextColor       175 096 037
-					SetBackgroundColor 124 081 050
+					SetBackgroundColor 200 155 155
 					SetBorderColor     175 096 037
 					SetFontSize        36
 					MinimapIcon        1 Brown Square
@@ -316,7 +314,7 @@
 			MapTier            16
 			#
 			SetTextColor       127 000 127
-			SetBackgroundColor 124 081 050
+			SetBackgroundColor 200 155 155
 			SetBorderColor     127 000 127
 			SetFontSize        45
 			MinimapIcon        0 Red Square
@@ -326,7 +324,7 @@
 			MapTier            >= 11
 			#
 			SetTextColor       000 000 000
-			SetBackgroundColor 124 081 050
+			SetBackgroundColor 200 155 155
 			SetBorderColor     000 000 000
 			SetFontSize        36
 			MinimapIcon        1 Red Square
@@ -338,9 +336,9 @@
 					MapTier            >= 6
 					ItemLevel          <= 73
 					#
-					SetTextColor       124 081 050
+					SetTextColor       200 155 155
 					SetBackgroundColor 000 000 000
-					SetBorderColor     124 081 050
+					SetBorderColor     200 155 155
 					SetFontSize        36
 					MinimapIcon        1 Yellow Square
 					PlayEffect         Yellow
@@ -349,9 +347,9 @@
 					MapTier            >= 7
 					ItemLevel          <= 74
 					#
-					SetTextColor       124 081 050
+					SetTextColor       200 155 155
 					SetBackgroundColor 000 000 000
-					SetBorderColor     124 081 050
+					SetBorderColor     200 155 155
 					SetFontSize        36
 					MinimapIcon        1 Yellow Square
 					PlayEffect         Yellow
@@ -360,9 +358,9 @@
 					MapTier            >= 8
 					ItemLevel          <= 75
 					#
-					SetTextColor       124 081 050
+					SetTextColor       200 155 155
 					SetBackgroundColor 000 000 000
-					SetBorderColor     124 081 050
+					SetBorderColor     200 155 155
 					SetFontSize        36
 					MinimapIcon        1 Yellow Square
 					PlayEffect         Yellow
@@ -371,9 +369,9 @@
 					MapTier            >= 9
 					ItemLevel          <= 76
 					#
-					SetTextColor       124 081 050
+					SetTextColor       200 155 155
 					SetBackgroundColor 000 000 000
-					SetBorderColor     124 081 050
+					SetBorderColor     200 155 155
 					SetFontSize        36
 					MinimapIcon        1 Yellow Square
 					PlayEffect         Yellow
@@ -382,9 +380,9 @@
 					MapTier            >= 10
 					ItemLevel          <= 77
 					#
-					SetTextColor       124 081 050
+					SetTextColor       200 155 155
 					SetBackgroundColor 000 000 000
-					SetBorderColor     124 081 050
+					SetBorderColor     200 155 155
 					SetFontSize        36
 					MinimapIcon        1 Yellow Square
 					PlayEffect         Yellow
@@ -393,7 +391,7 @@
 				MapTier            >= 10
 				ItemLevel          >= 80
 				#
-				SetTextColor       124 081 050
+				SetTextColor       200 155 155
 				SetBackgroundColor 000 000 000
 				SetBorderColor     000 000 000
 				SetFontSize        27
@@ -403,9 +401,9 @@
 				Class              Map
 				MapTier            >= 6
 				#
-				SetTextColor       124 081 050
+				SetTextColor       200 155 155
 				SetBackgroundColor 000 000 000
-				SetBorderColor     124 081 050
+				SetBorderColor     200 155 155
 				SetFontSize        30
 				MinimapIcon        2 Yellow Square
 				PlayEffect         Yellow
@@ -415,9 +413,9 @@
 					Class              Map
 					ItemLevel          <= 68
 					#
-					SetTextColor       124 081 050
+					SetTextColor       200 155 155
 					SetBackgroundColor 000 000 000
-					SetBorderColor     124 081 050
+					SetBorderColor     200 155 155
 					SetFontSize        36
 					MinimapIcon        1 White Square
 					PlayEffect         White
@@ -426,9 +424,9 @@
 					MapTier            >= 2
 					ItemLevel          <= 69
 					#
-					SetTextColor       124 081 050
+					SetTextColor       200 155 155
 					SetBackgroundColor 000 000 000
-					SetBorderColor     124 081 050
+					SetBorderColor     200 155 155
 					SetFontSize        36
 					MinimapIcon        1 White Square
 					PlayEffect         White
@@ -437,9 +435,9 @@
 					MapTier            >= 3
 					ItemLevel          <= 70
 					#
-					SetTextColor       124 081 050
+					SetTextColor       200 155 155
 					SetBackgroundColor 000 000 000
-					SetBorderColor     124 081 050
+					SetBorderColor     200 155 155
 					SetFontSize        36
 					MinimapIcon        1 White Square
 					PlayEffect         White
@@ -448,9 +446,9 @@
 					MapTier            >= 4
 					ItemLevel          <= 71
 					#
-					SetTextColor       124 081 050
+					SetTextColor       200 155 155
 					SetBackgroundColor 000 000 000
-					SetBorderColor     124 081 050
+					SetBorderColor     200 155 155
 					SetFontSize        36
 					MinimapIcon        1 White Square
 					PlayEffect         White
@@ -459,9 +457,9 @@
 					MapTier            >= 5
 					ItemLevel          <= 72
 					#
-					SetTextColor       124 081 050
+					SetTextColor       200 155 155
 					SetBackgroundColor 000 000 000
-					SetBorderColor     124 081 050
+					SetBorderColor     200 155 155
 					SetFontSize        36
 					MinimapIcon        1 White Square
 					PlayEffect         White
@@ -469,7 +467,7 @@
 				Class              Map
 				ItemLevel          >= 75
 				#
-				SetTextColor       124 081 050
+				SetTextColor       200 155 155
 				SetBackgroundColor 000 000 000
 				SetBorderColor     000 000 000
 				SetFontSize        27
@@ -479,7 +477,7 @@
 				Class              Map
 				ItemLevel          >= 75
 				#
-				SetTextColor       124 081 050
+				SetTextColor       200 155 155
 				SetBackgroundColor 000 000 000
 				SetBorderColor     000 000 000
 				SetFontSize        27
@@ -488,9 +486,9 @@
 			Show # Remaining
 				Class              Map
 				#
-				SetTextColor       124 081 050
+				SetTextColor       200 155 155
 				SetBackgroundColor 000 000 000
-				SetBorderColor     124 081 050
+				SetBorderColor     200 155 155
 				SetFontSize        30
 				MinimapIcon        2 White Square
 				PlayEffect         White
@@ -736,7 +734,7 @@
 			Rarity             Unique
 			#
 			SetTextColor       175 096 037
-			SetBackgroundColor 000 189 147
+			SetBackgroundColor 027 162 155
 			SetBorderColor     175 096 037
 			SetFontSize        36
 			MinimapIcon        1 Brown Circle
@@ -746,7 +744,7 @@
 			Rarity             Rare
 			#
 			SetTextColor       255 255 119
-			SetBackgroundColor 000 189 147
+			SetBackgroundColor 027 162 155
 			SetBorderColor     255 255 119
 			SetFontSize        36
 			MinimapIcon        1 Yellow Circle
@@ -754,7 +752,7 @@
 		Show # Rest
 			Class              Jewel
 			#
-			SetTextColor       000 189 147
+			SetTextColor       027 162 155
 			SetBackgroundColor 000 000 000
 			SetBorderColor     000 000 000
 			SetFontSize        30
@@ -767,7 +765,7 @@
 			#
 			SetTextColor       127 000 127
 			SetBackgroundColor 000 000 000
-			SetBorderColor     127 000 255
+			SetBorderColor     127 000 127
 			SetFontSize        45
 			MinimapIcon        0 Red Triangle
 			PlayEffect         Red
@@ -775,33 +773,56 @@
 			Class              Flask
 			Rarity             Unique
 			#
-			SetTextColor       127 000 255
+			SetTextColor       175 096 037
 			SetBackgroundColor 000 000 000
 			SetBorderColor     175 096 037
 			SetFontSize        36
 			MinimapIcon        1 Brown Hexagon
 			PlayEffect         Brown
 		# TODO split by quality
-		Show # Quality
-			Class              Flask
-			Quality            > 0
-			#
-			SetTextColor       127 000 255
-			SetBackgroundColor 000 000 000
-			SetBorderColor     127 000 255
-			SetFontSize        27
-			# MinimapIcon      [None]
-			# PlayEffect       [None]
+		# Quality
+			Show # Magic
+				Rarity             Magic
+				Class              Flask
+				Quality            > 0
+				#
+				SetTextColor       136 136 255
+				SetBackgroundColor 000 000 000
+				SetBorderColor     136 136 255
+				SetFontSize        27
+				# MinimapIcon      [None]
+				# PlayEffect       [None]
+			Show # Remaining
+				Class              Flask
+				Quality            > 0
+				#
+				SetTextColor       200 200 200
+				SetBackgroundColor 000 000 000
+				SetBorderColor     200 200 200
+				SetFontSize        27
+				# MinimapIcon      [None]
+				# PlayEffect       [None]
 		# TODO leveling
-		Hide # Remaining
-			Class              Flask
-			#
-			SetTextColor       127 000 255
-			SetBackgroundColor 000 000 000
-			SetBorderColor     000 000 000
-			SetFontSize        18
-			# MinimapIcon      [None]
-			# PlayEffect       [None]
+		# Remaining
+			Hide # Magic
+				Rarity             Magic
+				Class              Flask
+				#
+				SetTextColor       136 136 255
+				SetBackgroundColor 000 000 000
+				SetBorderColor     000 000 000
+				SetFontSize        18
+				# MinimapIcon      [None]
+				# PlayEffect       [None]
+			Hide # Remaining
+				Class              Flask
+				#
+				SetTextColor       200 200 200
+				SetBackgroundColor 000 000 000
+				SetBorderColor     000 000 000
+				SetFontSize        18
+				# MinimapIcon      [None]
+				# PlayEffect       [None]
 	# Armour
 		# Weird Stuff
 			Show # Not Dropping (Anymore)
@@ -849,9 +870,9 @@
 				ElderItem          True
 				ShaperItem         True
 				#
-				SetTextColor       123 123 123
+				SetTextColor       127 000 255
 				SetBackgroundColor 127 000 127
-				SetBorderColor     123 123 123
+				SetBorderColor     127 000 255
 				SetFontSize        45
 				MinimapIcon        0 Red Triangle
 				PlayEffect         Red
@@ -860,9 +881,9 @@
 					ElderItem          True
 					Rarity             Unique
 					#
-					SetTextColor       123 123 123
+					SetTextColor       127 000 255
 					SetBackgroundColor 175 096 037
-					SetBorderColor     123 123 123
+					SetBorderColor     127 000 255
 					SetFontSize        36
 					MinimapIcon        1 Brown Hexagon
 					PlayEffect         Brown
@@ -870,9 +891,9 @@
 					ShaperItem         True
 					Rarity             Unique
 					#
-					SetTextColor       123 123 123
+					SetTextColor       127 000 255
 					SetBackgroundColor 175 096 037
-					SetBorderColor     123 123 123
+					SetBorderColor     127 000 255
 					SetFontSize        36
 					MinimapIcon        1 Brown Hexagon
 					PlayEffect         Brown
@@ -882,7 +903,7 @@
 					BaseType           "Stygian Vise" "Breach Ring" Talisman
 					#
 					SetTextColor       127 000 127
-					SetBackgroundColor 123 123 123
+					SetBackgroundColor 127 000 255
 					SetBorderColor     127 000 127
 					SetFontSize        45
 					MinimapIcon        0 Red Triangle
@@ -892,7 +913,7 @@
 					BaseType           "Stygian Vise" "Breach Ring" Talisman
 					#
 					SetTextColor       127 000 127
-					SetBackgroundColor 123 123 123
+					SetBackgroundColor 127 000 255
 					SetBorderColor     127 000 127
 					SetFontSize        45
 					MinimapIcon        0 Red Triangle
@@ -903,7 +924,7 @@
 					BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Opal Ring" "Steel Ring"
 					#
 					SetTextColor       000 000 000
-					SetBackgroundColor 123 123 123
+					SetBackgroundColor 127 000 255
 					SetBorderColor     000 000 000
 					SetFontSize        36
 					MinimapIcon        1 Blue Hexagon
@@ -913,7 +934,7 @@
 					BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Opal Ring" "Steel Ring"
 					#
 					SetTextColor       000 000 000
-					SetBackgroundColor 123 123 123
+					SetBackgroundColor 127 000 255
 					SetBorderColor     000 000 000
 					SetFontSize        36
 					MinimapIcon        1 Blue Hexagon
@@ -924,7 +945,7 @@
 					LinkedSockets      6
 					#
 					SetTextColor       000 000 000
-					SetBackgroundColor 123 123 123
+					SetBackgroundColor 127 000 255
 					SetBorderColor     000 000 000
 					SetFontSize        36
 					MinimapIcon        1 Blue Hexagon
@@ -934,7 +955,7 @@
 					LinkedSockets      6
 					#
 					SetTextColor       000 000 000
-					SetBackgroundColor 123 123 123
+					SetBackgroundColor 127 000 255
 					SetBorderColor     000 000 000
 					SetFontSize        36
 					MinimapIcon        1 Blue Hexagon
@@ -943,18 +964,18 @@
 				Show # Elder
 					ElderItem          True
 					#
-					SetTextColor       123 123 123
+					SetTextColor       127 000 255
 					SetBackgroundColor 000 000 000
-					SetBorderColor     123 123 123
+					SetBorderColor     127 000 255
 					SetFontSize        36
 					MinimapIcon        1 Blue Hexagon
 					PlayEffect         Blue
 				Show # Shaper
 					ShaperItem         True
 					#
-					SetTextColor       123 123 123
+					SetTextColor       127 000 255
 					SetBackgroundColor 000 000 000
-					SetBorderColor     123 123 123
+					SetBorderColor     127 000 255
 					SetFontSize        36
 					MinimapIcon        1 Blue Hexagon
 					PlayEffect         Blue
