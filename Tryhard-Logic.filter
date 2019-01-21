@@ -6,16 +6,12 @@
 
 # TODO Temple Items mit Special Mods (und andere?)
 
-# TODO minimap (MinimapIcon) (-Maps -Currency -Error -Quest)
-# TODO beams (PlayEffect) (-Maps -Currency -Error -Quest)
 # TODO drop sounds (DisableDropSound, CustomAlertSound)
-# TODO high level items?
 
-# TODO uniques
 # TODO corrupted + mirrored color
-# SetTextColor 0 -> SetTextColor [BackgroundColor]?
 # TODO check if information for 0 can be added
 # stacks unterschiedlich darstellen? geht das überhaupt?
+# TODO high level items?
 
 # TODO rework "hide" to show identified items
 #   OR make identified sections with mods
@@ -29,7 +25,7 @@
 	# 136 136 255 - Magic Items
 	# 200 200 200 - Normal Items
 	# 184 218 242 - Crafted Mod Color (Veiled Items)
-	# 000 000 000 - Other Items / Nothing Special
+	# 000 000 000 - Nothing Special
 	# 255 000 000 - ERROR
 	# 255 255 255 - ERROR
 	# 127 000 127 - OMG-Drops
@@ -120,8 +116,8 @@
 			SetFontSize        36
 			MinimapIcon        1 Brown Square
 			PlayEffect         Brown
-		# TODO high base types?
-		Show # Veiled items
+		# TODO to armour, change colors to veil where needed
+		# Veiled items
 			HasExplicitMod     Veil
 			#
 			SetTextColor       184 218 242
@@ -764,7 +760,7 @@
 			Rarity             Rare
 			#
 			SetTextColor       127 000 127
-			SetBackgroundColor 000 000 000
+			SetBackgroundColor 255 255 119
 			SetBorderColor     127 000 127
 			SetFontSize        45
 			MinimapIcon        0 Red Triangle
@@ -803,26 +799,15 @@
 				# MinimapIcon      [None]
 				# PlayEffect       [None]
 		# TODO leveling
-		# Remaining
-			Hide # Magic
-				Rarity             Magic
-				Class              Flask
-				#
-				SetTextColor       136 136 255
-				SetBackgroundColor 000 000 000
-				SetBorderColor     000 000 000
-				SetFontSize        18
-				# MinimapIcon      [None]
-				# PlayEffect       [None]
-			Hide # Remaining
-				Class              Flask
-				#
-				SetTextColor       200 200 200
-				SetBackgroundColor 000 000 000
-				SetBorderColor     000 000 000
-				SetFontSize        18
-				# MinimapIcon      [None]
-				# PlayEffect       [None]
+		Hide # Remaining
+			Class              Flask
+			#
+			# SetTextColor     [Rarity]
+			SetBackgroundColor 000 000 000
+			SetBorderColor     000 000 000
+			SetFontSize        18
+			# MinimapIcon      [None]
+			# PlayEffect       [None]
 	# Armour
 		# Weird Stuff
 			Show # Not Dropping (Anymore)
@@ -919,44 +904,113 @@
 					MinimapIcon        0 Red Triangle
 					PlayEffect         Red
 			# Atlas Bases
-				Show # Elder
-					ElderItem          True
-					BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Opal Ring" "Steel Ring"
-					#
-					SetTextColor       000 000 000
-					SetBackgroundColor 127 000 255
-					SetBorderColor     000 000 000
-					SetFontSize        36
-					MinimapIcon        1 Blue Hexagon
-					PlayEffect         Blue
-				Show # Shaper
-					ShaperItem         True
-					BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Opal Ring" "Steel Ring"
-					#
-					SetTextColor       000 000 000
-					SetBackgroundColor 127 000 255
-					SetBorderColor     000 000 000
-					SetFontSize        36
-					MinimapIcon        1 Blue Hexagon
-					PlayEffect         Blue
+				# Rare
+					Show # Elder
+						Rarity             Rare
+						ElderItem          True
+						BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Opal Ring" "Steel Ring"
+						#
+						SetTextColor       255 255 119
+						SetBackgroundColor 127 000 255
+						SetBorderColor     255 255 119
+						SetFontSize        36
+						MinimapIcon        1 Blue Hexagon
+						PlayEffect         Blue
+					Show # Shaper
+						Rarity             Rare
+						ShaperItem         True
+						BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Opal Ring" "Steel Ring"
+						#
+						SetTextColor       255 255 119
+						SetBackgroundColor 127 000 255
+						SetBorderColor     255 255 119
+						SetFontSize        36
+						MinimapIcon        1 Blue Hexagon
+						PlayEffect         Blue
+				# Remaining
+					Show # Elder
+						ElderItem          True
+						BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Opal Ring" "Steel Ring"
+						#
+						SetTextColor       000 000 000
+						SetBackgroundColor 127 000 255
+						SetBorderColor     000 000 000
+						SetFontSize        36
+						MinimapIcon        1 Blue Hexagon
+						PlayEffect         Blue
+					Show # Shaper
+						ShaperItem         True
+						BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Opal Ring" "Steel Ring"
+						#
+						SetTextColor       000 000 000
+						SetBackgroundColor 127 000 255
+						SetBorderColor     000 000 000
+						SetFontSize        36
+						MinimapIcon        1 Blue Hexagon
+						PlayEffect         Blue
 			# 6 Links
+				# Rare
+					Show # Elder
+						Rarity             Rare
+						ElderItem          True
+						LinkedSockets      6
+						#
+						SetTextColor       000 127 000
+						SetBackgroundColor 127 000 255
+						SetBorderColor     255 255 119
+						SetFontSize        36
+						MinimapIcon        1 Blue Hexagon
+						PlayEffect         Blue
+					Show # Shaper
+						Rarity             Rare
+						ShaperItem         True
+						LinkedSockets      6
+						#
+						SetTextColor       000 127 000
+						SetBackgroundColor 127 000 255
+						SetBorderColor     255 255 119
+						SetFontSize        36
+						MinimapIcon        1 Blue Hexagon
+						PlayEffect         Blue
+				# Remaining
+					Show # Elder
+						ElderItem          True
+						LinkedSockets      6
+						#
+						SetTextColor       000 127 000
+						SetBackgroundColor 127 000 255
+						SetBorderColor     000 127 000
+						SetFontSize        36
+						MinimapIcon        1 Blue Hexagon
+						PlayEffect         Blue
+					Show # Shaper
+						ShaperItem         True
+						LinkedSockets      6
+						#
+						SetTextColor       000 127 000
+						SetBackgroundColor 127 000 255
+						SetBorderColor     000 127 000
+						SetFontSize        36
+						MinimapIcon        1 Blue Hexagon
+						PlayEffect         Blue
+			# Rares
 				Show # Elder
 					ElderItem          True
-					LinkedSockets      6
+					Rarity             Rare
 					#
-					SetTextColor       000 000 000
-					SetBackgroundColor 127 000 255
-					SetBorderColor     000 000 000
+					SetTextColor       127 000 255
+					SetBackgroundColor 255 255 119
+					SetBorderColor     127 000 255
 					SetFontSize        36
 					MinimapIcon        1 Blue Hexagon
 					PlayEffect         Blue
 				Show # Shaper
 					ShaperItem         True
-					LinkedSockets      6
+					Rarity             Rare
 					#
-					SetTextColor       000 000 000
-					SetBackgroundColor 127 000 255
-					SetBorderColor     000 000 000
+					SetTextColor       127 000 255
+					SetBackgroundColor 255 255 119
+					SetBorderColor     127 000 255
 					SetFontSize        36
 					MinimapIcon        1 Blue Hexagon
 					PlayEffect         Blue
@@ -967,8 +1021,8 @@
 					SetTextColor       127 000 255
 					SetBackgroundColor 000 000 000
 					SetBorderColor     127 000 255
-					SetFontSize        36
-					MinimapIcon        1 Blue Hexagon
+					SetFontSize        30
+					MinimapIcon        2 Blue Hexagon
 					PlayEffect         Blue
 				Show # Shaper
 					ShaperItem         True
@@ -976,8 +1030,8 @@
 					SetTextColor       127 000 255
 					SetBackgroundColor 000 000 000
 					SetBorderColor     127 000 255
-					SetFontSize        36
-					MinimapIcon        1 Blue Hexagon
+					SetFontSize        30
+					MinimapIcon        2 Blue Hexagon
 					PlayEffect         Blue
 		# TODO Split Talisman by Base / Tier?
 		# Special Bases
@@ -1108,22 +1162,12 @@
 				SetFontSize        36
 				MinimapIcon        1 Yellow Hexagon
 				PlayEffect         Yellow
-			Show # Magic
-				Rarity             Magic
-				LinkedSockets      6
-				#
-				SetTextColor       136 136 255
-				SetBackgroundColor 000 127 000
-				SetBorderColor     136 136 255
-				SetFontSize        36
-				MinimapIcon        1 Yellow Hexagon
-				PlayEffect         Yellow
 			Show # Remaining
 				LinkedSockets      6
 				#
-				SetTextColor       200 200 200
+				SetTextColor       000 000 000
 				SetBackgroundColor 000 127 000
-				SetBorderColor     200 200 200
+				SetBorderColor     000 000 000
 				SetFontSize        36
 				MinimapIcon        1 Yellow Hexagon
 				PlayEffect         Yellow
@@ -1151,27 +1195,36 @@
 					SetFontSize        30
 					MinimapIcon        2 Yellow Hexagon
 					PlayEffect         Yellow
-				Show # Magic
-					Rarity             Magic
-					Sockets            6
-					LinkedSockets      5
-					#
-					SetTextColor       136 136 255
-					SetBackgroundColor 000 127 000
-					SetBorderColor     136 136 255
-					SetFontSize        30
-					MinimapIcon        2 Yellow Hexagon
-					PlayEffect         Yellow
 				Show # Remaining
 					Sockets            6
 					LinkedSockets      5
 					#
-					SetTextColor       200 200 200
+					SetTextColor       000 000 000
 					SetBackgroundColor 000 127 000
-					SetBorderColor     200 200 200
+					SetBorderColor     000 000 000
 					SetFontSize        30
 					MinimapIcon        2 Yellow Hexagon
 					PlayEffect         Yellow
+			Show # Unique
+				Rarity             Unique
+				Sockets            6
+				#
+				SetTextColor       175 096 037
+				SetBackgroundColor 000 000 000
+				SetBorderColor     000 127 000
+				SetFontSize        33
+				MinimapIcon        2 Brown Hexagon
+				PlayEffect         Brown
+			Show # Rare
+				Rarity             Rare
+				Sockets            6
+				#
+				SetTextColor       255 255 119
+				SetBackgroundColor 000 000 000
+				SetBorderColor     000 127 000
+				SetFontSize        33
+				MinimapIcon        2 Yellow Hexagon
+				PlayEffect         Yellow
 			Show # Remaining
 				Sockets            6
 				#
@@ -1179,17 +1232,38 @@
 				SetBackgroundColor 000 000 000
 				SetBorderColor     000 127 000
 				SetFontSize        33
+				MinimapIcon        2 White Hexagon
+				PlayEffect         White
+		# 5 Links
+			Show # Unique
+				Rarity             Unique
+				LinkedSockets      5
+				#
+				SetTextColor       175 096 037
+				SetBackgroundColor 000 000 000
+				SetBorderColor     000 127 000
+				SetFontSize        33
+				MinimapIcon        2 Brown Hexagon
+				PlayEffect         Brown
+			Show # Rare
+				Rarity             Unique
+				LinkedSockets      5
+				#
+				SetTextColor       175 096 037
+				SetBackgroundColor 000 000 000
+				SetBorderColor     000 127 000
+				SetFontSize        33
 				MinimapIcon        2 Yellow Hexagon
 				PlayEffect         Yellow
-		Show # 5 Links
-			LinkedSockets      5
-			#
-			SetTextColor       000 127 000
-			SetBackgroundColor 000 000 000
-			SetBorderColor     000 127 000
-			SetFontSize        33
-			MinimapIcon        2 Yellow Hexagon
-			PlayEffect         Yellow
+			Show # Remaining
+				LinkedSockets      5
+				#
+				SetTextColor       000 127 000
+				SetBackgroundColor 000 000 000
+				SetBorderColor     000 127 000
+				SetFontSize        30
+				MinimapIcon        2 White Hexagon
+				PlayEffect         White
 		# TODO sort by base?
 		# Uniques
 			# TODO sort?
@@ -1219,6 +1293,16 @@
 				ItemLevel          >= 60
 				#
 				SetTextColor       000 127 000
+				SetBackgroundColor 000 000 000
+				SetBorderColor     000 127 000
+				SetFontSize        30
+				# MinimapIcon      [None]
+				# PlayEffect       [None]
+			Show # Chromatic
+				SocketGroup        RGB
+				Rarity             Rare
+				#
+				SetTextColor       255 255 119
 				SetBackgroundColor 000 000 000
 				SetBorderColor     000 127 000
 				SetFontSize        30
