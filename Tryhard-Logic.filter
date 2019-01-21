@@ -480,6 +480,8 @@
 				MinimapIcon        2 White Square
 				PlayEffect         White
 		Show # Map ERROR
+			Class              Map
+			#
 			SetTextColor       255 000 000
 			SetBackgroundColor 255 255 255
 			SetBorderColor     255 000 000
