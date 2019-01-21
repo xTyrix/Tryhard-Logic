@@ -110,7 +110,7 @@
 			MinimapIcon        1 Brown Square
 			PlayEffect         Brown
 		# TODO to armour, change colors to veil where needed
-		# Veiled items
+		Show # Veiled items
 			HasExplicitMod     Veil
 			#
 			SetTextColor       184 218 242
