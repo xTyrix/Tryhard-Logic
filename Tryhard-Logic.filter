@@ -671,9 +671,9 @@
 				BaseType           Vaal
 				Quality            > 0
 				#
-				SetTextColor       000 127 000
+				SetTextColor       000 000 000
 				SetBackgroundColor 027 162 155
-				SetBorderColor     000 127 000
+				SetBorderColor     000 000 000
 				SetFontSize        36
 				MinimapIcon        1 Blue Circle
 				PlayEffect         Blue
