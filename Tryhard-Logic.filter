@@ -9,16 +9,10 @@
 # TODO drop sounds (DisableDropSound, CustomAlertSound)
 
 # TODO corrupted + mirrored color
-# TODO check if information for 0 can be added
-# stacks unterschiedlich darstellen? geht das überhaupt?
+# TODO stacks unterschiedlich darstellen? geht das überhaupt?
 # TODO high level items?
+# TODO check it everything has remaining section
 
-# TODO rework "hide" to show identified items
-#   OR make identified sections with mods
-
-# Whish: Sounds for Shaper / Elder Things
-
-# TODO recheck
 # List of used Colors
 	# 175 096 037 - Unique Items
 	# 255 255 119 - Rare Items
@@ -96,7 +90,7 @@
 			MinimapIcon        1 Green Triangle
 			PlayEffect         Green
 		# TODO Main / Side Quest
-		Show # Other Quest Items
+		Show # Remaining
 			Class              "Quest Items"
 			#
 			SetTextColor       074 230 058
@@ -286,7 +280,6 @@
 					PlayEffect         Brown
 			# Others
 				Show # Timeworn Reliquary Key
-					Class              Map
 					BaseType           "Timeworn Reliquary Key"
 					#
 					SetTextColor       127 000 127
@@ -296,7 +289,6 @@
 					MinimapIcon        0 Brown Square
 					PlayEffect         Brown
 				Show # Endgame Labyrinth
-					#Class             Map
 					BaseType           "Offering to the Goddess"
 					#
 					SetTextColor       175 096 037
@@ -488,6 +480,13 @@
 				SetFontSize        30
 				MinimapIcon        2 White Square
 				PlayEffect         White
+		Show # Map ERROR
+			SetTextColor       255 000 000
+			SetBackgroundColor 255 255 255
+			SetBorderColor     255 000 000
+			SetFontSize        44
+			MinimapIcon        0 Red Triangle
+			PlayEffect         Red
 	# Divination Cards
 		Show # Stacked Deck
 			BaseType           "Stacked Deck"
@@ -745,7 +744,7 @@
 			SetFontSize        36
 			MinimapIcon        1 Yellow Circle
 			PlayEffect         Yellow
-		Show # Rest
+		Show # Remaining
 			Class              Jewel
 			#
 			SetTextColor       027 162 155
@@ -1335,3 +1334,10 @@
 			SetFontSize        18
 			# MinimapIcon      [None]
 			# PlayEffect       [None]
+	Show # Remaining ERROR
+		SetTextColor       255 000 000
+		SetBackgroundColor 255 255 255
+		SetBorderColor     255 000 000
+		SetFontSize        44
+		MinimapIcon        0 Red Triangle
+		PlayEffect         Red
