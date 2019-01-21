@@ -8,10 +8,9 @@
 
 # TODO drop sounds (DisableDropSound, CustomAlertSound)
 
-# TODO corrupted + mirrored color
+# TODO Corrupted True; HasExplicitMod Mirrored: red background
 # TODO stacks unterschiedlich darstellen? geht das überhaupt?
 # TODO high level items?
-# TODO check it everything has remaining section
 
 # List of used Colors
 	# 175 096 037 - Unique Items
