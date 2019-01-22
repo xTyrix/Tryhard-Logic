@@ -1,6 +1,6 @@
 ﻿##########################
 #                        #
-#  Tryhard-Logic.filter  #  Version: Betrayal - Corrupt Rework (to Gems & Jewels)
+#  Tryhard-Logic.filter  #  Version: Betrayal - Corrupt Rework (to Flasks)
 #                        #
 ##########################
 
@@ -851,6 +851,16 @@
 			SetFontSize        36
 			MinimapIcon        1 Brown Hexagon
 			PlayEffect         Brown
+		Show # Corrupted
+			Corrupted          True
+			Class              Flask
+			#
+			# SetTextColor     [Rarity]
+			SetBackgroundColor 000 000 000
+			SetBorderColor     127 000 000
+			SetFontSize        27
+			# MinimapIcon      [None]
+			# PlayEffect       [None]
 		# TODO split by quality
 		# Quality
 			Show # Magic
