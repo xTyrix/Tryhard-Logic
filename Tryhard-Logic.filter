@@ -109,7 +109,7 @@
 			SetFontSize        36
 			MinimapIcon        1 Brown Square
 			PlayEffect         Brown
-		# TODO to armour, change colors to veil where needed
+		# TODO input to armour, corrupted?
 		Show # Veiled items
 			HasExplicitMod     Veil
 			#
@@ -139,7 +139,6 @@
 			# TODO Leaguestone Color
 			Show # Leaguestones
 				Class              Leaguestone
-				Corrupted          False
 				#
 				SetTextColor       127 000 127
 				SetBackgroundColor 200 155 155
@@ -170,41 +169,38 @@
 					SetFontSize        45
 					MinimapIcon        0 Brown Square
 					PlayEffect         Brown
-			# TODO minimap + effect color
-			# League Specific
-				Show # Splinters
-					Class              Currency
-					BaseType           Splinter
+			# High Value
+				Show # Very High Value
+					BaseType           "Timeworn Reliquary Key"
+					#
+					SetTextColor       127 000 127
+					SetBackgroundColor 200 155 155
+					SetBorderColor     127 000 127
+					SetFontSize        45
+					MinimapIcon        0 Brown Square
+					PlayEffect         Brown
+				Show # Brachstones
+					Class              Map
+					BaseType           Breachstone
 					#
 					SetTextColor       175 096 037
-					SetBackgroundColor 000 000 000
-					SetBorderColor     200 155 155
+					SetBackgroundColor 200 155 155
+					SetBorderColor     175 096 037
 					SetFontSize        36
 					MinimapIcon        1 Brown Square
 					PlayEffect         Brown
-				Show # Brachstones
-						Class              Map
-						BaseType           Breachstone
-						#
-						SetTextColor       175 096 037
-						SetBackgroundColor 200 155 155
-						SetBorderColor     175 096 037
-						SetFontSize        36
-						MinimapIcon        1 Brown Square
-						PlayEffect         Brown
 				Show # Remaining
-						Class              Map
-						BaseType           "Harbinger Map" "Chateau Map"
-						Rarity             Unique
-						#
-						SetTextColor       175 096 037
-						SetBackgroundColor 200 155 155
-						SetBorderColor     175 096 037
-						SetFontSize        36
-						MinimapIcon        1 Brown Square
-						PlayEffect         Brown
-			# TODO extra segment for really good ones
-			Show # Actual Unique Maps
+					Class              Map
+					BaseType           Chateau Maze Museum Harbinger Courtyard "Moon Temple"
+					Rarity             Unique
+					#
+					SetTextColor       175 096 037
+					SetBackgroundColor 200 155 155
+					SetBorderColor     175 096 037
+					SetFontSize        36
+					MinimapIcon        1 Brown Square
+					PlayEffect         Brown
+			Show # Remaining
 				Class              Map
 				Rarity             Unique
 				#
@@ -277,25 +273,25 @@
 					SetFontSize        36
 					MinimapIcon        1 Brown Square
 					PlayEffect         Brown
-			# Others
-				Show # Timeworn Reliquary Key
-					BaseType           "Timeworn Reliquary Key"
-					#
-					SetTextColor       127 000 127
-					SetBackgroundColor 200 155 155
-					SetBorderColor     127 000 127
-					SetFontSize        45
-					MinimapIcon        0 Brown Square
-					PlayEffect         Brown
-				Show # Endgame Labyrinth
-					BaseType           "Offering to the Goddess"
+				Show # Splinters
+					Class              Currency
+					BaseType           Splinter
 					#
 					SetTextColor       175 096 037
-					SetBackgroundColor 200 155 155
-					SetBorderColor     175 096 037
+					SetBackgroundColor 000 000 000
+					SetBorderColor     200 155 155
 					SetFontSize        36
 					MinimapIcon        1 Brown Square
 					PlayEffect         Brown
+			Show # Endgame Labyrinth
+				BaseType           "Offering to the Goddess"
+				#
+				SetTextColor       175 096 037
+				SetBackgroundColor 200 155 155
+				SetBorderColor     175 096 037
+				SetFontSize        36
+				MinimapIcon        1 Brown Square
+				PlayEffect         Brown
 		Show # Tier 16
 			Class              Map
 			MapTier            16
