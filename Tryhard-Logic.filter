@@ -1,6 +1,6 @@
 ﻿##########################
 #                        #
-#  Tryhard-Logic.filter  #  Version: Betrayal - Color Rework
+#  Tryhard-Logic.filter  #  Version: Betrayal - Corrupt Rework (to Maps)
 #                        #
 ##########################
 
@@ -13,22 +13,23 @@
 # TODO high level items?
 
 # List of used Colors
-	# 175 096 037 - Unique Items
-	# 255 255 119 - Rare Items
-	# 136 136 255 - Magic Items
-	# 200 200 200 - Normal Items
-	# 184 218 242 - Crafted Mod Color (Veiled Items)
-	# 000 000 000 - Nothing Special
+	# 175 096 037 - Unique
+	# 255 255 119 - Rare
+	# 136 136 255 - Magic
+	# 200 200 200 - Normal
+	# 000 000 000 - Nutral
+	# 184 218 242 - Veiled (Crafted Mods)
+	# 127 000 000 - Corrupted
+	# 074 230 058 - Quest Items
+	# 200 155 155 - Maps
+	# 014 186 255 - Divination Cards
+	# 170 158 130 - Currency
+	# 027 162 155 - Gems & Jewels
+	# 127 000 255 - Elder & Shaper
+	# 127 000 127 - OMG-Drops
+	# 000 127 000 - Socket Related Properties
 	# 255 000 000 - ERROR
 	# 255 255 255 - ERROR
-	# 127 000 127 - OMG-Drops
-	# 170 158 130 - Currency
-	# 074 230 058 - Quest Items
-	# 014 186 255 - Divination Cards
-	# 027 162 155 - Gems & Jewels
-	# 200 155 155 - Maps
-	# 127 000 255 - Elder & Shaper
-	# 000 127 000 - Socket Related Properties
 
 # List of used Font Sizes
 		# 18 - Hide
@@ -292,27 +293,62 @@
 				SetFontSize        36
 				MinimapIcon        1 Brown Square
 				PlayEffect         Brown
-		Show # Tier 16
-			Class              Map
-			MapTier            16
-			#
-			SetTextColor       127 000 127
-			SetBackgroundColor 200 155 155
-			SetBorderColor     127 000 127
-			SetFontSize        45
-			MinimapIcon        0 Red Square
-			PlayEffect         Red
-		Show # Red Tier
-			Class              Map
-			MapTier            >= 11
-			#
-			SetTextColor       000 000 000
-			SetBackgroundColor 200 155 155
-			SetBorderColor     000 000 000
-			SetFontSize        36
-			MinimapIcon        1 Red Square
-			PlayEffect         Red
+		# Tier 16
+			Show # Corrupted
+				Corrupted          True
+				Class              Map
+				MapTier            16
+				#
+				# SetTextColor     [Rarity]
+				SetBackgroundColor 200 155 155
+				SetBorderColor     127 000 000
+				SetFontSize        45
+				MinimapIcon        0 Red Square
+				PlayEffect         Red
+			Show # Remaining
+				Class              Map
+				MapTier            16
+				#
+				SetTextColor       127 000 127
+				SetBackgroundColor 200 155 155
+				SetBorderColor     127 000 127
+				SetFontSize        45
+				MinimapIcon        0 Red Square
+				PlayEffect         Red
+		# Red Tier
+			Show # Corrupted
+				Corrupted          True
+				Class              Map
+				MapTier            >= 11
+				#
+				# SetTextColor     [Rarity]
+				SetBackgroundColor 200 155 155
+				SetBorderColor     127 000 000
+				SetFontSize        36
+				MinimapIcon        1 Red Square
+				PlayEffect         Red
+			Show # Remaining
+				Class              Map
+				MapTier            >= 11
+				#
+				SetTextColor       000 000 000
+				SetBackgroundColor 200 155 155
+				SetBorderColor     000 000 000
+				SetFontSize        36
+				MinimapIcon        1 Red Square
+				PlayEffect         Red
 		# Yellow Tier
+			Show # Corrupted       
+				Corrupted          True
+				Class              Map
+				MapTier            >= 6
+				#
+				SetTextColor       200 155 155
+				SetBackgroundColor 000 000 000
+				SetBorderColor     127 000 000
+				SetFontSize        30
+				MinimapIcon        2 Yellow Square
+				PlayEffect         Yellow
 			# +0 to +2 Maps
 				Show # Tier 6
 					Class              Map
@@ -391,6 +427,16 @@
 				MinimapIcon        2 Yellow Square
 				PlayEffect         Yellow
 		# White Tier
+			Show # Corrupted
+				Corrupted          True
+				Class              Map
+				#
+				SetTextColor       200 155 155
+				SetBackgroundColor 000 000 000
+				SetBorderColor     127 000 000
+				SetFontSize        30
+				MinimapIcon        2 White Square
+				PlayEffect         White
 			# +0 to +2 Maps
 				Show # Tier 1
 					Class              Map
