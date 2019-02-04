@@ -1041,9 +1041,9 @@
 						ElderItem          True
 						LinkedSockets      6
 						#
-						SetTextColor       000 127 000
+						SetTextColor       255 255 119
 						SetBackgroundColor 127 000 255
-						SetBorderColor     255 255 119
+						SetBorderColor     000 127 000
 						SetFontSize        36
 						MinimapIcon        1 Blue Hexagon
 						PlayEffect         Blue
@@ -1052,9 +1052,9 @@
 						ShaperItem         True
 						LinkedSockets      6
 						#
-						SetTextColor       000 127 000
+						SetTextColor       255 255 119
 						SetBackgroundColor 127 000 255
-						SetBorderColor     255 255 119
+						SetBorderColor     000 127 000
 						SetFontSize        36
 						MinimapIcon        1 Blue Hexagon
 						PlayEffect         Blue
@@ -1346,7 +1346,7 @@
 				#
 				SetTextColor       000 127 000
 				SetBackgroundColor 000 000 000
-				SetBorderColor     000 127 000
+				SetBorderColor     000 000 000
 				SetFontSize        30
 				MinimapIcon        2 White Hexagon
 				PlayEffect         White
@@ -1374,16 +1374,55 @@
 		# TODO leveling
 		# Rares
 			# TODO sort by space
-			Show # Lvl 60+
-				Rarity             Rare
-				ItemLevel          >= 60
-				#
-				SetTextColor       000 127 000
-				SetBackgroundColor 000 000 000
-				SetBorderColor     000 127 000
-				SetFontSize        30
-				# MinimapIcon      [None]
-				# PlayEffect       [None]
+			# Chaos Recipe
+				Show # Jewelery
+					Rarity             Rare
+					ItemLevel          >= 60
+					Class              Rings Amulets Belts
+					#
+					SetTextColor       255 255 119
+					SetBackgroundColor 000 127 000
+					SetBorderColor     255 255 119
+					SetFontSize        30
+					# MinimapIcon      [None]
+					PlayEffect         White Temp
+				# Remaining
+					# Weapons
+						Show # 2*3 2 Handed
+							Rarity             Rare
+							ItemLevel          >= 60
+							Class              Bow
+							Height             3
+							#
+							SetTextColor       000 127 000
+							SetBackgroundColor 000 000 000
+							SetBorderColor     255 255 119
+							SetFontSize        30
+							# MinimapIcon      [None]
+							# PlayEffect       [None]
+						Show # 1*3 1 Handed
+							Rarity             Rare
+							ItemLevel          >= 60
+							Class              "One Hand" Dagger Wand
+							Width              1
+							#
+							SetTextColor       000 127 000
+							SetBackgroundColor 000 000 000
+							SetBorderColor     255 255 119
+							SetFontSize        30
+							# MinimapIcon      [None]
+							# PlayEffect       [None]
+					Show # Remaining
+						Rarity             Rare
+						ItemLevel          >= 60
+						Class              Helmets Gloves Boots Armours
+						#
+						SetTextColor       000 127 000
+						SetBackgroundColor 000 000 000
+						SetBorderColor     255 255 119
+						SetFontSize        30
+						# MinimapIcon      [None]
+						# PlayEffect       [None]
 			Show # Chromatic
 				SocketGroup        RGB
 				Rarity             Rare
