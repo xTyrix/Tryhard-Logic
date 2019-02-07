@@ -9,8 +9,8 @@
 # TODO drop sounds (DisableDropSound, CustomAlertSound)
 
 # TODO Corrupted True; HasExplicitMod Mirrored: red background
-# TODO stacks unterschiedlich darstellen? geht das überhaupt?
 # TODO high level items?
+# TODO imprints
 
 # List of used Colors
 	# 175 096 037 - Unique
@@ -100,16 +100,6 @@
 			MinimapIcon        1 Green Triangle
 			PlayEffect         Green
 	# Current League (Betrayal)
-		Show # Scarabs
-			Class              Map
-			BaseType           Scarab
-			#
-			SetTextColor       000 000 000
-			SetBackgroundColor 200 155 155
-			SetBorderColor     000 000 000
-			SetFontSize        36
-			MinimapIcon        1 Brown Square
-			PlayEffect         Brown
 		# TODO input to armour, corrupted?
 		Show # Veiled items
 			HasExplicitMod     Veil
@@ -120,12 +110,8 @@
 			SetFontSize        36
 			MinimapIcon        1 Yellow Hexagon
 			PlayEffect         Yellow
-	# TODO Rarity?
-	# TODO Colors for Tiers?
 	# Maps
 		# Not Droping (Anymore)
-			# TODO Harbinger Unique?
-			# TODO check for tier?
 			Show # Corupted Bases Uncorrupted
 				Class              Map
 				BaseType           "Harbinger Map" "Vaal Temple Map"
@@ -137,7 +123,6 @@
 				SetFontSize        45
 				MinimapIcon        0 Red Square
 				PlayEffect         Red
-			# TODO Leaguestone Color
 			Show # Leaguestones
 				Class              Leaguestone
 				#
@@ -147,6 +132,16 @@
 				SetFontSize        45
 				MinimapIcon        0 Red Square
 				PlayEffect         Red
+			Show # Scarabs
+				Class              Map
+				BaseType           Scarab
+				#
+				SetTextColor       000 000 000
+				SetBackgroundColor 200 155 155
+				SetBorderColor     000 000 000
+				SetFontSize        36
+				MinimapIcon        1 Brown Square
+				PlayEffect         Brown
 		# Unique Maps
 			# Not Droping (Anymore)
 				Show # Ancient Reliquary Key
@@ -584,7 +579,6 @@
 				SetFontSize        36
 				MinimapIcon        1 Brown Diamond
 				PlayEffect         Brown
-			# TODO perandus coin nach stack size aufsplitten?
 			Show # Low
 				Class              Currency
 				BaseType           "Perandus Coin"
@@ -648,7 +642,7 @@
 				SetFontSize        27
 				# MinimapIcon      [None]
 				PlayEffect         White Temp
-			# TODO split resonators
+			# TODO resonators aufteilen
 			Show # Remaining
 				Class              Currency
 				BaseType           "Cartographer's Chisel" "Orb of Alchemy" "Orb of Fusing" "Orb of Scouring" "Jeweller's Orb" "Orb of Chance" "Resonator" "Chromatic Orb" "Glassblower's Bauble" "Orb of Alteration"
@@ -689,9 +683,75 @@
 			SetFontSize        44
 			MinimapIcon        0 Red Triangle
 			PlayEffect         Red
-	# TODO level
 	# Gems & Jewels
 		# Gems
+			# Not possible
+				Show # Level > 21
+					Class              "Skill Gems"
+					GemLevel           > 21
+					#
+					SetTextColor       027 162 155
+					SetBackgroundColor 127 000 127
+					SetBorderColor     127 000 000
+					SetFontSize        45
+					MinimapIcon        0 Red Triangle
+					PlayEffect         Red
+				Show # Quality > 23
+					Class              "Skill Gems"
+					Quality            > 23
+					#
+					SetTextColor       027 162 155
+					SetBackgroundColor 127 000 127
+					SetBorderColor     127 000 000
+					SetFontSize        45
+					MinimapIcon        0 Red Triangle
+					PlayEffect         Red
+				# Corrupted Stats Uncorrupted
+					Show # Vaal Gems
+						Corrupted          False
+						Class              "Skill Gems"
+						BaseType           Vaal
+						#
+						SetTextColor       027 162 155
+						SetBackgroundColor 127 000 127
+						SetBorderColor     127 000 000
+						SetFontSize        45
+						MinimapIcon        0 Red Triangle
+						PlayEffect         Red
+					Show # Level 21
+						Class              "Skill Gems"
+						Corrupted          False
+						GemLevel           >= 21
+						#
+						SetTextColor       027 162 155
+						SetBackgroundColor 127 000 127
+						SetBorderColor     127 000 000
+						SetFontSize        45
+						MinimapIcon        0 Red Triangle
+						PlayEffect         Red
+					Show # > 20 Quality
+						Class              "Skill Gems"
+						Corrupted          False
+						GemLevel           >= 21
+						#
+						SetTextColor       027 162 155
+						SetBackgroundColor 127 000 127
+						SetBorderColor     127 000 000
+						SetFontSize        45
+						MinimapIcon        0 Red Triangle
+						PlayEffect         Red
+				Show # 3 Corruptions
+					Class              "Skill Gems"
+					BaseType           Vaal
+					GemLevel           >= 21
+					Quality            > 20
+					#
+					SetTextColor       027 162 155
+					SetBackgroundColor 127 000 127
+					SetBorderColor     127 000 000
+					SetFontSize        45
+					MinimapIcon        0 Red Triangle
+					PlayEffect         Red
 			Show # Not droping anymore
 				BaseType           "Item Quantity"
 				#
@@ -701,74 +761,190 @@
 				SetFontSize        45
 				MinimapIcon        0 Red Circle
 				PlayEffect         Red
-			# TODO corrupted
-			# TODO aufteilen?
-			# Vaal Gems
-				Show # Uncorrupted
-					Corrupted          False
+			# Double Corrupted
+				Show # Vaal & Level
+					GemLevel           >= 21
 					Class              "Skill Gems"
 					BaseType           Vaal
 					#
 					SetTextColor       027 162 155
-					SetBackgroundColor 127 000 127
+					SetBackgroundColor 127 000 000
 					SetBorderColor     027 162 155
 					SetFontSize        45
-					MinimapIcon        0 Red Triangle
+					MinimapIcon        0 Red Circle
 					PlayEffect         Red
-				# TODO aufteilen?
-				Show # With Quality
-					Class              "Skill Gems"
-					BaseType           Vaal
-					Quality            > 0
-					#
-					SetTextColor       127 000 000
-					SetBackgroundColor 027 162 155
-					SetBorderColor     127 000 000
-					SetFontSize        36
-					MinimapIcon        1 Blue Circle
-					PlayEffect         Blue
-				Show # League Specific
-					Class              "Skill Gem"
-					BaseType           "Vaal Breach"
-					#
-					SetTextColor       127 000 000
-					SetBackgroundColor 027 162 155
-					SetBorderColor     127 000 000
-					SetFontSize        36
-					MinimapIcon        1 Blue Circle
-					PlayEffect         Blue
-				Show # Remaining
+				Show # Vaal & Quality
+					Quality            > 20
 					Class              "Skill Gems"
 					BaseType           Vaal
 					#
 					SetTextColor       027 162 155
-					SetBackgroundColor 000 000 000
+					SetBackgroundColor 127 000 000
+					SetBorderColor     027 162 155
+					SetFontSize        45
+					MinimapIcon        0 Red Circle
+					PlayEffect         Red
+				Show # Level & Quality
+					Class              "Skill Gems"
+					GemLevel           >= 21
+					Quality            > 20
+					#
+					SetTextColor       027 162 155
+					SetBackgroundColor 127 000 000
+					SetBorderColor     027 162 155
+					SetFontSize        45
+					MinimapIcon        0 Red Circle
+					PlayEffect         Red
+			# Corrupted
+				# Vaal Gems
+					Show # League Specific
+						Class              "Skill Gem"
+						BaseType           "Vaal Breach"
+						#
+						SetTextColor       127 000 000
+						SetBackgroundColor 027 162 155
+						SetBorderColor     127 000 000
+						SetFontSize        36
+						MinimapIcon        1 Blue Circle
+						PlayEffect         Blue
+					Show # 20 Quality
+						Class              "Skill Gems"
+						BaseType           Vaal
+						Quality            >= 20
+						#
+						SetTextColor       027 162 155
+						SetBackgroundColor 000 127 000
+						SetBorderColor     127 000 000
+						SetFontSize        36
+						MinimapIcon        1 Blue Circle
+						PlayEffect         Blue
+					Show # >= Level 17
+						GemLevel           >= 17
+						Class              "Skill Gems"
+						BaseType           Vaal
+						#
+						SetTextColor       127 000 000
+						SetBackgroundColor 027 162 155
+						SetBorderColor     127 000 000
+						SetFontSize        36
+						MinimapIcon        1 Blue Circle
+						PlayEffect         Blue
+					Show # Quality
+						Class              "Skill Gems"
+						BaseType           Vaal
+						Quality            > 0
+						#
+						SetTextColor       127 000 000
+						SetBackgroundColor 027 162 155
+						SetBorderColor     127 000 000
+						SetFontSize        36
+						MinimapIcon        1 Blue Circle
+						PlayEffect         Blue
+					Show # Remaining
+						Class              "Skill Gems"
+						BaseType           Vaal
+						#
+						SetTextColor       027 162 155
+						SetBackgroundColor 000 000 000
+						SetBorderColor     127 000 000
+						SetFontSize        30
+						MinimapIcon        2 Blue Circle
+						PlayEffect         Blue
+				# Level 21
+					Show # 20 Quality
+						Class              "Skill Gems"
+						GemLevel           >= 21
+						Quality            >= 20
+						#
+						SetTextColor       027 162 155
+						SetBackgroundColor 000 127 000
+						SetBorderColor     127 000 000
+						SetFontSize        36
+						MinimapIcon        1 Blue Circle
+						PlayEffect         Blue
+					Show # Remaining
+						Class              "Skill Gems"
+						GemLevel           >= 21
+						#
+						SetTextColor       127 000 000
+						SetBackgroundColor 027 162 155
+						SetBorderColor     127 000 000
+						SetFontSize        36
+						MinimapIcon        1 Blue Circle
+						PlayEffect         Blue
+				Show # > 20 Quality
+					Class              "Skill Gems"
+					Quality            > 20
+					#
+					SetTextColor       027 162 155
+					SetBackgroundColor 000 127 000
 					SetBorderColor     127 000 000
+					SetFontSize        36
+					MinimapIcon        1 Blue Circle
+					PlayEffect         Blue
+				Show # 20 Quality
+					Corrupted          True
+					Class              "Skill Gems"
+					Quality            >= 20
+					#
+					SetTextColor       127 000 000
+					SetBackgroundColor 000 127 000
+					SetBorderColor     027 162 155
+					SetFontSize        36
+					MinimapIcon        1 Blue Circle
+					PlayEffect         Blue
+				Show # Level >= 17
+					Corrupted          True
+					Class              "Skill Gems"
+					GemLevel           >= 17
+					#
+					SetTextColor       127 000 000
+					SetBackgroundColor 000 000 000
+					SetBorderColor     027 162 155
 					SetFontSize        30
 					MinimapIcon        2 Blue Circle
 					PlayEffect         Blue
-			# TODO quality?
-			Show # Corrupted
-				Corrupted          True
+				Show # Quality
+					Corrupted          True
+					Class              "Skill Gems"
+					Quality            > 0
+					#
+					SetTextColor       127 000 000
+					SetBackgroundColor 000 000 000
+					SetBorderColor     027 162 155
+					SetFontSize        30
+					MinimapIcon        2 Blue Circle
+					PlayEffect         Blue
+				Show # Remaining
+					Corrupted          True
+					Class              "Skill Gems"
+					#
+					SetTextColor       127 000 000
+					SetBackgroundColor 000 000 000
+					SetBorderColor     027 162 155
+					SetFontSize        27
+					# MinimapIcon      [None]
+					# PlayEffect       [None]
+			Show # 20 Quality
 				Class              "Skill Gems"
+				Quality            >= 20
 				#
 				SetTextColor       027 162 155
-				SetBackgroundColor 000 000 000
-				SetBorderColor     127 000 000
-				SetFontSize        27
-				# MinimapIcon      [None]
-				# PlayEffect       [None]
-			Show # Drop Vendor Only
+				SetBackgroundColor 000 127 000
+				SetBorderColor     027 162 155
+				SetFontSize        30
+				MinimapIcon        2 Blue Circle
+				PlayEffect         Blue
+			Show # >= Level 17
 				Class              "Skill Gems"
-				BaseType           "Added Chaos Damage Support" "Empower Support" "Enhance Support" "Enlighten Support" "Block Chance Reduction Support" "Detonate Mines" "Portal" "Mirror Arrow"
+				GemLevel           >= 17
 				#
 				SetTextColor       027 162 155
 				SetBackgroundColor 000 000 000
 				SetBorderColor     027 162 155
-				SetFontSize        36
-				MinimapIcon        1 Blue Circle
+				SetFontSize        30
+				MinimapIcon        2 Blue Circle
 				PlayEffect         Blue
-			# TODO aufteilen?
 			Show # Quality
 				Class              "Skill Gems"
 				Quality            > 0
@@ -779,7 +955,16 @@
 				SetFontSize        30
 				MinimapIcon        2 Blue Circle
 				PlayEffect         Blue
-			# TODO leveling?
+			Show # Drop Vendor Only
+				Class              "Skill Gems"
+				BaseType           "Added Chaos Damage Support" "Empower Support" "Enhance Support" "Enlighten Support" "Block Chance Reduction Support" "Detonate Mines" "Portal" "Mirror Arrow"
+				#
+				SetTextColor       027 162 155
+				SetBackgroundColor 000 000 000
+				SetBorderColor     027 162 155
+				SetFontSize        36
+				MinimapIcon        1 Blue Circle
+				PlayEffect         Blue
 			Hide # Remaining
 				Class              "Skill Gems"
 				#
@@ -789,7 +974,6 @@
 				SetFontSize        18
 				# MinimapIcon      [None]
 				# PlayEffect       [None]
-		# TODO split Abyss by level
 		# Jewels
 			Show # Uniques
 				Class              Jewel
