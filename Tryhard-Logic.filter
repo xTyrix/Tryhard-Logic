@@ -957,7 +957,7 @@
 				PlayEffect         Blue
 			Show # Drop Vendor Only
 				Class              "Skill Gems"
-				BaseType           "Added Chaos Damage Support" "Empower Support" "Enhance Support" "Enlighten Support" "Block Chance Reduction Support" "Detonate Mines" "Portal" "Mirror Arrow"
+				BaseType           "Added Chaos Damage Support" "Empower Support" "Enhance Support" "Enlighten Support" "Block Chance Reduction Support" "Detonate Mines" "Portal"
 				#
 				SetTextColor       027 162 155
 				SetBackgroundColor 000 000 000
@@ -1563,6 +1563,7 @@
 					Rarity             Rare
 					ItemLevel          >= 60
 					Class              Rings Amulets Belts
+					Identified         False
 					#
 					SetTextColor       255 255 119
 					SetBackgroundColor 000 127 000
@@ -1570,36 +1571,13 @@
 					SetFontSize        30
 					# MinimapIcon      [None]
 					PlayEffect         White Temp
-				# Remaining
-					# Weapons
-						Show # 2*3 2 Handed
-							Rarity             Rare
-							ItemLevel          >= 60
-							Class              Bow
-							Height             3
-							#
-							SetTextColor       000 127 000
-							SetBackgroundColor 000 000 000
-							SetBorderColor     255 255 119
-							SetFontSize        30
-							# MinimapIcon      [None]
-							# PlayEffect       [None]
-						Show # 1*3 1 Handed
-							Rarity             Rare
-							ItemLevel          >= 60
-							Class              "One Hand" Dagger Wand
-							Width              1
-							#
-							SetTextColor       000 127 000
-							SetBackgroundColor 000 000 000
-							SetBorderColor     255 255 119
-							SetFontSize        30
-							# MinimapIcon      [None]
-							# PlayEffect       [None]
-					Show # Remaining
+				# Weapons
+					Show # 2*3 2 Handed
 						Rarity             Rare
 						ItemLevel          >= 60
-						Class              Helmets Gloves Boots Armours
+						Class              Bow
+						Height             3
+						Identified         False
 						#
 						SetTextColor       000 127 000
 						SetBackgroundColor 000 000 000
@@ -1607,6 +1585,32 @@
 						SetFontSize        30
 						# MinimapIcon      [None]
 						# PlayEffect       [None]
+					Show # 1*3 1 Handed
+						Rarity             Rare
+						ItemLevel          >= 60
+						Class              "One Hand" Dagger Wand
+						Width              1
+						Height             3
+						Identified         False
+						#
+						SetTextColor       000 127 000
+						SetBackgroundColor 000 000 000
+						SetBorderColor     255 255 119
+						SetFontSize        30
+						# MinimapIcon      [None]
+						# PlayEffect       [None]
+				Show # Remaining
+					Rarity             Rare
+					ItemLevel          >= 60
+					Class              Helmets Gloves Boots Armours
+					Identified         False
+					#
+					SetTextColor       000 127 000
+					SetBackgroundColor 000 000 000
+					SetBorderColor     255 255 119
+					SetFontSize        30
+					# MinimapIcon      [None]
+					# PlayEffect       [None]
 			Show # Chromatic
 				SocketGroup        RGB
 				Rarity             Rare
