@@ -1521,7 +1521,7 @@
 					SetFontSize        33
 					MinimapIcon        2 Yellow Hexagon
 					PlayEffect         Yellow
-		Show # Veiled items
+		# Veiled items
 			Show # Corrupted
 				HasExplicitMod     Veil
 				#
