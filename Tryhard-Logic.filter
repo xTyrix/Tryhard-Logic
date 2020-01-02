@@ -1,6 +1,6 @@
 ﻿##########################
 #                        #
-#  Tryhard-Logic.filter  #  Version: Betrayal - Corrupt Rework (to Flasks)
+#  Tryhard-Logic.filter  #  Version: Metamorph - Corrupt Rework (to Flasks)
 #                        #
 ##########################
 
@@ -11,6 +11,7 @@
 # TODO Corrupted True; HasExplicitMod Mirrored: red background
 # TODO high level items?
 # TODO imprints
+# TODO incubated items
 
 # List of used Colors
 	# 175 096 037 - Unique
@@ -22,10 +23,10 @@
 	# 127 000 000 - Corrupted
 	# 074 230 058 - Quest Items
 	# 200 155 155 - Maps
-	# 014 186 255 - Divination Cards
+	# 014 186 255 - Divination Cards & Incubator
 	# 170 158 130 - Currency
 	# 027 162 155 - Gems & Jewels
-	# 127 000 255 - Elder & Shaper
+	# 127 000 255 - Influenced Items
 	# 127 000 127 - OMG-Drops
 	# 000 127 000 - Socket Related Properties
 	# 255 000 000 - ERROR
@@ -61,15 +62,34 @@
 			MinimapIcon        0 Red Triangle
 			PlayEffect         Red
 	# Quest Items
-		Show # Atlas related Items
-			BaseType           "Divine Vessel" "Unshaping Orb" "Memory Fragment" "Shaper's Orb" "The Shaper's Key"
-			#
-			SetTextColor       000 000 000
-			SetBackgroundColor 074 230 058
-			SetBorderColor     000 000 000
-			SetFontSize        36
-			MinimapIcon        1 Green Triangle
-			PlayEffect         Green
+		# Atlas related Items
+			Show # Ivory Watchstones
+				BaseType           "Ivory Watchstone"
+				#
+				SetTextColor       175 096 037
+				SetBackgroundColor 074 230 058
+				SetBorderColor     175 096 037
+				SetFontSize        36
+				MinimapIcon        1 Green Triangle
+				PlayEffect         Green
+			Show # Remaining Watchstones
+				BaseType           Watchstone
+				#
+				SetTextColor       000 000 000
+				SetBackgroundColor 074 230 058
+				SetBorderColor     000 000 000
+				SetFontSize        36
+				MinimapIcon        1 Green Triangle
+				PlayEffect         Green
+			Show # Remaining
+				BaseType           "Divine Vessel" "Unshaping Orb" "Memory Fragment" "Shaper's Orb" "The Shaper's Key"
+				#
+				SetTextColor       000 000 000
+				SetBackgroundColor 074 230 058
+				SetBorderColor     000 000 000
+				SetFontSize        36
+				MinimapIcon        1 Green Triangle
+				PlayEffect         Green
 		Show # Prophecies
 			Class              Currency
 			BaseType           Prophecy
@@ -80,8 +100,8 @@
 			SetFontSize        36
 			MinimapIcon        1 Green Triangle
 			PlayEffect         Green
-		Show # Incursion & Labyrinth Items
-			Class              "Incursion Item" Labyrinth
+		Show # Incursion & Labyrinth Items & Metamorph Organs
+			Class              "Incursion Item" Labyrinth Metamorph
 			#
 			SetTextColor       000 000 000
 			SetBackgroundColor 074 230 058
@@ -99,17 +119,6 @@
 			SetFontSize        33
 			MinimapIcon        1 Green Triangle
 			PlayEffect         Green
-	# Current League (Betrayal)
-		# TODO input to armour, corrupted?
-		Show # Veiled items
-			HasExplicitMod     Veil
-			#
-			SetTextColor       184 218 242
-			SetBackgroundColor 000 000 000
-			SetBorderColor     184 218 242
-			SetFontSize        36
-			MinimapIcon        1 Yellow Hexagon
-			PlayEffect         Yellow
 	# Maps
 		# Not Droping (Anymore)
 			Show # Corupted Bases Uncorrupted
@@ -177,7 +186,7 @@
 					PlayEffect         Brown
 				Show # Brachstones
 					Class              Map
-					BaseType           Breachstone
+					BaseType           Breachstone Timeless
 					#
 					SetTextColor       175 096 037
 					SetBackgroundColor 200 155 155
@@ -207,7 +216,7 @@
 				MinimapIcon        1 Brown Square
 				PlayEffect         Brown
 			# Map Fragments
-				Show # The Shaper's Realm (Fragments)
+				Show # The Shaper's Realm & Absence of Value and Meaning (Fragments)
 					Class              "Map Fragment"
 					BaseType           Fragment
 					#
@@ -271,7 +280,7 @@
 					PlayEffect         Brown
 				Show # Splinters
 					Class              Currency
-					BaseType           Splinter
+					BaseType           Splinter Timeless
 					#
 					SetTextColor       175 096 037
 					SetBackgroundColor 000 000 000
@@ -285,6 +294,20 @@
 				SetTextColor       175 096 037
 				SetBackgroundColor 200 155 155
 				SetBorderColor     175 096 037
+				SetFontSize        36
+				MinimapIcon        1 Brown Square
+				PlayEffect         Brown
+			Show # Blighted
+				# TODO
+				BlightedMap True
+				Class Map
+				#
+				# SetTextColor     [Rarity]
+				SetBackgroundColor 200 155 155
+				SetBorderColor     175 096 037
+				SetTextColor       175 096 037
+				SetBackgroundColor 000 000 000
+				SetBorderColor     200 155 155
 				SetFontSize        36
 				MinimapIcon        1 Brown Square
 				PlayEffect         Brown
@@ -525,7 +548,7 @@
 			SetFontSize        44
 			MinimapIcon        0 Red Triangle
 			PlayEffect         Red
-	# Divination Cards
+	# Divination Cards & Incubator
 		Show # Stacked Deck
 			BaseType           "Stacked Deck"
 			#
@@ -536,7 +559,7 @@
 			MinimapIcon        1 Blue Star
 			PlayEffect         Blue
 		# TODO sort by base
-		Show # Cards
+		Show # Cards & Incubator
 			Class              "Divination Card"
 			#
 			SetTextColor       014 186 255
@@ -571,7 +594,7 @@
 			# TODO essences + fossils aufteilen
 			Show # Normal
 				Class              Currency
-				BaseType           Essence Fossil
+				BaseType           Essence Fossil Oil
 				#
 				SetTextColor       175 096 037
 				SetBackgroundColor 170 158 130
@@ -589,6 +612,16 @@
 				SetFontSize        36
 				MinimapIcon        1 Brown Diamond
 				PlayEffect         Brown
+		Show # Influenced
+			Class              Currency
+			BaseType           "'s Exalted Orb" "Awakener's Orb"
+            #
+			SetTextColor       127 000 255
+			SetBackgroundColor 170 158 130
+			SetBorderColor     127 000 255
+			SetFontSize        45
+			MinimapIcon        0 Red Diamond
+			PlayEffect         Red
 		# OMG (>= 100C) / Not Dropping
 			Show # OMFG (>= 100Ex)
 				Class              Currency
@@ -600,7 +633,7 @@
 				SetFontSize        45
 				MinimapIcon        0 Red Diamond
 				PlayEffect         Red
-			Show # OMFG (>= 100Ex)
+			Show # OMFG (>= 100C)
 				Class              Currency
 				BaseType           "Exalted Orb" "Mirror Shard" "Net"
 				#
@@ -613,7 +646,7 @@
 		# High (>= 1C)
 			Show # >= 10C
 				Class              Currency
-				BaseType           "Divine Orb" "Ancient Orb" "Harbinger's Orb" "Orb of Annulment" "Master Cartographer's Seal"
+				BaseType           "Divine Orb" "Ancient Orb" "Harbinger's Orb" "Orb of Annulment" "Master Cartographer's Seal" "Fertile Catalyst" "Prismatic Catalyst"
 				#
 				SetTextColor       000 000 000
 				SetBackgroundColor 170 158 130
@@ -623,7 +656,7 @@
 				PlayEffect         Yellow
 			Show # Remaining
 				Class              Currency
-				BaseType           "Chaos Orb" "Vaal Orb" "Regal Orb" "Gemcutter's Prism" "Blessed Orb" "Orb of Regret" "Engineer's Orb" "Orb of Binding" "Orb of Horizons" "Apprentice Cartographer's Sextant" "Journeyman Cartographer's Sextant" "Master Cartographer's Sextant" "Remnant of Corruption" "Silver Coin" "Apprentice Cartographer's Seal" "Journeyman Cartographer's Seal" "Ancient Shard" "Annulment Shard" "Exalted Shard" "Harbinger's Shard"
+				BaseType           "Chaos Orb" "Vaal Orb" "Regal Orb" "Gemcutter's Prism" "Blessed Orb" "Orb of Regret" "Engineer's Orb" "Orb of Binding" "Orb of Horizons" "Simple Sextant" "Prime Sextant" "Awakened Sextant" "Remnant of Corruption" "Silver Coin" "Apprentice Cartographer's Seal" "Journeyman Cartographer's Seal" "Ancient Shard" "Annulment Shard" "Exalted Shard" "Harbinger's Shard" Catalyst
 				#
 				SetTextColor       000 000 000
 				SetBackgroundColor 170 158 130
@@ -758,6 +791,16 @@
 				SetTextColor       127 000 127
 				SetBackgroundColor 027 162 155
 				SetBorderColor     127 000 127
+				SetFontSize        45
+				MinimapIcon        0 Red Circle
+				PlayEffect         Red
+			Show # Awakened Supports
+				Class              "Skill Gems"
+				BaseType           Awakened
+				#
+				SetTextColor       127 000 255
+				SetBackgroundColor 027 162 155
+				SetBorderColor     127 000 255
 				SetFontSize        45
 				MinimapIcon        0 Red Circle
 				PlayEffect         Red
@@ -1120,189 +1163,90 @@
 				SetFontSize        45
 				MinimapIcon        0 Red Triangle
 				PlayEffect         Red
-		# Elder or Shaper
-			Show # Elder AND Shaper
-				ElderItem          True
-				ShaperItem         True
+		# Influenced
+			Show # Uniques
+				HasInfluence       Shaper Elder Crusader Redeemer Hunter Warlord
+				Rarity             Unique
 				#
 				SetTextColor       127 000 255
-				SetBackgroundColor 127 000 127
+				SetBackgroundColor 175 096 037
 				SetBorderColor     127 000 255
+				SetFontSize        36
+				MinimapIcon        1 Brown Hexagon
+				PlayEffect         Brown
+			Show # Special Bases
+				HasInfluence       Shaper Elder Crusader Redeemer Hunter Warlord
+				BaseType           "Stygian Vise" "Breach Ring" Talisman
+				#
+				SetTextColor       127 000 127
+				SetBackgroundColor 127 000 255
+				SetBorderColor     127 000 127
 				SetFontSize        45
 				MinimapIcon        0 Red Triangle
 				PlayEffect         Red
-			# Uniques
-				Show # Elder
-					ElderItem          True
-					Rarity             Unique
-					#
-					SetTextColor       127 000 255
-					SetBackgroundColor 175 096 037
-					SetBorderColor     127 000 255
-					SetFontSize        36
-					MinimapIcon        1 Brown Hexagon
-					PlayEffect         Brown
-				Show # Shaper
-					ShaperItem         True
-					Rarity             Unique
-					#
-					SetTextColor       127 000 255
-					SetBackgroundColor 175 096 037
-					SetBorderColor     127 000 255
-					SetFontSize        36
-					MinimapIcon        1 Brown Hexagon
-					PlayEffect         Brown
-			# Special Bases
-				Show # Elder
-					ElderItem          True
-					BaseType           "Stygian Vise" "Breach Ring" Talisman
-					#
-					SetTextColor       127 000 127
-					SetBackgroundColor 127 000 255
-					SetBorderColor     127 000 127
-					SetFontSize        45
-					MinimapIcon        0 Red Triangle
-					PlayEffect         Red
-				Show # Shaper
-					ShaperItem         True
-					BaseType           "Stygian Vise" "Breach Ring" Talisman
-					#
-					SetTextColor       127 000 127
-					SetBackgroundColor 127 000 255
-					SetBorderColor     127 000 127
-					SetFontSize        45
-					MinimapIcon        0 Red Triangle
-					PlayEffect         Red
 			# Atlas Bases
-				# Rare
-					Show # Elder
-						Rarity             Rare
-						ElderItem          True
-						BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Opal Ring" "Steel Ring"
-						#
-						SetTextColor       255 255 119
-						SetBackgroundColor 127 000 255
-						SetBorderColor     255 255 119
-						SetFontSize        36
-						MinimapIcon        1 Blue Hexagon
-						PlayEffect         Blue
-					Show # Shaper
-						Rarity             Rare
-						ShaperItem         True
-						BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Opal Ring" "Steel Ring"
-						#
-						SetTextColor       255 255 119
-						SetBackgroundColor 127 000 255
-						SetBorderColor     255 255 119
-						SetFontSize        36
-						MinimapIcon        1 Blue Hexagon
-						PlayEffect         Blue
-				# Remaining
-					Show # Elder
-						ElderItem          True
-						BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Opal Ring" "Steel Ring"
-						#
-						SetTextColor       000 000 000
-						SetBackgroundColor 127 000 255
-						SetBorderColor     000 000 000
-						SetFontSize        36
-						MinimapIcon        1 Blue Hexagon
-						PlayEffect         Blue
-					Show # Shaper
-						ShaperItem         True
-						BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Opal Ring" "Steel Ring"
-						#
-						SetTextColor       000 000 000
-						SetBackgroundColor 127 000 255
-						SetBorderColor     000 000 000
-						SetFontSize        36
-						MinimapIcon        1 Blue Hexagon
-						PlayEffect         Blue
+				Show # Rare
+					Rarity             Rare
+					HasInfluence       Shaper Elder Crusader Redeemer Hunter Warlord
+					BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Opal Ring" "Steel Ring"
+					#
+					SetTextColor       255 255 119
+					SetBackgroundColor 127 000 255
+					SetBorderColor     255 255 119
+					SetFontSize        36
+					MinimapIcon        1 Blue Hexagon
+					PlayEffect         Blue
+				Show # Remaining
+					HasInfluence       Shaper Elder Crusader Redeemer Hunter Warlord
+					BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Opal Ring" "Steel Ring"
+					#
+					SetTextColor       000 000 000
+					SetBackgroundColor 127 000 255
+					SetBorderColor     000 000 000
+					SetFontSize        36
+					MinimapIcon        1 Blue Hexagon
+					PlayEffect         Blue
 			# 6 Links
-				# Rare
-					Show # Elder
-						Rarity             Rare
-						ElderItem          True
-						LinkedSockets      6
-						#
-						SetTextColor       255 255 119
-						SetBackgroundColor 127 000 255
-						SetBorderColor     000 127 000
-						SetFontSize        36
-						MinimapIcon        1 Blue Hexagon
-						PlayEffect         Blue
-					Show # Shaper
-						Rarity             Rare
-						ShaperItem         True
-						LinkedSockets      6
-						#
-						SetTextColor       255 255 119
-						SetBackgroundColor 127 000 255
-						SetBorderColor     000 127 000
-						SetFontSize        36
-						MinimapIcon        1 Blue Hexagon
-						PlayEffect         Blue
-				# Remaining
-					Show # Elder
-						ElderItem          True
-						LinkedSockets      6
-						#
-						SetTextColor       000 127 000
-						SetBackgroundColor 127 000 255
-						SetBorderColor     000 127 000
-						SetFontSize        36
-						MinimapIcon        1 Blue Hexagon
-						PlayEffect         Blue
-					Show # Shaper
-						ShaperItem         True
-						LinkedSockets      6
-						#
-						SetTextColor       000 127 000
-						SetBackgroundColor 127 000 255
-						SetBorderColor     000 127 000
-						SetFontSize        36
-						MinimapIcon        1 Blue Hexagon
-						PlayEffect         Blue
-			# Rares
-				Show # Elder
-					ElderItem          True
+				Show # Rare
 					Rarity             Rare
+					HasInfluence       Shaper Elder Crusader Redeemer Hunter Warlord
+					LinkedSockets      6
 					#
-					SetTextColor       127 000 255
-					SetBackgroundColor 255 255 119
-					SetBorderColor     127 000 255
+					SetTextColor       255 255 119
+					SetBackgroundColor 127 000 255
+					SetBorderColor     000 127 000
 					SetFontSize        36
 					MinimapIcon        1 Blue Hexagon
 					PlayEffect         Blue
-				Show # Shaper
-					ShaperItem         True
-					Rarity             Rare
+				Show # Remaining
+					HasInfluence       Shaper Elder Crusader Redeemer Hunter Warlord
+					LinkedSockets      6
 					#
-					SetTextColor       127 000 255
-					SetBackgroundColor 255 255 119
-					SetBorderColor     127 000 255
+					SetTextColor       000 127 000
+					SetBackgroundColor 127 000 255
+					SetBorderColor     000 127 000
 					SetFontSize        36
 					MinimapIcon        1 Blue Hexagon
 					PlayEffect         Blue
-			# Remaining
-				Show # Elder
-					ElderItem          True
-					#
-					SetTextColor       127 000 255
-					SetBackgroundColor 000 000 000
-					SetBorderColor     127 000 255
-					SetFontSize        30
-					MinimapIcon        2 Blue Hexagon
-					PlayEffect         Blue
-				Show # Shaper
-					ShaperItem         True
-					#
-					SetTextColor       127 000 255
-					SetBackgroundColor 000 000 000
-					SetBorderColor     127 000 255
-					SetFontSize        30
-					MinimapIcon        2 Blue Hexagon
-					PlayEffect         Blue
+			Show # Rares
+				HasInfluence       Shaper Elder Crusader Redeemer Hunter Warlord
+				Rarity             Rare
+				#
+				SetTextColor       127 000 255
+				SetBackgroundColor 255 255 119
+				SetBorderColor     127 000 255
+				SetFontSize        36
+				MinimapIcon        1 Blue Hexagon
+				PlayEffect         Blue
+			Show # Remaining
+				HasInfluence       Shaper Elder Crusader Redeemer Hunter Warlord
+				#
+				SetTextColor       127 000 255
+				SetBackgroundColor 000 000 000
+				SetBorderColor     127 000 255
+				SetFontSize        30
+				MinimapIcon        2 Blue Hexagon
+				PlayEffect         Blue
 		# TODO Split Talisman by Base / Tier?
 		# Special Bases
 			# TODO Too much?
@@ -1368,6 +1312,16 @@
 					SetFontSize        27
 					# MinimapIcon      [None]
 					PlayEffect         White
+		Show # Veiled items
+			# TODO input to armour, corrupted?
+			HasExplicitMod     Veil
+			#
+			SetTextColor       184 218 242
+			SetBackgroundColor 000 000 000
+			SetBorderColor     184 218 242
+			SetFontSize        36
+			MinimapIcon        1 Yellow Hexagon
+			PlayEffect         Yellow
 		# Atlas Bases
 			# TODO too much?
 			Show # Unique
