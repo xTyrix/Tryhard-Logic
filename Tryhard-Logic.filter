@@ -1783,10 +1783,11 @@
 				PlayEffect         Yellow
 			Show # Corrupted
 				Sockets            6
+				Corrupted          True
 				#
-				SetTextColor       210 000 000
+				SetTextColor       000 127 000
 				SetBackgroundColor 000 000 000
-				SetBorderColor     000 127 000
+				SetBorderColor     210 000 000
 				SetFontSize        33
 				MinimapIcon        2 White Hexagon
 				PlayEffect         White
@@ -1851,10 +1852,21 @@
 				PlayEffect         Brown
 			Show # Corrupted
 				Rarity             Unique
+				Corrupted          True
 				#
 				SetTextColor       175 096 037
 				SetBackgroundColor 000 000 000
 				SetBorderColor     210 000 000
+				SetFontSize        33
+				# MinimapIcon      [None]
+				PlayEffect         Brown Temp
+			Show # Cromatic
+				Rarity             Unique
+				SocketGroup        RGB
+				#
+				SetTextColor       175 096 037
+				SetBackgroundColor 000 000 000
+				SetBorderColor     000 127 000
 				SetFontSize        33
 				# MinimapIcon      [None]
 				PlayEffect         Brown Temp
