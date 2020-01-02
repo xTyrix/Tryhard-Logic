@@ -1,9 +1,10 @@
 ﻿##########################
 #                        #
-#  Tryhard-Logic.filter  #  Version: Metamorph - Corrupt Rework (to Flasks)
+#  Tryhard-Logic.filter  #  Version: Metamorph
 #                        #
 ##########################
 
+# TODO Atlas Bases Update
 # TODO Temple Items mit Special Mods (und andere?)
 
 # TODO drop sounds (DisableDropSound, CustomAlertSound)
@@ -20,7 +21,7 @@
 	# 200 200 200 - Normal
 	# 000 000 000 - Nutral
 	# 184 218 242 - Veiled (Crafted Mods)
-	# 127 000 000 - Corrupted
+	# 210 000 000 - Corrupted
 	# 074 230 058 - Quest Items
 	# 200 155 155 - Maps
 	# 014 186 255 - Divination Cards & Incubator
@@ -121,7 +122,7 @@
 			PlayEffect         Green
 	# Maps
 		# Not Droping (Anymore)
-			Show # Corupted Bases Uncorrupted
+			Show # Corrupted Bases UnCorrupted
 				Class              Map
 				BaseType           "Harbinger Map" "Vaal Temple Map"
 				Corrupted          False
@@ -319,7 +320,7 @@
 				#
 				# SetTextColor     [Rarity]
 				SetBackgroundColor 200 155 155
-				SetBorderColor     127 000 000
+				SetBorderColor     210 000 000
 				SetFontSize        45
 				MinimapIcon        0 Red Square
 				PlayEffect         Red
@@ -341,7 +342,7 @@
 				#
 				# SetTextColor     [Rarity]
 				SetBackgroundColor 200 155 155
-				SetBorderColor     127 000 000
+				SetBorderColor     210 000 000
 				SetFontSize        36
 				MinimapIcon        1 Red Square
 				PlayEffect         Red
@@ -363,7 +364,7 @@
 				#
 				SetTextColor       200 155 155
 				SetBackgroundColor 000 000 000
-				SetBorderColor     127 000 000
+				SetBorderColor     210 000 000
 				SetFontSize        30
 				MinimapIcon        2 Yellow Square
 				PlayEffect         Yellow
@@ -451,7 +452,7 @@
 				#
 				SetTextColor       200 155 155
 				SetBackgroundColor 000 000 000
-				SetBorderColor     127 000 000
+				SetBorderColor     210 000 000
 				SetFontSize        30
 				MinimapIcon        2 White Square
 				PlayEffect         White
@@ -725,7 +726,7 @@
 					#
 					SetTextColor       027 162 155
 					SetBackgroundColor 127 000 127
-					SetBorderColor     127 000 000
+					SetBorderColor     210 000 000
 					SetFontSize        45
 					MinimapIcon        0 Red Triangle
 					PlayEffect         Red
@@ -735,11 +736,11 @@
 					#
 					SetTextColor       027 162 155
 					SetBackgroundColor 127 000 127
-					SetBorderColor     127 000 000
+					SetBorderColor     210 000 000
 					SetFontSize        45
 					MinimapIcon        0 Red Triangle
 					PlayEffect         Red
-				# Corrupted Stats Uncorrupted
+				# Corrupted Stats UnCorrupted
 					Show # Vaal Gems
 						Corrupted          False
 						Class              "Skill Gems"
@@ -747,7 +748,7 @@
 						#
 						SetTextColor       027 162 155
 						SetBackgroundColor 127 000 127
-						SetBorderColor     127 000 000
+						SetBorderColor     210 000 000
 						SetFontSize        45
 						MinimapIcon        0 Red Triangle
 						PlayEffect         Red
@@ -758,7 +759,7 @@
 						#
 						SetTextColor       027 162 155
 						SetBackgroundColor 127 000 127
-						SetBorderColor     127 000 000
+						SetBorderColor     210 000 000
 						SetFontSize        45
 						MinimapIcon        0 Red Triangle
 						PlayEffect         Red
@@ -769,7 +770,7 @@
 						#
 						SetTextColor       027 162 155
 						SetBackgroundColor 127 000 127
-						SetBorderColor     127 000 000
+						SetBorderColor     210 000 000
 						SetFontSize        45
 						MinimapIcon        0 Red Triangle
 						PlayEffect         Red
@@ -781,7 +782,7 @@
 					#
 					SetTextColor       027 162 155
 					SetBackgroundColor 127 000 127
-					SetBorderColor     127 000 000
+					SetBorderColor     210 000 000
 					SetFontSize        45
 					MinimapIcon        0 Red Triangle
 					PlayEffect         Red
@@ -811,7 +812,7 @@
 					BaseType           Vaal
 					#
 					SetTextColor       027 162 155
-					SetBackgroundColor 127 000 000
+					SetBackgroundColor 210 000 000
 					SetBorderColor     027 162 155
 					SetFontSize        45
 					MinimapIcon        0 Red Circle
@@ -822,7 +823,7 @@
 					BaseType           Vaal
 					#
 					SetTextColor       027 162 155
-					SetBackgroundColor 127 000 000
+					SetBackgroundColor 210 000 000
 					SetBorderColor     027 162 155
 					SetFontSize        45
 					MinimapIcon        0 Red Circle
@@ -833,7 +834,7 @@
 					Quality            > 20
 					#
 					SetTextColor       027 162 155
-					SetBackgroundColor 127 000 000
+					SetBackgroundColor 210 000 000
 					SetBorderColor     027 162 155
 					SetFontSize        45
 					MinimapIcon        0 Red Circle
@@ -844,9 +845,9 @@
 						Class              "Skill Gem"
 						BaseType           "Vaal Breach"
 						#
-						SetTextColor       127 000 000
+						SetTextColor       210 000 000
 						SetBackgroundColor 027 162 155
-						SetBorderColor     127 000 000
+						SetBorderColor     210 000 000
 						SetFontSize        36
 						MinimapIcon        1 Blue Circle
 						PlayEffect         Blue
@@ -857,7 +858,7 @@
 						#
 						SetTextColor       027 162 155
 						SetBackgroundColor 000 127 000
-						SetBorderColor     127 000 000
+						SetBorderColor     210 000 000
 						SetFontSize        36
 						MinimapIcon        1 Blue Circle
 						PlayEffect         Blue
@@ -866,9 +867,9 @@
 						Class              "Skill Gems"
 						BaseType           Vaal
 						#
-						SetTextColor       127 000 000
+						SetTextColor       210 000 000
 						SetBackgroundColor 027 162 155
-						SetBorderColor     127 000 000
+						SetBorderColor     210 000 000
 						SetFontSize        36
 						MinimapIcon        1 Blue Circle
 						PlayEffect         Blue
@@ -877,9 +878,9 @@
 						BaseType           Vaal
 						Quality            > 0
 						#
-						SetTextColor       127 000 000
+						SetTextColor       210 000 000
 						SetBackgroundColor 027 162 155
-						SetBorderColor     127 000 000
+						SetBorderColor     210 000 000
 						SetFontSize        36
 						MinimapIcon        1 Blue Circle
 						PlayEffect         Blue
@@ -889,7 +890,7 @@
 						#
 						SetTextColor       027 162 155
 						SetBackgroundColor 000 000 000
-						SetBorderColor     127 000 000
+						SetBorderColor     210 000 000
 						SetFontSize        30
 						MinimapIcon        2 Blue Circle
 						PlayEffect         Blue
@@ -901,7 +902,7 @@
 						#
 						SetTextColor       027 162 155
 						SetBackgroundColor 000 127 000
-						SetBorderColor     127 000 000
+						SetBorderColor     210 000 000
 						SetFontSize        36
 						MinimapIcon        1 Blue Circle
 						PlayEffect         Blue
@@ -909,9 +910,9 @@
 						Class              "Skill Gems"
 						GemLevel           >= 21
 						#
-						SetTextColor       127 000 000
+						SetTextColor       210 000 000
 						SetBackgroundColor 027 162 155
-						SetBorderColor     127 000 000
+						SetBorderColor     210 000 000
 						SetFontSize        36
 						MinimapIcon        1 Blue Circle
 						PlayEffect         Blue
@@ -921,7 +922,7 @@
 					#
 					SetTextColor       027 162 155
 					SetBackgroundColor 000 127 000
-					SetBorderColor     127 000 000
+					SetBorderColor     210 000 000
 					SetFontSize        36
 					MinimapIcon        1 Blue Circle
 					PlayEffect         Blue
@@ -930,9 +931,9 @@
 					Class              "Skill Gems"
 					Quality            >= 20
 					#
-					SetTextColor       127 000 000
+					SetTextColor       027 162 155
 					SetBackgroundColor 000 127 000
-					SetBorderColor     027 162 155
+					SetBorderColor     210 000 000
 					SetFontSize        36
 					MinimapIcon        1 Blue Circle
 					PlayEffect         Blue
@@ -941,9 +942,9 @@
 					Class              "Skill Gems"
 					GemLevel           >= 17
 					#
-					SetTextColor       127 000 000
+					SetTextColor       027 162 155
 					SetBackgroundColor 000 000 000
-					SetBorderColor     027 162 155
+					SetBorderColor     210 000 000
 					SetFontSize        30
 					MinimapIcon        2 Blue Circle
 					PlayEffect         Blue
@@ -952,9 +953,9 @@
 					Class              "Skill Gems"
 					Quality            > 0
 					#
-					SetTextColor       127 000 000
+					SetTextColor       027 162 155
 					SetBackgroundColor 000 000 000
-					SetBorderColor     027 162 155
+					SetBorderColor     210 000 000
 					SetFontSize        30
 					MinimapIcon        2 Blue Circle
 					PlayEffect         Blue
@@ -962,9 +963,9 @@
 					Corrupted          True
 					Class              "Skill Gems"
 					#
-					SetTextColor       127 000 000
+					SetTextColor       027 162 155
 					SetBackgroundColor 000 000 000
-					SetBorderColor     027 162 155
+					SetBorderColor     210 000 000
 					SetFontSize        27
 					# MinimapIcon      [None]
 					# PlayEffect       [None]
@@ -1034,7 +1035,7 @@
 				#
 				SetTextColor       027 162 155
 				SetBackgroundColor 000 000 000
-				SetBorderColor     127 000 000
+				SetBorderColor     210 000 000
 				SetFontSize        30
 				MinimapIcon        1 White Circle
 				PlayEffect         White
@@ -1068,6 +1069,16 @@
 			SetFontSize        45
 			MinimapIcon        0 Red Triangle
 			PlayEffect         Red
+		Show # Corrupted
+			Class              Flask
+			Corrupted          True
+			#
+			SetTextColor       127 000 127
+			SetBackgroundColor 255 255 119
+			SetBorderColor     210 000 000
+			SetFontSize        45
+			MinimapIcon        0 Red Triangle
+			PlayEffect         Red
 		Show # Unique
 			Class              Flask
 			Rarity             Unique
@@ -1078,16 +1089,6 @@
 			SetFontSize        36
 			MinimapIcon        1 Brown Hexagon
 			PlayEffect         Brown
-		Show # Corrupted
-			Corrupted          True
-			Class              Flask
-			#
-			# SetTextColor     [Rarity]
-			SetBackgroundColor 000 000 000
-			SetBorderColor     127 000 000
-			SetFontSize        27
-			# MinimapIcon      [None]
-			# PlayEffect       [None]
 		# TODO split by quality
 		# Quality
 			Show # Magic
@@ -1123,17 +1124,8 @@
 			# PlayEffect       [None]
 	# Armour
 		# Weird Stuff
-			Show # Not Dropping (Anymore)
-				BaseType           "Ruby Amulet" "Golden Caligae" "Golden Flame" "Golden Obi" "Golden Mantle" "Golden Hoop" "Golden Caligae" "Golden Bracers" "Golden Wreath" "Jet Amulet" "Conductive Quiver" "Cured Quiver" "Heavy Quiver" "Light Quiver" "Rugged Quiver"
-				#
-				SetTextColor       127 000 127
-				SetBackgroundColor 000 000 000
-				SetBorderColor     127 000 127
-				SetFontSize        45
-				MinimapIcon        0 Red Triangle
-				PlayEffect         Red
-			Show # Corupted Bases Uncorrupted
-				BaseType           Talisman "Breach Ring"
+			Show # Corrupted Bases UnCorrupted
+				BaseType           Talisman "Breach Ring" "Ruby Amulet"
 				Corrupted          False
 				#
 				SetTextColor       000 000 000
@@ -1142,20 +1134,133 @@
 				SetFontSize        45
 				MinimapIcon        0 Red Triangle
 				PlayEffect         Red
-			# TODO Too many sockets?
+			# Not Dropping (Anymore)
+				Show # Corrupted
+					BaseType           "Ruby Amulet" "Golden Caligae" "Golden Flame" "Golden Obi" "Golden Mantle" "Golden Hoop" "Golden Caligae" "Golden Bracers" "Golden Wreath" "Jet Amulet" "Conductive Quiver" "Cured Quiver" "Heavy Quiver" "Light Quiver" "Rugged Quiver"
+					Corrupted          True
+					#
+					SetTextColor       127 000 127
+					SetBackgroundColor 000 000 000
+					SetBorderColor     210 000 000
+					SetFontSize        45
+					MinimapIcon        0 Red Triangle
+					PlayEffect         Red
+				Show # Influenced
+					BaseType           "Ruby Amulet" "Golden Caligae" "Golden Flame" "Golden Obi" "Golden Mantle" "Golden Hoop" "Golden Caligae" "Golden Bracers" "Golden Wreath" "Jet Amulet" "Conductive Quiver" "Cured Quiver" "Heavy Quiver" "Light Quiver" "Rugged Quiver"
+					HasInfluence       Shaper Elder Crusader Redeemer Hunter Warlord
+					#
+					SetTextColor       127 000 255
+					SetBackgroundColor 127 000 127
+					SetBorderColor     127 000 255
+					SetFontSize        45
+					MinimapIcon        0 Red Triangle
+					PlayEffect         Red
+			# Too many sockets
+				# > 6
+					Show # Corrupted
+						Sockets            >= 7
+						Corrupted          True
+						#
+						SetTextColor       127 000 127
+						SetBackgroundColor 000 000 000
+						SetBorderColor     210 000 000
+						SetFontSize        45
+						MinimapIcon        0 Red Triangle
+						PlayEffect         Red
+					Show # Influenced
+						Sockets            >= 7
+						HasInfluence       Shaper Elder Crusader Redeemer Hunter Warlord
+						#
+						SetTextColor       127 000 255
+						SetBackgroundColor 127 000 127
+						SetBorderColor     127 000 255
+						SetFontSize        45
+						MinimapIcon        0 Red Triangle
+						PlayEffect         Red
+					Show # Remaining
+						Sockets            >= 7
+						#
+						SetTextColor       000 000 000
+						SetBackgroundColor 127 000 127
+						SetBorderColor     000 000 000
+						SetFontSize        45
+						MinimapIcon        0 Red Triangle
+						PlayEffect         Red
+				# > 4 (on Gloves, Boots & Helmets)
+					Show # Corrupted
+						Height             2
+						Width              2
+						Sockets            >= 5
+						Corrupted          True
+						#
+						SetTextColor       127 000 127
+						SetBackgroundColor 000 000 000
+						SetBorderColor     210 000 000
+						SetFontSize        45
+						MinimapIcon        0 Red Triangle
+						PlayEffect         Red
+					Show # Influenced
+						Height             2
+						Width              2
+						Sockets            >= 5
+						HasInfluence       Shaper Elder Crusader Redeemer Hunter Warlord
+						#
+						SetTextColor       127 000 255
+						SetBackgroundColor 127 000 127
+						SetBorderColor     127 000 255
+						SetFontSize        45
+						MinimapIcon        0 Red Triangle
+						PlayEffect         Red
+					Show # Remaining
+						Height             2
+						Width              2
+						Sockets            >= 5
+						#
+						SetTextColor       000 000 000
+						SetBackgroundColor 127 000 127
+						SetBorderColor     000 000 000
+						SetFontSize        45
+						MinimapIcon        0 Red Triangle
+						PlayEffect         Red
+				# > 3 (on Weapons & Shields)
+					# TODO
+				# > 0 (on Quivers & most Jewellery)
+					# TODO
 		# Fishing Rods
-			Show # Unique
-				Rarity             Unique
+			# Unique
+				Show # Corrupted
+					Rarity             Unique
+					Class              "Fishing Rod"
+					Corrupted          True
+					#
+					SetTextColor       127 000 127
+					SetBackgroundColor 175 096 037
+					SetBorderColor     210 000 000
+					SetFontSize        45
+					MinimapIcon        0 Red Triangle
+					PlayEffect         Red
+				Show # Remaining
+					Rarity             Unique
+					Class              "Fishing Rod"
+					#
+					SetTextColor       127 000 127
+					SetBackgroundColor 175 096 037
+					SetBorderColor     127 000 127
+					SetFontSize        45
+					MinimapIcon        0 Red Triangle
+					PlayEffect         Red
+			Show # Corrupted
 				Class              "Fishing Rod"
+				Corrupted          True
 				#
 				SetTextColor       127 000 127
-				SetBackgroundColor 175 096 037
-				SetBorderColor     127 000 127
+				SetBackgroundColor 000 000 000
+				SetBorderColor     210 000 000
 				SetFontSize        45
 				MinimapIcon        0 Red Triangle
 				PlayEffect         Red
 			Show # Remaining
-				Class "Fishing Rod"
+				Class              "Fishing Rod"
 				#
 				SetTextColor       127 000 127
 				SetBackgroundColor 000 000 000
@@ -1164,41 +1269,89 @@
 				MinimapIcon        0 Red Triangle
 				PlayEffect         Red
 		# Influenced
-			Show # Uniques
-				HasInfluence       Shaper Elder Crusader Redeemer Hunter Warlord
-				Rarity             Unique
-				#
-				SetTextColor       127 000 255
-				SetBackgroundColor 175 096 037
-				SetBorderColor     127 000 255
-				SetFontSize        36
-				MinimapIcon        1 Brown Hexagon
-				PlayEffect         Brown
-			Show # Special Bases
-				HasInfluence       Shaper Elder Crusader Redeemer Hunter Warlord
-				BaseType           "Stygian Vise" "Breach Ring" Talisman
-				#
-				SetTextColor       127 000 127
-				SetBackgroundColor 127 000 255
-				SetBorderColor     127 000 127
-				SetFontSize        45
-				MinimapIcon        0 Red Triangle
-				PlayEffect         Red
-			# Atlas Bases
-				Show # Rare
-					Rarity             Rare
+			# Uniques
+				Show # Corrupted
 					HasInfluence       Shaper Elder Crusader Redeemer Hunter Warlord
-					BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Opal Ring" "Steel Ring"
+					Rarity             Unique
+					Corrupted          True
 					#
-					SetTextColor       255 255 119
+					SetTextColor       127 000 255
+					SetBackgroundColor 175 096 037
+					SetBorderColor     210 000 000
+					SetFontSize        36
+					MinimapIcon        1 Brown Hexagon
+					PlayEffect         Brown
+				Show # Remaining
+					HasInfluence       Shaper Elder Crusader Redeemer Hunter Warlord
+					Rarity             Unique
+					#
+					SetTextColor       127 000 255
+					SetBackgroundColor 175 096 037
+					SetBorderColor     127 000 255
+					SetFontSize        36
+					MinimapIcon        1 Brown Hexagon
+					PlayEffect         Brown
+			# Special Bases
+				Show # Corrupted
+					HasInfluence       Shaper Elder Crusader Redeemer Hunter Warlord
+					BaseType           "Stygian Vise" "Breach Ring" Talisman
+					Corrupted          True
+					#
+					SetTextColor       127 000 127
 					SetBackgroundColor 127 000 255
-					SetBorderColor     255 255 119
+					SetBorderColor     210 000 000
+					SetFontSize        45
+					MinimapIcon        0 Red Triangle
+					PlayEffect         Red
+				Show # Remaining
+					HasInfluence       Shaper Elder Crusader Redeemer Hunter Warlord
+					BaseType           "Stygian Vise" "Breach Ring" Talisman
+					#
+					SetTextColor       127 000 127
+					SetBackgroundColor 127 000 255
+					SetBorderColor     127 000 127
+					SetFontSize        45
+					MinimapIcon        0 Red Triangle
+					PlayEffect         Red
+			# Atlas Bases
+				# Rare
+					Show # Corrupted
+						Rarity             Rare
+						HasInfluence       Shaper Elder Crusader Redeemer Hunter Warlord
+						BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Convoking Wand" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Cerulean Ring" "Opal Ring" "Steel Ring" "Vermillion Ring"
+						Corrupted          True
+						#
+						SetTextColor       255 255 119
+						SetBackgroundColor 127 000 255
+						SetBorderColor     210 000 000
+						SetFontSize        36
+						MinimapIcon        1 Blue Hexagon
+						PlayEffect         Blue
+					Show # Remaining
+						Rarity             Rare
+						HasInfluence       Shaper Elder Crusader Redeemer Hunter Warlord
+						BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Convoking Wand" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Cerulean Ring" "Opal Ring" "Steel Ring" "Vermillion Ring"
+						#
+						SetTextColor       255 255 119
+						SetBackgroundColor 127 000 255
+						SetBorderColor     255 255 119
+						SetFontSize        36
+						MinimapIcon        1 Blue Hexagon
+						PlayEffect         Blue
+				Show # Corrupted
+					HasInfluence       Shaper Elder Crusader Redeemer Hunter Warlord
+					BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Convoking Wand" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Cerulean Ring" "Opal Ring" "Steel Ring" "Vermillion Ring"
+					Corrupted          True
+					#
+					SetTextColor       000 000 000
+					SetBackgroundColor 127 000 255
+					SetBorderColor     210 000 000
 					SetFontSize        36
 					MinimapIcon        1 Blue Hexagon
 					PlayEffect         Blue
 				Show # Remaining
 					HasInfluence       Shaper Elder Crusader Redeemer Hunter Warlord
-					BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Opal Ring" "Steel Ring"
+					BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Convoking Wand" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Cerulean Ring" "Opal Ring" "Steel Ring" "Vermillion Ring"
 					#
 					SetTextColor       000 000 000
 					SetBackgroundColor 127 000 255
@@ -1207,6 +1360,17 @@
 					MinimapIcon        1 Blue Hexagon
 					PlayEffect         Blue
 			# 6 Links
+				Show # Corrupted
+					HasInfluence       Shaper Elder Crusader Redeemer Hunter Warlord
+					LinkedSockets      6
+					Corrupted          True
+					#
+					SetTextColor       000 127 000
+					SetBackgroundColor 127 000 255
+					SetBorderColor     210 000 000
+					SetFontSize        36
+					MinimapIcon        1 Blue Hexagon
+					PlayEffect         Blue
 				Show # Rare
 					Rarity             Rare
 					HasInfluence       Shaper Elder Crusader Redeemer Hunter Warlord
@@ -1228,15 +1392,37 @@
 					SetFontSize        36
 					MinimapIcon        1 Blue Hexagon
 					PlayEffect         Blue
-			Show # Rares
+			# Rares
+				Show # Corrupted
+					HasInfluence       Shaper Elder Crusader Redeemer Hunter Warlord
+					Rarity             Rare
+					Corrupted          True
+					#
+					SetTextColor       127 000 255
+					SetBackgroundColor 255 255 119
+					SetBorderColor     210 000 000
+					SetFontSize        36
+					MinimapIcon        1 Blue Hexagon
+					PlayEffect         Blue
+				Show # Remaining
+					HasInfluence       Shaper Elder Crusader Redeemer Hunter Warlord
+					Rarity             Rare
+					#
+					SetTextColor       127 000 255
+					SetBackgroundColor 255 255 119
+					SetBorderColor     127 000 255
+					SetFontSize        36
+					MinimapIcon        1 Blue Hexagon
+					PlayEffect         Blue
+			Show # Corrupted
 				HasInfluence       Shaper Elder Crusader Redeemer Hunter Warlord
-				Rarity             Rare
+				Corrupted          True
 				#
 				SetTextColor       127 000 255
-				SetBackgroundColor 255 255 119
-				SetBorderColor     127 000 255
-				SetFontSize        36
-				MinimapIcon        1 Blue Hexagon
+				SetBackgroundColor 000 000 000
+				SetBorderColor     210 000 000
+				SetFontSize        30
+				MinimapIcon        2 Blue Hexagon
 				PlayEffect         Blue
 			Show # Remaining
 				HasInfluence       Shaper Elder Crusader Redeemer Hunter Warlord
@@ -1249,32 +1435,65 @@
 				PlayEffect         Blue
 		# TODO Split Talisman by Base / Tier?
 		# Special Bases
-			# TODO Too much?
-			Show # Unique
-				Rarity             Unique
-				BaseType           "Stygian Vise" "Breach Ring" Talisman
-				#
-				SetTextColor       000 000 000
-				SetBackgroundColor 175 096 037
-				SetBorderColor     000 000 000
-				SetFontSize        36
-				MinimapIcon        1 Brown Hexagon
-				PlayEffect         Brown
-			Show # Rare
-				Rarity             Rare
-				BaseType           "Stygian Vise" "Breach Ring" Talisman
-				#
-				SetTextColor       000 000 000
-				SetBackgroundColor 255 255 119
-				SetBorderColor     000 000 000
-				SetFontSize        36
-				MinimapIcon        1 Yellow Hexagon
-				PlayEffect         Yellow
+			# Unique
+				Show # Corrupted
+					Rarity             Unique
+					BaseType           "Stygian Vise" "Breach Ring" Talisman
+					Corrupted          True
+					#
+					SetTextColor       000 000 000
+					SetBackgroundColor 175 096 037
+					SetBorderColor     210 000 000
+					SetFontSize        36
+					MinimapIcon        1 Brown Hexagon
+					PlayEffect         Brown
+				Show # Remaining (should only be Stygian Vises)
+					Rarity             Unique
+					BaseType           "Stygian Vise" "Breach Ring" Talisman
+					#
+					SetTextColor       000 000 000
+					SetBackgroundColor 175 096 037
+					SetBorderColor     000 000 000
+					SetFontSize        36
+					MinimapIcon        1 Brown Hexagon
+					PlayEffect         Brown
+			# Rare
+				Show # Corrupted
+					Rarity             Rare
+					BaseType           "Stygian Vise" "Breach Ring" Talisman
+					Corrupted          True
+					#
+					SetTextColor       000 000 000
+					SetBackgroundColor 255 255 119
+					SetBorderColor     210 000 000
+					SetFontSize        36
+					MinimapIcon        1 Yellow Hexagon
+					PlayEffect         Yellow
+				Show # Remaining (should only be Stygian Vises)
+					Rarity             Rare
+					BaseType           "Stygian Vise" "Breach Ring" Talisman
+					#
+					SetTextColor       000 000 000
+					SetBackgroundColor 255 255 119
+					SetBorderColor     000 000 000
+					SetFontSize        36
+					MinimapIcon        1 Yellow Hexagon
+					PlayEffect         Yellow
 			# Magic
-				# TODO Too much?
-				Show # Uncorrupted Bases
+				Show # Corrupted
 					Rarity             Magic
-					BaseType           "Stygian Vise"
+					BaseType           "Stygian Vise" "Breach Ring" Talisman
+					Corrupted          True
+					#
+					SetTextColor       136 136 255
+					SetBackgroundColor 000 000 000
+					SetBorderColor     210 000 000
+					SetFontSize        30
+					MinimapIcon        2 White Hexagon
+					PlayEffect         White
+				Show # Remaining (should only be Stygian Vises)
+					Rarity             Magic
+					BaseType           "Stygian Vise" "Breach Ring" Talisman
 					#
 					SetTextColor       000 000 000
 					SetBackgroundColor 136 136 255
@@ -1282,20 +1501,19 @@
 					SetFontSize        33
 					MinimapIcon        2 Yellow Hexagon
 					PlayEffect         Yellow
-				Show # Corrupted Bases
-					Rarity             Magic
-					BaseType           "Breach Ring" Talisman
-					#
-					SetTextColor       136 136 255
-					SetBackgroundColor 000 000 000
-					SetBorderColor     136 136 255
-					SetFontSize        30
-					MinimapIcon        2 White Hexagon
-					PlayEffect         White
 			# Remaining
-				# TODO Too much?
-				Show # Uncorrupted Bases
-					BaseType           "Stygian Vise"
+				Show # Corrupted
+					BaseType           "Stygian Vise" "Breach Ring" Talisman
+					Corrupted          True
+					#
+					SetTextColor       200 200 200
+					SetBackgroundColor 000 000 000
+					SetBorderColor     210 000 000
+					SetFontSize        27
+					# MinimapIcon      [None]
+					PlayEffect         White
+				Show # Remaining (should only be Stygian Vises)
+					BaseType           "Stygian Vise" "Breach Ring" Talisman
 					#
 					SetTextColor       000 000 000
 					SetBackgroundColor 200 200 200
@@ -1303,61 +1521,104 @@
 					SetFontSize        33
 					MinimapIcon        2 Yellow Hexagon
 					PlayEffect         Yellow
-				Show # Corrupted Bases
-					BaseType           "Breach Ring" Talisman
-					#
-					SetTextColor       200 200 200
-					SetBackgroundColor 000 000 000
-					SetBorderColor     000 000 000
-					SetFontSize        27
-					# MinimapIcon      [None]
-					PlayEffect         White
 		Show # Veiled items
-			# TODO input to armour, corrupted?
-			HasExplicitMod     Veil
-			#
-			SetTextColor       184 218 242
-			SetBackgroundColor 000 000 000
-			SetBorderColor     184 218 242
-			SetFontSize        36
-			MinimapIcon        1 Yellow Hexagon
-			PlayEffect         Yellow
-		# Atlas Bases
-			# TODO too much?
-			Show # Unique
-				Rarity             Unique
-				BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Opal Ring" "Steel Ring"
+			Show # Corrupted
+				HasExplicitMod     Veil
 				#
-				SetTextColor       000 000 000
-				SetBackgroundColor 175 096 037
-				SetBorderColor     000 000 000
+				SetTextColor       184 218 242
+				SetBackgroundColor 000 000 000
+				SetBorderColor     210 000 000
 				SetFontSize        36
-				MinimapIcon        1 Brown Hexagon
-				PlayEffect         Brown
-			Show # Rare
-				Rarity             Rare
-				BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Opal Ring" "Steel Ring"
-				#
-				SetTextColor       000 000 000
-				SetBackgroundColor 255 255 119
-				SetBorderColor     000 000 000
-				SetFontSize        33
-				MinimapIcon        2 Yellow Hexagon
+				MinimapIcon        1 Yellow Hexagon
 				PlayEffect         Yellow
-			# TODO Too much?
-			Show # Magic
-				Rarity             Magic
-				BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Opal Ring" "Steel Ring"
-				#
-				SetTextColor       000 000 000
-				SetBackgroundColor 136 136 255
-				SetBorderColor     000 000 000
-				SetFontSize        33
-				MinimapIcon        2 Yellow Hexagon
-				PlayEffect         Yellow
-			# TODO Too much?
 			Show # Remaining
-				BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Opal Ring" "Steel Ring"
+				HasExplicitMod     Veil
+				#
+				SetTextColor       184 218 242
+				SetBackgroundColor 000 000 000
+				SetBorderColor     184 218 242
+				SetFontSize        36
+				MinimapIcon        1 Yellow Hexagon
+				PlayEffect         Yellow
+		# Atlas Bases
+			# Unique
+				Show # Corrupted
+					Rarity             Unique
+					BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Convoking Wand" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Cerulean Ring" "Opal Ring" "Steel Ring" "Vermillion Ring"
+					Corrupted          True
+					#
+					SetTextColor       000 000 000
+					SetBackgroundColor 175 096 037
+					SetBorderColor     210 000 000
+					SetFontSize        36
+					MinimapIcon        1 Brown Hexagon
+					PlayEffect         Brown
+				Show # Remaining
+					Rarity             Unique
+					BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Convoking Wand" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Cerulean Ring" "Opal Ring" "Steel Ring" "Vermillion Ring"
+					#
+					SetTextColor       000 000 000
+					SetBackgroundColor 175 096 037
+					SetBorderColor     000 000 000
+					SetFontSize        36
+					MinimapIcon        1 Brown Hexagon
+					PlayEffect         Brown
+			# Rare
+				Show # Corrupted
+					Rarity             Rare
+					BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Convoking Wand" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Cerulean Ring" "Opal Ring" "Steel Ring" "Vermillion Ring"
+					Corrupted          True
+					#
+					SetTextColor       000 000 000
+					SetBackgroundColor 255 255 119
+					SetBorderColor     210 000 000
+					SetFontSize        33
+					MinimapIcon        2 Yellow Hexagon
+					PlayEffect         Yellow
+				Show # Remaining
+					Rarity             Rare
+					BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Convoking Wand" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Cerulean Ring" "Opal Ring" "Steel Ring" "Vermillion Ring"
+					#
+					SetTextColor       000 000 000
+					SetBackgroundColor 255 255 119
+					SetBorderColor     000 000 000
+					SetFontSize        33
+					MinimapIcon        2 Yellow Hexagon
+					PlayEffect         Yellow
+			# Magic
+				Show # Corrupted
+					Rarity             Magic
+					BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Convoking Wand" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Cerulean Ring" "Opal Ring" "Steel Ring" "Vermillion Ring"
+					Corrupted          True
+					#
+					SetTextColor       000 000 000
+					SetBackgroundColor 136 136 255
+					SetBorderColor     210 000 000
+					SetFontSize        33
+					MinimapIcon        2 Yellow Hexagon
+					PlayEffect         Yellow
+				Show # Remaining
+					Rarity             Magic
+					BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Convoking Wand" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Cerulean Ring" "Opal Ring" "Steel Ring" "Vermillion Ring"
+					#
+					SetTextColor       000 000 000
+					SetBackgroundColor 136 136 255
+					SetBorderColor     000 000 000
+					SetFontSize        33
+					MinimapIcon        2 Yellow Hexagon
+					PlayEffect         Yellow
+			Show # Corrupted
+				BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Convoking Wand" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Cerulean Ring" "Opal Ring" "Steel Ring" "Vermillion Ring"
+				Corrupted          True
+				#
+				SetTextColor       000 000 000
+				SetBackgroundColor 200 200 200
+				SetBorderColor     210 000 000
+				SetFontSize        33
+				MinimapIcon        2 Yellow Hexagon
+				PlayEffect         Yellow
+			Show # Remaining
+				BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Convoking Wand" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Cerulean Ring" "Opal Ring" "Steel Ring" "Vermillion Ring"
 				#
 				SetTextColor       000 000 000
 				SetBackgroundColor 200 200 200
@@ -1366,23 +1627,57 @@
 				MinimapIcon        2 Yellow Hexagon
 				PlayEffect         Yellow
 		# 6-linked Items
-			Show # Unique
-				Rarity             Unique
+			# Unique
+				Show # Corrupted
+					Rarity             Unique
+					LinkedSockets      6
+					Corrupted          True
+					#
+					SetTextColor       175 096 037
+					SetBackgroundColor 000 127 000
+					SetBorderColor     210 000 000
+					SetFontSize        36
+					MinimapIcon        1 Brown Hexagon
+					PlayEffect         Brown
+				Show # Remaining
+					Rarity             Unique
+					LinkedSockets      6
+					#
+					SetTextColor       175 096 037
+					SetBackgroundColor 000 127 000
+					SetBorderColor     175 096 037
+					SetFontSize        36
+					MinimapIcon        1 Brown Hexagon
+					PlayEffect         Brown
+			# Rare
+				Show # Corrupted
+					Rarity             Rare
+					LinkedSockets      6
+					Corrupted          True
+					#
+					SetTextColor       255 255 119
+					SetBackgroundColor 000 127 000
+					SetBorderColor     210 000 000
+					SetFontSize        36
+					MinimapIcon        1 Yellow Hexagon
+					PlayEffect         Yellow
+				Show # Remaining
+					Rarity             Rare
+					LinkedSockets      6
+					#
+					SetTextColor       255 255 119
+					SetBackgroundColor 000 127 000
+					SetBorderColor     255 255 119
+					SetFontSize        36
+					MinimapIcon        1 Yellow Hexagon
+					PlayEffect         Yellow
+			Show # Corrupted
 				LinkedSockets      6
+				Corrupted          True
 				#
-				SetTextColor       175 096 037
+				SetTextColor       000 000 000
 				SetBackgroundColor 000 127 000
-				SetBorderColor     175 096 037
-				SetFontSize        36
-				MinimapIcon        1 Brown Hexagon
-				PlayEffect         Brown
-			Show # Rare
-				Rarity             Rare
-				LinkedSockets      6
-				#
-				SetTextColor       255 255 119
-				SetBackgroundColor 000 127 000
-				SetBorderColor     255 255 119
+				SetBorderColor     210 000 000
 				SetFontSize        36
 				MinimapIcon        1 Yellow Hexagon
 				PlayEffect         Yellow
@@ -1397,25 +1692,62 @@
 				PlayEffect         Yellow
 		# 6 Sockets
 			# 5 Links
-				Show # Unique
-					Rarity             Unique
+				# Unique
+					Show # Corrupted
+						Rarity             Unique
+						Sockets            6
+						LinkedSockets      5
+						Corrupted          True
+						#
+						SetTextColor       175 096 037
+						SetBackgroundColor 000 127 000
+						SetBorderColor     210 000 000
+						SetFontSize        30
+						MinimapIcon        2 Brown Hexagon
+						PlayEffect         Brown
+					Show # Remaining
+						Rarity             Unique
+						Sockets            6
+						LinkedSockets      5
+						#
+						SetTextColor       175 096 037
+						SetBackgroundColor 000 127 000
+						SetBorderColor     175 096 037
+						SetFontSize        30
+						MinimapIcon        2 Brown Hexagon
+						PlayEffect         Brown
+				# Rare
+					Show # Corrupted
+						Rarity             Rare
+						Sockets            6
+						LinkedSockets      5
+						Corrupted          True
+						#
+						SetTextColor       255 255 119
+						SetBackgroundColor 000 127 000
+						SetBorderColor     210 000 000
+						SetFontSize        30
+						MinimapIcon        2 Yellow Hexagon
+						PlayEffect         Yellow
+					Show # Remaining
+						Rarity             Rare
+						Sockets            6
+						LinkedSockets      5
+						#
+						SetTextColor       255 255 119
+						SetBackgroundColor 000 127 000
+						SetBorderColor     255 255 119
+						SetFontSize        30
+						MinimapIcon        2 Yellow Hexagon
+						PlayEffect         Yellow
+				Show # Corrupted
 					Sockets            6
 					LinkedSockets      5
+					Corrupted          True
 					#
-					SetTextColor       175 096 037
+					SetTextColor       000 000 000
 					SetBackgroundColor 000 127 000
-					SetBorderColor     175 096 037
-					SetFontSize        30
-					MinimapIcon        2 Brown Hexagon
-					PlayEffect         Brown
-				Show # Rare
-					Rarity             Rare
-					Sockets            6
-					LinkedSockets      5
-					#
-					SetTextColor       255 255 119
-					SetBackgroundColor 000 127 000
-					SetBorderColor     255 255 119
+					SetBorderColor     210 000 000
 					SetFontSize        30
 					MinimapIcon        2 Yellow Hexagon
 					PlayEffect         Yellow
@@ -1449,6 +1781,15 @@
 				SetFontSize        33
 				MinimapIcon        2 Yellow Hexagon
 				PlayEffect         Yellow
+			Show # Corrupted
+				Sockets            6
+				#
+				SetTextColor       210 000 000
+				SetBackgroundColor 000 000 000
+				SetBorderColor     000 127 000
+				SetFontSize        33
+				MinimapIcon        2 White Hexagon
+				PlayEffect         White
 			Show # Remaining
 				Sockets            6
 				#
@@ -1470,15 +1811,25 @@
 				MinimapIcon        2 Brown Hexagon
 				PlayEffect         Brown
 			Show # Rare
-				Rarity             Unique
+				Rarity             Rare
 				LinkedSockets      5
 				#
-				SetTextColor       175 096 037
+				SetTextColor       255 255 119
 				SetBackgroundColor 000 000 000
 				SetBorderColor     000 127 000
 				SetFontSize        33
 				MinimapIcon        2 Yellow Hexagon
 				PlayEffect         Yellow
+			Show # Corrupted
+				LinkedSockets      5
+				Corrupted          True
+				#
+				SetTextColor       000 127 000
+				SetBackgroundColor 000 000 000
+				SetBorderColor     210 000 000
+				SetFontSize        30
+				MinimapIcon        2 White Hexagon
+				PlayEffect         White
 			Show # Remaining
 				LinkedSockets      5
 				#
@@ -1488,9 +1839,7 @@
 				SetFontSize        30
 				MinimapIcon        2 White Hexagon
 				PlayEffect         White
-		# TODO sort by base?
 		# Uniques
-			# TODO sort?
 			Show # Pieces
 				Class              Piece
 				#
@@ -1500,6 +1849,15 @@
 				SetFontSize        36
 				MinimapIcon        1 Brown Hexagon
 				PlayEffect         Brown
+			Show # Corrupted
+				Rarity             Unique
+				#
+				SetTextColor       175 096 037
+				SetBackgroundColor 000 000 000
+				SetBorderColor     210 000 000
+				SetFontSize        33
+				# MinimapIcon      [None]
+				PlayEffect         Brown Temp
 			Show # Remaining
 				Rarity             Unique
 				#
@@ -1509,9 +1867,7 @@
 				SetFontSize        33
 				# MinimapIcon      [None]
 				PlayEffect         Brown Temp
-		# TODO leveling
 		# Rares
-			# TODO sort by space
 			# Chaos Recipe
 				Show # Jewelery
 					Rarity             Rare
@@ -1575,6 +1931,16 @@
 				SetFontSize        30
 				# MinimapIcon      [None]
 				# PlayEffect       [None]
+			Show # Corrupted
+				Rarity             Rare
+				Corrupted          True
+				#
+				SetTextColor       255 255 119
+				SetBackgroundColor 000 000 000
+				SetBorderColor     210 000 000
+				SetFontSize        30
+				# MinimapIcon      [None]
+				# PlayEffect       [None]
 			Show # Remaining
 				Rarity             Rare
 				#
@@ -1584,16 +1950,26 @@
 				SetFontSize        30
 				# MinimapIcon      [None]
 				# PlayEffect       [None]
-		# TODO sort by demension
-		Show # Chromatic Items
-			SocketGroup        RGB
-			#
-			SetTextColor       000 127 000
-			SetBackgroundColor 000 000 000
-			SetBorderColor     000 000 000
-			SetFontSize        27
-			# MinimapIcon      [None]
-			# PlayEffect       [None]
+		# Chromatic Items
+			Show # Corrupted
+				SocketGroup        RGB
+				Corrupted          True
+				#
+				SetTextColor       000 127 000
+				SetBackgroundColor 000 000 000
+				SetBorderColor     210 000 000
+				SetFontSize        27
+				# MinimapIcon      [None]
+				# PlayEffect       [None]
+			Show # Remaining
+				SocketGroup        RGB
+				#
+				SetTextColor       000 127 000
+				SetBackgroundColor 000 000 000
+				SetBorderColor     000 000 000
+				SetFontSize        27
+				# MinimapIcon      [None]
+				# PlayEffect       [None]
 		# TODO Leveling
 		Hide # Remaining
 			# SetTextColor     [Rarity]
