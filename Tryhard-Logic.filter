@@ -4,15 +4,14 @@
 #                        #
 ##########################
 
-# TODO Atlas Bases Update
 # TODO Temple Items mit Special Mods (und andere?)
 
-# TODO drop sounds (DisableDropSound, CustomAlertSound)
-
-# TODO Corrupted True; HasExplicitMod Mirrored: red background
+# TODO HasExplicitMod Mirrored: red background (HasExplicitMod Corrupted?)
 # TODO high level items?
 # TODO imprints
 # TODO incubated items
+
+# TODO drop sounds (DisableDropSound, CustomAlertSound)
 
 # List of used Colors
 	# 175 096 037 - Unique
@@ -1269,6 +1268,51 @@
 				MinimapIcon        0 Red Triangle
 				PlayEffect         Red
 		# Influenced
+			# Multiple Influences
+				Show # Uniques
+					HasInfluence              Elder Crusader Redeemer Hunter Warlord
+					HasInfluence       Shaper       Crusader Redeemer Hunter Warlord
+					HasInfluence       Shaper Elder          Redeemer Hunter Warlord
+					HasInfluence       Shaper Elder Crusader          Hunter Warlord
+					HasInfluence       Shaper Elder Crusader Redeemer        Warlord
+					HasInfluence       Shaper Elder Crusader Redeemer Hunter
+					Rarity             Unique
+					#
+					SetTextColor       175 096 037
+					SetBackgroundColor 127 000 255
+					SetBorderColor     127 000 127
+					SetFontSize        45
+					MinimapIcon        0 Red Triangle
+					PlayEffect         Red
+				Show # Rares
+					HasInfluence              Elder Crusader Redeemer Hunter Warlord
+					HasInfluence       Shaper       Crusader Redeemer Hunter Warlord
+					HasInfluence       Shaper Elder          Redeemer Hunter Warlord
+					HasInfluence       Shaper Elder Crusader          Hunter Warlord
+					HasInfluence       Shaper Elder Crusader Redeemer        Warlord
+					HasInfluence       Shaper Elder Crusader Redeemer Hunter
+					Rarity             Rare
+					#
+					SetTextColor       255 255 119
+					SetBackgroundColor 127 000 255
+					SetBorderColor     127 000 127
+					SetFontSize        45
+					MinimapIcon        0 Red Triangle
+					PlayEffect         Red
+				Show # Remaining
+					HasInfluence              Elder Crusader Redeemer Hunter Warlord
+					HasInfluence       Shaper       Crusader Redeemer Hunter Warlord
+					HasInfluence       Shaper Elder          Redeemer Hunter Warlord
+					HasInfluence       Shaper Elder Crusader          Hunter Warlord
+					HasInfluence       Shaper Elder Crusader Redeemer        Warlord
+					HasInfluence       Shaper Elder Crusader Redeemer Hunter
+					#
+					SetTextColor       127 000 255
+					SetBackgroundColor 000 000 000
+					SetBorderColor     127 000 127
+					SetFontSize        45
+					MinimapIcon        0 Red Triangle
+					PlayEffect         Red
 			# Uniques
 				Show # Corrupted
 					HasInfluence       Shaper Elder Crusader Redeemer Hunter Warlord
