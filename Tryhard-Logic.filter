@@ -4,14 +4,21 @@
 #                        #
 ##########################
 
-# TODO Temple Items mit Special Mods (und andere?)
+# TODO fractured Items (FracturedItem True)
+# TODO synthesised Items (SynthesisedItem True)
 
-# TODO HasExplicitMod Mirrored: red background (HasExplicitMod Corrupted?)
+# TODO Temple Items mit Special Mods (und andere?)
+# TODO Enchantments
+
 # TODO high level items?
 # TODO imprints
 # TODO incubated items
 
 # TODO drop sounds (DisableDropSound, CustomAlertSound)
+
+# TODO later
+# HasExplicitMod Mirrored, (HasExplicitMod Corrupted)
+# (both) can be compiled in the filter but dont do anything
 
 # List of used Colors
 	# 175 096 037 - Unique
@@ -121,7 +128,7 @@
 			PlayEffect         Green
 	# Maps
 		# Not Droping (Anymore)
-			Show # Corrupted Bases UnCorrupted
+			Show # Corrupted Bases Unorrupted
 				Class              Map
 				BaseType           "Harbinger Map" "Vaal Temple Map"
 				Corrupted          False
@@ -739,7 +746,7 @@
 					SetFontSize        45
 					MinimapIcon        0 Red Triangle
 					PlayEffect         Red
-				# Corrupted Stats UnCorrupted
+				# Corrupted Stats Unorrupted
 					Show # Vaal Gems
 						Corrupted          False
 						Class              "Skill Gems"
@@ -773,18 +780,6 @@
 						SetFontSize        45
 						MinimapIcon        0 Red Triangle
 						PlayEffect         Red
-				Show # 3 Corruptions
-					Class              "Skill Gems"
-					BaseType           Vaal
-					GemLevel           >= 21
-					Quality            > 20
-					#
-					SetTextColor       027 162 155
-					SetBackgroundColor 127 000 127
-					SetBorderColor     210 000 000
-					SetFontSize        45
-					MinimapIcon        0 Red Triangle
-					PlayEffect         Red
 			Show # Not droping anymore
 				BaseType           "Item Quantity"
 				#
@@ -803,6 +798,18 @@
 				SetBorderColor     127 000 255
 				SetFontSize        45
 				MinimapIcon        0 Red Circle
+				PlayEffect         Red
+			Show # Tripple Corruptions
+				Class              "Skill Gems"
+				BaseType           Vaal
+				GemLevel           >= 21
+				Quality            > 20
+				#
+				SetTextColor       127 000 127
+				SetBackgroundColor 210 000 000
+				SetBorderColor     127 000 127
+				SetFontSize        45
+				MinimapIcon        0 Red Triangle
 				PlayEffect         Red
 			# Double Corrupted
 				Show # Vaal & Level
@@ -1123,7 +1130,7 @@
 			# PlayEffect       [None]
 	# Armour
 		# Weird Stuff
-			Show # Corrupted Bases UnCorrupted
+			Show # Corrupted Bases Unorrupted
 				BaseType           Talisman "Breach Ring" "Ruby Amulet"
 				Corrupted          False
 				#
@@ -1151,6 +1158,15 @@
 					SetTextColor       127 000 255
 					SetBackgroundColor 127 000 127
 					SetBorderColor     127 000 255
+					SetFontSize        45
+					MinimapIcon        0 Red Triangle
+					PlayEffect         Red
+				Show # Remaining
+					BaseType           "Ruby Amulet" "Golden Caligae" "Golden Flame" "Golden Obi" "Golden Mantle" "Golden Hoop" "Golden Caligae" "Golden Bracers" "Golden Wreath" "Jet Amulet" "Conductive Quiver" "Cured Quiver" "Heavy Quiver" "Light Quiver" "Rugged Quiver"
+					#
+					SetTextColor       127 000 127
+					SetBackgroundColor 000 000 000
+					SetBorderColor     127 000 127
 					SetFontSize        45
 					MinimapIcon        0 Red Triangle
 					PlayEffect         Red
@@ -1568,6 +1584,7 @@
 		# Veiled items
 			Show # Corrupted
 				HasExplicitMod     Veil
+				Corrupted          True
 				#
 				SetTextColor       184 218 242
 				SetBackgroundColor 000 000 000
