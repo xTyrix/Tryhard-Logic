@@ -4,13 +4,8 @@
 #                        #
 ##########################
 
-# TODO fractured Items (FracturedItem True)
-# TODO synthesised Items (SynthesisedItem True)
+# TODO high Level + good Bases
 
-# TODO Temple Items mit Special Mods (und andere?)
-# TODO Enchantments
-
-# TODO high level items?
 # TODO imprints
 # TODO incubated items
 
@@ -20,33 +15,49 @@
 # HasExplicitMod Mirrored, (HasExplicitMod Corrupted)
 # (both) can be compiled in the filter but dont do anything
 
-# List of used Colors
+# List of used Text, Background, and Border Colors
 	# 175 096 037 - Unique
 	# 255 255 119 - Rare
 	# 136 136 255 - Magic
 	# 200 200 200 - Normal
 	# 000 000 000 - Nutral
-	# 184 218 242 - Veiled (Crafted Mods)
+	# 184 218 242 - Special Modifier (Veil, Crafted, TODO fractured(FracturedItem True), synthesised(SynthesisedItem True), temple, enchantments, other?)
 	# 210 000 000 - Corrupted
 	# 074 230 058 - Quest Items
 	# 200 155 155 - Maps
 	# 014 186 255 - Divination Cards & Incubator
 	# 170 158 130 - Currency
 	# 027 162 155 - Gems & Jewels
-	# 127 000 255 - Influenced Items
+	# 127 000 255 - Influenced Items (Shaper, Elder, Crusader, Redeemer, Hunter, Warlord)
 	# 127 000 127 - OMG-Drops
-	# 000 127 000 - Socket Related Properties
+	# 000 127 000 - Vendor Properties
 	# 255 000 000 - ERROR
 	# 255 255 255 - ERROR
 
-# List of used Font Sizes
-		# 18 - Hide
-		# 27 ˥
-		# 30  〉- Scale for Drops to pick up
-		# 33 |
-		# 36 ˩
-		# 44 - ERROR
-		# 45 - OMG
+# List of used Font Sizes, and used Minimap Icon Sizes
+	# 18  -  --- Hide
+	# 27  -  ˥
+	# 30  -   〉- Scale for Drops to pick up
+	# 33  2  |
+	# 36  1  ˩
+	# 44  0  --- ERROR
+	# 45  0  --- OMG
+
+# List of used Minimap Icon, and Effect Colors
+	# Red    - Red Maps, ERROR, OMG
+	# Green  - Quest Items
+	# Blue   - Divination Cards & Incubators, Influenced Atlas Bases (TODO why?)
+	# Brown  - Unique
+	# White  - White Maps, White Items (TODO inconsistent, some are Yellow)
+	# Yellow - Yellow Maps, Rare Items (TODO ^, auch andersrum?)
+
+# List of used Minimap Icons
+	# Circle   - Gems & Jewels
+	# Diamond  - Currency
+	# Hexagon  - Flasks, Armour
+	# Square   - Maps
+	# Star     - Divination Cards & Incubators
+	# Triangle - Quest Items, ERROR, OMG
 
 # Actual Filter
 	# Weird Stuff
@@ -555,7 +566,7 @@
 			SetFontSize        44
 			MinimapIcon        0 Red Triangle
 			PlayEffect         Red
-	# Divination Cards & Incubator
+	# Divination Cards & Incubators
 		Show # Stacked Deck
 			BaseType           "Stacked Deck"
 			#
@@ -579,7 +590,7 @@
 		# Targeted
 			Show # Not Dropping
 				Class              Currency
-				BaseType           "Bestiary Orb"
+				BaseType           "Bestiary Orb" Imprint
 				#
 				SetTextColor       127 000 127
 				SetBackgroundColor 170 158 130
@@ -587,8 +598,8 @@
 				SetFontSize        45
 				MinimapIcon        0 Red Diamond
 				PlayEffect         Red
-			# TODO blessings + vials aufteilen
 			Show # High
+				# TODO blessings + vials aufteilen
 				Class              Currency
 				BaseType           Blessing Vial
 				#
