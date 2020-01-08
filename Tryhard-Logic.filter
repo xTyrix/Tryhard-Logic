@@ -6,14 +6,12 @@
 
 # TODO high Level + good Bases
 
-# TODO imprints
-# TODO incubated items
-
 # TODO drop sounds (DisableDropSound, CustomAlertSound)
 
 # TODO later
 # HasExplicitMod Mirrored, (HasExplicitMod Corrupted)
 # (both) can be compiled in the filter but dont do anything
+# incubated items (recheck)
 
 # List of used Text, Background, and Border Colors
 	# 175 096 037 - Unique
@@ -578,7 +576,7 @@
 			PlayEffect         Blue
 		# TODO sort by base
 		Show # Cards & Incubator
-			Class              "Divination Card"
+			Class              "Divination Card" Incubator
 			#
 			SetTextColor       014 186 255
 			SetBackgroundColor 000 000 000
