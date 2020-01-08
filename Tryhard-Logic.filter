@@ -7,6 +7,9 @@
 # TODO high Level + good Bases
 
 # TODO drop sounds (DisableDropSound, CustomAlertSound)
+# TODO mind todos in Lists below
+# TODO also mind todos in the actual Filter of course
+# TODO Hide & ERROR rework
 
 # TODO later
 # HasExplicitMod Mirrored, (HasExplicitMod Corrupted)
@@ -16,7 +19,7 @@
 # List of used Text, Background, and Border Colors
 	# 175 096 037 - Unique
 	# 255 255 119 - Rare
-	# 136 136 255 - Magic
+	# 136 136 255 - Magic (TODO inconsistent: some shown Normal, might be ok?)
 	# 200 200 200 - Normal
 	# 000 000 000 - Nutral
 	# 184 218 242 - Special Modifier (Veil, Crafted, TODO fractured(FracturedItem True), synthesised(SynthesisedItem True), temple, enchantments, other?)
@@ -47,7 +50,7 @@
 	# Blue   - Divination Cards & Incubators, Influenced Atlas Bases (TODO why?)
 	# Brown  - Unique
 	# White  - White Maps, White Items (TODO inconsistent, some are Yellow)
-	# Yellow - Yellow Maps, Rare Items (TODO ^, auch andersrum?)
+	# Yellow - Yellow Maps, Rare Items (TODO ^, other way around?)
 
 # List of used Minimap Icons
 	# Circle   - Gems & Jewels
@@ -169,9 +172,8 @@
 				PlayEffect         Brown
 		# Unique Maps
 			# Not Droping (Anymore)
-				Show # Ancient Reliquary Key
-					Class              Map
-					BaseType           "Ancient Reliquary Key"
+				Show # Reliquary Key
+					BaseType           "Reliquary Key"
 					#
 					SetTextColor       200 155 155
 					SetBackgroundColor 127 000 127
@@ -191,15 +193,6 @@
 					MinimapIcon        0 Brown Square
 					PlayEffect         Brown
 			# High Value
-				Show # Very High Value
-					BaseType           "Timeworn Reliquary Key"
-					#
-					SetTextColor       127 000 127
-					SetBackgroundColor 200 155 155
-					SetBorderColor     127 000 127
-					SetFontSize        45
-					MinimapIcon        0 Brown Square
-					PlayEffect         Brown
 				Show # Brachstones
 					Class              Map
 					BaseType           Breachstone Timeless
@@ -218,6 +211,51 @@
 					SetTextColor       175 096 037
 					SetBackgroundColor 200 155 155
 					SetBorderColor     175 096 037
+					SetFontSize        36
+					MinimapIcon        1 Brown Square
+					PlayEffect         Brown
+			# Blighted
+				Show # Unique
+					BlightedMap        True
+					Class              Map
+					Rarity             Unique
+					#
+					SetTextColor       200 155 155
+					SetBackgroundColor 127 000 127
+					SetBorderColor     175 096 037
+					SetFontSize        45
+					MinimapIcon        0 Red Triangle
+					PlayEffect         Red
+				Show # Rare
+					BlightedMap        True
+					Class              Map
+					Rarity             Rare
+					#
+					SetTextColor       175 096 037
+					SetBackgroundColor 200 155 155
+					SetBorderColor     255 255 119
+					SetFontSize        36
+					MinimapIcon        1 Brown Square
+					PlayEffect         Brown
+				Show # Magic
+					BlightedMap        True
+					Class              Map
+					Rarity             Magic
+					#
+					SetTextColor       175 096 037
+					SetBackgroundColor 200 155 155
+					SetBorderColor     136 136 255
+					SetFontSize        36
+					MinimapIcon        1 Brown Square
+					PlayEffect         Brown
+				Show # Normal
+					BlightedMap        True
+					Class              Map
+					Rarity             Normal
+					#
+					SetTextColor       175 096 037
+					SetBackgroundColor 200 155 155
+					SetBorderColor     000 000 000
 					SetFontSize        36
 					MinimapIcon        1 Brown Square
 					PlayEffect         Brown
@@ -304,29 +342,15 @@
 					SetFontSize        36
 					MinimapIcon        1 Brown Square
 					PlayEffect         Brown
-			Show # Endgame Labyrinth
-				BaseType           "Offering to the Goddess"
-				#
-				SetTextColor       175 096 037
-				SetBackgroundColor 200 155 155
-				SetBorderColor     175 096 037
-				SetFontSize        36
-				MinimapIcon        1 Brown Square
-				PlayEffect         Brown
-			Show # Blighted
-				# TODO
-				BlightedMap True
-				Class Map
-				#
-				# SetTextColor     [Rarity]
-				SetBackgroundColor 200 155 155
-				SetBorderColor     175 096 037
-				SetTextColor       175 096 037
-				SetBackgroundColor 000 000 000
-				SetBorderColor     200 155 155
-				SetFontSize        36
-				MinimapIcon        1 Brown Square
-				PlayEffect         Brown
+				Show # Endgame Labyrinth
+					BaseType           "Offering to the Goddess"
+					#
+					SetTextColor       175 096 037
+					SetBackgroundColor 200 155 155
+					SetBorderColor     175 096 037
+					SetFontSize        36
+					MinimapIcon        1 Brown Square
+					PlayEffect         Brown
 		# Tier 16
 			Show # Corrupted
 				Corrupted          True
