@@ -4,7 +4,7 @@
 #                        #
 ##########################
 
-# TODO high Level + good Bases
+# TODO high Level (84? / 86?) + good Bases (with rework of Map Bases?)
 
 # TODO drop sounds (DisableDropSound, CustomAlertSound)
 # TODO mind todos in Lists below
@@ -19,9 +19,9 @@
 # List of used Text, Background, and Border Colors
 	# 175 096 037 - Unique
 	# 255 255 119 - Rare
-	# 136 136 255 - Magic (TODO inconsistent: some shown Normal, might be ok?)
+	# 136 136 255 - Magic
 	# 200 200 200 - Normal
-	# 000 000 000 - Nutral
+	# 000 000 000 - Nutral (TODO when use this instead of 200 200 200 (Normal), maybe inconsistent)
 	# 184 218 242 - Special Modifier (Veil, Crafted, TODO fractured(FracturedItem True), synthesised(SynthesisedItem True), temple, enchantments, other?)
 	# 210 000 000 - Corrupted
 	# 074 230 058 - Quest Items
@@ -36,6 +36,7 @@
 	# 255 255 255 - ERROR
 
 # List of used Font Sizes, and used Minimap Icon Sizes
+	# TODO Minimap Icon Size 2, and 1 inconsistent, also new rule: Temp Beames for Size 30
 	# 18  -  --- Hide
 	# 27  -  ˥
 	# 30  -   〉- Scale for Drops to pick up
@@ -51,6 +52,8 @@
 	# Brown  - Unique
 	# White  - White Maps, White Items (TODO inconsistent, some are Yellow)
 	# Yellow - Yellow Maps, Rare Items (TODO ^, other way around?)
+	#
+	# Temp   - Used for FontSize 30
 
 # List of used Minimap Icons
 	# Circle   - Gems & Jewels
@@ -91,17 +94,8 @@
 				SetFontSize        36
 				MinimapIcon        1 Green Triangle
 				PlayEffect         Green
-			Show # Remaining Watchstones
-				BaseType           Watchstone
-				#
-				SetTextColor       000 000 000
-				SetBackgroundColor 074 230 058
-				SetBorderColor     000 000 000
-				SetFontSize        36
-				MinimapIcon        1 Green Triangle
-				PlayEffect         Green
 			Show # Remaining
-				BaseType           "Divine Vessel" "Unshaping Orb" "Memory Fragment" "Shaper's Orb" "The Shaper's Key"
+				BaseType           "Divine Vessel" "Unshaping Orb" "Memory Fragment" "Shaper's Orb" "The Shaper's Key" Watchstone
 				#
 				SetTextColor       000 000 000
 				SetBackgroundColor 074 230 058
@@ -128,8 +122,8 @@
 			SetFontSize        36
 			MinimapIcon        1 Green Triangle
 			PlayEffect         Green
-		# TODO Main / Side Quest
 		Show # Remaining
+			# TODO Main / Side Quest
 			Class              "Quest Items"
 			#
 			SetTextColor       074 230 058
@@ -139,9 +133,17 @@
 			MinimapIcon        1 Green Triangle
 			PlayEffect         Green
 	# Maps
+	    Show # Weird Stuff (Tier too high)
+	    	MapTier            > 16
+	    	#
+			SetTextColor       200 155 155
+			SetBackgroundColor 127 000 127
+			SetBorderColor     200 155 155
+			SetFontSize        45
+			MinimapIcon        0 Red Square
+			PlayEffect         Red
 		# Not Droping (Anymore)
 			Show # Corrupted Bases Unorrupted
-				Class              Map
 				BaseType           "Harbinger Map" "Vaal Temple Map"
 				Corrupted          False
 				#
@@ -160,16 +162,16 @@
 				SetFontSize        45
 				MinimapIcon        0 Red Square
 				PlayEffect         Red
-			Show # Scarabs
-				Class              Map
-				BaseType           Scarab
-				#
-				SetTextColor       000 000 000
-				SetBackgroundColor 200 155 155
-				SetBorderColor     000 000 000
-				SetFontSize        36
-				MinimapIcon        1 Brown Square
-				PlayEffect         Brown
+		Show # Scarabs
+			Class              Map
+			BaseType           Scarab
+			#
+			SetTextColor       000 000 000
+			SetBackgroundColor 200 155 155
+			SetBorderColor     000 000 000
+			SetFontSize        36
+			MinimapIcon        1 Brown Square
+			PlayEffect         Brown
 		# Unique Maps
 			# Not Droping (Anymore)
 				Show # Reliquary Key
@@ -182,7 +184,6 @@
 					MinimapIcon        0 Brown Square
 					PlayEffect         Brown
 				Show # Untainted Paradise
-					Class              Map
 					BaseType           "Tropical Island Map"
 					Rarity             Unique
 					#
@@ -217,7 +218,6 @@
 			# Blighted
 				Show # Unique
 					BlightedMap        True
-					Class              Map
 					Rarity             Unique
 					#
 					SetTextColor       200 155 155
@@ -228,7 +228,6 @@
 					PlayEffect         Red
 				Show # Rare
 					BlightedMap        True
-					Class              Map
 					Rarity             Rare
 					#
 					SetTextColor       175 096 037
@@ -237,21 +236,9 @@
 					SetFontSize        36
 					MinimapIcon        1 Brown Square
 					PlayEffect         Brown
-				Show # Magic
+				Show # Remaining (Normal, Magic)
 					BlightedMap        True
-					Class              Map
-					Rarity             Magic
-					#
-					SetTextColor       175 096 037
-					SetBackgroundColor 200 155 155
-					SetBorderColor     136 136 255
-					SetFontSize        36
-					MinimapIcon        1 Brown Square
-					PlayEffect         Brown
-				Show # Normal
-					BlightedMap        True
-					Class              Map
-					Rarity             Normal
+					Rarity             Normal Magic
 					#
 					SetTextColor       175 096 037
 					SetBackgroundColor 200 155 155
@@ -259,6 +246,15 @@
 					SetFontSize        36
 					MinimapIcon        1 Brown Square
 					PlayEffect         Brown
+				Show # Remaining ERROR
+					BlightedMap        True
+					#
+					SetTextColor       255 000 000
+					SetBackgroundColor 255 255 255
+					SetBorderColor     255 000 000
+					SetFontSize        44
+					MinimapIcon        0 Red Triangle
+					PlayEffect         Red
 			Show # Remaining
 				Class              Map
 				Rarity             Unique
@@ -351,43 +347,20 @@
 					SetFontSize        36
 					MinimapIcon        1 Brown Square
 					PlayEffect         Brown
-		# Tier 16
-			Show # Corrupted
-				Corrupted          True
-				Class              Map
-				MapTier            16
-				#
-				# SetTextColor     [Rarity]
-				SetBackgroundColor 200 155 155
-				SetBorderColor     210 000 000
-				SetFontSize        45
-				MinimapIcon        0 Red Square
-				PlayEffect         Red
-			Show # Remaining
-				Class              Map
-				MapTier            16
-				#
-				SetTextColor       127 000 127
-				SetBackgroundColor 200 155 155
-				SetBorderColor     127 000 127
-				SetFontSize        45
-				MinimapIcon        0 Red Square
-				PlayEffect         Red
+		# TODO Guardian Maps (Shaper & Elder)
 		# Red Tier
 			Show # Corrupted
 				Corrupted          True
-				Class              Map
-				MapTier            >= 11
+				MapTier            11 12 13 14 15 16
 				#
-				# SetTextColor     [Rarity]
+				SetTextColor       210 000 000
 				SetBackgroundColor 200 155 155
 				SetBorderColor     210 000 000
-				SetFontSize        36
-				MinimapIcon        1 Red Square
+				SetFontSize        33
+				MinimapIcon        2 Red Square
 				PlayEffect         Red
 			Show # Remaining
-				Class              Map
-				MapTier            >= 11
+				MapTier            11 12 13 14 15 16
 				#
 				SetTextColor       000 000 000
 				SetBackgroundColor 200 155 155
@@ -396,77 +369,130 @@
 				MinimapIcon        1 Red Square
 				PlayEffect         Red
 		# Yellow Tier
-			Show # Corrupted       
+			# +0 to +2 Maps
+				# Tier 6
+					Show # Corrupted
+						Corrupted          True
+						MapTier            6 7 8
+						ItemLevel          73
+						#
+						SetTextColor       200 155 155
+						SetBackgroundColor 000 000 000
+						SetBorderColor     210 000 000
+						SetFontSize        33
+						MinimapIcon        2 Yellow Square
+						PlayEffect         Yellow
+					Show # Remaining
+						MapTier            6 7 8
+						ItemLevel          73
+						#
+						SetTextColor       200 155 155
+						SetBackgroundColor 000 000 000
+						SetBorderColor     200 155 155
+						SetFontSize        36
+						MinimapIcon        1 Yellow Square
+						PlayEffect         Yellow
+				# Tier 7
+					Show # Corrupted
+						Corrupted          True
+						MapTier            7 8 9
+						ItemLevel          74
+						#
+						SetTextColor       200 155 155
+						SetBackgroundColor 000 000 000
+						SetBorderColor     210 000 000
+						SetFontSize        33
+						MinimapIcon        2 Yellow Square
+						PlayEffect         Yellow
+					Show # Remaining
+						MapTier            7 8 9
+						ItemLevel          74
+						#
+						SetTextColor       200 155 155
+						SetBackgroundColor 000 000 000
+						SetBorderColor     200 155 155
+						SetFontSize        36
+						MinimapIcon        1 Yellow Square
+						PlayEffect         Yellow
+				# Tier 8
+					Show # Corrupted
+						Corrupted          True
+						MapTier            8 9 10
+						ItemLevel          75
+						#
+						SetTextColor       200 155 155
+						SetBackgroundColor 000 000 000
+						SetBorderColor     210 000 000
+						SetFontSize        33
+						MinimapIcon        2 Yellow Square
+						PlayEffect         Yellow
+					Show # Remaining
+						MapTier            8 9 10
+						ItemLevel          75
+						#
+						SetTextColor       200 155 155
+						SetBackgroundColor 000 000 000
+						SetBorderColor     200 155 155
+						SetFontSize        36
+						MinimapIcon        1 Yellow Square
+						PlayEffect         Yellow
+				# Tier 9
+					Show # Corrupted
+						Corrupted          True
+						MapTier            9 10
+						ItemLevel          76
+						#
+						SetTextColor       200 155 155
+						SetBackgroundColor 000 000 000
+						SetBorderColor     210 000 000
+						SetFontSize        33
+						MinimapIcon        2 Yellow Square
+						PlayEffect         Yellow
+					Show # Remaining
+						MapTier            9 10
+						ItemLevel          76
+						#
+						SetTextColor       200 155 155
+						SetBackgroundColor 000 000 000
+						SetBorderColor     200 155 155
+						SetFontSize        36
+						MinimapIcon        1 Yellow Square
+						PlayEffect         Yellow
+				# Tier 10
+					Show # Corrupted
+						Corrupted          True
+						MapTier            10
+						ItemLevel          77
+						#
+						SetTextColor       200 155 155
+						SetBackgroundColor 000 000 000
+						SetBorderColor     210 000 000
+						SetFontSize        33
+						MinimapIcon        2 Yellow Square
+						PlayEffect         Yellow
+					Show # Remaining
+						MapTier            10
+						ItemLevel          77
+						#
+						SetTextColor       200 155 155
+						SetBackgroundColor 000 000 000
+						SetBorderColor     200 155 155
+						SetFontSize        36
+						MinimapIcon        1 Yellow Square
+						PlayEffect         Yellow
+			Show # Corrupted
 				Corrupted          True
-				Class              Map
-				MapTier            >= 6
+				MapTier            6 7 8 9 10
 				#
 				SetTextColor       200 155 155
 				SetBackgroundColor 000 000 000
 				SetBorderColor     210 000 000
-				SetFontSize        30
+				SetFontSize        33
 				MinimapIcon        2 Yellow Square
 				PlayEffect         Yellow
-			# +0 to +2 Maps
-				Show # Tier 6
-					Class              Map
-					MapTier            >= 6
-					ItemLevel          <= 73
-					#
-					SetTextColor       200 155 155
-					SetBackgroundColor 000 000 000
-					SetBorderColor     200 155 155
-					SetFontSize        36
-					MinimapIcon        1 Yellow Square
-					PlayEffect         Yellow
-				Show # Tier 7
-					Class              Map
-					MapTier            >= 7
-					ItemLevel          <= 74
-					#
-					SetTextColor       200 155 155
-					SetBackgroundColor 000 000 000
-					SetBorderColor     200 155 155
-					SetFontSize        36
-					MinimapIcon        1 Yellow Square
-					PlayEffect         Yellow
-				Show # Tier 8
-					Class              Map
-					MapTier            >= 8
-					ItemLevel          <= 75
-					#
-					SetTextColor       200 155 155
-					SetBackgroundColor 000 000 000
-					SetBorderColor     200 155 155
-					SetFontSize        36
-					MinimapIcon        1 Yellow Square
-					PlayEffect         Yellow
-				Show # Tier 9
-					Class              Map
-					MapTier            >= 9
-					ItemLevel          <= 76
-					#
-					SetTextColor       200 155 155
-					SetBackgroundColor 000 000 000
-					SetBorderColor     200 155 155
-					SetFontSize        36
-					MinimapIcon        1 Yellow Square
-					PlayEffect         Yellow
-				Show # Tier 10
-					Class              Map
-					MapTier            >= 10
-					ItemLevel          <= 77
-					#
-					SetTextColor       200 155 155
-					SetBackgroundColor 000 000 000
-					SetBorderColor     200 155 155
-					SetFontSize        36
-					MinimapIcon        1 Yellow Square
-					PlayEffect         Yellow
 			Show # Down from Red
-				Class              Map
-				MapTier            >= 10
-				ItemLevel          >= 80
+				MapTier            6 7 8 9 10
+				ItemLevel          >= 78
 				#
 				SetTextColor       200 155 155
 				SetBackgroundColor 000 000 000
@@ -475,8 +501,7 @@
 				MinimapIcon        2 Yellow Square
 				PlayEffect         Yellow
 			Show # Remaining
-				Class              Map
-				MapTier            >= 6
+				MapTier            6 7 8 9 10
 				#
 				SetTextColor       200 155 155
 				SetBackgroundColor 000 000 000
@@ -485,98 +510,166 @@
 				MinimapIcon        2 Yellow Square
 				PlayEffect         Yellow
 		# White Tier
+			# +0 to +2 Maps
+				# Tier 1 (and outside of Maps)
+					Show # Corrupted
+						Corrupted          True
+						MapTier            1 2 3
+						ItemLevel          68 67 66
+						#
+						SetTextColor       200 155 155
+						SetBackgroundColor 000 000 000
+						SetBorderColor     210 000 000
+						SetFontSize        33
+						MinimapIcon        2 White Square
+						PlayEffect         White
+					Show # Remaining
+						MapTier            1 2 3
+						ItemLevel          68 67 66
+						#
+						SetTextColor       200 155 155
+						SetBackgroundColor 000 000 000
+						SetBorderColor     200 155 155
+						SetFontSize        36
+						MinimapIcon        1 White Square
+						PlayEffect         White
+				# Tier 2
+					Show # Corrupted
+						Corrupted          True
+						MapTier            2 3 4
+						ItemLevel          69
+						#
+						SetTextColor       200 155 155
+						SetBackgroundColor 000 000 000
+						SetBorderColor     210 000 000
+						SetFontSize        33
+						MinimapIcon        2 White Square
+						PlayEffect         White
+					Show # Remaining
+						MapTier            2 3 4
+						ItemLevel          69
+						#
+						SetTextColor       200 155 155
+						SetBackgroundColor 000 000 000
+						SetBorderColor     200 155 155
+						SetFontSize        36
+						MinimapIcon        1 White Square
+						PlayEffect         White
+				# Tier 3
+					Show # Corrupted
+						Corrupted          True
+						MapTier            3 4 5
+						ItemLevel          70
+						#
+						SetTextColor       200 155 155
+						SetBackgroundColor 000 000 000
+						SetBorderColor     210 000 000
+						SetFontSize        33
+						MinimapIcon        2 White Square
+						PlayEffect         White
+					Show # Remaining
+						MapTier            3 4 5
+						ItemLevel          70
+						#
+						SetTextColor       200 155 155
+						SetBackgroundColor 000 000 000
+						SetBorderColor     200 155 155
+						SetFontSize        36
+						MinimapIcon        1 White Square
+						PlayEffect         White
+				# Tier 4
+					Show # Corrupted
+						Corrupted          True
+						MapTier            4 5
+						ItemLevel          71
+						#
+						SetTextColor       200 155 155
+						SetBackgroundColor 000 000 000
+						SetBorderColor     210 000 000
+						SetFontSize        33
+						MinimapIcon        2 White Square
+						PlayEffect         White
+					Show # Remaining
+						MapTier            4 5
+						ItemLevel          71
+						#
+						SetTextColor       200 155 155
+						SetBackgroundColor 000 000 000
+						SetBorderColor     200 155 155
+						SetFontSize        36
+						MinimapIcon        1 White Square
+						PlayEffect         White
+				# Tier 5
+					Show # Corrupted
+						Corrupted          True
+						MapTier            5
+						ItemLevel          72
+						#
+						SetTextColor       200 155 155
+						SetBackgroundColor 000 000 000
+						SetBorderColor     210 000 000
+						SetFontSize        33
+						MinimapIcon        2 White Square
+						PlayEffect         White
+					Show # Remaining
+						MapTier            5
+						ItemLevel          72
+						#
+						SetTextColor       200 155 155
+						SetBackgroundColor 000 000 000
+						SetBorderColor     200 155 155
+						SetFontSize        36
+						MinimapIcon        1 White Square
+						PlayEffect         White
+			# Down from Red
+				Show # Corrupted
+					Corrupted          True
+					MapTier            1 2 3 4 5
+					ItemLevel          >= 78
+					#
+					SetTextColor       200 155 155
+					SetBackgroundColor 000 000 000
+					SetBorderColor     210 000 000
+					SetFontSize        27
+					# MinimapIcon      [None]
+					# PlayEffect       [None]
+				Show # Remaining
+					MapTier            1 2 3 4 5
+					ItemLevel          >= 78
+					#
+					SetTextColor       200 155 155
+					SetBackgroundColor 000 000 000
+					SetBorderColor     000 000 000
+					SetFontSize        27
+					# MinimapIcon      [None]
+					PlayEffect         White Temp
 			Show # Corrupted
 				Corrupted          True
-				Class              Map
+				MapTier            1 2 3 4 5
 				#
 				SetTextColor       200 155 155
 				SetBackgroundColor 000 000 000
 				SetBorderColor     210 000 000
 				SetFontSize        30
-				MinimapIcon        2 White Square
-				PlayEffect         White
-			# +0 to +2 Maps
-				Show # Tier 1
-					Class              Map
-					ItemLevel          <= 68
-					#
-					SetTextColor       200 155 155
-					SetBackgroundColor 000 000 000
-					SetBorderColor     200 155 155
-					SetFontSize        36
-					MinimapIcon        1 White Square
-					PlayEffect         White
-				Show # Tier 2
-					Class              Map
-					MapTier            >= 2
-					ItemLevel          <= 69
-					#
-					SetTextColor       200 155 155
-					SetBackgroundColor 000 000 000
-					SetBorderColor     200 155 155
-					SetFontSize        36
-					MinimapIcon        1 White Square
-					PlayEffect         White
-				Show # Tier 3
-					Class              Map
-					MapTier            >= 3
-					ItemLevel          <= 70
-					#
-					SetTextColor       200 155 155
-					SetBackgroundColor 000 000 000
-					SetBorderColor     200 155 155
-					SetFontSize        36
-					MinimapIcon        1 White Square
-					PlayEffect         White
-				Show # Tier 4
-					Class              Map
-					MapTier            >= 4
-					ItemLevel          <= 71
-					#
-					SetTextColor       200 155 155
-					SetBackgroundColor 000 000 000
-					SetBorderColor     200 155 155
-					SetFontSize        36
-					MinimapIcon        1 White Square
-					PlayEffect         White
-				Show # Tier 5
-					Class              Map
-					MapTier            >= 5
-					ItemLevel          <= 72
-					#
-					SetTextColor       200 155 155
-					SetBackgroundColor 000 000 000
-					SetBorderColor     200 155 155
-					SetFontSize        36
-					MinimapIcon        1 White Square
-					PlayEffect         White
-			Show # Down from Red
-				Class              Map
-				ItemLevel          >= 75
-				#
-				SetTextColor       200 155 155
-				SetBackgroundColor 000 000 000
-				SetBorderColor     000 000 000
-				SetFontSize        27
 				# MinimapIcon      [None]
 				PlayEffect         White Temp
 			Show # Down from Yellow
-				Class              Map
-				ItemLevel          >= 75
+				MapTier            1 2 3 4 5
+				ItemLevel          73 74 75 76 77
 				#
 				SetTextColor       200 155 155
 				SetBackgroundColor 000 000 000
 				SetBorderColor     000 000 000
-				SetFontSize        27
-				MinimapIcon        2 White Square
-				PlayEffect         White
+				SetFontSize        30
+				# MinimapIcon      [None]
+				PlayEffect         White Temp
 			Show # Remaining
-				Class              Map
+				MapTier            1 2 3 4 5
 				#
 				SetTextColor       200 155 155
 				SetBackgroundColor 000 000 000
 				SetBorderColor     200 155 155
-				SetFontSize        30
+				SetFontSize        33
 				MinimapIcon        2 White Square
 				PlayEffect         White
 		Show # Map ERROR
@@ -598,8 +691,8 @@
 			SetFontSize        36
 			MinimapIcon        1 Blue Star
 			PlayEffect         Blue
-		# TODO sort by base
 		Show # Cards & Incubator
+			# TODO split by Base
 			Class              "Divination Card" Incubator
 			#
 			SetTextColor       014 186 255
@@ -621,7 +714,7 @@
 				MinimapIcon        0 Red Diamond
 				PlayEffect         Red
 			Show # High
-				# TODO blessings + vials aufteilen
+				# TODO split by Base
 				Class              Currency
 				BaseType           Blessing Vial
 				#
@@ -631,8 +724,8 @@
 				SetFontSize        36
 				MinimapIcon        1 Brown Diamond
 				PlayEffect         Brown
-			# TODO essences + fossils aufteilen
 			Show # Normal
+				# TODO split by Base
 				Class              Currency
 				BaseType           Essence Fossil Oil
 				#
@@ -715,10 +808,10 @@
 				SetFontSize        27
 				# MinimapIcon      [None]
 				PlayEffect         White Temp
-			# TODO resonators aufteilen
 			Show # Remaining
+				# TODO Resonator: split by Base
 				Class              Currency
-				BaseType           "Cartographer's Chisel" "Orb of Alchemy" "Orb of Fusing" "Orb of Scouring" "Jeweller's Orb" "Orb of Chance" "Resonator" "Chromatic Orb" "Glassblower's Bauble" "Orb of Alteration"
+				BaseType           "Cartographer's Chisel" "Orb of Alchemy" "Orb of Fusing" "Orb of Scouring" "Jeweller's Orb" "Orb of Chance" Resonator "Chromatic Orb" "Glassblower's Bauble" "Orb of Alteration"
 				#
 				SetTextColor       170 158 130
 				SetBackgroundColor 000 000 000
@@ -1128,8 +1221,8 @@
 			SetFontSize        36
 			MinimapIcon        1 Brown Hexagon
 			PlayEffect         Brown
-		# TODO split by quality
 		# Quality
+			# TODO split by Quality (>20, =20, >0?)
 			Show # Magic
 				Rarity             Magic
 				Class              Flask
@@ -1141,7 +1234,8 @@
 				SetFontSize        27
 				# MinimapIcon      [None]
 				# PlayEffect       [None]
-			Show # Remaining
+			Show # Normal
+				Rarity             Normal
 				Class              Flask
 				Quality            > 0
 				#
@@ -1151,8 +1245,18 @@
 				SetFontSize        27
 				# MinimapIcon      [None]
 				# PlayEffect       [None]
-		# TODO leveling
+			Show # Remaining ERROR
+				Class              Flask
+				Quality            > 0
+				#
+				SetTextColor       255 000 000
+				SetBackgroundColor 255 255 255
+				SetBorderColor     255 000 000
+				SetFontSize        44
+				MinimapIcon        0 Red Triangle
+				PlayEffect         Red
 		Hide # Remaining
+			# TODO leveling
 			Class              Flask
 			#
 			# SetTextColor     [Rarity]
@@ -1526,8 +1630,8 @@
 				SetFontSize        30
 				MinimapIcon        2 Blue Hexagon
 				PlayEffect         Blue
-		# TODO Split Talisman by Base / Tier?
 		# Special Bases
+			# TODO Talisman: split by Base or Tier?
 			# Unique
 				Show # Corrupted
 					Rarity             Unique
@@ -1594,8 +1698,9 @@
 					SetFontSize        33
 					MinimapIcon        2 Yellow Hexagon
 					PlayEffect         Yellow
-			# Remaining
+			# Normal
 				Show # Corrupted
+					Rarity             Normal
 					BaseType           "Stygian Vise" "Breach Ring" Talisman
 					Corrupted          True
 					#
@@ -1606,6 +1711,7 @@
 					# MinimapIcon      [None]
 					PlayEffect         White
 				Show # Remaining (should only be Stygian Vises)
+					Rarity             Normal
 					BaseType           "Stygian Vise" "Breach Ring" Talisman
 					#
 					SetTextColor       000 000 000
@@ -1614,6 +1720,15 @@
 					SetFontSize        33
 					MinimapIcon        2 Yellow Hexagon
 					PlayEffect         Yellow
+			Show # Remaining ERROR
+				BaseType           "Stygian Vise" "Breach Ring" Talisman
+				#
+				SetTextColor       255 000 000
+				SetBackgroundColor 255 255 255
+				SetBorderColor     255 000 000
+				SetFontSize        44
+				MinimapIcon        0 Red Triangle
+				PlayEffect         Red
 		# Veiled items
 			Show # Corrupted
 				HasExplicitMod     Veil
@@ -1701,25 +1816,35 @@
 					SetFontSize        33
 					MinimapIcon        2 Yellow Hexagon
 					PlayEffect         Yellow
-			Show # Corrupted
+			# Normal
+				Show # Corrupted
+					BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Convoking Wand" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Cerulean Ring" "Opal Ring" "Steel Ring" "Vermillion Ring"
+					Corrupted          True
+					#
+					SetTextColor       000 000 000
+					SetBackgroundColor 200 200 200
+					SetBorderColor     210 000 000
+					SetFontSize        33
+					MinimapIcon        2 Yellow Hexagon
+					PlayEffect         Yellow
+				Show # Remaining
+					BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Convoking Wand" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Cerulean Ring" "Opal Ring" "Steel Ring" "Vermillion Ring"
+					#
+					SetTextColor       000 000 000
+					SetBackgroundColor 200 200 200
+					SetBorderColor     000 000 000
+					SetFontSize        33
+					MinimapIcon        2 Yellow Hexagon
+					PlayEffect         Yellow
+			Show # Remaining ERROR
 				BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Convoking Wand" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Cerulean Ring" "Opal Ring" "Steel Ring" "Vermillion Ring"
-				Corrupted          True
 				#
-				SetTextColor       000 000 000
-				SetBackgroundColor 200 200 200
-				SetBorderColor     210 000 000
-				SetFontSize        33
-				MinimapIcon        2 Yellow Hexagon
-				PlayEffect         Yellow
-			Show # Remaining
-				BaseType           "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Two-Toned Boots" "Convoking Wand" "Bone Helmet" "Marble Amulet" "Blue Pearl Amulet" "Vanguard Belt" "Crystal Belt" "Cerulean Ring" "Opal Ring" "Steel Ring" "Vermillion Ring"
-				#
-				SetTextColor       000 000 000
-				SetBackgroundColor 200 200 200
-				SetBorderColor     000 000 000
-				SetFontSize        33
-				MinimapIcon        2 Yellow Hexagon
-				PlayEffect         Yellow
+				SetTextColor       255 000 000
+				SetBackgroundColor 255 255 255
+				SetBorderColor     255 000 000
+				SetFontSize        44
+				MinimapIcon        0 Red Triangle
+				PlayEffect         Red
 		# 6-linked Items
 			# Unique
 				Show # Corrupted
@@ -2076,8 +2201,8 @@
 				SetFontSize        27
 				# MinimapIcon      [None]
 				# PlayEffect       [None]
-		# TODO Leveling
 		Hide # Remaining
+			# TODO leveling
 			# SetTextColor     [Rarity]
 			SetBackgroundColor 000 000 000
 			SetBorderColor     000 000 000
