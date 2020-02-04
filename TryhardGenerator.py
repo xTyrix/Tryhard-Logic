@@ -7,6 +7,18 @@ NAME = "GeneratedLogic"
 LEAGUE = "Metamorph" # "Hardcore Metamorph" "Standard" "Hardcore"
 THRESHOLDS = [1000.0, 100.0, 50.0, 10.0, 1.0, 0.1, 0.05]
 
+NETS = ["Simple Rope Net",
+        "Reinforced Rope Net",
+        "Strong Rope Net",
+        "Simple Iron Net",
+        "Reinforced Iron Net",
+        "Strong Iron Net",
+        "Simple Steel Net",
+        "Reinforced Steel Net",
+        "Strong Steel Net",
+        "Thaumaturgical Net",
+        "Necromancy Net"]
+
 UNIQUE_COLOR    = " 175 096 037"
 RARE_COLOR      = " 255 255 119"
 MAGIC_COLOR     = " 136 136 255"
@@ -70,43 +82,55 @@ SHARDS = {"Alchemy":       "Orb of Alchemy",
           "Mirror":        "Mirror of Kalandra",
           "Regal":         "Regal Orb"}
 
-TARGETED_C      = "Targeted Currency"
+UNIQUE_C      = "Targeted Currency"
 CARDS_INCUBATOR = "Divination Cards & Incubator"
 UNIQUE_MAPS     = "Unique Maps (and Fragments)"
 C               = "Currency"
+PROPHECIES      = "Prophecies"
 UNIQUE_QUESTS   = "Unique Quests"
 INFLUENCED_C    = "Influenced Currency"
 
 def regroup(priceLists):
-	# TODO reorder
-	# TODO add missing currency
-	newPriceLists = {TARGETED_C:      priceLists[ninja.OIL],
+	newPriceLists = {INFLUENCED_C:    {},
+	                 UNIQUE_C:      priceLists[ninja.OIL],
+	                 PROPHECIES:      priceLists[ninja.PROPHECY],
+	                 UNIQUE_QUESTS:   {},
 	                 CARDS_INCUBATOR: priceLists[ninja.INCUBATOR],
 	                 UNIQUE_MAPS:     priceLists[ninja.SCARAB],
-	                 C:               priceLists[ninja.RESONATOR],
-	                 UNIQUE_QUESTS:   priceLists[ninja.PROPHECY],
-	                 INFLUENCED_C:    {}}
-	newPriceLists[TARGETED_C].update(priceLists[ninja.FOSSIL])
-	newPriceLists[TARGETED_C].update(priceLists[ninja.ESSENCE])
+	                 C:               priceLists[ninja.RESONATOR]}
+	newPriceLists[UNIQUE_C].update(priceLists[ninja.FOSSIL])
+	newPriceLists[UNIQUE_C].update(priceLists[ninja.ESSENCE])
 	newPriceLists[CARDS_INCUBATOR].update(priceLists[ninja.CARD])
 	newPriceLists[UNIQUE_MAPS].update(priceLists[ninja.FRAGMENT])
 
-#	newPriceLists[UNIQUE_QUESTS]["Divine Vessel"] = newPriceLists[UNIQUE_MAPS].pop("Divine Vessel")
+	newPriceLists[UNIQUE_QUESTS]["Divine Vessel"] = newPriceLists[UNIQUE_MAPS].pop("Divine Vessel")
 
 	for item in priceLists[ninja.CURRENCY]:
 		if item.find("'s Exalted Orb") != -1 or item == "Awakener's Orb":
 			newPriceLists[INFLUENCED_C][item] = priceLists[ninja.CURRENCY][item]
 		elif item.find("Blessing") != -1 or item.find("Catalyst") != -1:
-			newPriceLists[TARGETED_C][item] = priceLists[ninja.CURRENCY][item]
+			newPriceLists[UNIQUE_C][item] = priceLists[ninja.CURRENCY][item]
 		elif item == "Stacked Deck":
 			newPriceLists[CARDS_INCUBATOR][item] = priceLists[ninja.CURRENCY][item]
 		elif item.find("Splinter") != -1:
 			newPriceLists[UNIQUE_MAPS][item] = priceLists[ninja.CURRENCY][item]
 		elif item.find("Shard") == -1 and item.find("Fragment") == -1:
 			newPriceLists[C][item] = priceLists[ninja.CURRENCY][item]
+
 	for shard in SHARDS:
 		newPriceLists[C][shard + " Shard"] = priceLists[ninja.CURRENCY][SHARDS[shard]]/20.0
 	newPriceLists[C]["Scroll Fragment"] = priceLists[ninja.CURRENCY]["Scroll of Wisdom"]/5.0
+	newPriceLists[C]["Albino Rhoa Feather"] = THRESHOLDS[0]
+	newPriceLists[C]["Eternal Orb"] = THRESHOLDS[0]
+	newPriceLists[C]["Unshaping Orb"] = 20*newPriceLists[C]["Cartographer's Chisel"] + 5*newPriceLists[C]["Orb of Regret"]
+	newPriceLists[C]["Apprentice Cartographer's Seal"] = 3*newPriceLists[C]["Simple Sextant"] + newPriceLists[C]["Orb of Scouring"]
+	newPriceLists[C]["Journeyman Cartographer's Seal"] = 3*newPriceLists[C]["Prime Sextant"] + newPriceLists[C]["Orb of Scouring"]
+	newPriceLists[C]["Master Cartographer's Seal"] = 3*newPriceLists[C]["Awakened Sextant"] + newPriceLists[C]["Orb of Scouring"]
+	for net in NETS:
+		newPriceLists[C][net] = newPriceLists[C]["Scroll Fragment"]
+
+	newPriceLists[UNIQUE_QUESTS][ninja.IVORY_WATCHSTONE] = priceLists[ninja.OTHER_CATEGORY][ninja.IVORY_WATCHSTONE]
+
 	return newPriceLists
 
 baseStyle = factory.BaseStyle(OMG_COLOR, OMG_SIZE, OMG_ICON_SIZE, RED,
@@ -120,18 +144,24 @@ baseStyle = factory.BaseStyle(OMG_COLOR, OMG_SIZE, OMG_ICON_SIZE, RED,
 priceLists = ninja.scrapeAllPriceLists(LEAGUE)
 priceLists = regroup(priceLists)
 
-styles = {TARGETED_C:      factory.Style(CURRENCY_COLOR, color2=UNIQUE_COLOR,    iconColor=BROWN, iconShape=DIAMOND),
+styles = {INFLUENCED_C:    factory.Style(CURRENCY_COLOR, color2=INFLUENCE_COLOR, iconColor=BLUE,  iconShape=DIAMOND, useOmgColor=False),
+          UNIQUE_C:        factory.Style(CURRENCY_COLOR, color2=UNIQUE_COLOR,    iconColor=BROWN, iconShape=DIAMOND),
+          PROPHECIES:      factory.Style(QUEST_COLOR,    color2=UNIQUE_COLOR,    iconColor=GREEN, iconShape=TRIANGLE),
+          UNIQUE_QUESTS:   factory.Style(QUEST_COLOR,    color2=UNIQUE_COLOR,    iconColor=GREEN, iconShape=TRIANGLE),
           CARDS_INCUBATOR: factory.Style(CARD_COLOR,                                              iconShape=STAR),
           UNIQUE_MAPS:     factory.Style(MAP_COLOR,      color2=UNIQUE_COLOR,    iconColor=BROWN, iconShape=SQUARE),
-          C:               factory.Style(CURRENCY_COLOR,                                          iconShape=DIAMOND),
-          UNIQUE_QUESTS:   factory.Style(QUEST_COLOR,                            iconColor=GREEN, iconShape=TRIANGLE),
-          INFLUENCED_C:    factory.Style(CURRENCY_COLOR, color2=INFLUENCE_COLOR, iconColor=BLUE,  iconShape=DIAMOND, useOmgColor=False)}
+          C:               factory.Style(CURRENCY_COLOR,                                          iconShape=DIAMOND)}
 
-optionLists = {TARGETED_C:      factory.Options(specialConditions=[factory.CLASS + CURRENCY],         defaultConditions=[factory.CLASS + CURRENCY, factory.BASE_TYPE + " Oil Fossil Essence Blessing Catalyst"]),
+optionLists = {INFLUENCED_C:    factory.Options(specialConditions=[factory.CLASS + CURRENCY]),
+               UNIQUE_C:        factory.Options(specialConditions=[factory.CLASS + CURRENCY]),
+               PROPHECIES:      factory.Options(specialConditions=[factory.CLASS + CURRENCY], condition=factory.PROPHECY),
+               UNIQUE_QUESTS:   factory.Options(),
                CARDS_INCUBATOR: factory.Options(specialConditions=[factory.CLASS + INCUBATR + CARDS], defaultConditions=[factory.CLASS + INCUBATR + CARDS]),
                UNIQUE_MAPS:     factory.Options(specialConditions=[factory.CLASS + MAP_FRAGMANTS],    defaultConditions=[factory.CLASS + MAP_FRAGMANTS]),
-               C:               factory.Options(specialConditions=[factory.CLASS + CURRENCY],         defaultConditions=[factory.CLASS + CURRENCY]),
-               UNIQUE_QUESTS:   factory.Options(specialConditions=[factory.CLASS + CURRENCY],         defaultConditions=[factory.CLASS + CURRENCY, factory.BASE_TYPE + " Prophecy"], condition=factory.PROPHECY),
-               INFLUENCED_C:    factory.Options(specialConditions=[factory.CLASS + CURRENCY])}
+               C:               factory.Options(specialConditions=[factory.CLASS + CURRENCY],         defaultConditions=[factory.CLASS + CURRENCY])}
 
-factory.buildFilter(NAME, baseStyle, priceLists, THRESHOLDS, styles, optionLists)
+itemFilter = factory.buildFilter(baseStyle, priceLists, THRESHOLDS, styles, optionLists)
+
+f = open(NAME + ".filter", "w+")
+f.write(itemFilter.content)
+f.close()

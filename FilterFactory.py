@@ -22,17 +22,14 @@ NO_EFFECT =        "# PlayEffect       None"
 
 TEMP = " Temp"
 
-def buildFilter(filterName, baseStyle, priceLists, thresholds, styles, optionLists):
-	script = Script(baseStyle)
-	script.addLine("# Generated Filter")
-	script.indent += 1
+def buildFilter(baseStyle, priceLists, thresholds, styles, optionLists):
+	itemFilter = ItemFilter(baseStyle)
+	itemFilter.addLine("# Generated Filter")
+	itemFilter.indent += 1
 	for name in priceLists:
 		priceCategories = splitByPrice(priceLists[name], thresholds)
-		script.addSection(name, priceCategories, styles[name], optionLists[name])
-
-	f = open(filterName + ".filter", "w+")
-	f.write(script.content)
-	f.close()
+		itemFilter.addSection(name, priceCategories, styles[name], optionLists[name])
+	return itemFilter
 
 def splitByPrice(priceList, thresholds):
 	priceCategories = [[] for i in range(len(thresholds)+1)]
@@ -90,7 +87,7 @@ class Options:
 		self.specialConditions = specialConditions
 		self.defaultConditions = defaultConditions
 
-class Script:
+class ItemFilter:
 	def __init__(self, baseStyle):
 		self.indent = 0
 		self.content = ""
@@ -121,55 +118,57 @@ class Script:
 		self.indent -= 1
 
 	def addSection(self, name, priceCategories, style, options):
-		self.addSection2(name, priceCategories, style.color, style.color2, style.iconColor, style.iconShape, style.useOmgColor, options.condition, options.specialConditions, options.defaultConditions)
-
-	def addSection2(self, name, priceCategories, color, color2, iconColor, iconShape, useOmgColor, condition, specialConditions, defaultConditions):
 		self.addLine(COMMENT + name)
 		self.indent += 1
+		color2 = style.color2
+		lowerColor = style.color
+		higherColor = style.color2
 		if not color2:
 			color2 = self.baseStyle.lowColor
+			lowerColor = self.baseStyle.lowColor
+			higherColor = style.color
 		omgColor = self.baseStyle.omgColor
-		if not useOmgColor:
+		if not style.useOmgColor:
 			omgColor = color2
 		highIconColor = self.baseStyle.highIconColor
 		lowIconColor = self.baseStyle.lowIconColor
-		if iconColor:
-			highIconColor = iconColor
-			lowIconColor = iconColor
+		if style.iconColor:
+			highIconColor = style.iconColor
+			lowIconColor = style.iconColor
 		if priceCategories[0]:
 			self.addBlock("OMFG (>= 1000C)",
-				            specialConditions + [condition + argumentList(priceCategories[0])],
-			                [color, omgColor, color, self.baseStyle.omgSize, self.baseStyle.omgIconSize + self.baseStyle.omgIconColor + iconShape, self.baseStyle.omgIconColor])
+				            options.specialConditions + [options.condition + argumentList(priceCategories[0])],
+			                [style.color, omgColor, style.color, self.baseStyle.omgSize, self.baseStyle.omgIconSize + self.baseStyle.omgIconColor + style.iconShape, self.baseStyle.omgIconColor])
 		if priceCategories[1]:
 			self.addBlock("OMG (>= 100C)",
-				            specialConditions + [condition + argumentList(priceCategories[1])],
-			                [omgColor, color, omgColor, self.baseStyle.omgSize, self.baseStyle.omgIconSize + self.baseStyle.omgIconColor + iconShape, self.baseStyle.omgIconColor])
+				            options.specialConditions + [options.condition + argumentList(priceCategories[1])],
+			                [omgColor, style.color, omgColor, self.baseStyle.omgSize, self.baseStyle.omgIconSize + self.baseStyle.omgIconColor + style.iconShape, self.baseStyle.omgIconColor])
 		if priceCategories[2]:
 			self.addBlock("Very High (>= 50C)",
-			                specialConditions + [condition + argumentList(priceCategories[2])],
-			                [color2, color, color2, self.baseStyle.veryHighSize, self.baseStyle.veryHighIconSize + highIconColor + iconShape, highIconColor])
+			                options.specialConditions + [options.condition + argumentList(priceCategories[2])],
+			                [lowerColor, higherColor, lowerColor, self.baseStyle.veryHighSize, self.baseStyle.veryHighIconSize + highIconColor + style.iconShape, highIconColor])
 		if priceCategories[3]:
 			self.addBlock("High (>= 10C)",
-				            specialConditions + [condition + argumentList(priceCategories[3])],
-			                [color2, color, color2, self.baseStyle.highSize, self.baseStyle.highIconSize + highIconColor + iconShape, highIconColor])
+				            options.specialConditions + [options.condition + argumentList(priceCategories[3])],
+			                [lowerColor, higherColor, lowerColor, self.baseStyle.highSize, self.baseStyle.highIconSize + highIconColor + style.iconShape, highIconColor])
 		if priceCategories[4]:
 			self.addBlock("normal (>= 1C)",
-				            specialConditions + [condition + argumentList(priceCategories[4])],
-			                [color, color2, color, self.baseStyle.normalSize, None, lowIconColor + TEMP])
+				            options.specialConditions + [options.condition + argumentList(priceCategories[4])],
+			                [higherColor, lowerColor, higherColor, self.baseStyle.normalSize, None, lowIconColor + TEMP])
 		if priceCategories[5]:
 			self.addBlock("low (>= .1C)",
-			               specialConditions + [condition + argumentList(priceCategories[5])],
-			               [color, self.baseStyle.lowColor, color2, self.baseStyle.lowSize, None, None])
+			               options.specialConditions + [options.condition + argumentList(priceCategories[5])],
+			               [style.color, self.baseStyle.lowColor, color2, self.baseStyle.lowSize, None, None])
 		if priceCategories[6]:
 			self.addBlock("very low (>= .05C)",
-			               specialConditions + [condition + argumentList(priceCategories[6])],
-			               [color, self.baseStyle.lowColor, self.baseStyle.lowColor, self.baseStyle.lowSize, None, None])
+			               options.specialConditions + [options.condition + argumentList(priceCategories[6])],
+			               [style.color, self.baseStyle.lowColor, self.baseStyle.lowColor, self.baseStyle.lowSize, None, None])
 		if priceCategories[7]:
 			self.addBlock("rest",
-			               specialConditions + [condition + argumentList(priceCategories[7])],
-			               [color, self.baseStyle.lowColor, self.baseStyle.lowColor, self.baseStyle.hideSize, None, None], blockType=HIDE)
-		if defaultConditions:
+			               options.specialConditions + [options.condition + argumentList(priceCategories[7])],
+			               [style.color, self.baseStyle.lowColor, self.baseStyle.lowColor, self.baseStyle.hideSize, None, None])
+		if options.defaultConditions:
 			self.addBlock("Remaining ERROR",
-			               defaultConditions,
+			               options.defaultConditions,
 			               [self.baseStyle.errorColor1, self.baseStyle.errorColor2, self.baseStyle.errorColor1, self.baseStyle.errorSize, self.baseStyle.omgIconSize + self.baseStyle.omgIconColor + self.baseStyle.errorIconShape, self.baseStyle.omgIconColor])
 		self.indent -= 1
