@@ -2,6 +2,7 @@
 
 import NinjaScraper as ninja
 import FilterFactory as factory
+from StylesheetCreator import StyleSheet
 
 NAME = "GeneratedLogic"
 LEAGUE = "Metamorph" # "Hardcore Metamorph" "Standard" "Hardcore"
@@ -130,7 +131,6 @@ def regroup(priceLists):
 		newPriceLists[C][net] = newPriceLists[C]["Scroll Fragment"]
 
 	newPriceLists[UNIQUE_QUESTS][ninja.IVORY_WATCHSTONE] = priceLists[ninja.OTHER_CATEGORY][ninja.IVORY_WATCHSTONE]
-
 	return newPriceLists
 
 baseStyle = factory.BaseStyle(OMG_COLOR, OMG_SIZE, OMG_ICON_SIZE, RED,
@@ -165,3 +165,6 @@ itemFilter = factory.buildFilter(baseStyle, priceLists, THRESHOLDS, styles, opti
 f = open(NAME + ".filter", "w+")
 f.write(itemFilter.content)
 f.close()
+
+styleSheet = StyleSheet(styles, baseStyle)
+styleSheet.save()
