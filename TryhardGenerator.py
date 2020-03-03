@@ -264,6 +264,9 @@ def addBlocksWithStackSizes(section, infos, style, condition=poe.FILTER.CONDITIO
 	baseGroup = [[] for j in range(len(thresholds)+1)]
 	highestMaxStackSize = 1
 	for line in infos:
+		# TODO do properly
+		if line[ninja.NAME] == "Perandus Coin":
+			line[ninja.STACK_SIZE] = 1000
 		category1 = getCategory(line[ninja.PRICE])
 		baseGroup[category1].append(line[ninja.NAME])
 		if ninja.STACK_SIZE in line:
@@ -280,7 +283,7 @@ def addBlocksWithStackSizes(section, infos, style, condition=poe.FILTER.CONDITIO
 		section.addComponent(stacksSection)
 	for i in range(1, highestMaxStackSize+1)[::-1]:
 		if str(i) in categorieGroups:
-			currentSection = Section(str(i), [factory.buildConditionString(poe.FILTER.CONDITION.STACK_SIZE, [str(i)])])
+			currentSection = Section(str(i), [factory.buildConditionString(poe.FILTER.CONDITION.STACK_SIZE, [poe.FILTER.GE, str(i)])])
 			stacksSection.addComponent(currentSection)
 			group = categorieGroups[str(i)]
 			for j in range(8):

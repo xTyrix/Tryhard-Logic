@@ -66,6 +66,11 @@ class FILTER():
 	SHOW        = "Show"
 	COMMENT     = "#"
 	TEMP_EFFECT = "Temp"
+	EQ          = "="
+	LT          = "<"
+	GT          = ">"
+	LE          = "<="
+	GE          = ">="
 
 	class CONDITION():
 		#            "AreaLevel"       # [Operator] <Value>
