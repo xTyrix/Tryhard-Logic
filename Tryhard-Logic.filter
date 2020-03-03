@@ -4,7 +4,16 @@
 #                        #
 ##########################
 
-# TODO high Level (84? / 86?) + good Bases (with rework of Map Bases?)
+# TODO high Level (84? / 86?) + good Bases
+# "Glorious Plate" "Astral Plate" "Zodiac Leather" "Assassin's Garb" "Vaal Regalia" "Saintly Chainmail" "Carnal Armour" "Titan Greaves" "Slink Boots" "Sorcerer Boots" "Titan Gauntlets" "Slink Gloves" "Sorcerer Gloves" "Royal Burgonet" "Lion Pelt" "Hubris Circlet" "Runic Hatchet" "Infernal Axe" "Fleshripper" "Vaal Axe" "Harbinger Bow" "Maraketh Bow" "Thicket Bow" "Gemini Claw" "Tiger Hook" "Corsair Sword" "Jewelled Foil" "Spiraled Foil" "Exquisite Blade" "Reaver Sword" "Ezomyte Staff" "Imbued Wand" "Behemoth Mace" "Coronal Maul" "Opal Sceptre" "Karui Sceptre" "Ambusher" "Imperial Skean" "Eclipse Staff" "Profane Wand" "Opal Wand" "Platinum Kris" "Golden Kris" "Copper Kris" "Sambar Sceptre" "Void Sceptre" "Colossal Tower Shield" "Lacquered Buckler" "Titanium Spirit Shield" "Supreme Spiked Shield" "Spike-Point Arrow Quiver" "Penetrating Arrow Quiver" "Sacrificial Garb"
+
+# TODO these mods, and others?
+# HasExplicitMod "of Farrul" "of Craiceann" "of Fenumus" "of Saqawal"
+# HasExplicitMod "of Crafting" "of Weaponcraft" "of Spellcraft", HasExplicitMod "Subterranean" "of the Underground"
+# HasExplicitMod "Tacati" "Citaqualotl" "Matatl" "Topotante" "Xopec" "Guatelitzi" "Puhuarte"
+# HasExplicitMod "Brinerot" "Mutewind" "Redblade" "Betrayer's" "Deceiver's" "Turncoat's"
+
+# TODO Gavel "Rock Breaker" "Stone Hammer"?
 
 # TODO drop sounds (DisableDropSound, CustomAlertSound)
 # TODO mind todos in Lists below
@@ -22,7 +31,7 @@
 	# 136 136 255 - Magic
 	# 200 200 200 - Normal
 	# 000 000 000 - Nutral (TODO when use this instead of 200 200 200 (Normal), maybe inconsistent)
-	# 184 218 242 - Special Modifier (Veil, Crafted, TODO fractured(FracturedItem True), synthesised(SynthesisedItem True), temple, enchantments, other?)
+	# 184 218 242 - Special Modifier (Veil, Crafted, TODO (FracturedItem True), (SynthesisedItem True), temple, (AnyEnchantment True), other?)
 	# 210 000 000 - Corrupted
 	# 074 230 058 - Quest Items
 	# 200 155 155 - Maps
@@ -36,7 +45,7 @@
 	# 255 255 255 - ERROR
 
 # List of used Font Sizes, and used Minimap Icon Sizes
-	# TODO Minimap Icon Size 2, and 1 inconsistent, also new rule: Temp Beames for Size 30
+	# TODO Minimap Icon Size 2, and 1 inconsistent
 	# 18  -  --- Hide
 	# 27  -  ˥
 	# 30  -   〉- Scale for Drops to pick up
@@ -45,7 +54,7 @@
 	# 44  0  --- ERROR
 	# 45  0  --- OMG
 
-# List of used Minimap Icon, and Effect Colors
+# List of used Minimap Icon, and Effect Colors & Modifyers
 	# Red    - Red Maps, ERROR, OMG
 	# Green  - Quest Items
 	# Blue   - Divination Cards & Incubators, Influenced Atlas Bases (TODO why?)
@@ -63,7 +72,7 @@
 	# Star     - Divination Cards & Incubators
 	# Triangle - Quest Items, ERROR, OMG
 
-# Actual Filter
+# Handwritten Filter (mostly)
 	# Weird Stuff
 		Show # by Class
 			Class              Relic "Hideout Doodads" Microtransactions
@@ -85,17 +94,8 @@
 			PlayEffect         Red
 	# Quest Items
 		# Atlas related Items
-			Show # Ivory Watchstones
-				BaseType           "Ivory Watchstone"
-				#
-				SetTextColor       175 096 037
-				SetBackgroundColor 074 230 058
-				SetBorderColor     175 096 037
-				SetFontSize        36
-				MinimapIcon        1 Green Triangle
-				PlayEffect         Green
-			Show # Remaining
-				BaseType           "Divine Vessel" "Unshaping Orb" "Memory Fragment" "Shaper's Orb" "The Shaper's Key" Watchstone
+			Show # Pantheon Souls
+				Class              "Pantheon Soul"
 				#
 				SetTextColor       000 000 000
 				SetBackgroundColor 074 230 058
@@ -103,16 +103,15 @@
 				SetFontSize        36
 				MinimapIcon        1 Green Triangle
 				PlayEffect         Green
-		Show # Prophecies
-			Class              Currency
-			BaseType           Prophecy
-			#
-			SetTextColor       000 000 000
-			SetBackgroundColor 074 230 058
-			SetBorderColor     000 000 000
-			SetFontSize        36
-			MinimapIcon        1 Green Triangle
-			PlayEffect         Green
+			Show # Remaining
+				BaseType           "Memory Fragment" "Shaper's Orb" "The Shaper's Key"
+				#
+				SetTextColor       000 000 000
+				SetBackgroundColor 074 230 058
+				SetBorderColor     000 000 000
+				SetFontSize        36
+				MinimapIcon        1 Green Triangle
+				PlayEffect         Green
 		Show # Incursion & Labyrinth Items & Metamorph Organs
 			Class              "Incursion Item" Labyrinth Metamorph
 			#
@@ -162,16 +161,6 @@
 				SetFontSize        45
 				MinimapIcon        0 Red Square
 				PlayEffect         Red
-		Show # Scarabs
-			Class              Map
-			BaseType           Scarab
-			#
-			SetTextColor       000 000 000
-			SetBackgroundColor 200 155 155
-			SetBorderColor     000 000 000
-			SetFontSize        36
-			MinimapIcon        1 Brown Square
-			PlayEffect         Brown
 		# Unique Maps
 			# Not Droping (Anymore)
 				Show # Reliquary Key
@@ -194,16 +183,6 @@
 					MinimapIcon        0 Brown Square
 					PlayEffect         Brown
 			# High Value
-				Show # Brachstones
-					Class              Map
-					BaseType           Breachstone Timeless
-					#
-					SetTextColor       175 096 037
-					SetBackgroundColor 200 155 155
-					SetBorderColor     175 096 037
-					SetFontSize        36
-					MinimapIcon        1 Brown Square
-					PlayEffect         Brown
 				Show # Remaining
 					Class              Map
 					BaseType           Chateau Maze Museum Harbinger Courtyard "Moon Temple"
@@ -265,88 +244,6 @@
 				SetFontSize        36
 				MinimapIcon        1 Brown Square
 				PlayEffect         Brown
-			# Map Fragments
-				Show # The Shaper's Realm & Absence of Value and Meaning (Fragments)
-					Class              "Map Fragment"
-					BaseType           Fragment
-					#
-					SetTextColor       127 000 127
-					SetBackgroundColor 200 155 155
-					SetBorderColor     127 000 127
-					SetFontSize        45
-					MinimapIcon        0 Brown Square
-					PlayEffect         Brown
-				# Uber Atziri
-					Show # Mortal Hope
-						Class              "Map Fragment"
-						BaseType           "Mortal Hope"
-						#
-						SetTextColor       127 000 127
-						SetBackgroundColor 200 155 155
-						SetBorderColor     127 000 127
-						SetFontSize        45
-						MinimapIcon        0 Brown Square
-						PlayEffect         Brown
-					Show # Others
-						Class              "Map Fragment"
-						BaseType           Mortal
-						#
-						SetTextColor       175 096 037
-						SetBackgroundColor 200 155 155
-						SetBorderColor     175 096 037
-						SetFontSize        36
-						MinimapIcon        1 Brown Square
-						PlayEffect         Brown
-				# Atziri
-					Show # Sacrifice at Midnight
-						Class              "Map Fragment"
-						BaseType           "Sacrifice at Midnight"
-						#
-						SetTextColor       175 096 037
-						SetBackgroundColor 200 155 155
-						SetBorderColor     175 096 037
-						SetFontSize        36
-						MinimapIcon        1 Brown Square
-						PlayEffect         Brown
-					Show # Others
-						Class              "Map Fragment"
-						BaseType           "Sacrifice at"
-						#
-						SetTextColor       175 096 037
-						SetBackgroundColor 000 000 000
-						SetBorderColor     200 155 155
-						SetFontSize        33
-						MinimapIcon        2 Brown Square
-						PlayEffect         Brown
-				Show # Keys
-					Class              "Map Fragments"
-					BaseType           Key
-					#
-					SetTextColor       175 096 037
-					SetBackgroundColor 200 155 155
-					SetBorderColor     175 096 037
-					SetFontSize        36
-					MinimapIcon        1 Brown Square
-					PlayEffect         Brown
-				Show # Splinters
-					Class              Currency
-					BaseType           Splinter Timeless
-					#
-					SetTextColor       175 096 037
-					SetBackgroundColor 000 000 000
-					SetBorderColor     200 155 155
-					SetFontSize        36
-					MinimapIcon        1 Brown Square
-					PlayEffect         Brown
-				Show # Endgame Labyrinth
-					BaseType           "Offering to the Goddess"
-					#
-					SetTextColor       175 096 037
-					SetBackgroundColor 200 155 155
-					SetBorderColor     175 096 037
-					SetFontSize        36
-					MinimapIcon        1 Brown Square
-					PlayEffect         Brown
 		# TODO Guardian Maps (Shaper & Elder)
 		# Red Tier
 			Show # Corrupted
@@ -681,176 +578,9 @@
 			SetFontSize        44
 			MinimapIcon        0 Red Triangle
 			PlayEffect         Red
-	# Divination Cards & Incubators
-		Show # Stacked Deck
-			BaseType           "Stacked Deck"
-			#
-			SetTextColor       000 000 000
-			SetBackgroundColor 014 186 255
-			SetBorderColor     000 000 000
-			SetFontSize        36
-			MinimapIcon        1 Blue Star
-			PlayEffect         Blue
-		Show # Cards & Incubator
-			# TODO split by Base
-			Class              "Divination Card" Incubator
-			#
-			SetTextColor       014 186 255
-			SetBackgroundColor 000 000 000
-			SetBorderColor     014 186 255
-			SetFontSize        36
-			MinimapIcon        1 Blue Star
-			PlayEffect         Blue
-	# Currency
-		# Targeted
-			Show # Not Dropping
-				Class              Currency
-				BaseType           "Bestiary Orb" Imprint
-				#
-				SetTextColor       127 000 127
-				SetBackgroundColor 170 158 130
-				SetBorderColor     127 000 127
-				SetFontSize        45
-				MinimapIcon        0 Red Diamond
-				PlayEffect         Red
-			Show # High
-				# TODO split by Base
-				Class              Currency
-				BaseType           Blessing Vial
-				#
-				SetTextColor       175 096 037
-				SetBackgroundColor 170 158 130
-				SetBorderColor     175 096 037
-				SetFontSize        36
-				MinimapIcon        1 Brown Diamond
-				PlayEffect         Brown
-			Show # Normal
-				# TODO split by Base
-				Class              Currency
-				BaseType           Essence Fossil Oil
-				#
-				SetTextColor       175 096 037
-				SetBackgroundColor 170 158 130
-				SetBorderColor     175 096 037
-				SetFontSize        36
-				MinimapIcon        1 Brown Diamond
-				PlayEffect         Brown
-			Show # Low
-				Class              Currency
-				BaseType           "Perandus Coin"
-				#
-				SetTextColor       175 096 037
-				SetBackgroundColor 000 000 000
-				SetBorderColor     170 158 130
-				SetFontSize        36
-				MinimapIcon        1 Brown Diamond
-				PlayEffect         Brown
-		Show # Influenced
-			Class              Currency
-			BaseType           "'s Exalted Orb" "Awakener's Orb"
-            #
-			SetTextColor       127 000 255
-			SetBackgroundColor 170 158 130
-			SetBorderColor     127 000 255
-			SetFontSize        45
-			MinimapIcon        0 Red Diamond
-			PlayEffect         Red
-		# OMG (>= 100C) / Not Dropping
-			Show # OMFG (>= 100Ex)
-				Class              Currency
-				BaseType           "Mirror of Kalandra" "Eternal Orb" "Albino Rhoa Feather"
-				#
-				SetTextColor       170 158 130
-				SetBackgroundColor 127 000 127
-				SetBorderColor     170 158 130
-				SetFontSize        45
-				MinimapIcon        0 Red Diamond
-				PlayEffect         Red
-			Show # OMFG (>= 100C)
-				Class              Currency
-				BaseType           "Exalted Orb" "Mirror Shard" "Net"
-				#
-				SetTextColor       127 000 127
-				SetBackgroundColor 170 158 130
-				SetBorderColor     127 000 127
-				SetFontSize        45
-				MinimapIcon        0 Red Diamond
-				PlayEffect         Red
-		# High (>= 1C)
-			Show # >= 10C
-				Class              Currency
-				BaseType           "Divine Orb" "Ancient Orb" "Harbinger's Orb" "Orb of Annulment" "Master Cartographer's Seal" "Fertile Catalyst" "Prismatic Catalyst"
-				#
-				SetTextColor       000 000 000
-				SetBackgroundColor 170 158 130
-				SetBorderColor     000 000 000
-				SetFontSize        36
-				MinimapIcon        1 Yellow Diamond
-				PlayEffect         Yellow
-			Show # Remaining
-				Class              Currency
-				BaseType           "Chaos Orb" "Vaal Orb" "Regal Orb" "Gemcutter's Prism" "Blessed Orb" "Orb of Regret" "Engineer's Orb" "Orb of Binding" "Orb of Horizons" "Simple Sextant" "Prime Sextant" "Awakened Sextant" "Remnant of Corruption" "Silver Coin" "Apprentice Cartographer's Seal" "Journeyman Cartographer's Seal" "Ancient Shard" "Annulment Shard" "Exalted Shard" "Harbinger's Shard" Catalyst
-				#
-				SetTextColor       000 000 000
-				SetBackgroundColor 170 158 130
-				SetBorderColor     000 000 000
-				SetFontSize        30
-				MinimapIcon        2 Yellow Diamond
-				PlayEffect         Yellow
-		# Normal
-			Show # Shards
-				Class              Currency
-				BaseType           "Binding Shard" "Chaos Shard" "Engineer's Shard" "Horizon Shard" "Regal Shard" "Binding Shard" "Chaos Shard" "Engineer's Shard"
-				#
-				SetTextColor       170 158 130
-				SetBackgroundColor 000 000 000
-				SetBorderColor     170 158 130
-				SetFontSize        27
-				# MinimapIcon      [None]
-				PlayEffect         White Temp
-			Show # Remaining
-				# TODO Resonator: split by Base
-				Class              Currency
-				BaseType           "Cartographer's Chisel" "Orb of Alchemy" "Orb of Fusing" "Orb of Scouring" "Jeweller's Orb" "Orb of Chance" Resonator "Chromatic Orb" "Glassblower's Bauble" "Orb of Alteration"
-				#
-				SetTextColor       170 158 130
-				SetBackgroundColor 000 000 000
-				SetBorderColor     170 158 130
-				SetFontSize        30
-				MinimapIcon        2 White Diamond
-				PlayEffect         White
-		# Low
-			Show
-				Class              Currency
-				BaseType           "Orb of Augmentation" "Armourer's Scrap" "Blacksmith's Whetstone" "Orb of Transmutation" "Alchemy Shard" "Scroll of Wisdom" "Portal Scroll"
-				#
-				SetTextColor       170 158 130
-				SetBackgroundColor 000 000 000
-				SetBorderColor     000 000 000
-				SetFontSize        27
-				# MinimapIcon      [None]
-				# PlayEffect       [None]
-			Hide
-				Class              Currency
-				BaseType           "Transmutation Shard" "Alteration Shard" "Scroll Fragment"
-				#
-				SetTextColor       170 158 130
-				SetBackgroundColor 000 000 000
-				SetBorderColor     000 000 000
-				SetFontSize        18
-				# MinimapIcon      [None]
-				# PlayEffect       [None]
-		Show # Currency ERROR
-			Class              Currency
-			#
-			SetTextColor       255 000 000
-			SetBackgroundColor 255 255 255
-			SetBorderColor     255 000 000
-			SetFontSize        44
-			MinimapIcon        0 Red Triangle
-			PlayEffect         Red
 	# Gems & Jewels
 		# Gems
+			# TODO more Enhance Empower Enlighten Stuff, more special gems?
 			# Not possible
 				Show # Level > 21
 					Class              "Skill Gems"
@@ -906,6 +636,16 @@
 						SetFontSize        45
 						MinimapIcon        0 Red Triangle
 						PlayEffect         Red
+				Show # Level > 4 (Special Gems)
+					BaseType           Empower Enhance Enlighten
+					GemLevel           > 4
+					#
+					SetTextColor       027 162 155
+					SetBackgroundColor 127 000 127
+					SetBorderColor     210 000 000
+					SetFontSize        45
+					MinimapIcon        0 Red Triangle
+					PlayEffect         Red
 			Show # Not droping anymore
 				BaseType           "Item Quantity"
 				#
@@ -1151,6 +891,7 @@
 				# MinimapIcon      [None]
 				# PlayEffect       [None]
 		# Jewels
+			# TODO Class "Abyss Jewel", High Level?
 			Show # Uniques
 				Class              Jewel
 				Rarity             Unique
