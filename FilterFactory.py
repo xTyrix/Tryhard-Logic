@@ -72,13 +72,15 @@ class ItemFilter:
 			self.content += f.COMMENT + " "
 		self.content += line + "\n"
 
-	def addBlock(self, name, conditions, appearance, doShow=True, doContinue=False):
+	def addBlock(self, name, conditions, appearance, doShow=True, doContinue=False, comments=[]):
 		if doShow:
 			blockType = f.SHOW
 		else:
 			blockType = f.HIDE
 		self.addLine(blockType + " " + f.COMMENT + " " + name)
 		self.indent += 1
+		for comment in comments:
+			self.addLine(f.COMMENT + " " + comment)
 		for condition in self.contConditions + conditions:
 			self.addLine(condition)
 		self.addLine(f.COMMENT)
