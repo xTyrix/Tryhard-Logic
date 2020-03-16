@@ -11,8 +11,7 @@ from datetime import datetime
 
 NAME = "GeneratedLogic"
 LEAGUE = "Delirium" # "Hardcore Delirium" "Standard" "Hardcore"
-# TODO       [1000, 100, 10, 1, .5, .1, .05] ?
-THRESHOLDS = [1000, 100, 50, 10, 1, .1, .05]
+THRESHOLDS = [1000, 100, 10, 1, .5, .1, .05]
 
 # TODO tweak color palette
 # name             rgb              hsl
@@ -43,7 +42,16 @@ NORMAL_SIZE    = 30
 LOW_SIZE       = 27
 HIDE_SIZE      = 18
 
-PRICE_CATEGORY_NAMES = ["OMFG (>= 1000C)", "OMG (>= 100C)", "Very High (>= 50C)", "High (>= 10C)", "normal (>= 1C)", "low (>= .1C)", "very low (>= .05C)", "rest (< .05C)"]
+PRICE_CATEGORY_NAMES = [
+	"OMFG (>= 1000C)",
+	"OMG (>= 100C)",
+	"Very High (>= 50C)",
+	"High (>= 10C)",
+	"normal (>= 1C)",
+	"low (>= .1C)",
+	"very low (>= .05C)",
+	"rest (< .05C)"
+]
 
 class Style:
 	def __init__(self, primaryColor, secondaryColor=None, iconColor=None, iconShape=poe.ICON.SHAPE.HEXAGON):
@@ -298,13 +306,14 @@ IVORY_WATCHSTONES = "Ivory Watchstones"
 OTHER = "Remaining "
 ERROR = " ERROR"
 
-def getMaxIvoryWatchstones(json):
+def getMaxEntry(json):
 	maxCategory = 7
 	iwsList = []
 	for name in json:
-		if getCategory(json[name][ninja.PRICE]) <= maxCategory:
-			maxCategory = getCategory(json[name][ninja.PRICE])
-			iwsList.append(name)
+		category = getCategory(json[name][ninja.PRICE])
+		if category <= maxCategory:
+			maxCategory = category
+			iwsList.append(json[name][ninja.NAME])
 	return (maxCategory, iwsList)
 
 # TODO don't froce override things if existing
@@ -464,7 +473,6 @@ addBlocks(uniqueMapSection, json[UNIQUE_MAPS], uniqueMapStyle)
 
 # mapSection.addComponent(Block(MAPS+ERROR, [], tyrixErrorAppearance))
 
-
 # Card Section
 addBlocksWithStackSizes(cardSection, json[CARDS], cardStyle)
 cardSection.addComponent(Block(CARDS+ERROR, [], tyrixErrorAppearance))
@@ -476,14 +484,14 @@ incubatorSection.addComponent(Block(INCUBATOR+ERROR, [], tyrixErrorAppearance))
 
 
 # Watchstone Section
-maxIWSs = getMaxIvoryWatchstones(json[WATCHSTONES])
+maxIWSs = getMaxEntry(json[WATCHSTONES])
 iwsComments = [PRICE_CATEGORY_NAMES[maxIWSs[0]], maxIWSs[1][0]]
 for iws in maxIWSs[1][1:]:
 	iwsComments[1] += ", " + iws
 iwsConditions = [factory.buildConditionString(poe.FILTER.CONDITION.RARITY, [poe.RARITY.UNIQUE]),
                  factory.buildConditionString(poe.FILTER.CONDITION.BASE_TYPE, [poe.WATCHSTONE.IVORY])]
 watchstoneSection.addComponent(Block(IVORY_WATCHSTONES, iwsConditions, uniqueQuestStyle.appearances[maxIWSs[0]], comments=iwsComments))
-watchstoneSection.addComponent(Block(IVORY_WATCHSTONES+ERROR, iwsConditions[1:1], gggErrorAppearance))
+watchstoneSection.addComponent(Block(IVORY_WATCHSTONES+ERROR, iwsConditions[1:2], gggErrorAppearance))
 watchstoneSection.addComponent(Block(OTHER+WATCHSTONES, [], mainQuestAppearance))
 
 

@@ -19,7 +19,7 @@ PROPHECY   	= "Prophecy"
 GEM        	= "SkillGem" # TODO
 BASE       	= "BaseType" # TODO
 ENCHANT    	= "HelmetEnchant" # TODO
-U_MAP      	= "UniqueMap" # TODO
+U_MAP      	= "UniqueMap"
 MAP        	= "Map" # TODO
 U_JEWEL    	= "UniqueJewel" # TODO
 U_FLASK    	= "UniqueFlask" # TODO
@@ -29,8 +29,34 @@ U_ACCESSORY = "UniqueAccessory" # TODO
 BEAST       = "Beast" # TODO
 VIAL        = "Vial" # TODO
 
-CURRENCY_CATEGORIES = [FRAGMENT, CURRENCY]
-ITEM_CATEGORIES = [WATCHSTONE, OIL, INCUBATOR, SCARAB, FOSSIL, RESONATOR, ESSENCE, CARD, PROPHECY, GEM, BASE, ENCHANT, U_MAP, MAP, U_JEWEL, U_FLASK, U_WEAPON, U_ARMOUR, U_ACCESSORY, BEAST, VIAL]
+CURRENCY_CATEGORIES = [
+	FRAGMENT,
+	CURRENCY
+]
+
+ITEM_CATEGORIES = [
+	WATCHSTONE,
+	OIL,
+	INCUBATOR,
+	SCARAB,
+	FOSSIL,
+	RESONATOR,
+	ESSENCE,
+	CARD,
+	PROPHECY,
+	GEM,
+	BASE,
+	ENCHANT,
+	U_MAP,
+	MAP,
+	U_JEWEL,
+	U_FLASK,
+	U_WEAPON,
+	U_ARMOUR,
+	U_ACCESSORY,
+	BEAST,
+	VIAL
+]
 
 NINJA_CURRENCY_NAME  = "currencyTypeName"
 NINJA_CURRENCY_PRICE = "chaosEquivalent"
@@ -62,44 +88,338 @@ INFLUENCE  = f.CONDITION.INFLUENCE
 GEM_LVL    = f.CONDITION.GEM_LVL
 QUALITY    = f.CONDITION.QUALITY
 CORRUPTED  = f.CONDITION.CORRUPTED
+VARIANT    = "variant"
 
-FILTER_INFORMATION = [BASE_TYPE, PROPHECY, MAP_TIER, LINKS, ITEM_LVL, INFLUENCE, GEM_LVL, QUALITY, CORRUPTED]
-ADDITIONAL_INFORMATION = [PRICE, STACK_SIZE, EFFECT, REWARD]
+FILTER_INFORMATION = [
+	BASE_TYPE,
+	PROPHECY,
+	MAP_TIER,
+	LINKS,
+	ITEM_LVL,
+	INFLUENCE,
+	GEM_LVL,
+	QUALITY,
+	CORRUPTED
+]
 
-TRANSLATION_INFO = {VIAL:        (NINJA_ITEM_NAME,     {PRICE: NINJA_ITEM_PRICE,     BASE_TYPE: NINJA_ITEM_NAME, STACK_SIZE: NINJA_STACK_SIZE}),
-                    OIL:         (NINJA_ITEM_NAME,     {PRICE: NINJA_ITEM_PRICE,     BASE_TYPE: NINJA_BASE_TYPE, STACK_SIZE: NINJA_STACK_SIZE}),
-                    RESONATOR:   (NINJA_ITEM_NAME,     {PRICE: NINJA_ITEM_PRICE,     BASE_TYPE: NINJA_ITEM_NAME, STACK_SIZE: NINJA_STACK_SIZE}),
-                    FOSSIL:      (NINJA_ITEM_NAME,     {PRICE: NINJA_ITEM_PRICE,     BASE_TYPE: NINJA_ITEM_NAME, STACK_SIZE: NINJA_STACK_SIZE, EFFECT: NINJA_EXPLICITS}),
-                    # for ESSENCE NINJA_BASE_TYPE exists, but is less precise then NINJA_ITEM_NAME
-                    ESSENCE:     (NINJA_ITEM_NAME,     {PRICE: NINJA_ITEM_PRICE,     BASE_TYPE: NINJA_ITEM_NAME, STACK_SIZE: NINJA_STACK_SIZE, EFFECT: NINJA_EXPLICITS}),
-                    CARD:        (NINJA_ITEM_NAME,     {PRICE: NINJA_ITEM_PRICE,     BASE_TYPE: NINJA_ITEM_NAME, STACK_SIZE: NINJA_STACK_SIZE, REWARD: NINJA_EXPLICITS}),
-                    SCARAB:      (NINJA_ITEM_NAME,     {PRICE: NINJA_ITEM_PRICE,     BASE_TYPE: NINJA_ITEM_NAME,                               REWARD: NINJA_EXPLICITS}),
-                    INCUBATOR:   (NINJA_ITEM_NAME,     {PRICE: NINJA_ITEM_PRICE,     BASE_TYPE: NINJA_ITEM_NAME,                               REWARD: NINJA_EXPLICITS}),
-                    PROPHECY:    (NINJA_ITEM_NAME,     {PRICE: NINJA_ITEM_PRICE,     PROPHECY:  NINJA_ITEM_NAME,                               REWARD: NINJA_PROPHECY}),
-                    CURRENCY:    (NINJA_CURRENCY_NAME, {PRICE: NINJA_CURRENCY_PRICE, BASE_TYPE: NINJA_CURRENCY_NAME}),
-                    FRAGMENT:    (NINJA_CURRENCY_NAME, {PRICE: NINJA_CURRENCY_PRICE, BASE_TYPE: NINJA_CURRENCY_NAME}),
-                    U_JEWEL:     (NINJA_ITEM_NAME,     {PRICE: NINJA_ITEM_PRICE,     BASE_TYPE: NINJA_BASE_TYPE}),
-                    U_FLASK:     (NINJA_ITEM_NAME,     {PRICE: NINJA_ITEM_PRICE,     BASE_TYPE: NINJA_BASE_TYPE}),
-                    U_ACCESSORY: (NINJA_ITEM_NAME,     {PRICE: NINJA_ITEM_PRICE,     BASE_TYPE: NINJA_BASE_TYPE}),
-                    U_MAP:       (NINJA_ITEM_NAME,     {PRICE: NINJA_ITEM_PRICE,     BASE_TYPE: NINJA_BASE_TYPE, MAP_TIER: NINJA_TIER}),
-                    MAP:         (NINJA_ITEM_NAME,     {PRICE: NINJA_ITEM_PRICE,     BASE_TYPE: NINJA_BASE_TYPE, MAP_TIER: NINJA_TIER}),
-                    # TODO for U_WEAPON and U_ARMOR ignore links
-                    U_WEAPON:    (NINJA_ITEM_NAME,     {PRICE: NINJA_ITEM_PRICE,     BASE_TYPE: NINJA_BASE_TYPE, LINKS: NINJA_LINKS}),
-                    U_ARMOUR:    (NINJA_ITEM_NAME,     {PRICE: NINJA_ITEM_PRICE,     BASE_TYPE: NINJA_BASE_TYPE, LINKS: NINJA_LINKS}),
-                    BASE:        (NINJA_ITEM_NAME,     {PRICE: NINJA_ITEM_PRICE,     BASE_TYPE: NINJA_BASE_TYPE, ITEM_LVL: NINJA_LEVEL, INFLUENCE: NINJA_VARIANT}),
-                    WATCHSTONE:  (NINJA_ITEM_NAME,     {PRICE: NINJA_ITEM_PRICE}),
-                    BEAST:       (NINJA_ITEM_NAME,     {PRICE: NINJA_ITEM_PRICE}),
-                    # TODO ENCHANT needs info for filters; "tradeInfo" has alternate "range" representation
-                    ENCHANT:     (NINJA_ITEM_NAME,     {PRICE: NINJA_ITEM_PRICE, "range": NINJA_VARIANT}),
-                    # GEM has an alternative representation for level, quality, and corrupted in NINJA_VARIANT
-                    GEM:         (NINJA_ITEM_NAME,     {PRICE: NINJA_ITEM_PRICE, GEM_LVL: NINJA_GEM_LVL, QUALITY: NINJA_QUALITY, CORRUPTED: NINJA_CORRUPTED})}
+ADDITIONAL_INFORMATION = [
+	PRICE,
+	STACK_SIZE,
+	EFFECT,
+	REWARD,
+	NAME,
+	VARIANT
+]
 
-# TODO
-	# preprocess infos in here?
+TRANSLATION_INFO = {
+	VIAL: (
+		[
+			NINJA_ITEM_NAME
+		],
+		{
+			NAME: NINJA_ITEM_NAME,
+			PRICE: NINJA_ITEM_PRICE,
+			BASE_TYPE: NINJA_ITEM_NAME,
+			STACK_SIZE: NINJA_STACK_SIZE
+		}
+	),
+	OIL: (
+		[
+			NINJA_ITEM_NAME
+		],
+		{
+			NAME: NINJA_ITEM_NAME,
+			PRICE: NINJA_ITEM_PRICE,
+			BASE_TYPE: NINJA_BASE_TYPE,
+			STACK_SIZE: NINJA_STACK_SIZE
+		}
+	),
+	RESONATOR: (
+		[
+			NINJA_ITEM_NAME
+		],
+		{
+			NAME: NINJA_ITEM_NAME,
+			PRICE: NINJA_ITEM_PRICE,
+			BASE_TYPE: NINJA_ITEM_NAME,
+			STACK_SIZE: NINJA_STACK_SIZE
+		}
+	),
+	FOSSIL: (
+		[
+			NINJA_ITEM_NAME
+		],
+		{
+			NAME: NINJA_ITEM_NAME,
+			PRICE: NINJA_ITEM_PRICE,
+			BASE_TYPE: NINJA_ITEM_NAME,
+			STACK_SIZE: NINJA_STACK_SIZE,
+			EFFECT: NINJA_EXPLICITS
+		}
+	),
+	# for ESSENCE NINJA_BASE_TYPE exists, but is less precise then NINJA_ITEM_NAME
+	ESSENCE: (
+		[
+			NINJA_ITEM_NAME
+		],
+		{
+			NAME: NINJA_ITEM_NAME,
+			PRICE: NINJA_ITEM_PRICE,
+			BASE_TYPE: NINJA_ITEM_NAME,
+			STACK_SIZE: NINJA_STACK_SIZE,
+			EFFECT: NINJA_EXPLICITS
+		}
+	),
+	CARD: (
+		[
+			NINJA_ITEM_NAME
+		],
+		{
+			NAME: NINJA_ITEM_NAME,
+			PRICE: NINJA_ITEM_PRICE,
+			BASE_TYPE: NINJA_ITEM_NAME,
+			STACK_SIZE: NINJA_STACK_SIZE,
+			REWARD: NINJA_EXPLICITS
+		}
+	),
+	SCARAB: (
+		[
+			NINJA_ITEM_NAME
+		],
+		{
+			NAME: NINJA_ITEM_NAME,
+			PRICE: NINJA_ITEM_PRICE,
+			BASE_TYPE: NINJA_ITEM_NAME,
+			REWARD: NINJA_EXPLICITS
+		}
+	),
+	INCUBATOR: (
+		[
+			NINJA_ITEM_NAME
+		],
+		{
+			NAME: NINJA_ITEM_NAME,
+			PRICE: NINJA_ITEM_PRICE,
+			BASE_TYPE: NINJA_ITEM_NAME,
+			REWARD: NINJA_EXPLICITS
+		}
+	),
+	PROPHECY: (
+		[
+			NINJA_ITEM_NAME
+		],
+		{
+			NAME: NINJA_ITEM_NAME,
+			PRICE: NINJA_ITEM_PRICE,
+			PROPHECY: NINJA_ITEM_NAME,
+			REWARD: NINJA_PROPHECY
+		}
+	),
+	CURRENCY: (
+		[
+			NINJA_CURRENCY_NAME
+		],
+		{
+			NAME: NINJA_CURRENCY_NAME,
+			PRICE: NINJA_CURRENCY_PRICE,
+			BASE_TYPE: NINJA_CURRENCY_NAME
+		}
+	),
+	FRAGMENT: (
+		[
+			NINJA_CURRENCY_NAME
+		],
+		{
+			NAME: NINJA_CURRENCY_NAME,
+			PRICE: NINJA_CURRENCY_PRICE,
+			BASE_TYPE: NINJA_CURRENCY_NAME
+		}
+	),
+	U_JEWEL: (
+		[
+			NINJA_ITEM_NAME
+		],
+		{
+			NAME: NINJA_ITEM_NAME,
+			PRICE: NINJA_ITEM_PRICE,
+			BASE_TYPE:
+			NINJA_BASE_TYPE
+		}
+	),
+	U_FLASK: (
+		[
+			NINJA_ITEM_NAME
+		],
+		{
+			NAME: NINJA_ITEM_NAME,
+			PRICE: NINJA_ITEM_PRICE,
+			BASE_TYPE: NINJA_BASE_TYPE
+		}
+	),
+	U_ACCESSORY: (
+		[
+			NINJA_ITEM_NAME
+		],
+		{
+			NAME: NINJA_ITEM_NAME,
+			PRICE: NINJA_ITEM_PRICE,
+			BASE_TYPE: NINJA_BASE_TYPE
+		}
+	),
+	U_MAP: (
+		[
+			NINJA_ITEM_NAME,
+			NINJA_TIER
+		],
+		{
+			NAME: NINJA_ITEM_NAME,
+			PRICE: NINJA_ITEM_PRICE,
+			BASE_TYPE: NINJA_BASE_TYPE,
+			MAP_TIER: NINJA_TIER
+		}
+	),
+	# TODO for maps handle Blighted (info currently in name)
+	MAP: (
+		[
+			NINJA_ITEM_NAME,
+			NINJA_TIER
+		],
+		{
+			NAME: NINJA_ITEM_NAME,
+			PRICE: NINJA_ITEM_PRICE,
+			BASE_TYPE: NINJA_BASE_TYPE,
+			MAP_TIER: NINJA_TIER
+		}
+	),
+	# TODO for U_WEAPON and U_ARMOR ignore links
+	U_WEAPON: (
+		[
+			NINJA_ITEM_NAME,
+			NINJA_LINKS
+		],
+		{
+			NAME: NINJA_ITEM_NAME,
+			PRICE: NINJA_ITEM_PRICE,
+			BASE_TYPE: NINJA_BASE_TYPE,
+			LINKS: NINJA_LINKS
+		}
+	),
+	U_ARMOUR: (
+		[
+			NINJA_ITEM_NAME,
+			NINJA_LINKS
+		],
+		{
+			NAME: NINJA_ITEM_NAME,
+			PRICE: NINJA_ITEM_PRICE,
+			BASE_TYPE: NINJA_BASE_TYPE,
+			LINKS: NINJA_LINKS
+		}
+	),
+	BASE: (
+		[
+			NINJA_ITEM_NAME,
+			NINJA_LEVEL,
+			NINJA_VARIANT
+		],
+		{
+			NAME: NINJA_ITEM_NAME,
+			PRICE: NINJA_ITEM_PRICE,
+			BASE_TYPE: NINJA_BASE_TYPE,
+			ITEM_LVL: NINJA_LEVEL,
+			INFLUENCE: NINJA_VARIANT
+		}
+	),
+	# TODO for watchstones differ for charges?
+	WATCHSTONE: (
+		[
+			NINJA_ITEM_NAME
+		],
+		{
+			NAME: NINJA_ITEM_NAME,
+			PRICE: NINJA_ITEM_PRICE
+		}
+	),
+	BEAST: (
+		[
+			NINJA_ITEM_NAME
+		],
+		{
+			NAME: NINJA_ITEM_NAME,
+			PRICE: NINJA_ITEM_PRICE
+		}
+	),
+	# TODO ENCHANT needs info for filters; "tradeInfo" has alternate "range" representation
+	ENCHANT: (
+		[
+			NINJA_ITEM_NAME
+		],
+		{
+			NAME: NINJA_ITEM_NAME,
+			PRICE: NINJA_ITEM_PRICE,
+			"range": NINJA_VARIANT
+		}
+	),
+	GEM: (
+		[
+			NINJA_ITEM_NAME,
+			NINJA_VARIANT
+		],
+		{
+			NAME: NINJA_ITEM_NAME,
+			PRICE: NINJA_ITEM_PRICE,
+			GEM_LVL: NINJA_GEM_LVL,
+			QUALITY: NINJA_QUALITY,
+			CORRUPTED: NINJA_CORRUPTED
+		}
+	)
+}
+
+EXTRA_VARIANT_INFO = {
+	"Territories Unknown": NINJA_VARIANT,
+	"A Master Seeks Help": NINJA_VARIANT,
+	"Vessel of Vinktar": NINJA_VARIANT,
+	"Yriel's Fostering_5": NINJA_VARIANT,
+	"Atziri's Splendour_5": NINJA_VARIANT,
+	"Atziri's Splendour": NINJA_VARIANT,
+	"Yriel's Fostering": NINJA_VARIANT,
+	"Volkuur's Guidance": NINJA_VARIANT,
+	"Tombfist": NINJA_VARIANT,
+	"Lightpoacher": NINJA_VARIANT,
+	"Bubonic Trail": NINJA_VARIANT,
+	"Impresence": NINJA_VARIANT,
+	"Doryani's Invitation": NINJA_VARIANT,
+	"Grand Spectrum": NINJA_BASE_TYPE,
+	"Combat Focus": NINJA_BASE_TYPE,
+	"Doryani's Delusion": NINJA_BASE_TYPE,
+	"Precursor's Emblem": NINJA_BASE_TYPE
+}
+
+# TODO preprocess infos in here?
 
 def translate(category, json):
-	# TODO dont remove duplicate name lines!
-	return {line[TRANSLATION_INFO[category][0]]: {key: line[TRANSLATION_INFO[category][1][key]] for key in TRANSLATION_INFO[category][1]} for line in json}
+	translation = {}
+	for line in json:
+		name = str(line[TRANSLATION_INFO[category][0][0]])
+		variant = ""
+		if name in EXTRA_VARIANT_INFO:
+			variant = str(line[EXTRA_VARIANT_INFO[name]])
+		for entry in TRANSLATION_INFO[category][0][1:]:
+			if line[entry]:
+				name += "_" + str(line[entry])
+		if variant:
+			name += "_" + variant
+			infos = {VARIANT: variant}
+		else:
+			infos = {}
+		for key in TRANSLATION_INFO[category][1]:
+			infos[key] = line[TRANSLATION_INFO[category][1][key]]
+		if name in translation:
+			print("Warning! Multiple entries with same name \"" + name + "\" found.")
+			if infos[PRICE] > translation[name][PRICE]:
+				continue
+		translation[name] = infos
+	return translation
 
 def scrapeList(category, league=STANDARD):
 	if category in CURRENCY_CATEGORIES:

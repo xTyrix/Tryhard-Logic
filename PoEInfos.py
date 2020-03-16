@@ -422,7 +422,8 @@ CURRENCY = [
 	"Timeless Karui Splinter",
 	"Timeless Maraketh Splinter",
 	"Timeless Templar Splinter",
-	"Timeless Vaal Splinter"]
+	"Timeless Vaal Splinter"
+]
 
 DISCONTINUED_CURRENCY = [
 	"Eternal Orb",
@@ -440,7 +441,8 @@ DISCONTINUED_CURRENCY = [
 	"Reinforced Steel Net",
 	"Strong Steel Net",
 	"Thaumaturgical Net",
-	"Necromancy Net"]
+	"Necromancy Net"
+]
 
 CARDS = [
 	"Echoes of Love",
@@ -734,14 +736,16 @@ CARDS = [
 	"Vinia's Token",
 	"Void of the Elements",
 	"Volatile Power",
-	"Wealth and Power"]
+	"Wealth and Power"
+]
 
 DISCONTINUED_CARDS = [
 	"Birth of the Three",
 	"Dying Anguish",
 	"Luck of the Vaal",
 	"The Devastator",
-	"The Price of Protection"]
+	"The Price of Protection"
+]
 
 STACK_SIZES = {
 	"Fine Delirium Orb": 10,
@@ -1317,34 +1321,39 @@ STACK_SIZES = {
 	"Timeless Karui Splinter": 100,
 	"Timeless Maraketh Splinter": 100,
 	"Timeless Templar Splinter": 100,
-	"Timeless Vaal Splinter": 100}
+	"Timeless Vaal Splinter": 100
+}
 
-SHARDS = {"Scroll Fragment":     "Scroll of Wisdom",
-          "Alchemy Shard":       "Orb of Alchemy",
-          "Alteration Shard":    "Orb of Alteration",
-          "Transmutation Shard": "Orb of Transmutation",
-          "Ancient Shard":       "Ancient Orb",
-          "Annulment Shard":     "Orb of Annulment",
-          "Binding Shard":       "Orb of Binding",
-          "Chaos Shard":         "Chaos Orb",
-          "Engineer's Shard":    "Engineer's Orb",
-          "Exalted Shard":       "Exalted Orb",
-          "Harbinger's Shard":   "Harbinger's Orb",
-          "Horizon Shard":       "Orb of Horizons",
-          "Mirror Shard":        "Mirror of Kalandra",
-          "Regal Shard":         "Regal Orb"}
+SHARDS = {
+	"Scroll Fragment":     "Scroll of Wisdom",
+	"Alchemy Shard":       "Orb of Alchemy",
+	"Alteration Shard":    "Orb of Alteration",
+	"Transmutation Shard": "Orb of Transmutation",
+	"Ancient Shard":       "Ancient Orb",
+	"Annulment Shard":     "Orb of Annulment",
+	"Binding Shard":       "Orb of Binding",
+	"Chaos Shard":         "Chaos Orb",
+	"Engineer's Shard":    "Engineer's Orb",
+	"Exalted Shard":       "Exalted Orb",
+	"Harbinger's Shard":   "Harbinger's Orb",
+	"Horizon Shard":       "Orb of Horizons",
+	"Mirror Shard":        "Mirror of Kalandra",
+	"Regal Shard":         "Regal Orb"
+}
 
-NETS = ["Simple Rope Net",
-        "Reinforced Rope Net",
-        "Strong Rope Net",
-        "Simple Iron Net",
-        "Reinforced Iron Net",
-        "Strong Iron Net",
-        "Simple Steel Net",
-        "Reinforced Steel Net",
-        "Strong Steel Net",
-        "Thaumaturgical Net",
-        "Necromancy Net"]
+NETS = [
+	"Simple Rope Net",
+	"Reinforced Rope Net",
+	"Strong Rope Net",
+	"Simple Iron Net",
+	"Reinforced Iron Net",
+	"Strong Iron Net",
+	"Simple Steel Net",
+	"Reinforced Steel Net",
+	"Strong Steel Net",
+	"Thaumaturgical Net",
+	"Necromancy Net"
+]
 
 PROPHECIES = [
 	"A Master Seeks Help",
@@ -1599,7 +1608,8 @@ PROPHECIES = [
 	"The Warmongers I",
 	"The Warmongers II",
 	"The Warmongers III",
-	"The Warmongers IV"]
+	"The Warmongers IV"
+]
 
 PROPHECY_CHAINS = {
 	"Anarchy's End": 4,
@@ -1613,7 +1623,8 @@ PROPHECY_CHAINS = {
 	"The Ambitious Bandit": 3,
 	"Unbearable Whispers": 5,
 	"The Unbreathing Queen": 5,
-	"The Warmongers": 4}
+	"The Warmongers": 4
+}
 
 DISCONTINUED_PROPHECIES = [
 	"Ancient Rivalries I",
@@ -1626,10 +1637,12 @@ DISCONTINUED_PROPHECIES = [
 	"Echoes of Mutation",
 	"Echoes of Lost Love",
 	"The Emperor's Trove",
-	"The Blacksmith"]
+	"The Blacksmith"
+]
 
 DISCONTINUED_PROPHECY_CHAINS = {
-	"Ancient Rivalries": 4}
+	"Ancient Rivalries": 4
+}
 
 def getStackSize(item):
 	if item not in STACK_SIZES:
