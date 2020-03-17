@@ -132,47 +132,47 @@ class StyleSheet:
 	def addItem(self, display, symbol):
 		f = [] # from
 		t = [] # to
-		for i in range(18):
-			f.append(round((    i*display.fontSize)/18))
-			t.append(round(((i+1)*display.fontSize)/18))
-		self.image.paste(display.borderColor,     (self.X+f[ 0], self.Y+f[ 0], self.X+t[17], self.Y+t[17]))
-		self.image.paste(display.backgroundColor, (self.X+f[ 2], self.Y+f[ 2], self.X+t[15], self.Y+t[15]))
+		for i in range(14):
+			f.append(round((    i*(display.fontSize-4))/14)+2)
+			t.append(round(((i+1)*(display.fontSize-4))/14)+2)
+		self.image.paste(display.borderColor,     (self.X+0, self.Y+0, self.X+display.fontSize-1, self.Y+display.fontSize-1))
+		self.image.paste(display.backgroundColor, (self.X+2, self.Y+2, self.X+display.fontSize-3, self.Y+display.fontSize-3))
 		if symbol == "F":
-			self.image.paste(display.textColor,   (self.X+f[ 6], self.Y+f[ 4], self.X+t[ 7], self.Y+t[13]))
-			self.image.paste(display.textColor,   (self.X+f[ 6], self.Y+f[ 4], self.X+t[11], self.Y+t[ 5]))
-			self.image.paste(display.textColor,   (self.X+f[ 6], self.Y+f[ 8], self.X+t[ 9], self.Y+t[ 9]))
+			self.image.paste(display.textColor,   (self.X+f[4], self.Y+f[ 2], self.X+t[5], self.Y+t[11]))
+			self.image.paste(display.textColor,   (self.X+f[4], self.Y+f[ 2], self.X+t[9], self.Y+t[ 3]))
+			self.image.paste(display.textColor,   (self.X+f[4], self.Y+f[ 6], self.X+t[7], self.Y+t[ 7]))
 		elif symbol == "I":
-			self.image.paste(display.textColor,   (self.X+f[ 6], self.Y+f[ 4], self.X+t[11], self.Y+t[ 5]))
-			self.image.paste(display.textColor,   (self.X+f[ 8], self.Y+f[ 4], self.X+t[ 9], self.Y+t[13]))
-			self.image.paste(display.textColor,   (self.X+f[ 6], self.Y+f[12], self.X+t[11], self.Y+t[13]))
+			self.image.paste(display.textColor,   (self.X+f[4], self.Y+f[ 2], self.X+t[9], self.Y+t[ 3]))
+			self.image.paste(display.textColor,   (self.X+f[6], self.Y+f[ 2], self.X+t[7], self.Y+t[11]))
+			self.image.paste(display.textColor,   (self.X+f[4], self.Y+f[10], self.X+t[9], self.Y+t[11]))
 		elif symbol == "L":
-			self.image.paste(display.textColor,   (self.X+f[ 6], self.Y+f[ 4], self.X+t[ 7], self.Y+t[13]))
-			self.image.paste(display.textColor,   (self.X+f[ 6], self.Y+f[12], self.X+t[11], self.Y+t[13]))
+			self.image.paste(display.textColor,   (self.X+f[4], self.Y+f[ 2], self.X+t[5], self.Y+t[11]))
+			self.image.paste(display.textColor,   (self.X+f[4], self.Y+f[10], self.X+t[9], self.Y+t[11]))
 		elif symbol == "T":
-			self.image.paste(display.textColor,   (self.X+f[ 6], self.Y+f[ 4], self.X+t[11], self.Y+t[ 5]))
-			self.image.paste(display.textColor,   (self.X+f[ 8], self.Y+f[ 4], self.X+t[ 9], self.Y+t[13]))
+			self.image.paste(display.textColor,   (self.X+f[4], self.Y+f[ 2], self.X+t[9], self.Y+t[ 3]))
+			self.image.paste(display.textColor,   (self.X+f[6], self.Y+f[ 2], self.X+t[7], self.Y+t[11]))
 		elif symbol == "E":
-			self.image.paste(display.textColor,   (self.X+f[ 6], self.Y+f[ 4], self.X+t[ 7], self.Y+t[13]))
-			self.image.paste(display.textColor,   (self.X+f[ 6], self.Y+f[ 4], self.X+t[11], self.Y+t[ 5]))
-			self.image.paste(display.textColor,   (self.X+f[ 6], self.Y+f[ 8], self.X+t[ 9], self.Y+t[ 9]))
-			self.image.paste(display.textColor,   (self.X+f[ 6], self.Y+f[12], self.X+t[11], self.Y+t[13]))
+			self.image.paste(display.textColor,   (self.X+f[4], self.Y+f[ 2], self.X+t[5], self.Y+t[11]))
+			self.image.paste(display.textColor,   (self.X+f[4], self.Y+f[ 2], self.X+t[9], self.Y+t[ 3]))
+			self.image.paste(display.textColor,   (self.X+f[4], self.Y+f[ 6], self.X+t[7], self.Y+t[ 7]))
+			self.image.paste(display.textColor,   (self.X+f[4], self.Y+f[10], self.X+t[9], self.Y+t[11]))
 		elif symbol == "R":
-			self.image.paste(display.textColor,   (self.X+f[ 6], self.Y+f[ 4], self.X+t[ 7], self.Y+t[13]))
-			self.image.paste(display.textColor,   (self.X+f[ 6], self.Y+f[ 4], self.X+t[10], self.Y+t[ 5]))
-			self.image.paste(display.textColor,   (self.X+f[10], self.Y+f[ 5], self.X+t[11], self.Y+t[ 8]))
-			self.image.paste(display.textColor,   (self.X+f[ 8], self.Y+f[ 8], self.X+t[10], self.Y+t[ 9]))
-			self.image.paste(display.textColor,   (self.X+f[ 9], self.Y+f[ 9], self.X+t[10], self.Y+t[10]))
-			self.image.paste(display.textColor,   (self.X+f[10], self.Y+f[10], self.X+t[11], self.Y+t[13]))
+			self.image.paste(display.textColor,   (self.X+f[4], self.Y+f[ 2], self.X+t[5], self.Y+t[11]))
+			self.image.paste(display.textColor,   (self.X+f[4], self.Y+f[ 2], self.X+t[8], self.Y+t[ 3]))
+			self.image.paste(display.textColor,   (self.X+f[8], self.Y+f[ 3], self.X+t[9], self.Y+t[ 6]))
+			self.image.paste(display.textColor,   (self.X+f[6], self.Y+f[ 6], self.X+t[8], self.Y+t[ 7]))
+			self.image.paste(display.textColor,   (self.X+f[7], self.Y+f[ 7], self.X+t[8], self.Y+t[ 8]))
+			self.image.paste(display.textColor,   (self.X+f[8], self.Y+f[ 8], self.X+t[9], self.Y+t[11]))
 		elif symbol == "$":
-			self.image.paste(display.textColor,   (self.X+f[11], self.Y+f[ 6], self.X+t[11], self.Y+t[ 6]))
-			self.image.paste(display.textColor,   (self.X+f[ 7], self.Y+f[ 5], self.X+t[10], self.Y+t[ 6]))
-			self.image.paste(display.textColor,   (self.X+f[ 6], self.Y+f[ 6], self.X+t[ 7], self.Y+t[ 8]))
-			self.image.paste(display.textColor,   (self.X+f[ 7], self.Y+f[ 8], self.X+t[10], self.Y+t[ 9]))
-			self.image.paste(display.textColor,   (self.X+f[10], self.Y+f[ 9], self.X+t[11], self.Y+t[11]))
-			self.image.paste(display.textColor,   (self.X+f[ 7], self.Y+f[11], self.X+t[10], self.Y+t[12]))
-			self.image.paste(display.textColor,   (self.X+f[ 6], self.Y+f[11], self.X+t[ 6], self.Y+t[11]))
-			self.image.paste(display.textColor,   (self.X+f[ 9], self.Y+f[ 4], self.X+t[ 9], self.Y+t[ 8]))
-			self.image.paste(display.textColor,   (self.X+f[ 8], self.Y+f[10], self.X+t[ 8], self.Y+t[13]))
+			self.image.paste(display.textColor,   (self.X+f[9], self.Y+f[ 4], self.X+t[9], self.Y+t[ 4]))
+			self.image.paste(display.textColor,   (self.X+f[5], self.Y+f[ 3], self.X+t[8], self.Y+t[ 4]))
+			self.image.paste(display.textColor,   (self.X+f[4], self.Y+f[ 4], self.X+t[5], self.Y+t[ 6]))
+			self.image.paste(display.textColor,   (self.X+f[5], self.Y+f[ 6], self.X+t[8], self.Y+t[ 7]))
+			self.image.paste(display.textColor,   (self.X+f[8], self.Y+f[ 7], self.X+t[9], self.Y+t[ 9]))
+			self.image.paste(display.textColor,   (self.X+f[5], self.Y+f[ 9], self.X+t[8], self.Y+t[10]))
+			self.image.paste(display.textColor,   (self.X+f[4], self.Y+f[ 9], self.X+t[4], self.Y+t[ 9]))
+			self.image.paste(display.textColor,   (self.X+f[7], self.Y+f[ 2], self.X+t[7], self.Y+t[ 6]))
+			self.image.paste(display.textColor,   (self.X+f[6], self.Y+f[ 8], self.X+t[6], self.Y+t[11]))
 		else:
 			assert False, "Unsupported symbol: " + symbol
 		self.X += display.fontSize + 10
