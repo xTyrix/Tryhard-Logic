@@ -306,29 +306,45 @@ def addBlockWithMaxPrice(section, blockName, conditions, infos, style, threshold
 	comments = [PRICE_CATEGORY_NAMES[maxCategory], maxNames]
 	section.addComponent(Block(blockName, conditions, style.appearances[maxCategory], comments=comments))
 
-def addBlocksWithMaxPriceByAttribute(section, infos, attribute, style, thresholds=THRESHOLDS):
-	maxCategories = {}
-	maxNamesLists = {}
-	for name in infos:
-		attr = infos[name][attribute]
-		if attr not in maxCategories:
-			maxCategories[attr] = 7
-			maxNamesLists[attr] = ""
-		category = getCategory(infos[name][ninja.PRICE])
-		if category < maxCategories[attr]:
-			maxCategories[attr] = category
-			maxNamesLists[attr] = infos[name][ninja.NAME]
-		elif category == maxCategories[attr] and maxNamesLists[attr].find(infos[name][ninja.NAME]) == -1:
-			maxNamesLists[attr] += ", " + infos[name][ninja.NAME]
-	group = [[] for j in range(len(thresholds)+1)]
-	commentsLists = [[""] for j in range(len(thresholds)+1)]
-	for attr in maxCategories:
-		group[maxCategories[attr]].append({attribute: attr})
-		if not commentsLists[maxCategories[attr]][0]:
-			commentsLists[maxCategories[attr]][0] = maxNamesLists[attr]
-		else:
-			commentsLists[maxCategories[attr]][0] += ", " + maxNamesLists[attr]
-	addPriceCategoryBlocks(section, group, style, thresholds, commentsLists=commentsLists)
+def addBlocksWithMaxPriceByCondition(section, infos, condition, style, thresholds=THRESHOLDS, additionalConditions=[]):
+	# TODO can theoratically be optimized, if cond does not matter in any given case
+	if additionalConditions:
+		infosList = {}
+		cond = additionalConditions.pop()
+		for name in infos:
+			attr = infos[name][cond]
+			if attr not in infosList:
+				infosList[attr] = {}
+			infosList[attr][name] = infos[name]
+		# TODO sort sections
+		for attr in infosList:
+			name = cond + ": " + str(attr)
+			newSection = Section(name, [factory.buildConditionString(cond, [str(attr)])])
+			section.addComponent(newSection)
+			addBlocksWithMaxPriceByCondition(newSection, infosList[attr], condition, style, thresholds, additionalConditions)
+	else:
+		maxCategories = {}
+		maxNamesLists = {}
+		for name in infos:
+			attr = infos[name][condition]
+			if attr not in maxCategories:
+				maxCategories[attr] = 7
+				maxNamesLists[attr] = ""
+			category = getCategory(infos[name][ninja.PRICE])
+			if category < maxCategories[attr]:
+				maxCategories[attr] = category
+				maxNamesLists[attr] = infos[name][ninja.NAME]
+			elif category == maxCategories[attr] and maxNamesLists[attr].find(infos[name][ninja.NAME]) == -1:
+				maxNamesLists[attr] += ", " + infos[name][ninja.NAME]
+		group = [[] for j in range(len(thresholds)+1)]
+		commentsLists = [[""] for j in range(len(thresholds)+1)]
+		for attr in maxCategories:
+			group[maxCategories[attr]].append({condition: attr})
+			if not commentsLists[maxCategories[attr]][0]:
+				commentsLists[maxCategories[attr]][0] = maxNamesLists[attr]
+			else:
+				commentsLists[maxCategories[attr]][0] += ", " + maxNamesLists[attr]
+		addPriceCategoryBlocks(section, group, style, thresholds, commentsLists=commentsLists)
 
 
 C = "Currency"
@@ -500,10 +516,9 @@ fragmentSection = Section(FRAGMENTS)
 mapSection.addComponent(fragmentSection)
 addBlocks(fragmentSection, json[FRAGMENTS], uniqueMapStyle)
 
-# TODO split maps by mapTier?
 uniqueMapSection = Section(UNIQUE_MAPS, [factory.buildConditionString(poe.FILTER.CONDITION.RARITY, [poe.RARITY.UNIQUE])])
 mapSection.addComponent(uniqueMapSection)
-addBlocksWithMaxPriceByAttribute(uniqueMapSection, json[UNIQUE_MAPS], ninja.BASE_TYPE, uniqueMapStyle)
+addBlocksWithMaxPriceByCondition(uniqueMapSection, json[UNIQUE_MAPS], poe.FILTER.CONDITION.BASE_TYPE, uniqueMapStyle, additionalConditions=[poe.FILTER.CONDITION.MAP_TIER])
 
 # mapSection.addComponent(Block(MAPS+ERROR, [], tyrixErrorAppearance))
 
