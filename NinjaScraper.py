@@ -333,7 +333,8 @@ TRANSLATION_INFO = {
 	# TODO for watchstones differ for charges?
 	WATCHSTONE: (
 		[
-			NINJA_ITEM_NAME
+			NINJA_ITEM_NAME,
+			NINJA_VARIANT
 		],
 		{
 			NAME: NINJA_ITEM_NAME,
@@ -376,7 +377,6 @@ TRANSLATION_INFO = {
 }
 
 EXTRA_VARIANT_INFO = {
-	"Territories Unknown": NINJA_VARIANT,
 	"A Master Seeks Help": NINJA_VARIANT,
 	"Vessel of Vinktar": NINJA_VARIANT,
 	"Yriel's Fostering_5": NINJA_VARIANT,

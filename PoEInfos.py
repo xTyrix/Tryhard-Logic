@@ -124,6 +124,11 @@ class EFFECT():
 		BROWN  = "Brown"
 		BLUE   = "Blue"
 		GREEN  = "Green"
+		CYAN   = "Cyan"
+		GREY   = "Grey"
+		ORANGE = "Orange"
+		PINK   = "Pink"
+		PURPLE = "Purple"
 
 class ICON():
 	class SIZE():
@@ -138,6 +143,11 @@ class ICON():
 		BROWN  = "Brown"
 		BLUE   = "Blue"
 		GREEN  = "Green"
+		CYAN   = "Cyan"
+		GREY   = "Grey"
+		ORANGE = "Orange"
+		PINK   = "Pink"
+		PURPLE = "Purple"
 
 	class SHAPE():
 		HEXAGON  = "Hexagon"
@@ -146,6 +156,12 @@ class ICON():
 		STAR     = "Star"
 		SQUARE   = "Square"
 		CIRCLE   = "Circle"
+		CROSS    = "Cross"
+		MOON     = "Moon"
+		DROP     = "Raindrop"
+		KITE     = "Kite"
+		PENTAGON = "Pentagon"
+		MARKER   = "UpsideDownHouse"
 
 class RARITY():
 	UNIQUE = "Unique"

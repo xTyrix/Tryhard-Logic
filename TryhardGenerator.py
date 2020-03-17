@@ -11,7 +11,18 @@ from datetime import datetime
 
 NAME = "GeneratedLogic"
 LEAGUE = "Delirium" # "Hardcore Delirium" "Standard" "Hardcore"
+
 THRESHOLDS = [1000, 100, 10, 1, .5, .1, .05]
+PRICE_CATEGORY_NAMES = [
+	"OMFG (>= " + str(THRESHOLDS[0]) + "C)",
+	"OMG (>= " + str(THRESHOLDS[1]) + "C)",
+	"Very High (>= " + str(THRESHOLDS[2]) + "C)",
+	"High (>= " + str(THRESHOLDS[3]) + "C)",
+	"normal (>= " + str(THRESHOLDS[4]) + "C)",
+	"low (>= " + str(THRESHOLDS[5]) + "C)",
+	"very low (>= " + str(THRESHOLDS[6]) + "C)",
+	"rest (< " + str(THRESHOLDS[6]) + "C)"
+]
 
 # TODO tweak color palette
 # name             rgb              hsl
@@ -41,17 +52,6 @@ HIGH_SIZE      = 33
 NORMAL_SIZE    = 30
 LOW_SIZE       = 27
 HIDE_SIZE      = 18
-
-PRICE_CATEGORY_NAMES = [
-	"OMFG (>= 1000C)",
-	"OMG (>= 100C)",
-	"Very High (>= 50C)",
-	"High (>= 10C)",
-	"normal (>= 1C)",
-	"low (>= .1C)",
-	"very low (>= .05C)",
-	"rest (< .05C)"
-]
 
 class Style:
 	def __init__(self, primaryColor, secondaryColor=None, iconColor=None, iconShape=poe.ICON.SHAPE.HEXAGON):
@@ -243,18 +243,23 @@ def getCategory(price, thresholds=THRESHOLDS):
 		i += 1
 	return i
 
-def addPriceCategoryBlocks(section, infoCategories, style, thresholds=THRESHOLDS):
+def addPriceCategoryBlock(section, name, infos, appearance, comments=[]):
+	if ninja.BASE_TYPE in infos[0]:
+		assert ninja.PROPHECY not in infos[0], "Found item group with \"" + ninja.BASE_TYPE + "\" and \"" + ninja.PROPHECY + "\" entries! Don't know what to do."
+		condition = poe.FILTER.CONDITION.BASE_TYPE
+		info = ninja.BASE_TYPE
+	else:
+		assert ninja.PROPHECY in infos[0], "Unsupported Item Group! Only groups with \"" + ninja.BASE_TYPE + "\" or \"" + ninja.PROPHECY + "\" entries are supported."
+		condition = poe.FILTER.CONDITION.PROPHECY
+		info = ninja.PROPHECY
+	section.addComponent(Block(name, [factory.buildConditionString(condition, [line[info] for line in infos])], appearance, comments=comments))
+
+def addPriceCategoryBlocks(section, infoCategories, style, thresholds=THRESHOLDS, commentsLists=None):
+	if not commentsLists:
+		commentsLists = [[] for i in range(len(thresholds)+1)]
 	for i in range(8):
 		if infoCategories[i]:
-			if ninja.BASE_TYPE in infoCategories[i][0]:
-				assert ninja.PROPHECY not in infoCategories[i][0], "Found item group with \"" + ninja.BASE_TYPE + "\" and \"" + ninja.PROPHECY + "\" entries! Don't know what to do."
-				condition = poe.FILTER.CONDITION.BASE_TYPE
-				info = ninja.BASE_TYPE
-			else:
-				assert ninja.PROPHECY in infoCategories[i][0], "Unsupported Item Group! Only groups with \"" + ninja.BASE_TYPE + "\" or \"" + ninja.PROPHECY + "\" entries are supported."
-				condition = poe.FILTER.CONDITION.PROPHECY
-				info = ninja.PROPHECY
-			section.addComponent(Block(PRICE_CATEGORY_NAMES[i], [factory.buildConditionString(condition, [line[info] for line in infoCategories[i]])], style.appearances[i]))
+			addPriceCategoryBlock(section, PRICE_CATEGORY_NAMES[i], infoCategories[i], style.appearances[i], commentsLists[i])
 
 def addBlocks(section, infos, style, thresholds=THRESHOLDS):
 	group = [[] for j in range(len(thresholds)+1)]
@@ -263,7 +268,7 @@ def addBlocks(section, infos, style, thresholds=THRESHOLDS):
 	addPriceCategoryBlocks(section, group, style, thresholds)
 
 # TODO stack size Rundungsfehler prüfen
-def addBlocksWithStackSizes(section, infos, style, thresholds=THRESHOLDS, disableStacks=False):
+def addBlocksWithStackSizes(section, infos, style, thresholds=THRESHOLDS):
 	categorieGroups = {}
 	baseGroup = [[] for j in range(len(thresholds)+1)]
 	highestMaxStackSize = 1
@@ -288,6 +293,44 @@ def addBlocksWithStackSizes(section, infos, style, thresholds=THRESHOLDS, disabl
 			addPriceCategoryBlocks(currentSection, categorieGroups[str(i)], style, thresholds)
 	addPriceCategoryBlocks(section, baseGroup, style, thresholds)
 
+def addBlockWithMaxPrice(section, blockName, conditions, infos, style, thresholds=THRESHOLDS):
+	maxCategory = 7
+	maxNames = ""
+	for name in infos:
+		category = getCategory(infos[name][ninja.PRICE])
+		if category < maxCategory:
+			maxCategory = category
+			maxNames = infos[name][ninja.NAME]
+		elif category == maxCategory:
+			maxNames += ", " + infos[name][ninja.NAME]
+	comments = [PRICE_CATEGORY_NAMES[maxCategory], maxNames]
+	section.addComponent(Block(blockName, conditions, style.appearances[maxCategory], comments=comments))
+
+def addBlocksWithMaxPriceByAttribute(section, infos, attribute, style, thresholds=THRESHOLDS):
+	maxCategories = {}
+	maxNamesLists = {}
+	for name in infos:
+		attr = infos[name][attribute]
+		if attr not in maxCategories:
+			maxCategories[attr] = 7
+			maxNamesLists[attr] = ""
+		category = getCategory(infos[name][ninja.PRICE])
+		if category < maxCategories[attr]:
+			maxCategories[attr] = category
+			maxNamesLists[attr] = infos[name][ninja.NAME]
+		elif category == maxCategories[attr] and maxNamesLists[attr].find(infos[name][ninja.NAME]) == -1:
+			maxNamesLists[attr] += ", " + infos[name][ninja.NAME]
+	group = [[] for j in range(len(thresholds)+1)]
+	commentsLists = [[""] for j in range(len(thresholds)+1)]
+	for attr in maxCategories:
+		group[maxCategories[attr]].append({attribute: attr})
+		if not commentsLists[maxCategories[attr]][0]:
+			commentsLists[maxCategories[attr]][0] = maxNamesLists[attr]
+		else:
+			commentsLists[maxCategories[attr]][0] += ", " + maxNamesLists[attr]
+	addPriceCategoryBlocks(section, group, style, thresholds, commentsLists=commentsLists)
+
+
 C = "Currency"
 PROPHECIES = "Prophecies (displayed as Unique Quests)"
 CARDS_C = "Stacked Decks (displayed as Divination Card)"
@@ -305,16 +348,6 @@ IVORY_WATCHSTONES = "Ivory Watchstones"
 
 OTHER = "Remaining "
 ERROR = " ERROR"
-
-def getMaxEntry(json):
-	maxCategory = 7
-	iwsList = []
-	for name in json:
-		category = getCategory(json[name][ninja.PRICE])
-		if category <= maxCategory:
-			maxCategory = category
-			iwsList.append(json[name][ninja.NAME])
-	return (maxCategory, iwsList)
 
 # TODO don't froce override things if existing
 def regroup(json):
@@ -467,9 +500,10 @@ fragmentSection = Section(FRAGMENTS)
 mapSection.addComponent(fragmentSection)
 addBlocks(fragmentSection, json[FRAGMENTS], uniqueMapStyle)
 
+# TODO split maps by mapTier?
 uniqueMapSection = Section(UNIQUE_MAPS, [factory.buildConditionString(poe.FILTER.CONDITION.RARITY, [poe.RARITY.UNIQUE])])
 mapSection.addComponent(uniqueMapSection)
-addBlocks(uniqueMapSection, json[UNIQUE_MAPS], uniqueMapStyle)
+addBlocksWithMaxPriceByAttribute(uniqueMapSection, json[UNIQUE_MAPS], ninja.BASE_TYPE, uniqueMapStyle)
 
 # mapSection.addComponent(Block(MAPS+ERROR, [], tyrixErrorAppearance))
 
@@ -484,13 +518,9 @@ incubatorSection.addComponent(Block(INCUBATOR+ERROR, [], tyrixErrorAppearance))
 
 
 # Watchstone Section
-maxIWSs = getMaxEntry(json[WATCHSTONES])
-iwsComments = [PRICE_CATEGORY_NAMES[maxIWSs[0]], maxIWSs[1][0]]
-for iws in maxIWSs[1][1:]:
-	iwsComments[1] += ", " + iws
 iwsConditions = [factory.buildConditionString(poe.FILTER.CONDITION.RARITY, [poe.RARITY.UNIQUE]),
                  factory.buildConditionString(poe.FILTER.CONDITION.BASE_TYPE, [poe.WATCHSTONE.IVORY])]
-watchstoneSection.addComponent(Block(IVORY_WATCHSTONES, iwsConditions, uniqueQuestStyle.appearances[maxIWSs[0]], comments=iwsComments))
+addBlockWithMaxPrice(watchstoneSection, IVORY_WATCHSTONES, iwsConditions, json[WATCHSTONES], uniqueQuestStyle)
 watchstoneSection.addComponent(Block(IVORY_WATCHSTONES+ERROR, iwsConditions[1:2], gggErrorAppearance))
 watchstoneSection.addComponent(Block(OTHER+WATCHSTONES, [], mainQuestAppearance))
 
