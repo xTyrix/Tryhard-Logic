@@ -89,6 +89,7 @@ GEM_LVL    = f.CONDITION.GEM_LVL
 QUALITY    = f.CONDITION.QUALITY
 CORRUPTED  = f.CONDITION.CORRUPTED
 VARIANT    = "variant"
+BLIGHTED   = f.CONDITION.BLIGHTED_MAP
 
 FILTER_INFORMATION = [
 	BASE_TYPE,
@@ -99,7 +100,8 @@ FILTER_INFORMATION = [
 	INFLUENCE,
 	GEM_LVL,
 	QUALITY,
-	CORRUPTED
+	CORRUPTED,
+	BLIGHTED
 ]
 
 ADDITIONAL_INFORMATION = [
@@ -395,8 +397,6 @@ EXTRA_VARIANT_INFO = {
 	"Precursor's Emblem": NINJA_BASE_TYPE
 }
 
-# TODO preprocess infos in here?
-
 def translate(category, json):
 	translation = {}
 	for line in json:
@@ -418,6 +418,12 @@ def translate(category, json):
 			print("Warning! Multiple entries with same name \"" + name + "\" found.")
 			if infos[PRICE] > translation[name][PRICE]:
 				continue
+		if category == MAP:
+			if infos[BASE_TYPE].startswith("Blighted "):
+				infos[BLIGHTED] = True
+				infos[BASE_TYPE] = infos[BASE_TYPE][9:]
+			else:
+				infos[BLIGHTED] = False
 		translation[name] = infos
 	return translation
 

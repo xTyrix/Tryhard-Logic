@@ -73,35 +73,36 @@ class FILTER():
 	GE          = ">="
 
 	class CONDITION():
-		#            "AreaLevel"       # [Operator] <Value>
-		ITEM_LVL   = "ItemLevel"       # [Operator] <Level>
-		#            "DropLevel"       # [Operator] <Level>
-		QUALITY    = "Quality"         # [Operator] <Quality>
-		RARITY     = "Rarity"          # [Operator] <Rarity>
-		CLASS      = "Class"           #            <Class>
-		BASE_TYPE  = "BaseType"        #            <Type>
-		PROPHECY   = "Prophecy"        #            <Type>
-		LINKS      = "LinkedSockets"   # [Operator] <Links>
-		#            "SocketGroup"     # [Operator] <GroupSyntax>
-		#            "Sockets"         # [Operator] <GroupSyntax>
-		#            "Height"          # [Operator] <Value>
-		#            "Width"           # [Operator] <Value>
-		#            "HasExplicitMod"  #            <Value>
-		#            "AnyEnchantment"  #            <Boolean>
-		#            "HasEnchantment"  #            <Value>
-		STACK_SIZE = "StackSize"       # [Operator] <Value>
-		GEM_LVL    = "GemLevel"        # [Operator] <Value>
-		#            "Identified"      #            <Boolean>
-		CORRUPTED  = "Corrupted"       #            <Boolean>
-		#            "CorruptedMods"   # [Operator] <Value>
-		#            "Mirrored"        #            <Boolean>
-		#            "ElderItem"       #            <Boolean>
-		#            "ShaperItem"      #            <Boolean>
-		INFLUENCE  = "HasInfluence"    #            <Type>
-		#            "FracturedItem"   #            <Boolean>
-		#            "SynthesisedItem" #            <Boolean>
-		#            "ShapedMap"       #            <Boolean>
-		MAP_TIER   = "MapTier"         # [Operator] <Value>
+		#              "AreaLevel"       # [Operator] <Value>
+		ITEM_LVL     = "ItemLevel"       # [Operator] <Level>
+		#              "DropLevel"       # [Operator] <Level>
+		QUALITY      = "Quality"         # [Operator] <Quality>
+		RARITY       = "Rarity"          # [Operator] <Rarity>
+		CLASS        = "Class"           #            <Class>
+		BASE_TYPE    = "BaseType"        #            <Type>
+		PROPHECY     = "Prophecy"        #            <Type>
+		LINKS        = "LinkedSockets"   # [Operator] <Links>
+		#              "SocketGroup"     # [Operator] <GroupSyntax>
+		#              "Sockets"         # [Operator] <GroupSyntax>
+		#              "Height"          # [Operator] <Value>
+		#              "Width"           # [Operator] <Value>
+		#              "HasExplicitMod"  #            <Value>
+		#              "AnyEnchantment"  #            <Boolean>
+		#              "HasEnchantment"  #            <Value>
+		STACK_SIZE   = "StackSize"       # [Operator] <Value>
+		GEM_LVL      = "GemLevel"        # [Operator] <Value>
+		#              "Identified"      #            <Boolean>
+		CORRUPTED    = "Corrupted"       #            <Boolean>
+		#              "CorruptedMods"   # [Operator] <Value>
+		#              "Mirrored"        #            <Boolean>
+		#              "ElderItem"       #            <Boolean>
+		#              "ShaperItem"      #            <Boolean>
+		INFLUENCE    = "HasInfluence"    #            <Type>
+		#              "FracturedItem"   #            <Boolean>
+		#              "SynthesisedItem" #            <Boolean>
+		#              "ShapedMap"       #            <Boolean>
+		MAP_TIER     = "MapTier"         # [Operator] <Value>
+		BLIGHTED_MAP = "BlightedMap"     #            <Boolean>
 
 	class ACTION():
 		TEXT_COLOR       = "SetTextColor"             # <Red> <Green> <Blue> [Alpha]

@@ -138,41 +138,41 @@ class StyleSheet:
 		self.image.paste(display.borderColor,     (self.X+0, self.Y+0, self.X+display.fontSize-1, self.Y+display.fontSize-1))
 		self.image.paste(display.backgroundColor, (self.X+2, self.Y+2, self.X+display.fontSize-3, self.Y+display.fontSize-3))
 		if symbol == "F":
-			self.image.paste(display.textColor,   (self.X+f[4], self.Y+f[ 2], self.X+t[5], self.Y+t[11]))
-			self.image.paste(display.textColor,   (self.X+f[4], self.Y+f[ 2], self.X+t[9], self.Y+t[ 3]))
-			self.image.paste(display.textColor,   (self.X+f[4], self.Y+f[ 6], self.X+t[7], self.Y+t[ 7]))
+			self.image.paste(display.textColor, (self.X+f[4], self.Y+f[ 2], self.X+t[5], self.Y+t[11]))
+			self.image.paste(display.textColor, (self.X+f[4], self.Y+f[ 2], self.X+t[9], self.Y+t[ 3]))
+			self.image.paste(display.textColor, (self.X+f[4], self.Y+f[ 6], self.X+t[7], self.Y+t[ 7]))
 		elif symbol == "I":
-			self.image.paste(display.textColor,   (self.X+f[4], self.Y+f[ 2], self.X+t[9], self.Y+t[ 3]))
-			self.image.paste(display.textColor,   (self.X+f[6], self.Y+f[ 2], self.X+t[7], self.Y+t[11]))
-			self.image.paste(display.textColor,   (self.X+f[4], self.Y+f[10], self.X+t[9], self.Y+t[11]))
+			self.image.paste(display.textColor, (self.X+f[4], self.Y+f[ 2], self.X+t[9], self.Y+t[ 3]))
+			self.image.paste(display.textColor, (self.X+f[6], self.Y+f[ 2], self.X+t[7], self.Y+t[11]))
+			self.image.paste(display.textColor, (self.X+f[4], self.Y+f[10], self.X+t[9], self.Y+t[11]))
 		elif symbol == "L":
-			self.image.paste(display.textColor,   (self.X+f[4], self.Y+f[ 2], self.X+t[5], self.Y+t[11]))
-			self.image.paste(display.textColor,   (self.X+f[4], self.Y+f[10], self.X+t[9], self.Y+t[11]))
+			self.image.paste(display.textColor, (self.X+f[4], self.Y+f[ 2], self.X+t[5], self.Y+t[11]))
+			self.image.paste(display.textColor, (self.X+f[4], self.Y+f[10], self.X+t[9], self.Y+t[11]))
 		elif symbol == "T":
-			self.image.paste(display.textColor,   (self.X+f[4], self.Y+f[ 2], self.X+t[9], self.Y+t[ 3]))
-			self.image.paste(display.textColor,   (self.X+f[6], self.Y+f[ 2], self.X+t[7], self.Y+t[11]))
+			self.image.paste(display.textColor, (self.X+f[4], self.Y+f[ 2], self.X+t[9], self.Y+t[ 3]))
+			self.image.paste(display.textColor, (self.X+f[6], self.Y+f[ 2], self.X+t[7], self.Y+t[11]))
 		elif symbol == "E":
-			self.image.paste(display.textColor,   (self.X+f[4], self.Y+f[ 2], self.X+t[5], self.Y+t[11]))
-			self.image.paste(display.textColor,   (self.X+f[4], self.Y+f[ 2], self.X+t[9], self.Y+t[ 3]))
-			self.image.paste(display.textColor,   (self.X+f[4], self.Y+f[ 6], self.X+t[7], self.Y+t[ 7]))
-			self.image.paste(display.textColor,   (self.X+f[4], self.Y+f[10], self.X+t[9], self.Y+t[11]))
+			self.image.paste(display.textColor, (self.X+f[4], self.Y+f[ 2], self.X+t[5], self.Y+t[11]))
+			self.image.paste(display.textColor, (self.X+f[4], self.Y+f[ 2], self.X+t[9], self.Y+t[ 3]))
+			self.image.paste(display.textColor, (self.X+f[4], self.Y+f[ 6], self.X+t[7], self.Y+t[ 7]))
+			self.image.paste(display.textColor, (self.X+f[4], self.Y+f[10], self.X+t[9], self.Y+t[11]))
 		elif symbol == "R":
-			self.image.paste(display.textColor,   (self.X+f[4], self.Y+f[ 2], self.X+t[5], self.Y+t[11]))
-			self.image.paste(display.textColor,   (self.X+f[4], self.Y+f[ 2], self.X+t[8], self.Y+t[ 3]))
-			self.image.paste(display.textColor,   (self.X+f[8], self.Y+f[ 3], self.X+t[9], self.Y+t[ 6]))
-			self.image.paste(display.textColor,   (self.X+f[6], self.Y+f[ 6], self.X+t[8], self.Y+t[ 7]))
-			self.image.paste(display.textColor,   (self.X+f[7], self.Y+f[ 7], self.X+t[8], self.Y+t[ 8]))
-			self.image.paste(display.textColor,   (self.X+f[8], self.Y+f[ 8], self.X+t[9], self.Y+t[11]))
+			self.image.paste(display.textColor, (self.X+f[4], self.Y+f[ 2], self.X+t[5], self.Y+t[11]))
+			self.image.paste(display.textColor, (self.X+f[4], self.Y+f[ 2], self.X+t[8], self.Y+t[ 3]))
+			self.image.paste(display.textColor, (self.X+f[8], self.Y+f[ 3], self.X+t[9], self.Y+t[ 6]))
+			self.image.paste(display.textColor, (self.X+f[6], self.Y+f[ 6], self.X+t[8], self.Y+t[ 7]))
+			self.image.paste(display.textColor, (self.X+f[7], self.Y+f[ 7], self.X+t[8], self.Y+t[ 8]))
+			self.image.paste(display.textColor, (self.X+f[8], self.Y+f[ 8], self.X+t[9], self.Y+t[11]))
 		elif symbol == "$":
-			self.image.paste(display.textColor,   (self.X+f[9], self.Y+f[ 4], self.X+t[9], self.Y+t[ 4]))
-			self.image.paste(display.textColor,   (self.X+f[5], self.Y+f[ 3], self.X+t[8], self.Y+t[ 4]))
-			self.image.paste(display.textColor,   (self.X+f[4], self.Y+f[ 4], self.X+t[5], self.Y+t[ 6]))
-			self.image.paste(display.textColor,   (self.X+f[5], self.Y+f[ 6], self.X+t[8], self.Y+t[ 7]))
-			self.image.paste(display.textColor,   (self.X+f[8], self.Y+f[ 7], self.X+t[9], self.Y+t[ 9]))
-			self.image.paste(display.textColor,   (self.X+f[5], self.Y+f[ 9], self.X+t[8], self.Y+t[10]))
-			self.image.paste(display.textColor,   (self.X+f[4], self.Y+f[ 9], self.X+t[4], self.Y+t[ 9]))
-			self.image.paste(display.textColor,   (self.X+f[7], self.Y+f[ 2], self.X+t[7], self.Y+t[ 6]))
-			self.image.paste(display.textColor,   (self.X+f[6], self.Y+f[ 8], self.X+t[6], self.Y+t[11]))
+			self.image.paste(display.textColor, (self.X+f[9], self.Y+f[ 4], self.X+t[9], self.Y+t[ 4]))
+			self.image.paste(display.textColor, (self.X+f[5], self.Y+f[ 3], self.X+t[8], self.Y+t[ 4]))
+			self.image.paste(display.textColor, (self.X+f[4], self.Y+f[ 4], self.X+t[5], self.Y+t[ 6]))
+			self.image.paste(display.textColor, (self.X+f[5], self.Y+f[ 6], self.X+t[8], self.Y+t[ 7]))
+			self.image.paste(display.textColor, (self.X+f[8], self.Y+f[ 7], self.X+t[9], self.Y+t[ 9]))
+			self.image.paste(display.textColor, (self.X+f[5], self.Y+f[ 9], self.X+t[8], self.Y+t[10]))
+			self.image.paste(display.textColor, (self.X+f[4], self.Y+f[ 9], self.X+t[4], self.Y+t[ 9]))
+			self.image.paste(display.textColor, (self.X+f[7], self.Y+f[ 2], self.X+t[7], self.Y+t[ 6]))
+			self.image.paste(display.textColor, (self.X+f[6], self.Y+f[ 8], self.X+t[6], self.Y+t[11]))
 		else:
 			assert False, "Unsupported symbol: " + symbol
 		self.X += display.fontSize + 10
@@ -356,6 +356,8 @@ UNIQUE_C = "Targeted Currency"
 UNIQUE_QUESTS = "Scarabs & Divine Vessels (displayed as Unique Quests)"
 MAPS = "Maps"
 UNIQUE_MAPS = "Unique Maps"
+BLIGHTED_MAPS = "Blighted Maps"
+MAPS = "Maps"
 FRAGMENTS = "Map Fragments"
 CARDS = "Divination Cards"
 INCUBATOR = "Incubator"
@@ -366,6 +368,7 @@ OTHER = "Remaining "
 ERROR = " ERROR"
 
 # TODO don't froce override things if existing
+# TODO fix multiple "A Master Seeks Help" (and probably others)
 def regroup(json):
 	newJson = {}
 	newJson[PROPHECIES]    = json[ninja.PROPHECY]
@@ -377,6 +380,8 @@ def regroup(json):
 	newJson[FRAGMENTS]     = {}
 	newJson[FRAGMENTS_C]   = {}
 	newJson[UNIQUE_MAPS]   = json[ninja.U_MAP]
+	newJson[BLIGHTED_MAPS] = {}
+	newJson[MAPS]          = {}
 	if "Awakener's Orb" in json[ninja.CURRENCY]:
 		newJson[INFLUENCED_C] = {"Awakener's Orb": json[ninja.CURRENCY].pop("Awakener's Orb")}
 	else:
@@ -401,6 +406,11 @@ def regroup(json):
 			newJson[FRAGMENTS_C][item] = json[ninja.CURRENCY][item]
 		else:
 			newJson[C][item] = json[ninja.CURRENCY][item]
+	for item in json[ninja.MAP]:
+		if json[ninja.MAP][item][ninja.BLIGHTED]:
+			newJson[BLIGHTED_MAPS][item] = json[ninja.MAP][item]
+		else:
+			newJson[MAPS][item] = json[ninja.MAP][item]
 
 	for shard in poe.SHARDS:
 		if shard not in newJson[C]:
@@ -520,7 +530,15 @@ uniqueMapSection = Section(UNIQUE_MAPS, [factory.buildConditionString(poe.FILTER
 mapSection.addComponent(uniqueMapSection)
 addBlocksWithMaxPriceByCondition(uniqueMapSection, json[UNIQUE_MAPS], poe.FILTER.CONDITION.BASE_TYPE, uniqueMapStyle, additionalConditions=[poe.FILTER.CONDITION.MAP_TIER])
 
-# mapSection.addComponent(Block(MAPS+ERROR, [], tyrixErrorAppearance))
+# TODO split by map tier
+blightedMapSection = Section(BLIGHTED_MAPS, [factory.buildConditionString(poe.FILTER.CONDITION.BLIGHTED_MAP, ["True"])])
+mapSection.addComponent(blightedMapSection)
+addBlocks(blightedMapSection, json[BLIGHTED_MAPS], uniqueMapStyle)
+
+# TODO split by map tier
+addBlocks(mapSection, json[MAPS], mapStyle)
+mapSection.addComponent(Block(MAPS+ERROR, [], tyrixErrorAppearance))
+
 
 # Card Section
 addBlocksWithStackSizes(cardSection, json[CARDS], cardStyle)
