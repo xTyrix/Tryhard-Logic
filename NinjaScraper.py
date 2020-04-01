@@ -5,29 +5,30 @@ from PoEInfos import FILTER as f
 
 STANDARD = "Standard"
 
-CURRENCY   	= "Currency"
-FRAGMENT   	= "Fragment"
-WATCHSTONE 	= "Watchstone"
-OIL        	= "Oil"
-INCUBATOR  	= "Incubator"
-SCARAB     	= "Scarab"
-FOSSIL     	= "Fossil"
-RESONATOR  	= "Resonator"
-ESSENCE    	= "Essence"
-CARD       	= "DivinationCard"
-PROPHECY   	= "Prophecy"
-GEM        	= "SkillGem" # TODO
-BASE       	= "BaseType" # TODO
-ENCHANT    	= "HelmetEnchant" # TODO
-U_MAP      	= "UniqueMap"
-MAP        	= "Map" # TODO
-U_JEWEL    	= "UniqueJewel" # TODO
-U_FLASK    	= "UniqueFlask" # TODO
-U_WEAPON   	= "UniqueWeapon" # TODO
-U_ARMOUR   	= "UniqueArmour" # TODO
-U_ACCESSORY = "UniqueAccessory" # TODO
-BEAST       = "Beast" # TODO
-VIAL        = "Vial" # TODO
+CURRENCY   	 = "Currency"
+FRAGMENT   	 = "Fragment"
+WATCHSTONE 	 = "Watchstone"
+OIL        	 = "Oil"
+INCUBATOR  	 = "Incubator"
+SCARAB     	 = "Scarab"
+FOSSIL     	 = "Fossil"
+RESONATOR  	 = "Resonator"
+ESSENCE    	 = "Essence"
+CARD       	 = "DivinationCard"
+PROPHECY   	 = "Prophecy"
+GEM        	 = "SkillGem" # TODO
+BASE       	 = "BaseType" # TODO
+ENCHANT    	 = "HelmetEnchant" # TODO
+U_MAP      	 = "UniqueMap"
+MAP        	 = "Map" # TODO
+U_JEWEL    	 = "UniqueJewel" # TODO
+U_FLASK    	 = "UniqueFlask" # TODO
+U_WEAPON   	 = "UniqueWeapon" # TODO
+U_ARMOUR   	 = "UniqueArmour" # TODO
+U_ACCESSORY  = "UniqueAccessory" # TODO
+BEAST        = "Beast" # TODO
+VIAL         = "Vial" # TODO
+DELIRIUM_ORB = "DeliriumOrb" # TODO
 
 CURRENCY_CATEGORIES = [
 	FRAGMENT,
@@ -55,7 +56,8 @@ ITEM_CATEGORIES = [
 	U_ARMOUR,
 	U_ACCESSORY,
 	BEAST,
-	VIAL
+	VIAL,
+	DELIRIUM_ORB
 ]
 
 NINJA_CURRENCY_NAME  = "currencyTypeName"
@@ -375,6 +377,17 @@ TRANSLATION_INFO = {
 			QUALITY: NINJA_QUALITY,
 			CORRUPTED: NINJA_CORRUPTED
 		}
+	),
+	DELIRIUM_ORB: (
+		[
+			NINJA_ITEM_NAME
+		],
+		{
+			NAME: NINJA_ITEM_NAME,
+			PRICE: NINJA_ITEM_PRICE,
+			STACK_SIZE: NINJA_STACK_SIZE,
+			BASE_TYPE: NINJA_BASE_TYPE
+		}
 	)
 }
 
@@ -448,3 +461,33 @@ def scrapeAll(league=STANDARD):
 	for category in CURRENCY_CATEGORIES + ITEM_CATEGORIES:
 		json[category] = scrapeList(category, league)
 	return json
+
+dontCare = [
+	"id",
+	"icon",
+	"mapTier",
+	"levelRequired",
+	"variant",
+	"artFilename",
+	"prophecyText",
+	"itemClass",
+	"sparkline",
+	"lowConfidenceSparkline",
+	"implicitModifiers",
+	"explicitModifiers",
+	"flavourText",
+	"corrupted",
+	"gemLevel",
+	"gemQuality",
+	"itemType",
+	"exaltedValue",
+	"count",
+	"detailsId",
+	"tradeInfo"
+]
+
+for line in requests.get("https://poe.ninja/api/data/" + "item" + "overview?league=" + "Delirium" + "&type=" + DELIRIUM_ORB).json()["lines"]:
+	for key in line:
+		if not key in dontCare:
+			print(key + ": " + str(line[key]))
+	print()

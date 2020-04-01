@@ -382,10 +382,9 @@ def regroup(json):
 	newJson[UNIQUE_MAPS]   = json[ninja.U_MAP]
 	newJson[BLIGHTED_MAPS] = {}
 	newJson[MAPS]          = {}
+	newJson[INFLUENCED_C] = json[ninja.DELIRIUM_ORB]
 	if "Awakener's Orb" in json[ninja.CURRENCY]:
-		newJson[INFLUENCED_C] = {"Awakener's Orb": json[ninja.CURRENCY].pop("Awakener's Orb")}
-	else:
-		newJson[INFLUENCED_C] = {}
+		newJson[INFLUENCED_C]["Awakener's Orb"] = json[ninja.CURRENCY].pop("Awakener's Orb")
 	newJson[UNIQUE_C]      = json[ninja.OIL]
 	newJson[UNIQUE_C].update(json[ninja.FOSSIL])
 	newJson[UNIQUE_C].update(json[ninja.ESSENCE])
@@ -398,7 +397,7 @@ def regroup(json):
 		else:
 			newJson[FRAGMENTS][item] = json[ninja.FRAGMENT][item]
 	for item in json[ninja.CURRENCY]:
-		if item.find("'s Exalted Orb") != -1 or item.find("Delirium Orb") != -1:
+		if item.find("'s Exalted Orb") != -1:
 			newJson[INFLUENCED_C][item] = json[ninja.CURRENCY][item]
 		elif item.find("Blessing") != -1 or item.find("Catalyst") != -1:
 			newJson[UNIQUE_C][item] = json[ninja.CURRENCY][item]
