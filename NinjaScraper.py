@@ -20,13 +20,13 @@ GEM        	 = "SkillGem" # TODO
 BASE       	 = "BaseType" # TODO
 ENCHANT    	 = "HelmetEnchant" # TODO
 U_MAP      	 = "UniqueMap"
-MAP        	 = "Map" # TODO
+MAP        	 = "Map"
 U_JEWEL    	 = "UniqueJewel" # TODO
 U_FLASK    	 = "UniqueFlask" # TODO
 U_WEAPON   	 = "UniqueWeapon" # TODO
 U_ARMOUR   	 = "UniqueArmour" # TODO
 U_ACCESSORY  = "UniqueAccessory" # TODO
-BEAST        = "Beast" # TODO
+BEAST        = "Beast"
 VIAL         = "Vial" # TODO
 DELIRIUM_ORB = "DeliriumOrb" # TODO
 

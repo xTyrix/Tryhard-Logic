@@ -360,6 +360,7 @@ CARDS = "Divination Cards"
 INCUBATOR = "Incubator"
 WATCHSTONES = "Watchstones"
 IVORY_WATCHSTONES = "Ivory Watchstones"
+BEASTS = "Bestiary Orb"
 
 OTHER = "Remaining "
 ERROR = " ERROR"
@@ -388,6 +389,7 @@ def regroup(json):
 	newJson[UNIQUE_C].update(json[ninja.VIAL])
 	newJson[WATCHSTONES]   = json[ninja.WATCHSTONE]
 	newJson[C]             = json[ninja.RESONATOR]
+	newJson[BEASTS]        = json[ninja.BEAST]
 	for item in json[ninja.FRAGMENT]:
 		if item.find("Splinter") != -1:
 			newJson[FRAGMENTS_C][item] = json[ninja.FRAGMENT][item]
@@ -499,6 +501,8 @@ addBlocksWithStackSizes(stackedDeckSection, json[CARDS_C], cardStyle)
 splinterSection = Section(FRAGMENTS_C)
 currencySection.addComponent(splinterSection)
 addBlocksWithStackSizes(splinterSection, json[FRAGMENTS_C], uniqueMapStyle)
+
+addBlockWithMaxPrice(currencySection, BEASTS, [factory.buildConditionString(poe.FILTER.CONDITION.BASE_TYPE, ["Bestiary Orb"])], json[BEASTS], uniqueCurrencyStyle)
 
 influencedCurrencySection = Section(INFLUENCED_C)
 currencySection.addComponent(influencedCurrencySection)
