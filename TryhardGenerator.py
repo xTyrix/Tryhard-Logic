@@ -267,7 +267,6 @@ def addBlocks(section, infos, style, thresholds=THRESHOLDS):
 		group[getCategory(infos[name][ninja.PRICE])].append(infos[name])
 	addPriceCategoryBlocks(section, group, style, thresholds)
 
-# TODO stack size Rundungsfehler prüfen
 def addBlocksWithStackSizes(section, infos, style, thresholds=THRESHOLDS):
 	categorieGroups = {}
 	baseGroup = [[] for j in range(len(thresholds)+1)]
@@ -280,17 +279,16 @@ def addBlocksWithStackSizes(section, infos, style, thresholds=THRESHOLDS):
 			amount = math.ceil(thresholds[category] / infos[name][ninja.PRICE])
 			if amount > poe.getStackSize(name):
 				break
-			if not str(amount) in categorieGroups:
-				categorieGroups[str(amount)] = [[] for j in range(len(thresholds)+1)]
-			categorieGroups[str(amount)][category].append(infos[name])
+			if not amount in categorieGroups:
+				categorieGroups[amount] = [[] for j in range(len(thresholds)+1)]
+			categorieGroups[amount][category].append(infos[name])
 	if categorieGroups:
 		stacksSection = Section("Stacks")
 		section.addComponent(stacksSection)
-	for i in range(2, highestMaxStackSize+1)[::-1]:
-		if str(i) in categorieGroups:
-			currentSection = Section(str(i), [factory.buildConditionString(poe.FILTER.CONDITION.STACK_SIZE, [poe.FILTER.GE, str(i)])])
-			stacksSection.addComponent(currentSection)
-			addPriceCategoryBlocks(currentSection, categorieGroups[str(i)], style, thresholds)
+	for i in sorted(categorieGroups)[::-1]:
+		currentSection = Section(str(i), [factory.buildConditionString(poe.FILTER.CONDITION.STACK_SIZE, [poe.FILTER.GE, str(i)])])
+		stacksSection.addComponent(currentSection)
+		addPriceCategoryBlocks(currentSection, categorieGroups[i], style, thresholds)
 	addPriceCategoryBlocks(section, baseGroup, style, thresholds)
 
 def addBlockWithMaxPrice(section, blockName, conditions, infos, style, thresholds=THRESHOLDS):
@@ -307,7 +305,7 @@ def addBlockWithMaxPrice(section, blockName, conditions, infos, style, threshold
 	section.addComponent(Block(blockName, conditions, style.appearances[maxCategory], comments=comments))
 
 def addBlocksWithMaxPriceByCondition(section, infos, condition, style, thresholds=THRESHOLDS, additionalConditions=[]):
-	# TODO can theoratically be optimized, if cond does not matter in any given case
+	# TODO filter can theoratically be optimized
 	if additionalConditions:
 		infosList = {}
 		cond = additionalConditions.pop()
@@ -316,8 +314,7 @@ def addBlocksWithMaxPriceByCondition(section, infos, condition, style, threshold
 			if attr not in infosList:
 				infosList[attr] = {}
 			infosList[attr][name] = infos[name]
-		# TODO sort sections
-		for attr in infosList:
+		for attr in sorted(infosList):
 			name = cond + ": " + str(attr)
 			newSection = Section(name, [factory.buildConditionString(cond, [str(attr)])])
 			section.addComponent(newSection)
@@ -528,13 +525,11 @@ uniqueMapSection = Section(UNIQUE_MAPS, [factory.buildConditionString(poe.FILTER
 mapSection.addComponent(uniqueMapSection)
 addBlocksWithMaxPriceByCondition(uniqueMapSection, json[UNIQUE_MAPS], poe.FILTER.CONDITION.BASE_TYPE, uniqueMapStyle, additionalConditions=[poe.FILTER.CONDITION.MAP_TIER])
 
-# TODO split by map tier
 blightedMapSection = Section(BLIGHTED_MAPS, [factory.buildConditionString(poe.FILTER.CONDITION.BLIGHTED_MAP, ["True"])])
 mapSection.addComponent(blightedMapSection)
-addBlocks(blightedMapSection, json[BLIGHTED_MAPS], uniqueMapStyle)
+addBlocksWithMaxPriceByCondition(blightedMapSection, json[BLIGHTED_MAPS], poe.FILTER.CONDITION.BASE_TYPE, uniqueMapStyle, additionalConditions=[poe.FILTER.CONDITION.MAP_TIER])
 
-# TODO split by map tier
-addBlocks(mapSection, json[MAPS], mapStyle)
+addBlocksWithMaxPriceByCondition(mapSection, json[MAPS], poe.FILTER.CONDITION.BASE_TYPE, mapStyle, additionalConditions=[poe.FILTER.CONDITION.MAP_TIER])
 mapSection.addComponent(Block(MAPS+ERROR, [], tyrixErrorAppearance))
 
 
