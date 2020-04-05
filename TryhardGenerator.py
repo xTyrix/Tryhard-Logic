@@ -12,7 +12,7 @@ from datetime import datetime
 NAME = "GeneratedLogic"
 LEAGUE = "Delirium" # "Hardcore Delirium" "Standard" "Hardcore"
 
-THRESHOLDS = [1000, 100, 10, 1, .5, .1, .05]
+THRESHOLDS = [1000, 100, 10, 1, .2, .1, .05]
 PRICE_CATEGORY_NAMES = [
 	"OMFG (>= " + str(THRESHOLDS[0]) + "C)",
 	"OMG (>= " + str(THRESHOLDS[1]) + "C)",
@@ -61,7 +61,7 @@ class Style:
 			normalPrimaryColor   = secondaryColor
 			normalSecondaryColor = primaryColor
 		else:
-			lowSecondaryColor    = NO_COLOR
+			lowSecondaryColor    = NUTRAL_COLOR
 			normalPrimaryColor   = primaryColor
 			normalSecondaryColor = NO_COLOR
 		highPrimaryColor   = OMG_COLOR
@@ -113,7 +113,7 @@ class Style:
 		display = factory.Display(lowPrimaryColor, NO_COLOR, NO_COLOR, LOW_SIZE)
 		self.appearances.append(factory.Appearance(display))
 
-		#rest
+		# rest
 		display = factory.Display(lowPrimaryColor, NO_COLOR, NO_COLOR, HIDE_SIZE)
 		self.appearances.append(factory.Appearance(display))
 
@@ -464,7 +464,6 @@ filterInfo.append("Price Info from poe.ninja (" + datetime.now().strftime("%d.%m
 itemFilter = factory.ItemFilter(NAME, information=filterInfo)
 
 json = regroup(ninja.scrapeAll(LEAGUE))
-
 
 # saving stylesheet file
 styles = [uniqueQuestStyle, questStyle, uniqueMapStyle, mapStyle, cardStyle, influencedCurrencyStyle, uniqueCurrencyStyle, currencyStyle]

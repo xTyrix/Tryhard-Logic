@@ -461,33 +461,3 @@ def scrapeAll(league=STANDARD):
 	for category in CURRENCY_CATEGORIES + ITEM_CATEGORIES:
 		json[category] = scrapeList(category, league)
 	return json
-
-dontCare = [
-	"id",
-	"icon",
-	"mapTier",
-	"levelRequired",
-	"variant",
-	"artFilename",
-	"prophecyText",
-	"itemClass",
-	"sparkline",
-	"lowConfidenceSparkline",
-	"implicitModifiers",
-	"explicitModifiers",
-	"flavourText",
-	"corrupted",
-	"gemLevel",
-	"gemQuality",
-	"itemType",
-	"exaltedValue",
-	"count",
-	"detailsId",
-	"tradeInfo"
-]
-
-for line in requests.get("https://poe.ninja/api/data/" + "item" + "overview?league=" + "Delirium" + "&type=" + DELIRIUM_ORB).json()["lines"]:
-	for key in line:
-		if not key in dontCare:
-			print(key + ": " + str(line[key]))
-	print()
