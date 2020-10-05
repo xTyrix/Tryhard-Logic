@@ -1,5 +1,10 @@
 #!/usr/bin/python3
 
+# TODO
+# for sounds: "Swaggeny" (Road Quest Backer Shoutouts 3:33)
+# include vendor recipe exchange rates as minimum prices
+# Harvest
+
 import NinjaScraper as ninja
 import FilterFactory as factory
 import PoEInfos as poe
@@ -10,7 +15,7 @@ from PIL import Image
 from datetime import datetime
 
 NAME = "GeneratedLogic"
-LEAGUE = "Delirium" # "Hardcore Delirium" "Standard" "Hardcore"
+LEAGUE = "Heist" # "Hardcore Heist" "Standard" "Hardcore"
 
 THRESHOLDS = [1000, 100, 10, 1, .2, .1, .05]
 PRICE_CATEGORY_NAMES = [
@@ -115,7 +120,8 @@ class Style:
 
 		# rest
 		display = factory.Display(lowPrimaryColor, NO_COLOR, NO_COLOR, HIDE_SIZE)
-		self.appearances.append(factory.Appearance(display))
+		sound = factory.Sound(None)
+		self.appearances.append(factory.Appearance(display, sound=sound))
 
 class StyleSheet:
 	def __init__(self, styles=[]):
@@ -304,6 +310,7 @@ def addBlockWithMaxPrice(section, blockName, conditions, infos, style, threshold
 	comments = [PRICE_CATEGORY_NAMES[maxCategory], maxNames]
 	section.addComponent(Block(blockName, conditions, style.appearances[maxCategory], comments=comments))
 
+# TODO add option to remove what items have the max (and use it in some cases)
 def addBlocksWithMaxPriceByCondition(section, infos, condition, style, thresholds=THRESHOLDS, additionalConditions=[]):
 	# TODO filter can theoratically be optimized
 	if additionalConditions:
@@ -560,9 +567,23 @@ watchstoneSection.addComponent(Block(OTHER+WATCHSTONES, [], mainQuestAppearance)
 # mainSection.addComponent(Block("Temporary"+ERROR, [], tyrixErrorAppearance))
 
 
+# load heist hack as prefix and old filter as suffix
+# TODO remove
+import pathlib
+
+prefix = ""
+suffix = ""
+f = open(str(pathlib.Path(__file__).parent.absolute()) + "\\HeistPrefix.filter", "r")
+prefix = f.read()
+f.close()
+f = open(str(pathlib.Path(__file__).parent.absolute()) + "\\Tryhard-Logic.filter", "r")
+suffix = f.read()[3:] # TODO hacky :(
+f.close()
+
+
 # saving filter file
 mainSection.addToFilter(itemFilter)
-itemFilter.write()
+itemFilter.write(prefix, suffix)
 
 
 # TODO Missed Curency

@@ -90,9 +90,13 @@ class ItemFilter:
 			addLine(f.CONTINUE)
 		self.indent -= 1
 
-	def write(self):
+	def write(self, prefix = "", suffix = ""):
 		f = open(self.name + ".filter", "w+")
-		f.write(str(self))
+		if prefix != "":
+			f.write(prefix + "\n\n\n\n")
+		f.write(str(self) + "\n")
+		if suffix != "":
+			f.write("\n\n\n" + suffix + "\n")
 		f.close()
 
 class Display:
@@ -130,14 +134,26 @@ class Icon:
 	def toLine(self):
 		return buildConditionString(f.ACTION.ICON, [self.size, self.color, self.shape])
 
+class Sound:
+	def __init__(self, sound=""):
+		self.sound = sound
+
+	def toLine(self):
+		if self.sound == "":
+			return None
+		if self.sound == None:
+			return f.ACTION.NO_SOUND
+		return buildConditionString(f.ACTION.CUSTOM_SOUND, [self.sound])
+
 class Appearance:
 	NO_ICON          = buildConditionString(f.COMMENT + " " + f.ACTION.ICON,   ["None"])
 	NO_EFFECT        = buildConditionString(f.COMMENT + " " + f.ACTION.EFFECT, ["None"])
 
-	def __init__(self, display, effect=None, icon=None):
+	def __init__(self, display, effect=None, icon=None, sound=Sound()):
 		self.display = display
 		self.effect = effect
 		self.icon = icon
+		self.sound = sound
 
 	def toLines(self):
 		lines = self.display.toLines()
@@ -151,5 +167,9 @@ class Appearance:
 			lines.append(Appearance.NO_ICON)
 		else:
 			lines.append(self.icon.toLine())
+
+		soundLine = self.sound.toLine()
+		if soundLine:
+			lines.append(soundLine)
 
 		return lines

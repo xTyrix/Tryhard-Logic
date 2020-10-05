@@ -113,8 +113,8 @@ class FILTER():
 		ICON             = "MinimapIcon"              # <Size> <Color> <Shape>
 		#                  "PlayAlertSound"           # <Id> [Volume]
 		#                  "PlayAlertSoundPositional" # <Id> [Volume]
-		#                  "DisableDropSound"
-		#                  "CustomAlertSound"         # <FileName | FileFullPath>
+		NO_SOUND         = "DisableDropSound"
+		CUSTOM_SOUND     = "CustomAlertSound"         # <FileName | FileFullPath>
 		CONTINUE         = "Continue"
 
 class EFFECT():

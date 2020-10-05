@@ -1,0 +1,107 @@
+# Hacky Heist Stuff
+	Show # new currency
+		Class                Currency
+		BaseType             "Prime Regrading Lens" "Secondary Regrading Lens" "Tempering Orb" "Tailoring Orb"
+		#
+		SetTextColor         000 000 000
+		SetBackgroundColor   170 158 130
+		SetBorderColor       000 000 000
+		SetFontSize          33
+		PlayEffect           White
+		MinimapIcon          1 White Diamond
+	Show # Rogue's Marker
+		Class                Currency
+		BaseType             "Rogue's Marker"
+		#
+		SetTextColor         000 000 000
+		SetBackgroundColor   170 158 130
+		SetBorderColor       074 230 058
+		SetFontSize          33
+		PlayEffect           White
+		MinimapIcon          1 White Diamond
+	Show # Trinkets
+		Class                Trinket
+		#
+		SetTextColor         000 000 000
+		SetBackgroundColor   255 255 119
+		SetBorderColor       074 230 058
+		SetFontSize          33
+		PlayEffect           Yellow
+		MinimapIcon          1 Yellow Hexagon
+	Show # Contracts & Blueprints
+		Class                Contract Blueprint
+		#
+		#SetTextColor        [Rarity]
+		SetBackgroundColor   200 155 155
+		SetBorderColor       074 230 058
+		SetFontSize          33
+		PlayEffect           Red
+		MinimapIcon          1 Red Square
+	Show # Rogue Equipment
+		Class                Heist
+		#
+		#SetTextColor        [Rarity]
+		SetBackgroundColor   000 000 000
+		SetBorderColor       074 230 058
+		SetFontSize          33
+		PlayEffect           Yellow
+		MinimapIcon          1 Yellow Hexagon
+	Show # Alternate Quality Gems
+		AlternateQuality True
+		#
+		SetTextColor         000 000 000
+		SetBackgroundColor   027 162 155
+		SetBorderColor       000 000 000
+		SetFontSize          33
+		PlayEffect           White
+		MinimapIcon          1 White Circle
+	Show # Replica Uniques
+		Replica True
+		#
+		SetTextColor         127 000 255
+		SetBackgroundColor   175 096 037
+		SetBorderColor       127 000 255
+		SetFontSize          33
+		PlayEffect           Brown
+		MinimapIcon          1 Brown Hexagon
+	# Experimented Base Types
+		Show # Normal
+			BaseType             "Assembler Wand" "Congregator Wand" "Accumulator Wand" "Hollowpoint Dagger" "Pressurised Dagger" "Pneumatic Dagger" "Flickerflame Blade" "Flashfire Blade" "Infernal Blade" "Shadow Fangs" "Malign Fangs" "Void Fangs" "Maltreatment Axe" "Disapprobation Axe" "Psychotic Axe" "Fickle Spiritblade" "Capricious Spiritblade" "Anarchic Spiritblade" "Flare Mace" "Crack Mace" "Boom Mace" "Oscillating Sceptre" "Stabilising Sceptre" "Alternating Sceptre" "Hedron Bow" "Foundry Bow" "Solarine Bow" "Transformer Staff" "Reciprocation Staff" "Battery Staff" "Capacity Rod" "Potentiality Rod" "Eventuality Rod" "Prime Cleaver" "Honed Cleaver" "Apex Cleaver" "Rebuking Blade" "Blasting Blade" "Banishing Blade" "Blunt Force Condenser" "Crushing Force Magnifier" "Impact Force Propagator" "Exhausting Spirit Shield" "Subsuming Spirit Shield" "Transfer-attuned Spirit Shield" "Endothermic Buckler" "Polar Buckler" "Cold-attuned Buckler" "Exothermic Tower Shield" "Magmatic Tower Shield" "Heat-attuned Tower Shield" "Micro-Distillery Belt" "Mechalarm Belt" "Astrolabe Amulet" "Simplex Amulet" "Cogwork Ring" "Geodesic Ring"
+			Rarity Normal
+			#
+			SetTextColor         000 000 000
+			SetBackgroundColor   200 200 200
+			SetBorderColor       000 000 000
+			SetFontSize          33
+			PlayEffect           White
+			MinimapIcon          1 White Hexagon
+		Show # Magic
+			BaseType             "Assembler Wand" "Congregator Wand" "Accumulator Wand" "Hollowpoint Dagger" "Pressurised Dagger" "Pneumatic Dagger" "Flickerflame Blade" "Flashfire Blade" "Infernal Blade" "Shadow Fangs" "Malign Fangs" "Void Fangs" "Maltreatment Axe" "Disapprobation Axe" "Psychotic Axe" "Fickle Spiritblade" "Capricious Spiritblade" "Anarchic Spiritblade" "Flare Mace" "Crack Mace" "Boom Mace" "Oscillating Sceptre" "Stabilising Sceptre" "Alternating Sceptre" "Hedron Bow" "Foundry Bow" "Solarine Bow" "Transformer Staff" "Reciprocation Staff" "Battery Staff" "Capacity Rod" "Potentiality Rod" "Eventuality Rod" "Prime Cleaver" "Honed Cleaver" "Apex Cleaver" "Rebuking Blade" "Blasting Blade" "Banishing Blade" "Blunt Force Condenser" "Crushing Force Magnifier" "Impact Force Propagator" "Exhausting Spirit Shield" "Subsuming Spirit Shield" "Transfer-attuned Spirit Shield" "Endothermic Buckler" "Polar Buckler" "Cold-attuned Buckler" "Exothermic Tower Shield" "Magmatic Tower Shield" "Heat-attuned Tower Shield" "Micro-Distillery Belt" "Mechalarm Belt" "Astrolabe Amulet" "Simplex Amulet" "Cogwork Ring" "Geodesic Ring"
+			Rarity               Magic
+			#
+			SetTextColor         000 000 000
+			SetBackgroundColor   136 136 255
+			SetBorderColor       000 000 000
+			SetFontSize          33
+			PlayEffect           White
+			MinimapIcon          1 White Hexagon
+		Show # Rare
+			BaseType             "Assembler Wand" "Congregator Wand" "Accumulator Wand" "Hollowpoint Dagger" "Pressurised Dagger" "Pneumatic Dagger" "Flickerflame Blade" "Flashfire Blade" "Infernal Blade" "Shadow Fangs" "Malign Fangs" "Void Fangs" "Maltreatment Axe" "Disapprobation Axe" "Psychotic Axe" "Fickle Spiritblade" "Capricious Spiritblade" "Anarchic Spiritblade" "Flare Mace" "Crack Mace" "Boom Mace" "Oscillating Sceptre" "Stabilising Sceptre" "Alternating Sceptre" "Hedron Bow" "Foundry Bow" "Solarine Bow" "Transformer Staff" "Reciprocation Staff" "Battery Staff" "Capacity Rod" "Potentiality Rod" "Eventuality Rod" "Prime Cleaver" "Honed Cleaver" "Apex Cleaver" "Rebuking Blade" "Blasting Blade" "Banishing Blade" "Blunt Force Condenser" "Crushing Force Magnifier" "Impact Force Propagator" "Exhausting Spirit Shield" "Subsuming Spirit Shield" "Transfer-attuned Spirit Shield" "Endothermic Buckler" "Polar Buckler" "Cold-attuned Buckler" "Exothermic Tower Shield" "Magmatic Tower Shield" "Heat-attuned Tower Shield" "Micro-Distillery Belt" "Mechalarm Belt" "Astrolabe Amulet" "Simplex Amulet" "Cogwork Ring" "Geodesic Ring"
+			Rarity               Rare
+			#
+			SetTextColor         000 000 000
+			SetBackgroundColor   255 255 119
+			SetBorderColor       000 000 000
+			SetFontSize          33
+			PlayEffect           Yellow
+			MinimapIcon          1 Yellow Hexagon
+		Show # Unique
+			BaseType             "Assembler Wand" "Congregator Wand" "Accumulator Wand" "Hollowpoint Dagger" "Pressurised Dagger" "Pneumatic Dagger" "Flickerflame Blade" "Flashfire Blade" "Infernal Blade" "Shadow Fangs" "Malign Fangs" "Void Fangs" "Maltreatment Axe" "Disapprobation Axe" "Psychotic Axe" "Fickle Spiritblade" "Capricious Spiritblade" "Anarchic Spiritblade" "Flare Mace" "Crack Mace" "Boom Mace" "Oscillating Sceptre" "Stabilising Sceptre" "Alternating Sceptre" "Hedron Bow" "Foundry Bow" "Solarine Bow" "Transformer Staff" "Reciprocation Staff" "Battery Staff" "Capacity Rod" "Potentiality Rod" "Eventuality Rod" "Prime Cleaver" "Honed Cleaver" "Apex Cleaver" "Rebuking Blade" "Blasting Blade" "Banishing Blade" "Blunt Force Condenser" "Crushing Force Magnifier" "Impact Force Propagator" "Exhausting Spirit Shield" "Subsuming Spirit Shield" "Transfer-attuned Spirit Shield" "Endothermic Buckler" "Polar Buckler" "Cold-attuned Buckler" "Exothermic Tower Shield" "Magmatic Tower Shield" "Heat-attuned Tower Shield" "Micro-Distillery Belt" "Mechalarm Belt" "Astrolabe Amulet" "Simplex Amulet" "Cogwork Ring" "Geodesic Ring"
+			Rarity               Unique
+			#
+			SetTextColor         000 000 000
+			SetBackgroundColor   175 096 037
+			SetBorderColor       000 000 000
+			SetFontSize          33
+			PlayEffect           Brown
+			MinimapIcon          1 Brown Hexagon

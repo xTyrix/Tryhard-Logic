@@ -431,6 +431,7 @@ def translate(category, json):
 			print("Warning! Multiple entries with same name \"" + name + "\" found.")
 			if infos[PRICE] > translation[name][PRICE]:
 				continue
+				# TODO also do this for ELder Shaper Maps
 		if category == MAP:
 			if infos[BASE_TYPE].startswith("Blighted "):
 				infos[BLIGHTED] = True
